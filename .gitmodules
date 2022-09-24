@@ -1,3 +1,0 @@
-[submodule "vicuna"]
-	path = src/vicuna
-	url = https://github.com/s-hfarooq/vicuna
