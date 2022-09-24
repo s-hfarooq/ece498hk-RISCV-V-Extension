@@ -18,7 +18,7 @@ logic [31:0] vproc_pend_vreg_wr_map_o;
 
 
 // MODULE DECLARATIONS
-vproc_top vector_top (
+vproc_top vproc_top (
     .clk(clk),
     .rst(rst),
     .mem_req_o(vproc_mem_req_o),
@@ -48,7 +48,17 @@ mmu mmu (
 
 sram sram (
     .clk(clk),
-    .rst(rst),
+    .rst(rst)
 );
+
+// uart uart (
+//     .clk(clk),
+//     .rst(rst)
+// );
+
+// digitalTimer digitalTimer (
+//     .clk(clk),
+//     .rst(rst)
+// );
 
 endmodule : toplevel
