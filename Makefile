@@ -11,8 +11,11 @@ PRIM_OTHER_SRCS := $(shell find $(PWD)/src/vicuna/ibex/syn/rtl -name '*gating.v'
 IBEX_PKG_SRCS := $(shell find $(PWD)/src/vicuna/ibex/rtl -name '*_pkg.sv')
 IBEX_SRCS := $(shell find $(PWD)/src/vicuna/ibex/rtl -name '*.sv' ! -name '*_pkg.sv' ! -name '*_tracing.sv')
 
+TB_SRCS := $(shell find $(PWD)/src/vicuna/sim -name '*.sv') # this is wrong TB location?
+#TB_SRCS := $(shell find $(PWD)/src/vicuna/demo/rtl -name '*.sv')
 
-SRCS := $(ENTRO_SRCS) $(DV_SRCS) $(PRIM_PKG_SRCS) $(PRIM_OTHER_SRCS) $(IBEX_PKG_SRCS) $(IBEX_SRCS) $(VICUNA_PKG_SRCS) $(VICUNA_CFG_SRCS) $(VICUNA_SRCS)
+
+SRCS := $(ENTRO_SRCS) $(DV_SRCS) $(PRIM_PKG_SRCS) $(PRIM_OTHER_SRCS) $(IBEX_PKG_SRCS) $(IBEX_SRCS) $(VICUNA_PKG_SRCS) $(VICUNA_CFG_SRCS) $(VICUNA_SRCS) $(TB_SRCS)
 SYNTH_TCL := $(CURDIR)/synthesis.tcl
 VCS_FLAGS = -full64 -lca -sverilog +lint=all,noNS -timescale=lns/10ps -debug -kdb -fsdb +liborder +libverbose +incdir+$(PWD)/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl +incdir+$(PWD)/src/vicuna/ibex/vendor/lowrisc_ip/dv/sv/dv_utils -assert svaext
 
