@@ -62,6 +62,9 @@
 
 `celldefine
 `ifdef POWER_PINS
+// Q = data out, CLK = clock, CEN = chip enable, WEN = write enable, A = address, D = data in, 
+// EMA = extra margin adjustment, RETN = retension mode enable, VSSE = ground pin, 
+// VDDPE = periphery power pin, VDDCE = core array power pin
 module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN, VSSE, VDDPE, VDDCE);
 `else
 module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);

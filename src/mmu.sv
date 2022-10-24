@@ -19,7 +19,10 @@ module mmu #(
     // To/from digital timer
     input  logic timer_is_high,
     output logic [31:0] timer_set_val,
-    output logic set_timer
+    output logic set_timer,
+
+    // To/from GPIO
+    inout logic [9:0] gpio_pins
 );
 
 // address 0x10 = digital timer
@@ -27,6 +30,7 @@ module mmu #(
 // uart = unknown
 // rest = sram
 
+// Possible states
 enum logic [2:0] {
     default_state,
     timer_state,
@@ -35,6 +39,7 @@ enum logic [2:0] {
     gpio_state
 } state, next_state;
 
+// Set state
 always_ff @ (posedge Clk) begin
     if (rst) 
         state <= default_state;
@@ -45,7 +50,32 @@ end
 
 // State logic
 always_comb begin
-
+    unique case (state)
+        default_state:
+            begin
+            end
+        timer_state:
+            begin
+                vproc_mem_rvalid_i <= 1'b1;
+                vproc_mem_err_i <= 1'b0;
+                vproc_mem_rdata_i <= {(MEM_W-2)'b0, timer_is_high};
+            end
+        uart_state:
+            begin
+            end
+        sram_state:
+            begin
+            end
+        gpio_state:
+            begin
+            end
+        default:
+            begin
+                vproc_mem_rvalid_i <= 1'b0;
+                vproc_mem_err_i <= 1'b0;
+                vproc_mem_rdata_i <= (MEM_W-1)'b0;
+            end
+    endcase
 end
 
 // State machine

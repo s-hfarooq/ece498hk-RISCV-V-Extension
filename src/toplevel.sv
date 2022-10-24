@@ -1,7 +1,8 @@
 
 module toplevel (
     input logic clk,
-    input logic rst
+    input logic rst,
+    inout logic [9:0] gpio_pins // should this be inout? 
 );
 
 // VPROC_TOP SIGNALS
@@ -54,7 +55,10 @@ mmu mmu (
     // To/from digital timer
     .timer_is_high(timer_is_high),
     .timer_set_val(timer_set_val),
-    .set_timer(set_timer)
+    .set_timer(set_timer),
+
+    // To/from GPIO
+    .gpio_pins(gpio_pins)
 );
 
 sram sram (
