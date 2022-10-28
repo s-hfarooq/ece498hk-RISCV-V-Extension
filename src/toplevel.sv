@@ -42,7 +42,7 @@ mmu mmu (
     .rst(rst),
 
     // To/from Vicuna/Ibex
-    .logic vproc_mem_req_o(),
+    .vproc_mem_req_o(vproc_mem_req_o),
     .vproc_mem_addr_o(vproc_mem_addr_o),
     .vproc_mem_we_o(vproc_mem_we_o),
     .vproc_mem_be_o(vproc_mem_be_o),
@@ -59,11 +59,11 @@ mmu mmu (
 
     // To/from GPIO
     .gpio_pins(gpio_pins)
-);
 
-sram sram (
-    .clk(clk),
-    .rst(rst)
+    // To/from storage SPI
+
+    // To/from external SPI
+    
 );
 
 digitalTimer digitalTimer (
@@ -74,9 +74,9 @@ digitalTimer digitalTimer (
     .set_timer(set_timer)
 );
 
-// uart uart (
-//     .clk(clk),
-//     .rst(rst)
-// );
+spi external_spi (
+    .clk(clk),
+    .rst(rst)
+);
 
 endmodule : toplevel
