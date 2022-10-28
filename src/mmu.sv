@@ -25,10 +25,15 @@ module mmu #(
     inout logic [9:0] gpio_pins
 );
 
-// address 0x10 = digital timer
-// address 0x11-0x1B = GPIO
-// uart = unknown
-// rest = sram
+//                       MEMORY ADDRESSES
+// | Address Range              | Device                |
+// | -------------------------- | --------------------- |
+// | 0x0000_0000 - 0x0000_0100  | Reserved              |
+// | 0x0000_0101 - 0x0000_010A  | GPIO                  |
+// | 0x0000_010B                | Digital Timer         |
+// | 0x0000_010C - 0x0000_0FFF  | Reserved              |
+// | 0x0000_1000 - 0xFFFF_FFFF  | SRAM/External Storage |
+
 
 // Possible states
 enum logic [2:0] {
