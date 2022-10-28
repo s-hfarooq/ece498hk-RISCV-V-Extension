@@ -1,7 +1,14 @@
 
-module storage_controller (
+module storage_controller #(
+    parameter int unsigned     MEM_W         = 32 // memory bus width in bits, same as value in vproc_top.sv
+    )(
     input logic clk,
-    input logic rst
+    input logic rst,
+    input logic storage_en,
+    input logic [31:0] addr,
+    input logic [31:0] d_in,
+    input logic [MEM_W/8-1:0] mem_be,
+    output logic [31:0] d_out
 );
 
 // SRAM SIGNALS
