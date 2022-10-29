@@ -15,7 +15,7 @@ logic [32-1:0] vproc_mem_wdata_o;
 logic vproc_mem_rvalid_i;
 logic vproc_mem_err_i;
 logic [32-1:0] vproc_mem_rdata_i;
-logic [31:0] vproc_pend_vreg_wr_map_o;
+logic [31:0] vproc_pend_vreg_wr_map_o;  // Debug, may not be needed (could be helpful for SPI debug)
 
 // TIMER SIGNALS
 logic timer_is_high;
@@ -50,7 +50,6 @@ mmu mmu (
     .vproc_mem_rvalid_i(vproc_mem_rvalid_i),
     .vproc_mem_err_i(vproc_mem_err_i),
     .vproc_mem_rdata_i(vproc_mem_rdata_i),
-    .vproc_pend_vreg_wr_map_o(vproc_pend_vreg_wr_map_o),
 
     // To/from digital timer
     .timer_is_high(timer_is_high),

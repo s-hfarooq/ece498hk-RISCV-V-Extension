@@ -12,7 +12,11 @@ logic [31:0] counter;
 logic [31:0] counter_trigger_val;
 
 always_ff @ (posedge clk) begin
-    if (rst) begin
+    // Default values
+    timer_is_high <= 1'b0;
+    counter <= counter + 1'b1;
+
+    if (~rst) begin
         // Reset state
         counter <= 32'b0;
         counter_trigger_val <= 32'b0;
@@ -25,9 +29,6 @@ always_ff @ (posedge clk) begin
         // Set output to high when timer val reached
         counter <= 32'b0;
         timer_is_high <= 1'b1;
-    end else begin
-        // Increment counter variable
-        counter <= counter + 1'b1;
     end
 end
 
