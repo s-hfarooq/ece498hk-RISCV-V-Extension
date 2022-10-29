@@ -15,16 +15,15 @@ Another 2 pins that if shorted on reset will put it into debug mode - this is wh
 
 ### Memory addresses
 
-//                       MEMORY ADDRESSES
-// | Address Range              | Device                |
-// | -------------------------- | --------------------- |
-// | 0x0000_0000 - 0x0000_0100  | Reserved              |
-// | 0x0000_0101 - 0x0000_010A  | GPIO Pin Set          |
-// | 0x0000_010B - 0x0000_0114  | GPIO                  |
-// | 0x0000_0115                | Digital Timer         |
-// | 0x0000_0116 - 0x0000_0FFF  | Reserved              |
-// | 0x0000_1000 - 0x0000_1FFF  | SRAM Scratch Memory   |
-// | 0x0000_2000 - 0xFFFF_FFFF  | External Storage      |
+| Address Range              | Device                |
+| -------------------------- | --------------------- |
+| 0x0000_0000 - 0x0000_0100  | Reserved              |
+| 0x0000_0101 - 0x0000_010A  | GPIO Pin Set          |
+| 0x0000_010B - 0x0000_0114  | GPIO                  |
+| 0x0000_0115                | Digital Timer         |
+| 0x0000_0116 - 0x0000_0FFF  | Reserved              |
+| 0x0000_1000 - 0x0000_1FFF  | SRAM Scratch Memory   |
+| 0x0000_2000 - 0xFFFF_FFFF  | External Storage      |
 
 
 GPIO Pin Set is used to set direction of pins. 0 is default for all pins. 0 = output, 1 = input. If read requested from output pin or write requested from input pin, the vproc_mem_err_i output from MMU is set high for 1 clock cycle. Reading from GPIO Pin Set returns its current state. 
