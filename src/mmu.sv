@@ -27,7 +27,9 @@ module mmu #(
     // To/from GPIO
     inout  logic [9:0] gpio_pins
 
-    // To/from external SPI
+    // Flash storage SPI
+
+    // External SPI
 );
 
 //                       MEMORY ADDRESSES
@@ -56,7 +58,7 @@ logic curr_mem_we;
 logic started_mem_access;
 
 // GPIO pin logic
-logic [9:0] gpio_direction;
+logic [9:0] gpio_direction; // 0 = output, 1 = input
 logic [9:0] gpio_curr_value;
 
 storage_controller storage_controller (
@@ -105,7 +107,7 @@ end
 // Assign GPIO pins
 always_ff @(posedge clk) begin
     for(int i = 0; i < 10; i++) begin
-        gpio_pins[i] = gpio_direction[i] ? gpio_curr_value[i] : 'z;
+        gpio_pins[i] = gpio_direction[i] ? 'z : gpio_curr_value[i];
     end
 end
 
@@ -175,6 +177,7 @@ always_comb begin
                 // Initial memory access cycle - set values so that we save them since input becomes invalidated
                 if (vproc_mem_req_o) begin
                     if (vproc_mem_we_o && (vproc_mem_addr_o >= 32'h0000_2000 || vproc_mem_addr_o <= 32'h0000_0FFF)) begin
+                        // Can't write to external memory
                         vproc_mem_err_i <= 1'b1;
                     end else begin
                         curr_addr <= vproc_mem_addr_o;
@@ -184,6 +187,7 @@ always_comb begin
                         started_mem_access <= 1'b1;
 
                         memory_access <= 1'b1;
+
                         if (vproc_mem_we_o) begin
                             memory_is_writing <= 1'b1;
                         end
@@ -250,7 +254,8 @@ always_comb begin
                                 vproc_mem_err_i <= 1'b1;
                             end else begin
                                 // Read pin
-                                gpio_curr_value[vproc_mem_addr_o - 32'h0000_010B] <= vproc_mem_wdata_o[0];
+                                vproc_mem_rdata_i <= {31'b0, gpio_pins[vproc_mem_addr_o - 32'h0000_010B]};
+                                vproc_mem_rvalid_i < 1'b1;
                             end
                         end
                     end

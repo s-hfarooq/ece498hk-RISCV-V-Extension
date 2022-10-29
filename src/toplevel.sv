@@ -71,7 +71,9 @@ mmu mmu (
     // To/from GPIO
     .gpio_pins(gpio_pins)
 
-    // To/from external SPI
+    // Flash storage SPI
+
+    // External SPI
     
 );
 
