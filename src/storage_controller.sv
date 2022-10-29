@@ -46,6 +46,26 @@ spi storage_spi (
 // TODO: need state machine to wait until spi returns data before returning anything
 // will also need to change mmu to support this
 
+enum logic [1:0] = {
+    default_state,
+    waiting_for_mem
+} state, next_state;
+
+always_ff @(posedge clk) begin
+    if (~rst) begin
+        state <= default_state;
+        next_state <= default_state;
+    end else begin
+        state <= next_state;
+    end
+end
+
+// Determine next state
+always_comb begin
+
+end
+
+// Determine signal values
 always_comb begin
     sram_d_out <= 32'b0;
     sram_chip_en <= 1'b0;
@@ -55,6 +75,7 @@ always_comb begin
     sram_ema <= 3'b0;
     sram_retn <= 1'b0;
     d_out <= 32'b0;
+    out_valid <= 1'b0;
 
     if (memory_access) begin
         if (addr < 32'h0000_2000) begin
@@ -63,9 +84,10 @@ always_comb begin
             sram_wr_en <= memory_is_writing;
             d_out <= sram_d_out;
             sram_addr <= addr;
-            sram_d_in <= d_in;
+            sram_d_in <= d_in; // TODO: need to use byte enable
             // sram_ema <= // TODO: what should this be?
             sram_retn <= 1'b0; // TODO: is this correct?
+            out_valid <= 1'b1;
         end else begin
             // External storage access
         end

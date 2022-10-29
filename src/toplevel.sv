@@ -2,7 +2,15 @@
 module toplevel (
     input logic clk,
     input logic rst,
-    inout logic [9:0] gpio_pins // should this be inout? 
+    inout logic [9:0] gpio_pins, // should this be inout? 
+
+    // Flash storage SPI
+
+    // External SPI
+
+    // Programming/debug set pins
+    input logic set_programming_mode,
+    input logic set_debug_mode
 );
 
 // VPROC_TOP SIGNALS
@@ -40,6 +48,10 @@ vproc_top vproc_top (
 mmu mmu (
     .clk(clk),
     .rst(rst),
+
+    // Set mode inputs
+    .set_programming_mode(set_programming_mode),
+    .set_debug_mode(set_debug_mode),
 
     // To/from Vicuna/Ibex
     .vproc_mem_req_o(vproc_mem_req_o),

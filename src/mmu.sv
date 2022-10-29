@@ -5,10 +5,14 @@ module mmu #(
     input  logic clk,
     input  logic rst,
 
+    // Set mode inputs
+    input  logic set_programming_mode,
+    input  logic set_debug_mode,
+
     // To/from Vicuna/Ibex
     input  logic               vproc_mem_req_o,
     input  logic [31:0]        vproc_mem_addr_o,
-    input  logic               vproc_mem_we_o,
+    input  logic               vproc_mem_we_o, // high when writing, low when reading
     input  logic [MEM_W/8-1:0] vproc_mem_be_o,
     input  logic [MEM_W  -1:0] vproc_mem_wdata_o,
     output logic               vproc_mem_rvalid_i,
@@ -30,9 +34,10 @@ module mmu #(
 // | Address Range              | Device                |
 // | -------------------------- | --------------------- |
 // | 0x0000_0000 - 0x0000_0100  | Reserved              |
-// | 0x0000_0101 - 0x0000_010A  | GPIO                  |
-// | 0x0000_010B                | Digital Timer         |
-// | 0x0000_010C - 0x0000_0FFF  | Reserved              |
+// | 0x0000_0101 - 0x0000_010A  | GPIO Pin Set          |
+// | 0x0000_010B - 0x0000_0114  | GPIO                  |
+// | 0x0000_0115                | Digital Timer         |
+// | 0x0000_0116 - 0x0000_0FFF  | Reserved              |
 // | 0x0000_1000 - 0x0000_1FFF  | SRAM Scratch Memory   |
 // | 0x0000_2000 - 0xFFFF_FFFF  | External Storage      |
 
@@ -48,7 +53,11 @@ logic [31:0] curr_addr;
 logic [MEM_W  -1:0] curr_d_in;
 logic [MEM_W/8-1:0] curr_mem_be;
 logic curr_mem_we;
-logic started_mem_access; 
+logic started_mem_access;
+
+// GPIO pin logic
+logic [9:0] gpio_direction;
+logic [9:0] gpio_curr_value;
 
 storage_controller storage_controller (
     .clk(clk),
@@ -61,7 +70,10 @@ storage_controller storage_controller (
     .d_out(storage_controller_d_out),
     .out_valid(storage_out_valid)
 
-    // To/from external SPI
+    // Flash storage SPI
+
+    // External SPI
+
 );
 
 
@@ -74,7 +86,7 @@ enum logic [2:0] {
 } state, next_state;
 
 always_ff @(posedge clk) begin
-    if (rst) begin
+    if (~rst) begin
         state <= default_state;
         next_state <= default_state;
         
@@ -83,27 +95,36 @@ always_ff @(posedge clk) begin
         curr_mem_be <= '{default: '0};
         curr_mem_we <= 1'b0;
         started_mem_access <= 1'b0;
+        gpio_direction <= 10'b0;
+        gpio_curr_value <= 10'b0;
     end else begin
         state <= next_state;
     end
 end
 
+// Assign GPIO pins
+always_ff @(posedge clk) begin
+    for(int i = 0; i < 10; i++) begin
+        gpio_pins[i] = gpio_direction[i] ? gpio_curr_value[i] : 'z;
+    end
+end
+
 // Determine next state
 always_comb begin
-    if (state == memory_state && ~memory_response) begin
+    if ((state == memory_state_init || state == memory_state_continue) && ~memory_response) begin
         // Stay in memory state if memory hasn't responded yet
-        next_state <= memory_state;
+        next_state <= memory_state_continue;
     end else if (vproc_mem_req_o) begin
         if (vproc_mem_addr_o >= 32'h0000_0000 && vproc_mem_addr_o <=  32'h0000_0100) begin
             // Reserved
             next_state <= default_state;
-        end else if (vproc_mem_addr_o >= 32'h0000_0101 && vproc_mem_addr_o <= 32'h0000_010A) begin
+        end else if (vproc_mem_addr_o >= 32'h0000_0101 && vproc_mem_addr_o <= 32'h0000_0114) begin
             // GPIO
             next_state <= gpio_state;
-        end else if (vproc_mem_addr_o == 32'h0000_010B) begin
+        end else if (vproc_mem_addr_o == 32'h0000_0115) begin
             // Digital timer
-                next_state <= timer_state;
-        end else if (vproc_mem_addr_o >= 32'h0000_010C && vproc_mem_addr_o <= 32'h0000_0FFF) begin
+            next_state <= timer_state;
+        end else if (vproc_mem_addr_o >= 32'h0000_0116 && vproc_mem_addr_o <= 32'h0000_0FFF) begin
             // Reserved
             next_state <= default_state;
         end else begin
@@ -125,25 +146,7 @@ always_comb begin
             end
         end
     end else begin
-        if (state == memory_state_init || state == memory_state_continue) begin
-            if (vproc_mem_err_i) begin
-                // If we get a error, go to default state
-                next_state <= default_state;
-            end else begin
-                // Go to default state once storage returns valid value
-                if (storage_out_valid) begin
-                    next_state <= default_state;
-                end else begin
-                    if (started_mem_access) begin
-                        next_state <= memory_state_continue;
-                    end else begin
-                        next_state <= memory_state_init;
-                    end
-                end
-            end
-        end else begin
-            next_state <= default_state;
-        end
+        next_state <= default_state;
     end
 end
 
@@ -223,11 +226,33 @@ always_comb begin
         gpio_state:
             begin
                 if (vproc_mem_req_o) begin
-                    // TODO: figure out how to determine if pin in input or output
-                    if (vproc_mem_we_o) begin
-                        
+                    if (vproc_mem_addr_o >= 32'h0000_0101 && vproc_mem_addr_o <= 32'h0000_010A) begin
+                        // Setting pin direction
+                        if (vproc_mem_we_o) begin
+                            gpio_direction[vproc_mem_addr_o - 32'h0000_0101] <= vproc_mem_wdata_o[0];
+                        end else begin
+                            vproc_mem_rdata_i <= {31'b0, gpio_direction[vproc_mem_addr_o - 32'h0000_0101]};
+                            vproc_mem_rvalid_i < 1'b1;
+                        end
                     end else begin
-                        
+                        // Writing/reading from pin
+                        if (vproc_mem_we_o) begin
+                            // Ensure curr pin is output otherwise error
+                            if (gpio_direction[vproc_mem_addr_o - 32'h0000_010B] != 1'b0) begin
+                                vproc_mem_err_i <= 1'b1;
+                            end else begin
+                                // Set pin
+                                gpio_curr_value[vproc_mem_addr_o - 32'h0000_010B] <= vproc_mem_wdata_o[0];
+                            end
+                        end else begin
+                            // Ensure curr pin is input otherwise error
+                            if (gpio_direction[vproc_mem_addr_o - 32'h0000_010B] != 1'b1) begin
+                                vproc_mem_err_i <= 1'b1;
+                            end else begin
+                                // Read pin
+                                gpio_curr_value[vproc_mem_addr_o - 32'h0000_010B] <= vproc_mem_wdata_o[0];
+                            end
+                        end
                     end
                 end
             end
