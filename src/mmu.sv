@@ -125,8 +125,25 @@ always_comb begin
             end
         end
     end else begin
-        // Stay in same state if mem req goes low (or should this be default state instead?)
-        next_state <= state;
+        if (state == memory_state_init || state == memory_state_continue) begin
+            if (vproc_mem_err_i) begin
+                // If we get a error, go to default state
+                next_state <= default_state;
+            end else begin
+                // Go to default state once storage returns valid value
+                if (storage_out_valid) begin
+                    next_state <= default_state;
+                end else begin
+                    if (started_mem_access) begin
+                        next_state <= memory_state_continue;
+                    end else begin
+                        next_state <= memory_state_init;
+                    end
+                end
+            end
+        end else begin
+            next_state <= default_state;
+        end
     end
 end
 
