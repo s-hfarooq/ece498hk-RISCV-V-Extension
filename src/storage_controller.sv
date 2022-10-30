@@ -108,11 +108,11 @@ always_comb begin
             end
         waiting_for_sram:
             begin
-                next_state <= default_state; // does sram always return in 1 cycle for both read and write?
+                next_state <= default_state; // does sram always return immediately for both read and write?
             end
         waiting_for_external:
             begin
-                if (spi_ack) begin
+                if (spi_wb_ack) begin
                     next_state <= default_state;
                 end else begin
                     next_state <= waiting_for_external;
@@ -128,6 +128,11 @@ end
 
 // Determine signal values
 always_comb begin
+    // Module output defaults
+    d_out <= 32'b0;
+    out_valid <= 1'b0;
+
+    // SRAM defaults
     sram_d_out <= 32'b0;
     sram_chip_en <= 1'b0;
     sram_wr_en <= 1'b0;
@@ -135,8 +140,14 @@ always_comb begin
     sram_d_in <= 32'b0;
     sram_ema <= 3'b0;
     sram_retn <= 1'b0;
-    d_out <= 32'b0;
-    out_valid <= 1'b0;
+
+    // SPI defaults
+    spi_wb_cyc <= 1'b0;
+    spi_wb_stb <= 1'b0;
+    spi_cfg_stb <= 1'b0;
+    spi_wb_we <= 1'b0;
+    spi_wb_addr  <= 22'b0;
+    spi_wb_data <= 32'b0;
 
     unique case (state)
         default_state:
@@ -152,11 +163,24 @@ always_comb begin
                 sram_d_in <= d_in; // TODO: need to use byte enable
                 // sram_ema <= // TODO: what should this be?
                 sram_retn <= 1'b0; // TODO: is this correct?
-                out_valid <= 1'b1; // Assume SRAM is ready within 1 cycle - is this correct? 
+
+                if (~memory_is_writing) begin
+                    out_valid <= 1'b1; // Assume SRAM is ready immediatly - is this correct? 
+                end
             end
         waiting_for_external:
             begin
-                
+                if (spi_wb_ack) begin
+                    d_out <= spi_wb_data;
+                    out_valid <= 1'b1;
+                end else begin
+                    spi_wb_cyc <= 1'b0; // no idea what this is for
+                    spi_wb_stb <= 1'b1; // high when accessing memory
+                    spi_cfg_stb <= 1'b0; // high when accessing register values
+                    spi_wb_we <= 1'b0; // high when writing, low when reading (should never be writing to memory values)
+                    spi_wb_addr  <= addr[21:0];
+                    spi_wb_data <= 32'b0; // used by config register only, so always 0
+                end
             end
         default:
             begin
