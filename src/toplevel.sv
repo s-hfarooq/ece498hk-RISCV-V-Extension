@@ -2,9 +2,13 @@
 module toplevel (
     input logic clk,
     input logic rst,
-    inout logic [9:0] gpio_pins, // should this be inout? 
+    inout logic [9:0] gpio_pins,
 
     // Flash storage SPI
+    output logic external_storage_spi_cs_n,
+    output logic external_storage_spi_sck,
+    output logic external_storage_spi_mosi,
+    input logic external_storage_spi_miso,
 
     // External SPI
 
@@ -69,9 +73,13 @@ mmu mmu (
     .set_timer(set_timer),
 
     // To/from GPIO
-    .gpio_pins(gpio_pins)
+    .gpio_pins(gpio_pins),
 
     // Flash storage SPI
+    .external_storage_spi_cs_n(external_storage_spi_cs_n),
+    .external_storage_spi_sck(external_storage_spi_sck),
+    .external_storage_spi_mosi(external_storage_spi_mosi),
+    .external_storage_spi_miso(external_storage_spi_miso)
 
     // External SPI
     

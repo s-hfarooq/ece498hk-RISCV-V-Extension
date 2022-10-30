@@ -6,7 +6,7 @@ module mmu #(
     input  logic rst,
 
     // Set mode inputs
-    input  logic set_programming_mode,
+    input  logic set_programming_mode, // TODO: use these
     input  logic set_debug_mode,
 
     // To/from Vicuna/Ibex
@@ -25,9 +25,13 @@ module mmu #(
     output logic set_timer,
 
     // To/from GPIO
-    inout  logic [9:0] gpio_pins
+    inout  logic [9:0] gpio_pins,
 
     // Flash storage SPI
+    output logic external_storage_spi_cs_n,
+    output logic external_storage_spi_sck,
+    output logic external_storage_spi_mosi,
+    input logic external_storage_spi_miso
 
     // External SPI
 );
@@ -70,9 +74,13 @@ storage_controller storage_controller (
     .d_in(curr_d_in),
     .mem_be(curr_mem_be),
     .d_out(storage_controller_d_out),
-    .out_valid(storage_out_valid)
+    .out_valid(storage_out_valid),
 
     // Flash storage SPI
+    .external_storage_spi_cs_n(external_storage_spi_cs_n),
+    .external_storage_spi_sck(external_storage_spi_sck),
+    .external_storage_spi_mosi(external_storage_spi_mosi),
+    .external_storage_spi_miso(external_storage_spi_miso)
 
     // External SPI
 
@@ -84,7 +92,9 @@ enum logic [2:0] {
     memory_state_init,
     memory_state_continue,
     timer_state,
-    gpio_state
+    gpio_state,
+    programming_state,
+    debug_state,
 } state, next_state;
 
 always_ff @(posedge clk) begin
@@ -196,6 +206,11 @@ always_comb begin
                             vproc_mem_rdata_i <= storage_controller_d_out;
                             vproc_mem_rvalid_i <= 1'b1;
                             started_mem_access <= 1'b0;
+
+                            curr_addr <= 32'b0;
+                            curr_d_in <= '{default: '0};
+                            curr_mem_be <= '{default: '0};
+                            curr_mem_we <= 1'b0;
                         end
                     end
                 end
@@ -212,6 +227,11 @@ always_comb begin
                     vproc_mem_rdata_i <= storage_controller_d_out;
                     vproc_mem_rvalid_i <= 1'b1;
                     started_mem_access <= 1'b0;
+                    
+                    curr_addr <= 32'b0;
+                    curr_d_in <= '{default: '0};
+                    curr_mem_be <= '{default: '0};
+                    curr_mem_we <= 1'b0;
                 end
             end
         timer_state:
