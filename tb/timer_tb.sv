@@ -49,7 +49,7 @@ module timer_tb();
         reset();
         ##1;
 
-        for(int i = 1; i < 32'hFFFF_FFFF; i++) begin
+        for(int unsigned i = 1; i < 32'hFFFF_FFFF; i += 16'h0FFF) begin
             reset();
             ##1;
 
