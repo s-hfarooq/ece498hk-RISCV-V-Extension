@@ -1,7 +1,7 @@
 
 module timer_tb();
-    timeunit 10ns;
-    timeprecision 1ns;
+    // timeunit 10ns;
+    // timeprecision 1ns; // TODO: are these needed?
 
     // Inputs
     logic clk;
@@ -27,12 +27,12 @@ module timer_tb();
 
     task reset();
         ##1;
-        rst <= 1'b1;
+        rst <= 1'b0;
         timer_set_val <= 32'b0;
         set_timer <= 1'b0;
 
         ##1;
-        rst <= 1'b0;
+        rst <= 1'b1;
         ##1;
     endtask : reset
 
