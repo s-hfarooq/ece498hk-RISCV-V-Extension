@@ -1,0 +1,29 @@
+#Collect All Source Files
+
+TEST_FILES = $(PWD)/src/digitalTimer.sv
+
+TB_SRCS := $(PWD)/tb/timer_tb.sv
+
+
+SRCS := $(TEST_FILES) $(TB_SRCS)
+SYNTH_TCL := $(CURDIR)/synthesis.tcl
+VCS_FLAGS = -full64 -lca -sverilog +lint=all,noNS -timescale=lns/10ps -debug -kdb -fsdb +liborder +libverbose -assert svaext
+
+.PHONY: clean
+.PHONY: run
+.PHONY: synth
+
+sim/simv: $(SRCS) $(ASM)
+		mkdir -p sim
+		cd sim && vcs -R $(SRCS) $(VCS_FLAGS) -msg_config=../warn.config
+
+run: sim/simv $(ASM)
+		bin/rv load memory.sh $(ASM) << y
+		cd sim && ./simv
+
+synth : $(SRCS)
+		mkdir -p synth
+		cd synth && dc_shell -f $(SYNTH_TCL)
+
+clean:
+		rm -rf sim synth
