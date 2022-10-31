@@ -12,12 +12,19 @@ module storage_controller #(
     output logic [31:0] d_out,
 
     output logic out_valid,
+    input logic set_programming_mode,
 
-    // To/from external SPI
+    // To/from storage SPI
     output logic external_storage_spi_cs_n,
     output logic external_storage_spi_sck,
     output logic external_storage_spi_mosi,
-    input logic external_storage_spi_miso
+    input logic external_storage_spi_miso,
+
+    // To/from programming SPI
+    output logic programming_spi_cs_n,
+    output logic programming_spi_sck,
+    output logic programming_spi_mosi,
+    input logic programming_spi_miso
 );
 
 // SRAM SIGNALS
@@ -39,6 +46,17 @@ logic [31:0] spi_wb_data;
 logic spi_wb_stall;
 logic spi_wb_ack;
 logic [31:0] spi_wb_data;
+
+logic spixpress_spi_cs_n;
+logic spixpress_spi_sck;
+logic spixpress_spi_mosi;
+logic spixpress_spi_miso;
+
+// Route programming SPI pins directly to external storage if in programming state
+assign external_storage_spi_cs_n = (state == programming_state) ? programming_spi_cs_n : spixpress_spi_cs_n;
+assign external_storage_spi_sck = (state == programming_state) ? programming_spi_sck : spixpress_spi_sck;
+assign external_storage_spi_mosi = (state == programming_state) ? programming_spi_mosi : spixpress_spi_mosi;
+assign external_storage_spi_miso = (state == programming_state) ? programming_spi_miso : spixpress_spi_miso;
 
 // Will be using SRAM as a cache
 // TODO: Needs byte enable
@@ -67,19 +85,18 @@ spixpress storage_spi (
     .o_wb_ack(spi_wb_ack),
     .o_wb_data(spi_wb_data),
     //	
-    .o_spi_cs_n(external_storage_spi_cs_n),
-    .o_spi_sck(external_storage_spi_sck),
-    .o_spi_mosi(external_storage_spi_mosi),
-    .i_spi_miso(external_storage_spi_miso)
+    .o_spi_cs_n(spixpress_spi_cs_n),
+    .o_spi_sck(spixpress_spi_sck),
+    .o_spi_mosi(spixpress_spi_mosi),
+    .i_spi_miso(spixpress_spi_miso)
 );
 
-// TODO: need state machine to wait until spi returns data before returning anything
-// will also need to change mmu to support this
 
 enum logic [1:0] = {
     default_state,
     waiting_for_sram,
-    waiting_for_external
+    waiting_for_external,
+    programming_state
 } state, next_state;
 
 always_ff @(posedge clk) begin
@@ -93,37 +110,44 @@ end
 
 // Determine next state
 always_comb begin
-    unique case (state) 
-        default_state:
-            begin
-                if (memory_access) begin
-                    if (addr < 32'h0000_2000) begin
-                        next_state <= waiting_for_sram;
+    if (set_programming_mode) begin
+        next_state <= programming_state;
+    end else begin
+        unique case (state) 
+            default_state:
+                begin
+                    if (memory_access) begin
+                        if (addr < 32'h0000_2000) begin
+                            next_state <= waiting_for_sram;
+                        end else begin
+                            next_state <= waiting_for_external;
+                        end
+                    end else begin
+                        next_state <= default_state;
+                    end
+                end
+            waiting_for_sram:
+                begin
+                    next_state <= default_state; // does sram always return immediately for both read and write?
+                end
+            waiting_for_external:
+                begin
+                    if (spi_wb_ack && ~spi_wb_stall) begin // might be possible that this never occurs and we're stuck in the waiting_for_external state
+                        next_state <= default_state;
                     end else begin
                         next_state <= waiting_for_external;
                     end
-                end else begin
+                end
+            programming_state:
+                begin
+                    next_state <= programming_state;
+                end
+            default:
+                begin
                     next_state <= default_state;
                 end
-            end
-        waiting_for_sram:
-            begin
-                next_state <= default_state; // does sram always return immediately for both read and write?
-            end
-        waiting_for_external:
-            begin
-                if (spi_wb_ack) begin
-                    next_state <= default_state;
-                end else begin
-                    next_state <= waiting_for_external;
-                end
-            end
-        default:
-            begin
-                next_state <= default_state;
-            end
-    endcase
-
+        endcase
+    end
 end
 
 // Determine signal values
@@ -181,6 +205,10 @@ always_comb begin
                     spi_wb_addr  <= addr[21:0];
                     spi_wb_data <= 32'b0; // used by config register only, so always 0
                 end
+            end
+        programming_state:
+            begin
+                // Nothing should happen in programming state?
             end
         default:
             begin

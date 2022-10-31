@@ -31,9 +31,13 @@ module mmu #(
     output logic external_storage_spi_cs_n,
     output logic external_storage_spi_sck,
     output logic external_storage_spi_mosi,
-    input logic external_storage_spi_miso
+    input logic external_storage_spi_miso,
 
-    // External SPI
+    // Programming SPI
+    output logic programming_spi_cs_n,
+    output logic programming_spi_sck,
+    output logic programming_spi_mosi,
+    input logic programming_spi_miso
 );
 
 //                       MEMORY ADDRESSES
@@ -76,14 +80,19 @@ storage_controller storage_controller (
     .d_out(storage_controller_d_out),
     .out_valid(storage_out_valid),
 
+    .set_programming_mode(set_programming_mode),
+
     // Flash storage SPI
     .external_storage_spi_cs_n(external_storage_spi_cs_n),
     .external_storage_spi_sck(external_storage_spi_sck),
     .external_storage_spi_mosi(external_storage_spi_mosi),
-    .external_storage_spi_miso(external_storage_spi_miso)
+    .external_storage_spi_miso(external_storage_spi_miso),
 
-    // External SPI
-
+    // Programming SPI
+    .programming_spi_cs_n(programming_spi_cs_n),
+    .programming_spi_sck(programming_spi_sck),
+    .programming_spi_mosi(programming_spi_mosi),
+    .programming_spi_miso(programming_spi_miso)
 );
 
 
