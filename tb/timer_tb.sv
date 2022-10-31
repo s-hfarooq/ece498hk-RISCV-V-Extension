@@ -64,5 +64,6 @@ module timer_tb();
         end
 
         $display("Finished digital timer tests...");
+        $finish;
     end
 endmodule

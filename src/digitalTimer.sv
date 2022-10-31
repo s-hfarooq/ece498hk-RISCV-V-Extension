@@ -29,7 +29,7 @@ always_ff @ (posedge clk) begin
         counter <= 32'b0;
         timer_is_high <= 1'b1;
     end else begin
-        timer_is_high <= 1'b1;
+        timer_is_high <= 1'b0;
     end
 end
 
