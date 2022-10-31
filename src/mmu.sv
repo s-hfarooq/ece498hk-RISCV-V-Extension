@@ -69,7 +69,7 @@ logic started_mem_access;
 logic [9:0] gpio_direction; // 0 = output, 1 = input
 logic [9:0] gpio_curr_value;
 
-storage_controller storage_controller (
+storage_controller #(.MEM_W(MEM_W)) storage_controller (
     .clk(clk),
     .rst(rst),
     .memory_access(memory_access), // If high, we're doing something with memory
@@ -103,21 +103,13 @@ enum logic [2:0] {
     timer_state,
     gpio_state,
     programming_state,
-    debug_state,
+    debug_state
 } state, next_state;
 
 always_ff @(posedge clk) begin
     if (~rst) begin
         state <= default_state;
         next_state <= default_state;
-        
-        curr_addr <= 32'b0;
-        curr_d_in <= '{default: '0};
-        curr_mem_be <= '{default: '0};
-        curr_mem_we <= 1'b0;
-        started_mem_access <= 1'b0;
-        gpio_direction <= 10'b0;
-        gpio_curr_value <= 10'b0;
     end else begin
         state <= next_state;
     end
@@ -126,7 +118,7 @@ end
 // Assign GPIO pins
 always_ff @(posedge clk) begin
     for(int i = 0; i < 10; i++) begin
-        gpio_pins[i] = gpio_direction[i] ? 'z : gpio_curr_value[i];
+        gpio_pins[i] <= gpio_direction[i] ? 'z : gpio_curr_value[i];
     end
 end
 
@@ -134,167 +126,177 @@ end
 always_comb begin
     if ((state == memory_state_init || state == memory_state_continue) && ~memory_response) begin
         // Stay in memory state if memory hasn't responded yet
-        next_state <= memory_state_continue;
+        next_state = memory_state_continue;
     end else if (vproc_mem_req_o) begin
         if (vproc_mem_addr_o >= 32'h0000_0000 && vproc_mem_addr_o <=  32'h0000_0100) begin
             // Reserved
-            next_state <= default_state;
+            next_state = default_state;
         end else if (vproc_mem_addr_o >= 32'h0000_0101 && vproc_mem_addr_o <= 32'h0000_0114) begin
             // GPIO
-            next_state <= gpio_state;
+            next_state = gpio_state;
         end else if (vproc_mem_addr_o == 32'h0000_0115) begin
             // Digital timer
-            next_state <= timer_state;
+            next_state = timer_state;
         end else if (vproc_mem_addr_o >= 32'h0000_0116 && vproc_mem_addr_o <= 32'h0000_0FFF) begin
             // Reserved
-            next_state <= default_state;
+            next_state = default_state;
         end else begin
             // SRAM/external storage
             if (vproc_mem_err_i) begin
                 // If we get a error, go to default state
-                next_state <= default_state;
+                next_state = default_state;
             end else begin
                 // Go to default state once storage returns valid value
                 if (storage_out_valid) begin
-                    next_state <= default_state;
+                    next_state = default_state;
                 end else begin
                     if (started_mem_access) begin
-                        next_state <= memory_state_continue;
+                        next_state = memory_state_continue;
                     end else begin
-                        next_state <= memory_state_init;
+                        next_state = memory_state_init;
                     end
                 end
             end
         end
     end else begin
-        next_state <= default_state;
+        next_state = default_state;
     end
 end
 
 // Determine signal values
 always_comb begin
-    // Default values for outputs
-    // To/from Vicuna/Ibex
-    vproc_mem_rvalid_i <= 1'b0;
-    vproc_mem_err_i <= 1'b0;
-    vproc_mem_rdata_i <= '{default: '0};
+    if (~rst) begin
+        curr_addr = 32'b0;
+        curr_d_in = '{default: '0};
+        curr_mem_be = '{default: '0};
+        curr_mem_we = 1'b0;
+        started_mem_access = 1'b0;
+        gpio_direction = 10'b0;
+        gpio_curr_value = 10'b0;
+    end else begin
+        // Default values for outputs
+        // To/from Vicuna/Ibex
+        vproc_mem_rvalid_i = 1'b0;
+        vproc_mem_err_i = 1'b0;
+        vproc_mem_rdata_i = '{default: '0};
 
-    // To/from digital timer
-    timer_set_val <= 32'b0;
-    set_timer <= 1'b0;
+        // To/from digital timer
+        timer_set_val = 32'b0;
+        set_timer = 1'b0;
 
-    memory_access <= 1'b0;
-    memory_is_writing <= 1'b0;
-    
-    unique case (state)
-        default_state:
-            begin
-                // Nothing should happen in default state?
-            end
-        memory_state_init:
-            begin
-                // Initial memory access cycle - set values so that we save them since input becomes invalidated
-                if (vproc_mem_req_o) begin
-                    if (vproc_mem_we_o && (vproc_mem_addr_o >= 32'h0000_2000 || vproc_mem_addr_o <= 32'h0000_0FFF)) begin
-                        // Can't write to external memory
-                        vproc_mem_err_i <= 1'b1;
-                    end else begin
-                        curr_addr <= vproc_mem_addr_o;
-                        curr_d_in <= vproc_mem_wdata_o;
-                        curr_mem_be <= vproc_mem_be_o;
-                        curr_mem_we <= vproc_mem_we_o;
-                        started_mem_access <= 1'b1;
-
-                        memory_access <= 1'b1;
-
-                        if (vproc_mem_we_o) begin
-                            memory_is_writing <= 1'b1;
-                        end
-
-                        if (storage_out_valid) begin
-                            vproc_mem_rdata_i <= storage_controller_d_out;
-                            vproc_mem_rvalid_i <= 1'b1;
-                            started_mem_access <= 1'b0;
-
-                            curr_addr <= 32'b0;
-                            curr_d_in <= '{default: '0};
-                            curr_mem_be <= '{default: '0};
-                            curr_mem_we <= 1'b0;
-                        end
-                    end
+        memory_access = 1'b0;
+        memory_is_writing = 1'b0;
+        
+        unique case (state)
+            default_state:
+                begin
+                    // Nothing should happen in default state?
                 end
-            end
-        memory_state_continue:
-            begin
-                // Continue giving storage controller same input until it returns that it's done
-                if (~storage_out_valid) begin
-                    memory_access <= 1'b1;
-                    if (curr_mem_we) begin
-                        memory_is_writing <= 1'b1;
-                    end
-                end else begin
-                    vproc_mem_rdata_i <= storage_controller_d_out;
-                    vproc_mem_rvalid_i <= 1'b1;
-                    started_mem_access <= 1'b0;
-                    
-                    curr_addr <= 32'b0;
-                    curr_d_in <= '{default: '0};
-                    curr_mem_be <= '{default: '0};
-                    curr_mem_we <= 1'b0;
-                end
-            end
-        timer_state:
-            begin
-                if (vproc_mem_req_o) begin
-                    // If writing to timer, we should be setting its value
-                    if (vproc_mem_we_o) begin
-                        timer_set_val <= vproc_mem_wdata_o; 
-                        set_timer <= 1'b1;
-                    end else begin
-                        vproc_mem_rdata_i <= {31'b0, timer_is_high};
-                        vproc_mem_rvalid_i < 1'b1;
-                    end
-                end
-            end
-        gpio_state:
-            begin
-                if (vproc_mem_req_o) begin
-                    if (vproc_mem_addr_o >= 32'h0000_0101 && vproc_mem_addr_o <= 32'h0000_010A) begin
-                        // Setting pin direction
-                        if (vproc_mem_we_o) begin
-                            gpio_direction[vproc_mem_addr_o - 32'h0000_0101] <= vproc_mem_wdata_o[0];
+            memory_state_init:
+                begin
+                    // Initial memory access cycle - set values so that we save them since input becomes invalidated
+                    if (vproc_mem_req_o) begin
+                        if (vproc_mem_we_o && (vproc_mem_addr_o >= 32'h0000_2000 || vproc_mem_addr_o <= 32'h0000_0FFF)) begin
+                            // Can't write to external memory
+                            vproc_mem_err_i = 1'b1;
                         end else begin
-                            vproc_mem_rdata_i <= {31'b0, gpio_direction[vproc_mem_addr_o - 32'h0000_0101]};
-                            vproc_mem_rvalid_i < 1'b1;
-                        end
-                    end else begin
-                        // Writing/reading from pin
-                        if (vproc_mem_we_o) begin
-                            // Ensure curr pin is output otherwise error
-                            if (gpio_direction[vproc_mem_addr_o - 32'h0000_010B] != 1'b0) begin
-                                vproc_mem_err_i <= 1'b1;
-                            end else begin
-                                // Set pin
-                                gpio_curr_value[vproc_mem_addr_o - 32'h0000_010B] <= vproc_mem_wdata_o[0];
+                            curr_addr = vproc_mem_addr_o;
+                            curr_d_in = vproc_mem_wdata_o;
+                            curr_mem_be = vproc_mem_be_o;
+                            curr_mem_we = vproc_mem_we_o;
+                            started_mem_access = 1'b1;
+
+                            memory_access = 1'b1;
+
+                            if (vproc_mem_we_o) begin
+                                memory_is_writing = 1'b1;
                             end
-                        end else begin
-                            // Ensure curr pin is input otherwise error
-                            if (gpio_direction[vproc_mem_addr_o - 32'h0000_010B] != 1'b1) begin
-                                vproc_mem_err_i <= 1'b1;
-                            end else begin
-                                // Read pin
-                                vproc_mem_rdata_i <= {31'b0, gpio_pins[vproc_mem_addr_o - 32'h0000_010B]};
-                                vproc_mem_rvalid_i < 1'b1;
+
+                            if (storage_out_valid) begin
+                                vproc_mem_rdata_i = storage_controller_d_out;
+                                vproc_mem_rvalid_i = 1'b1;
+                                started_mem_access = 1'b0;
+
+                                curr_addr = 32'b0;
+                                curr_d_in = '{default: '0};
+                                curr_mem_be = '{default: '0};
+                                curr_mem_we = 1'b0;
                             end
                         end
                     end
                 end
-            end
-        default:
-            begin
-                // Nothing should happen in default state?
-            end
-    endcase
+            memory_state_continue:
+                begin
+                    // Continue giving storage controller same input until it returns that it's done
+                    if (~storage_out_valid) begin
+                        memory_access = 1'b1;
+                        if (curr_mem_we) begin
+                            memory_is_writing = 1'b1;
+                        end
+                    end else begin
+                        vproc_mem_rdata_i = storage_controller_d_out;
+                        vproc_mem_rvalid_i = 1'b1;
+                        started_mem_access = 1'b0;
+                        
+                        curr_addr = 32'b0;
+                        curr_d_in = '{default: '0};
+                        curr_mem_be = '{default: '0};
+                        curr_mem_we = 1'b0;
+                    end
+                end
+            timer_state:
+                begin
+                    if (vproc_mem_req_o) begin
+                        // If writing to timer, we should be setting its value
+                        if (vproc_mem_we_o) begin
+                            timer_set_val = vproc_mem_wdata_o; 
+                            set_timer = 1'b1;
+                        end else begin
+                            vproc_mem_rdata_i = {31'b0, timer_is_high};
+                            vproc_mem_rvalid_i = 1'b1;
+                        end
+                    end
+                end
+            gpio_state:
+                begin
+                    if (vproc_mem_req_o) begin
+                        if (vproc_mem_addr_o >= 32'h0000_0101 && vproc_mem_addr_o <= 32'h0000_010A) begin
+                            // Setting pin direction
+                            if (vproc_mem_we_o) begin
+                                gpio_direction[vproc_mem_addr_o - 32'h0000_0101] = vproc_mem_wdata_o[0];
+                            end else begin
+                                vproc_mem_rdata_i = {31'b0, gpio_direction[vproc_mem_addr_o - 32'h0000_0101]};
+                                vproc_mem_rvalid_i = 1'b1;
+                            end
+                        end else begin
+                            // Writing/reading from pin
+                            if (vproc_mem_we_o) begin
+                                // Ensure curr pin is output otherwise error
+                                if (gpio_direction[vproc_mem_addr_o - 32'h0000_010B] != 1'b0) begin
+                                    vproc_mem_err_i = 1'b1;
+                                end else begin
+                                    // Set pin
+                                    gpio_curr_value[vproc_mem_addr_o - 32'h0000_010B] = vproc_mem_wdata_o[0];
+                                end
+                            end else begin
+                                // Ensure curr pin is input otherwise error
+                                if (gpio_direction[vproc_mem_addr_o - 32'h0000_010B] != 1'b1) begin
+                                    vproc_mem_err_i = 1'b1;
+                                end else begin
+                                    // Read pin
+                                    vproc_mem_rdata_i = {31'b0, gpio_pins[vproc_mem_addr_o - 32'h0000_010B]};
+                                    vproc_mem_rvalid_i = 1'b1;
+                                end
+                            end
+                        end
+                    end
+                end
+            default:
+                begin
+                    // Nothing should happen in default state?
+                end
+        endcase
+    end
 end
 
 endmodule : mmu

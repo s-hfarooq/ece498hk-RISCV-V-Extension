@@ -1,5 +1,7 @@
 
-module toplevel (
+module toplevel #(
+    parameter int unsigned     MEM_W         = 32 // memory bus width in bits, same as value in vproc_top.sv
+    )(
     input logic clk,
     input logic rst,
     inout logic [9:0] gpio_pins,
@@ -18,19 +20,18 @@ module toplevel (
 
     // Programming/debug set pins
     input logic set_programming_mode,
-    input logic set_debug_mode
+    input logic set_debug_mode // Never used, maybe should add a debug mode
 );
 
 // VPROC_TOP SIGNALS
-// 32 here should be the same as the MEM_W value specified in vproc_top.sv
 logic vproc_mem_req_o;
 logic [31:0] vproc_mem_addr_o,
 logic vproc_mem_we_o;
-logic [32/8-1:0] vproc_mem_be_o;
-logic [32-1:0] vproc_mem_wdata_o;
+logic [MEM_W/8-1:0] vproc_mem_be_o;
+logic [MEM_W-1:0] vproc_mem_wdata_o;
 logic vproc_mem_rvalid_i;
 logic vproc_mem_err_i;
-logic [32-1:0] vproc_mem_rdata_i;
+logic [MEM_W-1:0] vproc_mem_rdata_i;
 logic [31:0] vproc_pend_vreg_wr_map_o;  // Debug, may not be needed (could be helpful for SPI debug)
 
 // TIMER SIGNALS
@@ -39,7 +40,7 @@ logic [31:0] timer_set_val;
 logic set_timer;
 
 // MODULE DECLARATIONS
-vproc_top vproc_top (
+vproc_top #(.MEM_W(MEM_W)) vproc_top (
     .clk(clk),
     .rst(rst),
     .mem_req_o(vproc_mem_req_o),
@@ -53,7 +54,7 @@ vproc_top vproc_top (
     .pend_vreg_wr_map_o(vproc_pend_vreg_wr_map_o)
 );
 
-mmu mmu (
+mmu #(.MEM_W(MEM_W)) mmu (
     .clk(clk),
     .rst(rst),
 
@@ -98,11 +99,6 @@ digitalTimer digitalTimer (
     .timer_is_high(timer_is_high),
     .timer_set_val(timer_set_val),
     .set_timer(set_timer)
-);
-
-spi external_spi (
-    .clk(clk),
-    .rst(rst)
 );
 
 endmodule : toplevel
