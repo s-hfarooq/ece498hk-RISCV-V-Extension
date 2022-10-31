@@ -24,7 +24,7 @@ always_ff @ (posedge clk) begin
         counter <= 32'b0;
         counter_trigger_val <= timer_set_val;
         timer_is_high <= 1'b0;
-    end else if (counter >= counter_trigger_val) begin
+    end else if (counter >= (counter_trigger_val - 1'b1)) begin
         // Set output to high when timer val reached
         counter <= 32'b0;
         timer_is_high <= 1'b1;
