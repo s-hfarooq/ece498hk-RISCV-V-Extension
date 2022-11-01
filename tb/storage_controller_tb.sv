@@ -1,7 +1,7 @@
 
 module timer_tb();
-    // timeunit 10ns;
-    // timeprecision 1ns; // TODO: are these needed?
+    timeunit 10ns;
+    timeprecision 1ns; // TODO: are these correct?
 
     // Inputs
     logic clk;
@@ -82,11 +82,11 @@ module timer_tb();
 
         // Ensure storage output sets programming input correctly
         external_storage_spi_miso <= 1'b0;
-        // ##1;
+        ##1;
         assert (programming_spi_miso == 1'b0) else $error("programming_spi_miso not same as expected (should be 0)");
         ##1;
         external_storage_spi_miso <= 1'b1;
-        // ##1;
+        ##1;
         assert (programming_spi_miso == 1'b1) else $error("programming_spi_miso not same as expected (should be 1)");
     endtask : spi_passthrough
 
