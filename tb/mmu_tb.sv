@@ -106,7 +106,7 @@ module mmu_tb();
     endtask : sram_test
 
     task external_storage_test();
-    endtask : external_storage_tests
+    endtask : external_storage_test
 
     task reserved_addr_test();
     endtask : reserved_addr_test

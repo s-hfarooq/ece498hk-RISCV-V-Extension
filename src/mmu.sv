@@ -56,6 +56,7 @@ module mmu #(
 logic memory_access;
 logic [31:0] storage_controller_d_out;
 logic storage_out_valid;
+logic memory_is_writing;
 
 // Save data in since mem access can take >1 clock cycle and the input values are only valid for 1
 // TODO: make sure vicuna stalls until mem_rvalid_i goes high for data read/write
@@ -125,7 +126,7 @@ end
 always_comb begin
     if (~rst) begin
         next_state = default_state;
-    end else if ((state == memory_state_init || state == memory_state_continue) && ~memory_response) begin
+    end else if ((state == memory_state_init || state == memory_state_continue) && ~storage_out_valid) begin
         // Stay in memory state if memory hasn't responded yet
         next_state = memory_state_continue;
     end else if (vproc_mem_req_o) begin
