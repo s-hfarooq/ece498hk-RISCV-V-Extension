@@ -36,11 +36,9 @@ module mmu_tb();
 
     // Inout
     // To/from GPIO
-    logic [9:0] gpio_pins;
+    wire [9:0] gpio_pins;
 
 
-
-    digitalTimer timer(.*);
     mmu dut(.*);
 
     // Clock Synchronizer for Student Use
@@ -66,8 +64,6 @@ module mmu_tb();
         vproc_mem_we_o <= 1'b0; // high when writing, low when reading
         vproc_mem_be_o <= '{default: '0};
         vproc_mem_wdata_o <= 32'b0;
-        // To digital timer
-        timer_is_high <= 1'b0;
         // Flash storage SPI
         external_storage_spi_miso <= 1'b0;
         // Programming SPI
@@ -101,18 +97,17 @@ module mmu_tb();
             vproc_mem_req_o <= 1'b1;
             vproc_mem_we_o <= 1'b1;
             vproc_mem_addr_o <= 32'h0000_0115;
-            timer_set_val <= i[31:0];
             ##1;
             vproc_mem_req_o <= 1'b0;
             vproc_mem_we_o <= 1'b0;
 
             ##1;
             for(int j = 1; j < i/2; j++) begin
-                vproc_mem_req <= 1'b1;
+                vproc_mem_req_o <= 1'b1;
                 vproc_mem_addr_o <= 32'h0000_0115;
                 ##1;
                 assert (vproc_mem_rdata_i[0] == 1'b0) else $error("timer_is_high HIGH BEFORE IT SHOULD BE (i = %p)", i);
-                vproc_mem_req <= 1'b1;
+                vproc_mem_req_o <= 1'b1;
                 ##1;
             end
             assert (vproc_mem_rdata_i[0] == 1'b1) else $error("timer_is_high IS NOT HIGH WHEN IT SHOULD BE (i = %p)", i);

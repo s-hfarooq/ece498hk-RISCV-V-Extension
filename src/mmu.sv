@@ -20,7 +20,7 @@ module mmu #(
     output logic [MEM_W  -1:0] vproc_mem_rdata_i,
 
     // To/from GPIO
-    inout  logic [9:0] gpio_pins,
+    inout  wire [9:0] gpio_pins,
 
     // Flash storage SPI
     output logic external_storage_spi_cs_n,
@@ -66,9 +66,9 @@ logic [9:0] gpio_direction; // 0 = output, 1 = input
 logic [9:0] gpio_curr_value;
 
 // TIMER LOGIC
-input  logic timer_is_high;
-output logic [31:0] timer_set_val;
-output logic set_timer;
+logic timer_is_high;
+logic [31:0] timer_set_val;
+logic set_timer;
 
 storage_controller #(.MEM_W(MEM_W)) storage_controller (
     .clk(clk),
@@ -123,9 +123,9 @@ always_ff @(posedge clk) begin
 end
 
 // Assign GPIO pins
-always_ff @(posedge clk) begin
+always_comb begin
     for(int i = 0; i < 10; i++) begin
-        gpio_pins[i] <= gpio_direction[i] ? 'z : gpio_curr_value[i];
+        gpio_pins[i] = gpio_direction[i] ? 'z : gpio_curr_value[i];
     end
 end
 

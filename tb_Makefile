@@ -3,9 +3,11 @@
 # TEST_FILES = $(PWD)/src/digitalTimer.sv
 # TB_SRCS := $(PWD)/tb/timer_tb.sv
 
-TEST_FILES = $(PWD)/src/sram_sp_hdc_svt_rvt_hvt.v $(PWD)/src/spixpress.v $(PWD)/src/storage_controller.sv
-TB_SRCS := $(PWD)/tb/storage_controller_tb.sv
+# TEST_FILES = $(PWD)/src/sram_sp_hdc_svt_rvt_hvt.v $(PWD)/src/spixpress.v $(PWD)/src/storage_controller.sv
+# TB_SRCS := $(PWD)/tb/storage_controller_tb.sv
 
+TEST_FILES = $(PWD)/src/sram_sp_hdc_svt_rvt_hvt.v $(PWD)/src/spixpress.v $(PWD)/src/digitalTimer.sv $(PWD)/src/storage_controller.sv $(PWD)/src/mmu.sv 
+TB_SRCS := $(PWD)/tb/mmu_tb.sv
 
 SRCS := $(TEST_FILES) $(TB_SRCS)
 SYNTH_TCL := $(CURDIR)/synthesis.tcl
