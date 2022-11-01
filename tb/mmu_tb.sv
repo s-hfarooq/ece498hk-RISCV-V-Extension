@@ -10,9 +10,9 @@ module mmu_tb();
     logic set_programming_mode;
     logic set_debug_mode;
     // To Vicuna/Ibex
-    logic               vproc_mem_req_o;
-    logic [31:0]        vproc_mem_addr_o;
-    logic               vproc_mem_we_o; // high when writing, low when reading
+    logic vproc_mem_req_o;
+    logic [31:0] vproc_mem_addr_o;
+    logic vproc_mem_we_o; // high when writing, low when reading
     logic [32/8-1:0] vproc_mem_be_o;
     logic [32  -1:0] vproc_mem_wdata_o;
     // To digital timer
@@ -26,8 +26,8 @@ module mmu_tb();
 
     // Outputs
     // From Vicuna/Ibex
-    logic               vproc_mem_rvalid_i;
-    logic               vproc_mem_err_i;
+    logic vproc_mem_rvalid_i;
+    logic vproc_mem_err_i;
     logic [32  -1:0] vproc_mem_rdata_i;
     // From digital timer
     logic [31:0] timer_set_val;
@@ -84,6 +84,19 @@ module mmu_tb();
     endtask : reset
 
     task gpio_test();
+        for(int unsigned i = 32'h0000_0101; i <= 32'h0000_010A; i++) begin
+            vproc_mem_req_o <= 1'b1;
+            vproc_mem_addr_o <= i[31:0];
+            if(i % 2 == 0) begin
+                $displayh("Setting pin %h to high", i);
+                vproc_mem_wdata_o <= 32'h0000_0001;
+            end else begin
+                vproc_mem_wdata_o <= 32'h0000_0000;
+            end
+        end
+        $displayh("State: %b", dut.gpio_direction);
+        $displayh("Value: %b", dut.gpio_curr_value);
+        
     endtask: gpio_test
 
     task timer_test();
