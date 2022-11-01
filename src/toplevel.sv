@@ -72,11 +72,6 @@ mmu #(.MEM_W(MEM_W)) mmu (
     .vproc_mem_err_i(vproc_mem_err_i),
     .vproc_mem_rdata_i(vproc_mem_rdata_i),
 
-    // To/from digital timer
-    .timer_is_high(timer_is_high),
-    .timer_set_val(timer_set_val),
-    .set_timer(set_timer),
-
     // To/from GPIO
     .gpio_pins(gpio_pins),
 
@@ -91,14 +86,6 @@ mmu #(.MEM_W(MEM_W)) mmu (
     .programming_spi_sck(programming_spi_sck),
     .programming_spi_mosi(programming_spi_mosi),
     .programming_spi_miso(programming_spi_miso)
-);
-
-digitalTimer digitalTimer (
-    .clk(clk),
-    .rst(rst),
-    .timer_is_high(timer_is_high),
-    .timer_set_val(timer_set_val),
-    .set_timer(set_timer)
 );
 
 endmodule : toplevel

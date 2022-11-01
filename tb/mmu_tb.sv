@@ -15,8 +15,6 @@ module mmu_tb();
     logic vproc_mem_we_o; // high when writing, low when reading
     logic [32/8-1:0] vproc_mem_be_o;
     logic [32  -1:0] vproc_mem_wdata_o;
-    // To digital timer
-    logic timer_is_high;
     // Flash storage SPI
     logic external_storage_spi_miso;
     // Programming SPI
@@ -29,9 +27,6 @@ module mmu_tb();
     logic vproc_mem_rvalid_i;
     logic vproc_mem_err_i;
     logic [32  -1:0] vproc_mem_rdata_i;
-    // From digital timer
-    logic [31:0] timer_set_val;
-    logic set_timer;
     // Flash storage SPI
     logic external_storage_spi_cs_n;
     logic external_storage_spi_sck;
@@ -44,6 +39,8 @@ module mmu_tb();
     logic [9:0] gpio_pins;
 
 
+
+    digitalTimer timer(.*);
     mmu dut(.*);
 
     // Clock Synchronizer for Student Use
@@ -84,22 +81,42 @@ module mmu_tb();
     endtask : reset
 
     task gpio_test();
-        for(int unsigned i = 32'h0000_0101; i <= 32'h0000_010A; i++) begin
-            vproc_mem_req_o <= 1'b1;
-            vproc_mem_addr_o <= i[31:0];
-            if(i % 2 == 0) begin
-                $displayh("Setting pin %h to high", i);
-                vproc_mem_wdata_o <= 32'h0000_0001;
-            end else begin
-                vproc_mem_wdata_o <= 32'h0000_0000;
-            end
-        end
-        $displayh("State: %b", dut.gpio_direction);
-        $displayh("Value: %b", dut.gpio_curr_value);
+        // for(int unsigned i = 32'h0000_0101; i <= 32'h0000_010A; i++) begin
+        //     vproc_mem_req_o <= 1'b1;
+        //     vproc_mem_addr_o <= i[31:0];
+        //     if(i % 2 == 0) begin
+        //         $displayh("Setting pin %h to high", i);
+        //         vproc_mem_wdata_o <= 32'h0000_0001;
+        //     end else begin
+        //         vproc_mem_wdata_o <= 32'h0000_0000;
+        //     end
+        // end
+        // $displayh("State: %b", dut.gpio_direction);
+        // $displayh("Value: %b", dut.gpio_curr_value);
         
     endtask: gpio_test
 
     task timer_test();
+        for(int unsigned i = 1; i < 100; i += 5) begin
+            vproc_mem_req_o <= 1'b1;
+            vproc_mem_we_o <= 1'b1;
+            vproc_mem_addr_o <= 32'h0000_0115;
+            timer_set_val <= i[31:0];
+            ##1;
+            vproc_mem_req_o <= 1'b0;
+            vproc_mem_we_o <= 1'b0;
+
+            ##1;
+            for(int j = 1; j < i/2; j++) begin
+                vproc_mem_req <= 1'b1;
+                vproc_mem_addr_o <= 32'h0000_0115;
+                ##1;
+                assert (vproc_mem_rdata_i[0] == 1'b0) else $error("timer_is_high HIGH BEFORE IT SHOULD BE (i = %p)", i);
+                vproc_mem_req <= 1'b1;
+                ##1;
+            end
+            assert (vproc_mem_rdata_i[0] == 1'b1) else $error("timer_is_high IS NOT HIGH WHEN IT SHOULD BE (i = %p)", i);
+        end
     endtask : timer_test
 
     task sram_test();

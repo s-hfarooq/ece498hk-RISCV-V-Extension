@@ -19,11 +19,6 @@ module mmu #(
     output logic               vproc_mem_err_i,
     output logic [MEM_W  -1:0] vproc_mem_rdata_i,
 
-    // To/from digital timer
-    input  logic timer_is_high,
-    output logic [31:0] timer_set_val,
-    output logic set_timer,
-
     // To/from GPIO
     inout  logic [9:0] gpio_pins,
 
@@ -70,6 +65,11 @@ logic started_mem_access;
 logic [9:0] gpio_direction; // 0 = output, 1 = input
 logic [9:0] gpio_curr_value;
 
+// TIMER LOGIC
+input  logic timer_is_high;
+output logic [31:0] timer_set_val;
+output logic set_timer;
+
 storage_controller #(.MEM_W(MEM_W)) storage_controller (
     .clk(clk),
     .rst(rst),
@@ -96,6 +96,13 @@ storage_controller #(.MEM_W(MEM_W)) storage_controller (
     .programming_spi_miso(programming_spi_miso)
 );
 
+digitalTimer digitalTimer (
+    .clk(clk),
+    .rst(rst),
+    .timer_is_high(timer_is_high),
+    .timer_set_val(timer_set_val),
+    .set_timer(set_timer)
+);
 
 enum logic [2:0] {
     default_state,
