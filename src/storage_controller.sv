@@ -42,15 +42,22 @@ logic spi_wb_stb;
 logic spi_cfg_stb;
 logic spi_wb_we;
 logic [21:0] spi_wb_addr;
-logic [31:0] spi_wb_data;
+logic [31:0] spi_i_wb_data;
 logic spi_wb_stall;
 logic spi_wb_ack;
-logic [31:0] spi_wb_data;
+logic [31:0] spi_o_wb_data;
 
 logic spixpress_spi_cs_n;
 logic spixpress_spi_sck;
 logic spixpress_spi_mosi;
 logic spixpress_spi_miso;
+
+enum logic [1:0] {
+    default_state,
+    waiting_for_sram,
+    waiting_for_external,
+    programming_state
+} state, next_state;
 
 // Route programming SPI pins directly to external storage if in programming state
 assign external_storage_spi_cs_n = (state == programming_state) ? programming_spi_cs_n : spixpress_spi_cs_n;
@@ -77,27 +84,19 @@ spixpress storage_spi (
     //
     .i_wb_cyc(spi_wb_cyc),
     .i_wb_stb(spi_wb_stb),
-    .i_cfg_stb(spi_cfg_stbv),
+    .i_cfg_stb(spi_cfg_stb),
     .i_wb_we(spi_wb_we),
     .i_wb_addr(spi_wb_addr),
-    .i_wb_data(spi_wb_data),
+    .i_wb_data(spi_i_wb_data),
     .o_wb_stall(spi_wb_stall),
     .o_wb_ack(spi_wb_ack),
-    .o_wb_data(spi_wb_data),
+    .o_wb_data(spi_o_wb_data),
     //	
     .o_spi_cs_n(spixpress_spi_cs_n),
     .o_spi_sck(spixpress_spi_sck),
     .o_spi_mosi(spixpress_spi_mosi),
     .i_spi_miso(spixpress_spi_miso)
 );
-
-
-enum logic [1:0] = {
-    default_state,
-    waiting_for_sram,
-    waiting_for_external,
-    programming_state
-} state, next_state;
 
 always_ff @(posedge clk) begin
     if (~rst) begin
@@ -171,7 +170,7 @@ always_comb begin
     spi_cfg_stb = 1'b0;
     spi_wb_we = 1'b0;
     spi_wb_addr  = 22'b0;
-    spi_wb_data = 32'b0;
+    spi_i_wb_data = 32'b0;
 
     unique case (state)
         default_state:
@@ -195,7 +194,7 @@ always_comb begin
         waiting_for_external:
             begin
                 if (spi_wb_ack) begin
-                    d_out = spi_wb_data;
+                    d_out = spi_o_wb_data;
                     out_valid = 1'b1;
                 end else begin
                     spi_wb_cyc = 1'b0; // no idea what this is for
@@ -203,7 +202,7 @@ always_comb begin
                     spi_cfg_stb = 1'b0; // high when accessing register values
                     spi_wb_we = 1'b0; // high when writing, low when reading (should never be writing to memory values)
                     spi_wb_addr  = addr[21:0];
-                    spi_wb_data = 32'b0; // used by config register only, so always 0
+                    spi_i_wb_data = 32'b0; // used by config register only, so always 0
                 end
             end
         programming_state:
