@@ -9,7 +9,7 @@ module tmp_tb();
     logic [31:0] sram_d_out; // out
     logic sram_chip_en; // in
     logic sram_wr_en; // in
-    logic [31:0] sram_addr; // in
+    logic [10:0] sram_addr; // in
     logic [31:0] sram_d_in; // in
     logic [2:0] sram_ema; // in
     logic sram_retn; // in
@@ -39,29 +39,28 @@ module tmp_tb();
     task test_sram();
         ##1;
 
-        sram_chip_en <= 1'b1;
-        sram_wr_en <= 1'b1; // in
-        sram_addr <= 32'h0000_000F; // in
-        sram_d_in <= 32'h0000_000F; // in
-        sram_ema <= 3'b0; // in
-        sram_retn <= 1'b0; // in
-        ##1;
-
         sram_chip_en <= 1'b0;
         sram_wr_en <= 1'b0; // in
-        sram_addr <= 32'h0000_0000; // in
-        sram_d_in <= 32'h0000_0000; // in
-        sram_ema <= 3'b0; // in
-        sram_retn <= 1'b0; // in
-        ##1;
-
-        sram_chip_en <= 1'b1;
-        sram_wr_en <= 1'b0; // in
+        sram_addr <= 1'h00F; // in
         sram_d_in <= 32'h0000_000F; // in
         sram_ema <= 3'b0; // in
         sram_retn <= 1'b1; // in
         ##1;
-        assert (sram_d_out == 32'h0000_000F) else $error("NOT CORRECT SECOND CHECK");
+
+        sram_chip_en <= 1'b1;
+        sram_wr_en <= 1'b1; // in
+        sram_addr <= 11'h000; // in
+        sram_d_in <= 32'h0000_0000; // in
+        sram_ema <= 3'b0; // in
+        sram_retn <= 1'b1; // in
+        ##1;
+
+        sram_chip_en <= 1'b0;
+        sram_wr_en <= 1'b0; // in
+        sram_d_in <= 11'h00F; // in
+        sram_ema <= 3'b0; // in
+        sram_retn <= 1'b1; // in
+        assert (sram_d_out == 32'h0000_000F) else $error("NOT CORRECT OUTPUT");
     endtask : test_sram
     
     initial begin : TESTS
