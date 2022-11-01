@@ -50,7 +50,7 @@ logic [31:0] spi_o_wb_data;
 logic spixpress_spi_cs_n;
 logic spixpress_spi_sck;
 logic spixpress_spi_mosi;
-logic spixpress_spi_miso;
+// logic spixpress_spi_miso;
 
 enum logic [1:0] {
     default_state,
@@ -63,7 +63,8 @@ enum logic [1:0] {
 assign external_storage_spi_cs_n = (state == programming_state) ? programming_spi_cs_n : spixpress_spi_cs_n;
 assign external_storage_spi_sck = (state == programming_state) ? programming_spi_sck : spixpress_spi_sck;
 assign external_storage_spi_mosi = (state == programming_state) ? programming_spi_mosi : spixpress_spi_mosi;
-assign external_storage_spi_miso = (state == programming_state) ? programming_spi_miso : spixpress_spi_miso;
+// assign external_storage_spi_miso = (state == programming_state) ? programming_spi_miso : spixpress_spi_miso;
+assign programming_spi_miso = external_storage_spi_miso;
 
 // Will be using SRAM as a cache
 // TODO: Needs byte enable
@@ -95,13 +96,12 @@ spixpress storage_spi (
     .o_spi_cs_n(spixpress_spi_cs_n),
     .o_spi_sck(spixpress_spi_sck),
     .o_spi_mosi(spixpress_spi_mosi),
-    .i_spi_miso(spixpress_spi_miso)
+    .i_spi_miso(external_storage_spi_miso)
 );
 
 always_ff @(posedge clk) begin
     if (~rst) begin
         state <= default_state;
-        next_state <= default_state;
     end else begin
         state <= next_state;
     end
@@ -109,7 +109,9 @@ end
 
 // Determine next state
 always_comb begin
-    if (set_programming_mode) begin
+    if (~rst) begin
+        next_state <= default_state;
+    end else if (set_programming_mode) begin
         next_state = programming_state;
     end else begin
         unique case (state) 
@@ -156,7 +158,7 @@ always_comb begin
     out_valid = 1'b0;
 
     // SRAM defaults
-    sram_d_out = 32'b0;
+    // sram_d_out = 32'b0;
     sram_chip_en = 1'b0;
     sram_wr_en = 1'b0;
     sram_addr = 32'b0;
