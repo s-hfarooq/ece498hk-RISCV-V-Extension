@@ -109,7 +109,6 @@ enum logic [2:0] {
 always_ff @(posedge clk) begin
     if (~rst) begin
         state <= default_state;
-        next_state <= default_state;
     end else begin
         state <= next_state;
     end
@@ -124,7 +123,9 @@ end
 
 // Determine next state
 always_comb begin
-    if ((state == memory_state_init || state == memory_state_continue) && ~memory_response) begin
+    if (~rst) begin
+        next_state = default_state;
+    end else if ((state == memory_state_init || state == memory_state_continue) && ~memory_response) begin
         // Stay in memory state if memory hasn't responded yet
         next_state = memory_state_continue;
     end else if (vproc_mem_req_o) begin

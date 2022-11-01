@@ -90,10 +90,31 @@ module timer_tb();
         assert (programming_spi_miso == 1'b1) else $error("programming_spi_miso not same as expected (should be 1)");
     endtask : spi_passthrough
 
-    task read_from_sram();
-    endtask : read_from_sram
+    task write_and_read_to_sram();
+        for(int unsigned i = 0; i < 32'h2000; i++) begin
+            memory_access <= 1'b1;
+            memory_is_writing <= 1'b1;
+            addr <= i[31:0];
+            d_in <= i[31:0];
+            mem_be <= 4'hF;
+            ##1;
 
-    task write_to_sram();
+            memory_access <= 1'b0;
+            memory_is_writing <= 1'b0;
+            addr <= 32'b0;
+            d_in <= 32'b0;
+            mem_be <= 4'b0;
+            ##1;
+
+            memory_access <= 1'b1;
+            addr <= i[31:0];
+            assert (d_out == i[31:0]) else $error("d_out not same as expected (i = %p, d_out = %p)", i, d_out);
+            ##1;
+
+            memory_access <= 1'b0;
+            addr <= 32'b0;
+            ##1;
+        end
     endtask : write_to_sram
 
     task read_from_external();
@@ -112,16 +133,9 @@ module timer_tb();
         ##1;
 
         ##1;
-        $display("Starting read_from_sram tests...");
-        read_from_sram();
-        $display("Finished read_from_sram tests...");
-        reset();
-        ##1;
-
-        ##1;
-        $display("Starting write_to_sram tests...");
-        write_to_sram();
-        $display("Finished write_to_sram tests...");
+        $display("Starting write_and_read_to_sram tests...");
+        write_and_read_to_sram();
+        $display("Finished write_and_read_to_sram tests...");
         reset();
         ##1;
 
