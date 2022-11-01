@@ -67,7 +67,7 @@ sram_sp_hdc_svt_rvt_hvt sram (
 
 spixpress storage_spi (
     .i_clk(clk),
-    .i_reset(rst),
+    .i_reset(~rst),
     //
     .i_wb_cyc(spi_wb_cyc),
     .i_wb_stb(spi_wb_stb),
@@ -179,6 +179,10 @@ always_comb begin
     spi_wb_addr  = 22'b0;
     spi_i_wb_data = 32'b0;
 
+    external_storage_spi_cs_n = spixpress_spi_cs_n;
+    external_storage_spi_sck = spixpress_spi_sck;
+    external_storage_spi_mosi = spixpress_spi_mosi;
+
     unique case (state)
         default_state:
             begin
@@ -195,7 +199,7 @@ always_comb begin
                     d_out = spi_o_wb_data;
                     out_valid = 1'b1;
                 end else begin
-                    spi_wb_cyc = 1'b0; // no idea what this is for
+                    spi_wb_cyc = 1'b1; // no idea what this is for, same as chip enable?
                     spi_wb_stb = 1'b1; // high when accessing memory
                     spi_cfg_stb = 1'b0; // high when accessing register values
                     spi_wb_we = 1'b0; // high when writing, low when reading (should never be writing to memory values)
@@ -206,9 +210,9 @@ always_comb begin
         programming_state:
             begin
                 // Route programming SPI pins directly to external storage if in programming state
-                external_storage_spi_cs_n = (state == programming_state) ? programming_spi_cs_n : spixpress_spi_cs_n;
-                external_storage_spi_sck = (state == programming_state) ? programming_spi_sck : spixpress_spi_sck;
-                external_storage_spi_mosi = (state == programming_state) ? programming_spi_mosi : spixpress_spi_mosi;
+                external_storage_spi_cs_n = programming_spi_cs_n;
+                external_storage_spi_sck = programming_spi_sck;
+                external_storage_spi_mosi = programming_spi_mosi;
                 programming_spi_miso = external_storage_spi_miso;
             end
         default:
