@@ -44,9 +44,9 @@ module timer_tb();
 
         memory_access <= 1'b0;
         memory_is_writing <= 1'b0;
-        [31:0] addr <= 32'b0;
-        [31:0] d_in <= 32'b0;
-        [32/8-1:0] mem_be <= '{default: '0};
+        addr <= 32'b0;
+        d_in <= 32'b0;
+        mem_be <= '{default: '0};
         set_programming_mode <= 1'b0;
         external_storage_spi_miso <= 1'b0;
         programming_spi_miso <= 1'b0;
@@ -57,6 +57,35 @@ module timer_tb();
     endtask : reset
 
     task spi_passthrough();
+        set_programming_mode <= 1'b1;
+
+        rst <= 1'b0;
+        ##1;
+        rst <= 1'b1;
+        ##1;
+
+        // Set all possible methods of programming SPI, ensure output at storage SPI is same as input
+        for(int unsigned i = 0; i <= 3'b111; i++) begin
+            $displayh("Current iteration: %p", i[2:0]);
+            programming_spi_cs_n <= i[0];
+            programming_spi_sck <= i[1];
+            programming_spi_mosi <= i[2];
+
+            // ##1;
+            assert (external_storage_spi_cs_n == i[0]) else $error("external_storage_spi_cs_n not same as expected (i = %p)", i);
+            assert (external_storage_spi_sck == i[1]) else $error("external_storage_spi_sck not same as expected (i = %p)", i);
+            assert (external_storage_spi_mosi == i[2]) else $error("external_storage_spi_mosi not same as expected (i = %p)", i);
+            ##1;
+        end
+
+        // Ensure storage output sets programming input correctly
+        external_storage_spi_miso <= 1'b0;
+        // ##1;
+        assert (programming_spi_miso == 1'b0) else $error("programming_spi_miso not same as expected (should be 0)");
+        ##1;
+        external_storage_spi_miso <= 1'b1;
+        // ##1;
+        assert (programming_spi_miso == 1'b1) else $error("programming_spi_miso not same as expected (should be 1)");
     endtask : spi_passthrough
 
     task read_from_sram();
@@ -71,6 +100,33 @@ module timer_tb();
     
     initial begin : TESTS
         $display("Starting storage controller tests...");
+        reset();
+
+        ##1;
+        $display("Starting spi_passthrough tests...");
+        spi_passthrough();
+        $display("Finished spi_passthrough tests...");
+        reset();
+        ##1;
+
+        ##1;
+        $display("Starting read_from_sram tests...");
+        read_from_sram();
+        $display("Finished read_from_sram tests...");
+        reset();
+        ##1;
+
+        ##1;
+        $display("Starting write_to_sram tests...");
+        write_to_sram();
+        $display("Finished write_to_sram tests...");
+        reset();
+        ##1;
+
+        ##1;
+        $display("Starting read_from_external tests...");
+        read_from_external();
+        $display("Finished read_from_external tests...");
         reset();
         ##1;
 

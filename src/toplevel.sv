@@ -13,10 +13,10 @@ module toplevel #(
     input logic external_storage_spi_miso,
 
     // Programming SPI
-    output logic programming_spi_cs_n,
-    output logic programming_spi_sck,
-    output logic programming_spi_mosi,
-    input logic programming_spi_miso,
+    input logic programming_spi_cs_n,
+    input logic programming_spi_sck,
+    input logic programming_spi_mosi,
+    output logic programming_spi_miso,
 
     // Programming/debug set pins
     input logic set_programming_mode,
