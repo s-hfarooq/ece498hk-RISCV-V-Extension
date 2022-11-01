@@ -35,6 +35,7 @@ logic [10:0] sram_addr;
 logic [31:0] sram_d_in;
 logic [2:0] sram_ema;
 logic sram_retn;
+logic [31:0] d_out_tmp;
 
 // EXTERNAL STORAGE SPI SIGNALS
 logic spi_wb_cyc;
@@ -144,19 +145,31 @@ always_comb begin
     end
 end
 
+// SRAM signals
+always_comb begin
+    if (memory_access && addr < 11'h100) begin
+        sram_chip_en = ~memory_access;
+        sram_wr_en = ~memory_is_writing;
+        sram_addr = addr[10:0];
+        sram_d_in = d_in;
+        sram_ema = 3'b0;
+        sram_retn = 1'b1;
+        d_out_tmp = sram_d_out;
+    end else begin
+        sram_chip_en = 1'b1;
+        sram_wr_en = 1'b1;
+        sram_addr = 11'b0;
+        sram_d_in = 32'b0;
+        sram_ema = 3'b0;
+        sram_retn = 1'b1;
+    end
+end
+
 // Determine signal values
 always_comb begin
     // Module output defaults
     d_out = 32'b0;
     out_valid = 1'b0;
-
-    // SRAM defaults
-    sram_chip_en = 1'b1;
-    sram_wr_en = 1'b1;
-    sram_addr = 11'b0;
-    sram_d_in = 32'b0;
-    sram_ema = 3'b0;
-    sram_retn = 1'b1;
 
     // SPI defaults
     spi_wb_cyc = 1'b0;
@@ -173,15 +186,8 @@ always_comb begin
             end
         waiting_for_sram:
             begin
-                sram_chip_en = 1'b0;
-                sram_addr = addr[10:0];
-                if (memory_is_writing) begin
-                    sram_wr_en = 1'b0;
-                    sram_d_in = d_in; // TODO: need to use byte enable
-                end else begin
-                    d_out = sram_d_out;
-                    out_valid = 1'b1;
-                end
+                d_out = d_out_tmp;
+                out_valid = 1'b1;
             end
         waiting_for_external:
             begin
