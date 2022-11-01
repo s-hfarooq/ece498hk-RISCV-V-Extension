@@ -8,7 +8,7 @@ module storage_controller #(
     input logic memory_is_writing,
     input logic [31:0] addr,
     input logic [31:0] d_in,
-    input logic [MEM_W/8-1:0] mem_be,
+    input logic [MEM_W/8-1:0] mem_be, // TODO: never used, probably should 
     output logic [31:0] d_out,
 
     output logic out_valid,
@@ -152,7 +152,7 @@ always_comb begin
 
     // SRAM defaults
     // sram_d_out = 32'b0;
-    sram_chip_en = 1'b0;
+    sram_chip_en = 1'b1;
     sram_wr_en = 1'b0;
     sram_addr = 32'b0;
     sram_d_in = 32'b0;
@@ -174,13 +174,13 @@ always_comb begin
             end
         waiting_for_sram:
             begin
-                sram_chip_en = 1'b1;
+                sram_chip_en = 1'b0;
                 sram_wr_en = memory_is_writing;
                 d_out = sram_d_out;
                 sram_addr = addr;
                 sram_d_in = d_in; // TODO: need to use byte enable
                 // sram_ema = // TODO: what should this be?
-                sram_retn = 1'b0; // TODO: is this correct?
+                // sram_retn = 1'b0; // TODO: is this correct?
 
                 if (~memory_is_writing) begin
                     out_valid = 1'b1; // Assume SRAM is ready immediatly - is this correct? 

@@ -1,5 +1,5 @@
 
-module timer_tb();
+module storage_controller_tb();
     timeunit 10ns;
     timeprecision 1ns; // TODO: are these correct?
 
@@ -108,14 +108,15 @@ module timer_tb();
 
             memory_access <= 1'b1;
             addr <= i[31:0];
-            assert (d_out == i[31:0]) else $error("d_out not same as expected (i = %p, d_out = %p)", i, d_out);
+            ##1;
+            assert (i[31:0] == d_out) else $error("d_out not same as expected (i = %p, d_out = %p)", i, d_out);
             ##1;
 
             memory_access <= 1'b0;
             addr <= 32'b0;
             ##1;
         end
-    endtask : write_to_sram
+    endtask : write_and_read_to_sram
 
     task read_from_external();
     endtask : read_from_external
