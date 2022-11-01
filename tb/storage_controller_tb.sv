@@ -73,7 +73,7 @@ module timer_tb();
             programming_spi_sck <= i[1];
             programming_spi_mosi <= i[2];
 
-            // ##1;
+            ##1; // should this delay exist?
             assert (external_storage_spi_cs_n == i[0]) else $error("external_storage_spi_cs_n not same as expected (i = %p)", i);
             assert (external_storage_spi_sck == i[1]) else $error("external_storage_spi_sck not same as expected (i = %p)", i);
             assert (external_storage_spi_mosi == i[2]) else $error("external_storage_spi_mosi not same as expected (i = %p)", i);

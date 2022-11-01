@@ -51,19 +51,6 @@ logic spixpress_spi_cs_n;
 logic spixpress_spi_sck;
 logic spixpress_spi_mosi;
 
-enum logic [1:0] {
-    default_state,
-    waiting_for_sram,
-    waiting_for_external,
-    programming_state
-} state, next_state;
-
-// Route programming SPI pins directly to external storage if in programming state
-assign external_storage_spi_cs_n = (state == programming_state) ? programming_spi_cs_n : spixpress_spi_cs_n;
-assign external_storage_spi_sck = (state == programming_state) ? programming_spi_sck : spixpress_spi_sck;
-assign external_storage_spi_mosi = (state == programming_state) ? programming_spi_mosi : spixpress_spi_mosi;
-assign programming_spi_miso = external_storage_spi_miso;
-
 // Will be using SRAM as a cache
 // TODO: Needs byte enable
 sram_sp_hdc_svt_rvt_hvt sram (
@@ -96,6 +83,14 @@ spixpress storage_spi (
     .o_spi_mosi(spixpress_spi_mosi),
     .i_spi_miso(external_storage_spi_miso)
 );
+
+
+enum logic [1:0] {
+    default_state,
+    waiting_for_sram,
+    waiting_for_external,
+    programming_state
+} state, next_state;
 
 always_ff @(posedge clk) begin
     if (~rst) begin
@@ -207,7 +202,11 @@ always_comb begin
             end
         programming_state:
             begin
-                // Nothing should happen in programming state?
+                // Route programming SPI pins directly to external storage if in programming state
+                external_storage_spi_cs_n = (state == programming_state) ? programming_spi_cs_n : spixpress_spi_cs_n;
+                external_storage_spi_sck = (state == programming_state) ? programming_spi_sck : spixpress_spi_sck;
+                external_storage_spi_mosi = (state == programming_state) ? programming_spi_mosi : spixpress_spi_mosi;
+                programming_spi_miso = external_storage_spi_miso;
             end
         default:
             begin
