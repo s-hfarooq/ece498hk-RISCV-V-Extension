@@ -174,17 +174,13 @@ always_comb begin
         waiting_for_sram:
             begin
                 sram_chip_en = 1'b0;
+                sram_addr = addr[10:0];
                 if (memory_is_writing) begin
                     sram_wr_en = 1'b0;
-                end
-                d_out = sram_d_out;
-                sram_addr = addr[10:0];
-                sram_d_in = d_in; // TODO: need to use byte enable
-                // sram_ema = // TODO: what should this be?
-                // sram_retn = 1'b0; // TODO: is this correct?
-
-                if (~memory_is_writing) begin
-                    out_valid = 1'b1; // Assume SRAM is ready immediatly - is this correct? 
+                    sram_d_in = d_in; // TODO: need to use byte enable
+                end else begin
+                    d_out = sram_d_out;
+                    out_valid = 1'b1;
                 end
             end
         waiting_for_external:
