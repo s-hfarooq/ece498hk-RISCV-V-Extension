@@ -31,7 +31,7 @@ module storage_controller #(
 logic [31:0] sram_d_out;
 logic sram_chip_en;
 logic sram_wr_en;
-logic [31:0] sram_addr;
+logic [10:0] sram_addr;
 logic [31:0] sram_d_in;
 logic [2:0] sram_ema;
 logic sram_retn;
@@ -154,7 +154,7 @@ always_comb begin
     // sram_d_out = 32'b0;
     sram_chip_en = 1'b1;
     sram_wr_en = 1'b1;
-    sram_addr = 32'b0;
+    sram_addr = 11'b0;
     sram_d_in = 32'b0;
     sram_ema = 3'b0;
     sram_retn = 1'b1;
@@ -177,7 +177,7 @@ always_comb begin
                 sram_chip_en = 1'b0;
                 sram_wr_en = ~memory_is_writing;
                 d_out = sram_d_out;
-                sram_addr = addr;
+                sram_addr = addr[10:0];
                 sram_d_in = d_in; // TODO: need to use byte enable
                 // sram_ema = // TODO: what should this be?
                 // sram_retn = 1'b0; // TODO: is this correct?

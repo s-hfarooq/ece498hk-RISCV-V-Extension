@@ -108,7 +108,6 @@ module storage_controller_tb();
 
             memory_access <= 1'b1;
             addr <= i[31:0];
-            ##1;
             assert (i[31:0] == d_out) else $error("d_out not same as expected (i = %p, d_out = %p)", i, d_out);
             ##1;
 
