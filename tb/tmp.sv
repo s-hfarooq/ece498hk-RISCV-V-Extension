@@ -41,8 +41,8 @@ module tmp_tb();
 
         sram_chip_en <= 1'b0;
         sram_wr_en <= 1'b0; // in
-        sram_addr <= 1'h00F; // in
-        sram_d_in <= 32'h0000_000F; // in
+        sram_addr <= 11'h00F; // in
+        sram_d_in <= 32'h0000_000E; // in
         sram_ema <= 3'b0; // in
         sram_retn <= 1'b1; // in
         ##1;
@@ -56,11 +56,11 @@ module tmp_tb();
         ##1;
 
         sram_chip_en <= 1'b0;
-        sram_wr_en <= 1'b0; // in
-        sram_d_in <= 11'h00F; // in
+        sram_wr_en <= 1'b1; // in
+        sram_addr <= 11'h00F; // in
         sram_ema <= 3'b0; // in
         sram_retn <= 1'b1; // in
-        assert (sram_d_out == 32'h0000_000F) else $error("NOT CORRECT OUTPUT");
+        assert (sram_d_out == 32'h0000_000E) else $error("NOT CORRECT OUTPUT (%p)", sram_d_out);
     endtask : test_sram
     
     initial begin : TESTS

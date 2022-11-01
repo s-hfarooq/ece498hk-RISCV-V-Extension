@@ -91,7 +91,8 @@ module storage_controller_tb();
     endtask : spi_passthrough
 
     task write_and_read_to_sram();
-        for(int unsigned i = 0; i < 32'h2000; i++) begin
+        for(int unsigned i = 0; i < 32'h1000; i++) begin
+            ##1;
             memory_access <= 1'b1;
             memory_is_writing <= 1'b1;
             addr <= i[31:0];
