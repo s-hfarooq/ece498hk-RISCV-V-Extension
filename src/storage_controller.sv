@@ -112,7 +112,7 @@ always_comb begin
             default_state:
                 begin
                     if (memory_access) begin
-                        if (addr < 32'h0000_2000) begin
+                        if (addr < 32'h0000_0FFF) begin
                             next_state = waiting_for_sram;
                         end else begin
                             next_state = waiting_for_external;
@@ -147,7 +147,7 @@ end
 
 // SRAM signals
 always_comb begin
-    if (memory_access && addr < 11'h100) begin
+    if (memory_access && addr < 32'h0000_0FFF) begin
         sram_chip_en = ~memory_access;
         sram_wr_en = ~memory_is_writing;
         sram_addr = addr[10:0];
