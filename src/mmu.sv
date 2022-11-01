@@ -20,7 +20,7 @@ module mmu #(
     output logic [MEM_W  -1:0] vproc_mem_rdata_i,
 
     // To/from GPIO
-    inout  wire [9:0] gpio_pins,
+    inout wire [9:0] gpio_pins,
 
     // Flash storage SPI
     output logic external_storage_spi_cs_n,
@@ -123,11 +123,12 @@ always_ff @(posedge clk) begin
 end
 
 // Assign GPIO pins
-always_comb begin
-    for(int i = 0; i < 10; i++) begin
-        gpio_pins[i] = gpio_direction[i] ? 'z : gpio_curr_value[i];
+genvar gpio_incr;
+generate
+    for(gpio_incr = 0; i gpio_incr < 10; gpio_incr++) begin
+        assign gpio_pins[gpio_incr] = gpio_direction[gpio_incr] ? 'z : gpio_curr_value[gpio_incr];
     end
-end
+endgenerate
 
 // Determine next state
 always_comb begin
