@@ -13,7 +13,9 @@ module timer_tb();
     logic [32/8-1:0] mem_be;
     logic set_programming_mode;
     logic external_storage_spi_miso;
-    logic programming_spi_miso;
+    logic programming_spi_cs_n;
+    logic programming_spi_sck;
+    logic programming_spi_mosi;
 
     // Outputs
     logic [31:0] d_out;
@@ -21,9 +23,7 @@ module timer_tb();
     logic external_storage_spi_cs_n;
     logic external_storage_spi_sck;
     logic external_storage_spi_mosi;
-    logic programming_spi_cs_n;
-    logic programming_spi_sck;
-    logic programming_spi_mosi;
+    logic programming_spi_miso;
 
     storage_controller dut(.*);
 
@@ -49,7 +49,9 @@ module timer_tb();
         mem_be <= '{default: '0};
         set_programming_mode <= 1'b0;
         external_storage_spi_miso <= 1'b0;
-        programming_spi_miso <= 1'b0;
+        programming_spi_cs_n <= 1'b0;
+        programming_spi_sck <= 1'b0;
+        programming_spi_mosi <= 1'b0;
 
         ##1;
         rst <= 1'b1;
