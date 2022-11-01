@@ -153,11 +153,11 @@ always_comb begin
     // SRAM defaults
     // sram_d_out = 32'b0;
     sram_chip_en = 1'b1;
-    sram_wr_en = 1'b0;
+    sram_wr_en = 1'b1;
     sram_addr = 32'b0;
     sram_d_in = 32'b0;
     sram_ema = 3'b0;
-    sram_retn = 1'b0;
+    sram_retn = 1'b1;
 
     // SPI defaults
     spi_wb_cyc = 1'b0;
@@ -175,7 +175,7 @@ always_comb begin
         waiting_for_sram:
             begin
                 sram_chip_en = 1'b0;
-                sram_wr_en = memory_is_writing;
+                sram_wr_en = ~memory_is_writing;
                 d_out = sram_d_out;
                 sram_addr = addr;
                 sram_d_in = d_in; // TODO: need to use byte enable
