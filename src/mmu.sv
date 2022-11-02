@@ -6,8 +6,8 @@ module mmu #(
     input  logic rst,
 
     // Set mode inputs
-    input  logic set_programming_mode, // TODO: use these
-    input  logic set_debug_mode,
+    input  logic set_programming_mode,
+    input  logic set_debug_mode, // Never used
 
     // To/from Vicuna/Ibex
     input  logic               vproc_mem_req_o,

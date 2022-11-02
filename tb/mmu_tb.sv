@@ -180,7 +180,68 @@ module mmu_tb();
     endtask : timer_test
 
     task sram_test();
+        for(int unsigned i = 0; i <= 11'h7FF; i++) begin
+            ##1;
+            vproc_mem_req_o <= 1'b1;
+            vproc_mem_we_o <= 1'b1;
+            vproc_mem_addr_o <= i[31:0];
+            vproc_mem_wdata_o <= i[31:0];
+            vproc_mem_be_o <= 4'hF;
+            ##1;
+
+            vproc_mem_req_o <= 1'b0;
+            vproc_mem_we_o <= 1'b0;
+            vproc_mem_addr_o <= 32'b0;
+            vproc_mem_wdata_o <= 32'b0;
+            vproc_mem_be_o <= 4'b0;
+            ##1;
+
+            vproc_mem_req_o <= 1'b1;
+            vproc_mem_addr_o <= i[31:0];
+            while(vproc_mem_rvalid_i == 1'b0) begin
+                ##1;
+            end
+            assert (vproc_mem_err_i == 1'b0) else $error("vproc_mem_err_i is high (i = %p)", i);
+            assert (i[31:0] == vproc_mem_rdata_i) else $error("d_out not same as expected (i = %p, d_out = %p)", i, vproc_mem_rdata_i);
+            ##1;
+
+            vproc_mem_req_o <= 1'b0;
+            vproc_mem_addr_o <= 32'b0;
+            ##1;
+        end
     endtask : sram_test
+
+    task spi_passthrough();
+        set_programming_mode <= 1'b1;
+
+        rst <= 1'b0;
+        ##1;
+        rst <= 1'b1;
+        ##1;
+
+        // Set all possible methods of programming SPI, ensure output at storage SPI is same as input
+        for(int unsigned i = 0; i <= 3'b111; i++) begin
+            $displayh("Current iteration: %p", i[2:0]);
+            programming_spi_cs_n <= i[0];
+            programming_spi_sck <= i[1];
+            programming_spi_mosi <= i[2];
+
+            ##1; // should this delay exist?
+            assert (external_storage_spi_cs_n == i[0]) else $error("external_storage_spi_cs_n not same as expected (i = %p)", i);
+            assert (external_storage_spi_sck == i[1]) else $error("external_storage_spi_sck not same as expected (i = %p)", i);
+            assert (external_storage_spi_mosi == i[2]) else $error("external_storage_spi_mosi not same as expected (i = %p)", i);
+            ##1;
+        end
+
+        // Ensure storage output sets programming input correctly
+        external_storage_spi_miso <= 1'b0;
+        ##1;
+        assert (programming_spi_miso == 1'b0) else $error("programming_spi_miso not same as expected (should be 0)");
+        ##1;
+        external_storage_spi_miso <= 1'b1;
+        ##1;
+        assert (programming_spi_miso == 1'b1) else $error("programming_spi_miso not same as expected (should be 1)");
+    endtask : spi_passthrough
 
     task external_storage_test();
     endtask : external_storage_test
@@ -192,12 +253,12 @@ module mmu_tb();
         $display("Starting mmu tests...");
         reset();
 
-        ##1;
-        $display("Starting gpio_test tests...");
-        gpio_test();
-        $display("Finished gpio_test tests...");
-        reset();
-        ##1;
+        // ##1;
+        // $display("Starting gpio_test tests...");
+        // gpio_test();
+        // $display("Finished gpio_test tests...");
+        // reset();
+        // ##1;
 
         // ##1;
         // $display("Starting timer_test tests...");
@@ -206,10 +267,17 @@ module mmu_tb();
         // reset();
         // ##1;
 
+        ##1;
+        $display("Starting sram_test tests...");
+        sram_test();
+        $display("Finished sram_test tests...");
+        reset();
+        ##1;
+
         // ##1;
-        // $display("Starting sram_test tests...");
-        // sram_test();
-        // $display("Finished sram_test tests...");
+        // $display("Starting spi_passthrough tests...");
+        // spi_passthrough();
+        // $display("Finished spi_passthrough tests...");
         // reset();
         // ##1;
 
