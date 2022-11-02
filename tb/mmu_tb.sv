@@ -180,7 +180,7 @@ module mmu_tb();
     endtask : timer_test
 
     task sram_test();
-        for(int unsigned i = 0; i <= 11'h7FF; i++) begin
+        for(int unsigned i = 32'h0000_1000; i <= 32'h0000_17FF; i++) begin
             ##1;
             vproc_mem_req_o <= 1'b1;
             vproc_mem_we_o <= 1'b1;
@@ -247,6 +247,37 @@ module mmu_tb();
     endtask : external_storage_test
 
     task reserved_addr_test();
+        for(int unsigned i = 32'h0000_0000; i <= 32'h0000_0100; i++) begin
+            vproc_mem_req_o <= 1'b1;
+            vproc_mem_addr_o <= i[31:0];
+            vproc_mem_wdata_o <= i[31:0];
+            vproc_mem_we_o <= 1'b1;
+            vproc_mem_be_o <= 4'hF;
+
+            ##1;
+            assert (vproc_mem_err_i == 1'b1) else $error("reserved addr write did not return error");
+
+            ##1; 
+            vproc_mem_req_o <= 1'b0;
+            vproc_mem_we_o <= 1'b0;
+            ##1;
+        end
+
+        for(int unsigned i = 32'h0000_0116; i <= 32'h0000_0FFF; i++) begin
+            vproc_mem_req_o <= 1'b1;
+            vproc_mem_addr_o <= i[31:0];
+            vproc_mem_wdata_o <= i[31:0];
+            vproc_mem_we_o <= 1'b1;
+            vproc_mem_be_o <= 4'hF;
+
+            ##1;
+            assert (vproc_mem_err_i == 1'b1) else $error("reserved addr write did not return error");
+
+            ##1; 
+            vproc_mem_req_o <= 1'b0;
+            vproc_mem_we_o <= 1'b0;
+            ##1;
+        end
     endtask : reserved_addr_test
 
     initial begin : TESTS

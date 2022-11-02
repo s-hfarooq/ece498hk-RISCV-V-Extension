@@ -110,6 +110,7 @@ enum logic [2:0] {
     memory_state_continue,
     timer_state,
     gpio_state,
+    error_state,
     programming_state,
     debug_state
 } state, next_state;
@@ -134,13 +135,15 @@ endgenerate
 always_comb begin
     if (~rst) begin
         next_state = default_state;
+    end else if (state == error_state) begin
+        next_state = default_state;
     end else if ((state == memory_state_init || state == memory_state_continue) && ~storage_out_valid) begin
         // Stay in memory state if memory hasn't responded yet
         next_state = memory_state_continue;
     end else if (vproc_mem_req_o) begin
         if (vproc_mem_addr_o >= 32'h0000_0000 && vproc_mem_addr_o <=  32'h0000_0100) begin
             // Reserved
-            next_state = default_state;
+            next_state = error_state;
         end else if (vproc_mem_addr_o >= 32'h0000_0101 && vproc_mem_addr_o <= 32'h0000_0114) begin
             // GPIO
             next_state = gpio_state;
@@ -149,7 +152,7 @@ always_comb begin
             next_state = timer_state;
         end else if (vproc_mem_addr_o >= 32'h0000_0116 && vproc_mem_addr_o <= 32'h0000_0FFF) begin
             // Reserved
-            next_state = default_state;
+            next_state = error_state;
         end else begin
             // SRAM/external storage
             if (vproc_mem_err_i) begin
@@ -300,6 +303,10 @@ always_comb begin
                             end
                         end
                     end
+                end
+            error_state:
+                begin
+                    vproc_mem_err_i = 1'b1;
                 end
             default:
                 begin
