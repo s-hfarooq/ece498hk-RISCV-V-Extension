@@ -194,6 +194,18 @@ module mmu_tb();
             vproc_mem_addr_o <= 32'b0;
             vproc_mem_wdata_o <= 32'b0;
             vproc_mem_be_o <= 4'b0;
+            $displayh("i = %p",i[31:0]);
+            $displayh("dut.storage_controller.sram_chip_en = %p", dut.storage_controller.sram_chip_en);
+            $displayh("dut.storage_controller.sram_wr_en = %p", dut.storage_controller.sram_wr_en);
+            $displayh("dut.storage_controller.sram_addr = %p", dut.storage_controller.sram_addr);
+            $displayh("dut.storage_controller.sram_d_in = %p", dut.storage_controller.sram_d_in);
+            $displayh("dut.storage_controller.d_out_tmp = %p", dut.storage_controller.d_out_tmp);
+            $displayh("dut.storage_controller.sram_d_out = %p", dut.storage_controller.sram_d_out);
+            $displayh("dut.curr_addr = %p", dut.curr_addr);
+            $displayh("dut.curr_d_in = %p", dut.curr_d_in);
+            $displayh("dut.curr_mem_be = %p", dut.curr_mem_be);
+            $displayh("dut.curr_mem_we = %p", dut.curr_mem_we);
+            $displayh("dut.started_mem_access = %p", dut.started_mem_access);
             ##1;
 
             vproc_mem_req_o <= 1'b1;
@@ -243,6 +255,7 @@ module mmu_tb();
         assert (programming_spi_miso == 1'b1) else $error("programming_spi_miso not same as expected (should be 1)");
     endtask : spi_passthrough
 
+    // TODO
     task external_storage_test();
     endtask : external_storage_test
 

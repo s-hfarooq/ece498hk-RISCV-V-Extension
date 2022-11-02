@@ -51,7 +51,6 @@ module mmu #(
 logic memory_access;
 logic [31:0] storage_controller_d_out;
 logic storage_out_valid;
-logic memory_is_writing;
 
 // Save data in since mem access can take >1 clock cycle and the input values are only valid for 1
 // TODO: make sure vicuna stalls until mem_rvalid_i goes high for data read/write
@@ -59,7 +58,6 @@ logic [31:0] curr_addr;
 logic [MEM_W  -1:0] curr_d_in;
 logic [MEM_W/8-1:0] curr_mem_be;
 logic curr_mem_we;
-logic started_mem_access;
 
 // GPIO pin logic
 logic [9:0] gpio_direction; // 0 = output, 1 = input
@@ -74,7 +72,7 @@ storage_controller #(.MEM_W(MEM_W)) storage_controller (
     .clk(clk),
     .rst(rst),
     .memory_access(memory_access), // If high, we're doing something with memory
-    .memory_is_writing(memory_is_writing),
+    .memory_is_writing(curr_mem_we),
     .addr(curr_addr),
     .d_in(curr_d_in),
     .mem_be(curr_mem_be),
@@ -106,16 +104,16 @@ digitalTimer digitalTimer (
 
 enum logic [2:0] {
     default_state,
-    memory_state_init,
-    memory_state_continue,
+    external_init,
+    external_continue,
+    sram_state,
     timer_state,
     gpio_state,
     error_state,
-    programming_state,
-    debug_state
+    programming_state
 } state, next_state;
 
-always_ff @(posedge clk) begin
+always_ff @(negedge clk) begin
     if (~rst) begin
         state <= default_state;
     end else begin
@@ -137,9 +135,11 @@ always_comb begin
         next_state = default_state;
     end else if (state == error_state) begin
         next_state = default_state;
-    end else if ((state == memory_state_init || state == memory_state_continue) && ~storage_out_valid) begin
+    end else if (state == sram_state) begin
+        next_state = default_state;
+    end else if ((state == external_init || state == external_continue) && ~storage_out_valid) begin
         // Stay in memory state if memory hasn't responded yet
-        next_state = memory_state_continue;
+        next_state = external_continue;
     end else if (vproc_mem_req_o) begin
         if (vproc_mem_addr_o >= 32'h0000_0000 && vproc_mem_addr_o <=  32'h0000_0100) begin
             // Reserved
@@ -153,21 +153,21 @@ always_comb begin
         end else if (vproc_mem_addr_o >= 32'h0000_0116 && vproc_mem_addr_o <= 32'h0000_0FFF) begin
             // Reserved
             next_state = error_state;
+        end else if (vproc_mem_addr_o >= 32'h0000_1000 && vproc_mem_addr_o <= 32'h0000_1FFF) begin
+            // SRAM
+            next_state = sram_state;
         end else begin
-            // SRAM/external storage
+            // External storage
             if (vproc_mem_err_i) begin
                 // If we get a error, go to default state
                 next_state = default_state;
+            end else if (storage_out_valid) begin
+                next_state = default_state;
             end else begin
-                // Go to default state once storage returns valid value
-                if (storage_out_valid) begin
-                    next_state = default_state;
+                if (state == external_init || state == external_continue) begin
+                    next_state = external_continue;
                 end else begin
-                    if (started_mem_access) begin
-                        next_state = memory_state_continue;
-                    end else begin
-                        next_state = memory_state_init;
-                    end
+                    next_state = external_init;
                 end
             end
         end
@@ -183,7 +183,6 @@ always_comb begin
         curr_d_in = '{default: '0};
         curr_mem_be = '{default: '0};
         curr_mem_we = 1'b0;
-        started_mem_access = 1'b0;
         gpio_direction = 10'b0;
         gpio_curr_value = 10'b0;
     end else begin
@@ -196,65 +195,59 @@ always_comb begin
         // To/from digital timer
         timer_set_val = 32'b0;
         set_timer = 1'b0;
-
-        memory_access = 1'b0;
-        memory_is_writing = 1'b0;
         
         unique case (state)
             default_state:
                 begin
-                    // Nothing should happen in default state?
+                    curr_addr = 32'b0;
+                    curr_d_in = '{default: '0};
+                    curr_mem_be = '{default: '0};
+                    curr_mem_we = 1'b0;
+                    memory_access = 1'b0;
                 end
-            memory_state_init:
+            external_init:
                 begin
                     // Initial memory access cycle - set values so that we save them since input becomes invalidated
                     if (vproc_mem_req_o) begin
                         if (vproc_mem_we_o && (vproc_mem_addr_o >= 32'h0000_2000 || vproc_mem_addr_o <= 32'h0000_0FFF)) begin
                             // Can't write to external memory
                             vproc_mem_err_i = 1'b1;
+                            memory_access = 1'b0;
                         end else begin
-                            curr_addr = vproc_mem_addr_o;
+                            curr_addr = vproc_mem_addr_o - 32'h0000_1000;
                             curr_d_in = vproc_mem_wdata_o;
                             curr_mem_be = vproc_mem_be_o;
                             curr_mem_we = vproc_mem_we_o;
-                            started_mem_access = 1'b1;
-
                             memory_access = 1'b1;
-
-                            if (vproc_mem_we_o) begin
-                                memory_is_writing = 1'b1;
-                            end
-
-                            if (storage_out_valid) begin
-                                vproc_mem_rdata_i = storage_controller_d_out;
-                                vproc_mem_rvalid_i = 1'b1;
-                                started_mem_access = 1'b0;
-
-                                curr_addr = 32'b0;
-                                curr_d_in = '{default: '0};
-                                curr_mem_be = '{default: '0};
-                                curr_mem_we = 1'b0;
-                            end
                         end
                     end
                 end
-            memory_state_continue:
+            external_continue:
                 begin
                     // Continue giving storage controller same input until it returns that it's done
                     if (~storage_out_valid) begin
                         memory_access = 1'b1;
-                        if (curr_mem_we) begin
-                            memory_is_writing = 1'b1;
-                        end
+                        memory_access = 1'b0;
                     end else begin
                         vproc_mem_rdata_i = storage_controller_d_out;
                         vproc_mem_rvalid_i = 1'b1;
-                        started_mem_access = 1'b0;
                         
                         curr_addr = 32'b0;
                         curr_d_in = '{default: '0};
                         curr_mem_be = '{default: '0};
                         curr_mem_we = 1'b0;
+                    end
+                end
+            sram_state:
+                begin
+                    if (vproc_mem_addr_o >= 32'h0000_1000) begin
+                        curr_addr = vproc_mem_addr_o - 32'h0000_1000;
+                        curr_d_in = vproc_mem_wdata_o;
+                        curr_mem_be = vproc_mem_be_o;
+                        curr_mem_we = vproc_mem_we_o;
+                        memory_access = 1'b1;
+                        vproc_mem_rdata_i = storage_controller_d_out;
+                        vproc_mem_rvalid_i = 1'b1;
                     end
                 end
             timer_state:

@@ -104,7 +104,7 @@ end
 // Determine next state
 always_comb begin
     if (~rst) begin
-        next_state <= default_state;
+        next_state = default_state;
     end else if (set_programming_mode) begin
         next_state = programming_state;
     end else begin
