@@ -14,19 +14,19 @@
 //
 //      Verilog model for Synchronous Single-Port Ram
 //
-//      Instance Name:              sram_sp_hdc_svt_rvt_hvt
+//      Instance Name:              sram_2048_32_wmask_8bit
 //      Words:                      2048
 //      Bits:                       32
 //      Mux:                        16
 //      Drive:                      6
-//      Write Mask:                 Off
+//      Write Mask:                 On
 //      Extra Margin Adjustment:    On
 //      Accelerated Retention Test: Off
 //      Redundant Rows:             0
 //      Redundant Columns:          0
 //      Test Muxes                  Off
 //
-//      Creation Date:  Mon Oct 24 17:39:41 2022
+//      Creation Date:  Wed Nov  2 20:53:15 2022
 //      Version: 	r0p0-00eac0
 //
 //      Modeling Assumptions: This model supports full gate level simulation
@@ -62,12 +62,10 @@
 
 `celldefine
 `ifdef POWER_PINS
-// Q = data out, CLK = clock, CEN = chip enable, WEN = write enable, A = address, D = data in, 
-// EMA = extra margin adjustment, RETN = retension mode enable, VSSE = ground pin, 
-// VDDPE = periphery power pin, VDDCE = core array power pin
-module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN, VSSE, VDDPE, VDDCE);
+module sram_2048_32_wmask_8bit (Q, CLK, CEN, WEN, A, D, EMA, GWEN, RETN, VSSE, VDDPE,
+    VDDCE);
 `else
-module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
+module sram_2048_32_wmask_8bit (Q, CLK, CEN, WEN, A, D, EMA, GWEN, RETN);
 `endif
 
   parameter BITS = 32;
@@ -75,16 +73,17 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
   parameter MUX = 16;
   parameter MEM_WIDTH = 512; // redun block size 8, 256 on left, 256 on right
   parameter MEM_HEIGHT = 128;
-  parameter WP_SIZE = 32 ;
+  parameter WP_SIZE = 8 ;
   parameter UPM_WIDTH = 3;
 
   output [31:0] Q;
   input  CLK;
   input  CEN;
-  input  WEN;
+  input [3:0] WEN;
   input [10:0] A;
   input [31:0] D;
   input [2:0] EMA;
+  input  GWEN;
   input  RETN;
 `ifdef POWER_PINS
   inout VSSE;
@@ -110,14 +109,16 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
  wire  CLK_;
   wire  CEN_;
   reg  CEN_int;
-  wire  WEN_;
-  reg  WEN_int;
+  wire [3:0] WEN_;
+  reg [3:0] WEN_int;
   wire [10:0] A_;
   reg [10:0] A_int;
   wire [31:0] D_;
   reg [31:0] D_int;
   wire [2:0] EMA_;
   reg [2:0] EMA_int;
+  wire  GWEN_;
+  reg  GWEN_int;
   wire  RETN_;
   reg  RETN_int;
 
@@ -155,7 +156,10 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
   assign Q[31] = Q_[31]; 
   assign CLK_ = CLK;
   assign CEN_ = CEN;
-  assign WEN_ = WEN;
+  assign WEN_[0] = WEN[0];
+  assign WEN_[1] = WEN[1];
+  assign WEN_[2] = WEN[2];
+  assign WEN_[3] = WEN[3];
   assign A_[0] = A[0];
   assign A_[1] = A[1];
   assign A_[2] = A[2];
@@ -202,6 +206,7 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
   assign EMA_[0] = EMA[0];
   assign EMA_[1] = EMA[1];
   assign EMA_[2] = EMA[2];
+  assign GWEN_ = GWEN;
   assign RETN_ = RETN;
 
   assign `ARM_UD_SEQ Q_ = RETN_ ? (Q_int) : {32{1'b0}};
@@ -244,10 +249,14 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
       failedWrite(0);
       Q_int = {32{1'bx}};
     end else if ((A_int >= WORDS) && (CEN_int === 1'b0)) begin
-      writeEnable = ~{32{WEN_int}};
+      writeEnable = ~( {32{GWEN_int}} | {WEN_int[3], WEN_int[3], WEN_int[3], WEN_int[3],
+         WEN_int[3], WEN_int[3], WEN_int[3], WEN_int[3], WEN_int[2], WEN_int[2], WEN_int[2],
+         WEN_int[2], WEN_int[2], WEN_int[2], WEN_int[2], WEN_int[2], WEN_int[1], WEN_int[1],
+         WEN_int[1], WEN_int[1], WEN_int[1], WEN_int[1], WEN_int[1], WEN_int[1], WEN_int[0],
+         WEN_int[0], WEN_int[0], WEN_int[0], WEN_int[0], WEN_int[0], WEN_int[0], WEN_int[0]});
       Q_int = ((writeEnable & D_int) | (~writeEnable & {32{1'bx}}));
     end else if (CEN_int === 1'b0 && (^A_int) === 1'bx) begin
-      if (WEN_int !== 1'b1) failedWrite(0);
+      if (GWEN_int !== 1'b1 && (& WEN_int) !== 1'b1) failedWrite(0);
       Q_int = {32{1'bx}};
     end else if (CEN_int === 1'b0) begin
       mux_address = (A_int & 4'b1111);
@@ -256,7 +265,14 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
         row = {512{1'bx}};
       else
         row = mem[row_address];
-      writeEnable = ~{32{WEN_int}};
+      if( isBitX(GWEN_int) )
+        writeEnable = {32{1'bx}};
+      else
+        writeEnable = ~( {32{GWEN_int}} | {WEN_int[3], WEN_int[3], WEN_int[3], WEN_int[3],
+         WEN_int[3], WEN_int[3], WEN_int[3], WEN_int[3], WEN_int[2], WEN_int[2], WEN_int[2],
+         WEN_int[2], WEN_int[2], WEN_int[2], WEN_int[2], WEN_int[2], WEN_int[1], WEN_int[1],
+         WEN_int[1], WEN_int[1], WEN_int[1], WEN_int[1], WEN_int[1], WEN_int[1], WEN_int[0],
+         WEN_int[0], WEN_int[0], WEN_int[0], WEN_int[0], WEN_int[0], WEN_int[0], WEN_int[0]});
       row_mask =  ( {15'b000000000000000, writeEnable[31], 15'b000000000000000, writeEnable[30],
           15'b000000000000000, writeEnable[29], 15'b000000000000000, writeEnable[28],
           15'b000000000000000, writeEnable[27], 15'b000000000000000, writeEnable[26],
@@ -287,13 +303,31 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
       row = (row & ~row_mask) | (row_mask & (~row_mask | new_data));
       mem[row_address] = row;
       data_out = (row >> mux_address);
-      Q_int = {data_out[496], data_out[480], data_out[464], data_out[448], data_out[432],
-        data_out[416], data_out[400], data_out[384], data_out[368], data_out[352],
-        data_out[336], data_out[320], data_out[304], data_out[288], data_out[272],
-        data_out[256], data_out[240], data_out[224], data_out[208], data_out[192],
-        data_out[176], data_out[160], data_out[144], data_out[128], data_out[112],
-        data_out[96], data_out[80], data_out[64], data_out[48], data_out[32], data_out[16],
-        data_out[0]};
+      if (GWEN_int !== 1'b0)
+        Q_int = {data_out[496], data_out[480], data_out[464], data_out[448], data_out[432],
+          data_out[416], data_out[400], data_out[384], data_out[368], data_out[352],
+          data_out[336], data_out[320], data_out[304], data_out[288], data_out[272],
+          data_out[256], data_out[240], data_out[224], data_out[208], data_out[192],
+          data_out[176], data_out[160], data_out[144], data_out[128], data_out[112],
+          data_out[96], data_out[80], data_out[64], data_out[48], data_out[32], data_out[16],
+          data_out[0]};
+      else
+        Q_int = {(writeEnable[31]?data_out[496]:Q_int[31]), (writeEnable[30]?data_out[480]:Q_int[30]),
+          (writeEnable[29]?data_out[464]:Q_int[29]), (writeEnable[28]?data_out[448]:Q_int[28]),
+          (writeEnable[27]?data_out[432]:Q_int[27]), (writeEnable[26]?data_out[416]:Q_int[26]),
+          (writeEnable[25]?data_out[400]:Q_int[25]), (writeEnable[24]?data_out[384]:Q_int[24]),
+          (writeEnable[23]?data_out[368]:Q_int[23]), (writeEnable[22]?data_out[352]:Q_int[22]),
+          (writeEnable[21]?data_out[336]:Q_int[21]), (writeEnable[20]?data_out[320]:Q_int[20]),
+          (writeEnable[19]?data_out[304]:Q_int[19]), (writeEnable[18]?data_out[288]:Q_int[18]),
+          (writeEnable[17]?data_out[272]:Q_int[17]), (writeEnable[16]?data_out[256]:Q_int[16]),
+          (writeEnable[15]?data_out[240]:Q_int[15]), (writeEnable[14]?data_out[224]:Q_int[14]),
+          (writeEnable[13]?data_out[208]:Q_int[13]), (writeEnable[12]?data_out[192]:Q_int[12]),
+          (writeEnable[11]?data_out[176]:Q_int[11]), (writeEnable[10]?data_out[160]:Q_int[10]),
+          (writeEnable[9]?data_out[144]:Q_int[9]), (writeEnable[8]?data_out[128]:Q_int[8]),
+          (writeEnable[7]?data_out[112]:Q_int[7]), (writeEnable[6]?data_out[96]:Q_int[6]),
+          (writeEnable[5]?data_out[80]:Q_int[5]), (writeEnable[4]?data_out[64]:Q_int[4]),
+          (writeEnable[3]?data_out[48]:Q_int[3]), (writeEnable[2]?data_out[32]:Q_int[2]),
+          (writeEnable[1]?data_out[16]:Q_int[1]), (writeEnable[0]?data_out[0]:Q_int[0])};
     end
   end
   endtask
@@ -302,18 +336,20 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
     if (RETN_ == 1'b0) begin
       Q_int = {32{1'b0}};
       CEN_int = 1'b0;
-      WEN_int = 1'b0;
+      WEN_int = {4{1'b0}};
       A_int = {11{1'b0}};
       D_int = {32{1'b0}};
       EMA_int = {3{1'b0}};
+      GWEN_int = 1'b0;
       RETN_int = 1'b0;
     end else begin
       Q_int = {32{1'bx}};
       CEN_int = 1'bx;
-      WEN_int = 1'bx;
+      WEN_int = {4{1'bx}};
       A_int = {11{1'bx}};
       D_int = {32{1'bx}};
       EMA_int = {3{1'bx}};
+      GWEN_int = 1'bx;
       RETN_int = 1'bx;
     end
     RETN_int = RETN_;
@@ -337,6 +373,7 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
       A_int = A_;
       D_int = D_;
       EMA_int = EMA_;
+      GWEN_int = GWEN_;
       RETN_int = RETN_;
       clk0_int = 1'b0;
       readWrite;
@@ -351,9 +388,10 @@ endmodule
 `timescale 1 ns/1 ps
 `celldefine
 `ifdef POWER_PINS
-module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN, VSSE, VDDPE, VDDCE);
+module sram_2048_32_wmask_8bit (Q, CLK, CEN, WEN, A, D, EMA, GWEN, RETN, VSSE, VDDPE,
+    VDDCE);
 `else
-module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
+module sram_2048_32_wmask_8bit (Q, CLK, CEN, WEN, A, D, EMA, GWEN, RETN);
 `endif
 
   parameter BITS = 32;
@@ -361,16 +399,17 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
   parameter MUX = 16;
   parameter MEM_WIDTH = 512; // redun block size 8, 256 on left, 256 on right
   parameter MEM_HEIGHT = 128;
-  parameter WP_SIZE = 32 ;
+  parameter WP_SIZE = 8 ;
   parameter UPM_WIDTH = 3;
 
   output [31:0] Q;
   input  CLK;
   input  CEN;
-  input  WEN;
+  input [3:0] WEN;
   input [10:0] A;
   input [31:0] D;
   input [2:0] EMA;
+  input  GWEN;
   input  RETN;
 `ifdef POWER_PINS
   inout VSSE;
@@ -394,7 +433,8 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
   reg NOT_D11, NOT_D12, NOT_D13, NOT_D14, NOT_D15, NOT_D16, NOT_D17, NOT_D18, NOT_D19;
   reg NOT_D2, NOT_D20, NOT_D21, NOT_D22, NOT_D23, NOT_D24, NOT_D25, NOT_D26, NOT_D27;
   reg NOT_D28, NOT_D29, NOT_D3, NOT_D30, NOT_D31, NOT_D4, NOT_D5, NOT_D6, NOT_D7, NOT_D8;
-  reg NOT_D9, NOT_EMA0, NOT_EMA1, NOT_EMA2, NOT_RETN, NOT_WEN;
+  reg NOT_D9, NOT_EMA0, NOT_EMA1, NOT_EMA2, NOT_GWEN, NOT_RETN, NOT_WEN0, NOT_WEN1;
+  reg NOT_WEN2, NOT_WEN3;
   reg clk0_int;
   reg CREN_legal;
   initial CREN_legal = 1'b1;
@@ -403,14 +443,16 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
  wire  CLK_;
   wire  CEN_;
   reg  CEN_int;
-  wire  WEN_;
-  reg  WEN_int;
+  wire [3:0] WEN_;
+  reg [3:0] WEN_int;
   wire [10:0] A_;
   reg [10:0] A_int;
   wire [31:0] D_;
   reg [31:0] D_int;
   wire [2:0] EMA_;
   reg [2:0] EMA_int;
+  wire  GWEN_;
+  reg  GWEN_int;
   wire  RETN_;
   reg  RETN_int;
 
@@ -448,54 +490,58 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
   buf B31(Q[31], Q_[31]);
   buf B32(CLK_, CLK);
   buf B33(CEN_, CEN);
-  buf B34(WEN_, WEN);
-  buf B35(A_[0], A[0]);
-  buf B36(A_[1], A[1]);
-  buf B37(A_[2], A[2]);
-  buf B38(A_[3], A[3]);
-  buf B39(A_[4], A[4]);
-  buf B40(A_[5], A[5]);
-  buf B41(A_[6], A[6]);
-  buf B42(A_[7], A[7]);
-  buf B43(A_[8], A[8]);
-  buf B44(A_[9], A[9]);
-  buf B45(A_[10], A[10]);
-  buf B46(D_[0], D[0]);
-  buf B47(D_[1], D[1]);
-  buf B48(D_[2], D[2]);
-  buf B49(D_[3], D[3]);
-  buf B50(D_[4], D[4]);
-  buf B51(D_[5], D[5]);
-  buf B52(D_[6], D[6]);
-  buf B53(D_[7], D[7]);
-  buf B54(D_[8], D[8]);
-  buf B55(D_[9], D[9]);
-  buf B56(D_[10], D[10]);
-  buf B57(D_[11], D[11]);
-  buf B58(D_[12], D[12]);
-  buf B59(D_[13], D[13]);
-  buf B60(D_[14], D[14]);
-  buf B61(D_[15], D[15]);
-  buf B62(D_[16], D[16]);
-  buf B63(D_[17], D[17]);
-  buf B64(D_[18], D[18]);
-  buf B65(D_[19], D[19]);
-  buf B66(D_[20], D[20]);
-  buf B67(D_[21], D[21]);
-  buf B68(D_[22], D[22]);
-  buf B69(D_[23], D[23]);
-  buf B70(D_[24], D[24]);
-  buf B71(D_[25], D[25]);
-  buf B72(D_[26], D[26]);
-  buf B73(D_[27], D[27]);
-  buf B74(D_[28], D[28]);
-  buf B75(D_[29], D[29]);
-  buf B76(D_[30], D[30]);
-  buf B77(D_[31], D[31]);
-  buf B78(EMA_[0], EMA[0]);
-  buf B79(EMA_[1], EMA[1]);
-  buf B80(EMA_[2], EMA[2]);
-  buf B81(RETN_, RETN);
+  buf B34(WEN_[0], WEN[0]);
+  buf B35(WEN_[1], WEN[1]);
+  buf B36(WEN_[2], WEN[2]);
+  buf B37(WEN_[3], WEN[3]);
+  buf B38(A_[0], A[0]);
+  buf B39(A_[1], A[1]);
+  buf B40(A_[2], A[2]);
+  buf B41(A_[3], A[3]);
+  buf B42(A_[4], A[4]);
+  buf B43(A_[5], A[5]);
+  buf B44(A_[6], A[6]);
+  buf B45(A_[7], A[7]);
+  buf B46(A_[8], A[8]);
+  buf B47(A_[9], A[9]);
+  buf B48(A_[10], A[10]);
+  buf B49(D_[0], D[0]);
+  buf B50(D_[1], D[1]);
+  buf B51(D_[2], D[2]);
+  buf B52(D_[3], D[3]);
+  buf B53(D_[4], D[4]);
+  buf B54(D_[5], D[5]);
+  buf B55(D_[6], D[6]);
+  buf B56(D_[7], D[7]);
+  buf B57(D_[8], D[8]);
+  buf B58(D_[9], D[9]);
+  buf B59(D_[10], D[10]);
+  buf B60(D_[11], D[11]);
+  buf B61(D_[12], D[12]);
+  buf B62(D_[13], D[13]);
+  buf B63(D_[14], D[14]);
+  buf B64(D_[15], D[15]);
+  buf B65(D_[16], D[16]);
+  buf B66(D_[17], D[17]);
+  buf B67(D_[18], D[18]);
+  buf B68(D_[19], D[19]);
+  buf B69(D_[20], D[20]);
+  buf B70(D_[21], D[21]);
+  buf B71(D_[22], D[22]);
+  buf B72(D_[23], D[23]);
+  buf B73(D_[24], D[24]);
+  buf B74(D_[25], D[25]);
+  buf B75(D_[26], D[26]);
+  buf B76(D_[27], D[27]);
+  buf B77(D_[28], D[28]);
+  buf B78(D_[29], D[29]);
+  buf B79(D_[30], D[30]);
+  buf B80(D_[31], D[31]);
+  buf B81(EMA_[0], EMA[0]);
+  buf B82(EMA_[1], EMA[1]);
+  buf B83(EMA_[2], EMA[2]);
+  buf B84(GWEN_, GWEN);
+  buf B85(RETN_, RETN);
 
   assign Q_ = RETN_ ? (Q_int) : {32{1'b0}};
 
@@ -537,10 +583,14 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
       failedWrite(0);
       Q_int = {32{1'bx}};
     end else if ((A_int >= WORDS) && (CEN_int === 1'b0)) begin
-      writeEnable = ~{32{WEN_int}};
+      writeEnable = ~( {32{GWEN_int}} | {WEN_int[3], WEN_int[3], WEN_int[3], WEN_int[3],
+         WEN_int[3], WEN_int[3], WEN_int[3], WEN_int[3], WEN_int[2], WEN_int[2], WEN_int[2],
+         WEN_int[2], WEN_int[2], WEN_int[2], WEN_int[2], WEN_int[2], WEN_int[1], WEN_int[1],
+         WEN_int[1], WEN_int[1], WEN_int[1], WEN_int[1], WEN_int[1], WEN_int[1], WEN_int[0],
+         WEN_int[0], WEN_int[0], WEN_int[0], WEN_int[0], WEN_int[0], WEN_int[0], WEN_int[0]});
       Q_int = ((writeEnable & D_int) | (~writeEnable & {32{1'bx}}));
     end else if (CEN_int === 1'b0 && (^A_int) === 1'bx) begin
-      if (WEN_int !== 1'b1) failedWrite(0);
+      if (GWEN_int !== 1'b1 && (& WEN_int) !== 1'b1) failedWrite(0);
       Q_int = {32{1'bx}};
     end else if (CEN_int === 1'b0) begin
       mux_address = (A_int & 4'b1111);
@@ -549,7 +599,14 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
         row = {512{1'bx}};
       else
         row = mem[row_address];
-      writeEnable = ~{32{WEN_int}};
+      if( isBitX(GWEN_int) )
+        writeEnable = {32{1'bx}};
+      else
+        writeEnable = ~( {32{GWEN_int}} | {WEN_int[3], WEN_int[3], WEN_int[3], WEN_int[3],
+         WEN_int[3], WEN_int[3], WEN_int[3], WEN_int[3], WEN_int[2], WEN_int[2], WEN_int[2],
+         WEN_int[2], WEN_int[2], WEN_int[2], WEN_int[2], WEN_int[2], WEN_int[1], WEN_int[1],
+         WEN_int[1], WEN_int[1], WEN_int[1], WEN_int[1], WEN_int[1], WEN_int[1], WEN_int[0],
+         WEN_int[0], WEN_int[0], WEN_int[0], WEN_int[0], WEN_int[0], WEN_int[0], WEN_int[0]});
       row_mask =  ( {15'b000000000000000, writeEnable[31], 15'b000000000000000, writeEnable[30],
           15'b000000000000000, writeEnable[29], 15'b000000000000000, writeEnable[28],
           15'b000000000000000, writeEnable[27], 15'b000000000000000, writeEnable[26],
@@ -580,13 +637,31 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
       row = (row & ~row_mask) | (row_mask & (~row_mask | new_data));
       mem[row_address] = row;
       data_out = (row >> mux_address);
-      Q_int = {data_out[496], data_out[480], data_out[464], data_out[448], data_out[432],
-        data_out[416], data_out[400], data_out[384], data_out[368], data_out[352],
-        data_out[336], data_out[320], data_out[304], data_out[288], data_out[272],
-        data_out[256], data_out[240], data_out[224], data_out[208], data_out[192],
-        data_out[176], data_out[160], data_out[144], data_out[128], data_out[112],
-        data_out[96], data_out[80], data_out[64], data_out[48], data_out[32], data_out[16],
-        data_out[0]};
+      if (GWEN_int !== 1'b0)
+        Q_int = {data_out[496], data_out[480], data_out[464], data_out[448], data_out[432],
+          data_out[416], data_out[400], data_out[384], data_out[368], data_out[352],
+          data_out[336], data_out[320], data_out[304], data_out[288], data_out[272],
+          data_out[256], data_out[240], data_out[224], data_out[208], data_out[192],
+          data_out[176], data_out[160], data_out[144], data_out[128], data_out[112],
+          data_out[96], data_out[80], data_out[64], data_out[48], data_out[32], data_out[16],
+          data_out[0]};
+      else
+        Q_int = {(writeEnable[31]?data_out[496]:Q_int[31]), (writeEnable[30]?data_out[480]:Q_int[30]),
+          (writeEnable[29]?data_out[464]:Q_int[29]), (writeEnable[28]?data_out[448]:Q_int[28]),
+          (writeEnable[27]?data_out[432]:Q_int[27]), (writeEnable[26]?data_out[416]:Q_int[26]),
+          (writeEnable[25]?data_out[400]:Q_int[25]), (writeEnable[24]?data_out[384]:Q_int[24]),
+          (writeEnable[23]?data_out[368]:Q_int[23]), (writeEnable[22]?data_out[352]:Q_int[22]),
+          (writeEnable[21]?data_out[336]:Q_int[21]), (writeEnable[20]?data_out[320]:Q_int[20]),
+          (writeEnable[19]?data_out[304]:Q_int[19]), (writeEnable[18]?data_out[288]:Q_int[18]),
+          (writeEnable[17]?data_out[272]:Q_int[17]), (writeEnable[16]?data_out[256]:Q_int[16]),
+          (writeEnable[15]?data_out[240]:Q_int[15]), (writeEnable[14]?data_out[224]:Q_int[14]),
+          (writeEnable[13]?data_out[208]:Q_int[13]), (writeEnable[12]?data_out[192]:Q_int[12]),
+          (writeEnable[11]?data_out[176]:Q_int[11]), (writeEnable[10]?data_out[160]:Q_int[10]),
+          (writeEnable[9]?data_out[144]:Q_int[9]), (writeEnable[8]?data_out[128]:Q_int[8]),
+          (writeEnable[7]?data_out[112]:Q_int[7]), (writeEnable[6]?data_out[96]:Q_int[6]),
+          (writeEnable[5]?data_out[80]:Q_int[5]), (writeEnable[4]?data_out[64]:Q_int[4]),
+          (writeEnable[3]?data_out[48]:Q_int[3]), (writeEnable[2]?data_out[32]:Q_int[2]),
+          (writeEnable[1]?data_out[16]:Q_int[1]), (writeEnable[0]?data_out[0]:Q_int[0])};
     end
   end
   endtask
@@ -595,18 +670,20 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
     if (RETN_ == 1'b0) begin
       Q_int = {32{1'b0}};
       CEN_int = 1'b0;
-      WEN_int = 1'b0;
+      WEN_int = {4{1'b0}};
       A_int = {11{1'b0}};
       D_int = {32{1'b0}};
       EMA_int = {3{1'b0}};
+      GWEN_int = 1'b0;
       RETN_int = 1'b0;
     end else begin
       Q_int = {32{1'bx}};
       CEN_int = 1'bx;
-      WEN_int = 1'bx;
+      WEN_int = {4{1'bx}};
       A_int = {11{1'bx}};
       D_int = {32{1'bx}};
       EMA_int = {3{1'bx}};
+      GWEN_int = 1'bx;
       RETN_int = 1'bx;
     end
     RETN_int = RETN_;
@@ -630,6 +707,7 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
       A_int = A_;
       D_int = D_;
       EMA_int = EMA_;
+      GWEN_int = GWEN_;
       RETN_int = RETN_;
       clk0_int = 1'b0;
       readWrite;
@@ -840,12 +918,28 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
     EMA_int[2] = 1'bx;
     if ( globalNotifier0 === 1'b0 ) globalNotifier0 = 1'bx;
   end
+  always @ NOT_GWEN begin
+    GWEN_int = 1'bx;
+    if ( globalNotifier0 === 1'b0 ) globalNotifier0 = 1'bx;
+  end
   always @ NOT_RETN begin
     RETN_int = 1'bx;
     if ( globalNotifier0 === 1'b0 ) globalNotifier0 = 1'bx;
   end
-  always @ NOT_WEN begin
-    WEN_int = 1'bx;
+  always @ NOT_WEN0 begin
+    WEN_int[0] = 1'bx;
+    if ( globalNotifier0 === 1'b0 ) globalNotifier0 = 1'bx;
+  end
+  always @ NOT_WEN1 begin
+    WEN_int[1] = 1'bx;
+    if ( globalNotifier0 === 1'b0 ) globalNotifier0 = 1'bx;
+  end
+  always @ NOT_WEN2 begin
+    WEN_int[2] = 1'bx;
+    if ( globalNotifier0 === 1'b0 ) globalNotifier0 = 1'bx;
+  end
+  always @ NOT_WEN3 begin
+    WEN_int[3] = 1'bx;
     if ( globalNotifier0 === 1'b0 ) globalNotifier0 = 1'bx;
   end
   always @ NOT_CLK_MINH begin
@@ -863,7 +957,38 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
 
   wire CEN_flag;
   wire flag;
-  wire D_flag;
+  wire D_flag0;
+  wire D_flag1;
+  wire D_flag2;
+  wire D_flag3;
+  wire D_flag4;
+  wire D_flag5;
+  wire D_flag6;
+  wire D_flag7;
+  wire D_flag8;
+  wire D_flag9;
+  wire D_flag10;
+  wire D_flag11;
+  wire D_flag12;
+  wire D_flag13;
+  wire D_flag14;
+  wire D_flag15;
+  wire D_flag16;
+  wire D_flag17;
+  wire D_flag18;
+  wire D_flag19;
+  wire D_flag20;
+  wire D_flag21;
+  wire D_flag22;
+  wire D_flag23;
+  wire D_flag24;
+  wire D_flag25;
+  wire D_flag26;
+  wire D_flag27;
+  wire D_flag28;
+  wire D_flag29;
+  wire D_flag30;
+  wire D_flag31;
   wire cyc_flag;
   wire EMA2eq0andEMA1eq0andEMA0eq0;
   wire EMA2eq0andEMA1eq0andEMA0eq1;
@@ -875,7 +1000,38 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
   wire EMA2eq1andEMA1eq1andEMA0eq1;
   assign CEN_flag = 1'b1;
   assign flag = !CEN_;
-  assign D_flag = !(CEN_ || WEN_);
+  assign D_flag0 = !(CEN_ || WEN_[0] || GWEN_);
+  assign D_flag1 = !(CEN_ || WEN_[0] || GWEN_);
+  assign D_flag2 = !(CEN_ || WEN_[0] || GWEN_);
+  assign D_flag3 = !(CEN_ || WEN_[0] || GWEN_);
+  assign D_flag4 = !(CEN_ || WEN_[0] || GWEN_);
+  assign D_flag5 = !(CEN_ || WEN_[0] || GWEN_);
+  assign D_flag6 = !(CEN_ || WEN_[0] || GWEN_);
+  assign D_flag7 = !(CEN_ || WEN_[0] || GWEN_);
+  assign D_flag8 = !(CEN_ || WEN_[1] || GWEN_);
+  assign D_flag9 = !(CEN_ || WEN_[1] || GWEN_);
+  assign D_flag10 = !(CEN_ || WEN_[1] || GWEN_);
+  assign D_flag11 = !(CEN_ || WEN_[1] || GWEN_);
+  assign D_flag12 = !(CEN_ || WEN_[1] || GWEN_);
+  assign D_flag13 = !(CEN_ || WEN_[1] || GWEN_);
+  assign D_flag14 = !(CEN_ || WEN_[1] || GWEN_);
+  assign D_flag15 = !(CEN_ || WEN_[1] || GWEN_);
+  assign D_flag16 = !(CEN_ || WEN_[2] || GWEN_);
+  assign D_flag17 = !(CEN_ || WEN_[2] || GWEN_);
+  assign D_flag18 = !(CEN_ || WEN_[2] || GWEN_);
+  assign D_flag19 = !(CEN_ || WEN_[2] || GWEN_);
+  assign D_flag20 = !(CEN_ || WEN_[2] || GWEN_);
+  assign D_flag21 = !(CEN_ || WEN_[2] || GWEN_);
+  assign D_flag22 = !(CEN_ || WEN_[2] || GWEN_);
+  assign D_flag23 = !(CEN_ || WEN_[2] || GWEN_);
+  assign D_flag24 = !(CEN_ || WEN_[3] || GWEN_);
+  assign D_flag25 = !(CEN_ || WEN_[3] || GWEN_);
+  assign D_flag26 = !(CEN_ || WEN_[3] || GWEN_);
+  assign D_flag27 = !(CEN_ || WEN_[3] || GWEN_);
+  assign D_flag28 = !(CEN_ || WEN_[3] || GWEN_);
+  assign D_flag29 = !(CEN_ || WEN_[3] || GWEN_);
+  assign D_flag30 = !(CEN_ || WEN_[3] || GWEN_);
+  assign D_flag31 = !(CEN_ || WEN_[3] || GWEN_);
   assign cyc_flag = !CEN_;
   assign EMA2eq0andEMA1eq0andEMA0eq0 = !EMA_[2] && !EMA_[1] && !EMA_[0] && cyc_flag;
   assign EMA2eq0andEMA1eq0andEMA0eq1 = !EMA_[2] && !EMA_[1] && EMA_[0] && cyc_flag;
@@ -890,8 +1046,16 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
       $hold(posedge CEN, negedge RETN, 1.000, NOT_RETN);
       $setuphold(posedge CLK &&& CEN_flag, posedge CEN, 1.000, 0.500, NOT_CEN);
       $setuphold(posedge CLK &&& CEN_flag, negedge CEN, 1.000, 0.500, NOT_CEN);
-      $setuphold(posedge CLK &&& flag, posedge WEN, 1.000, 0.500, NOT_WEN);
-      $setuphold(posedge CLK &&& flag, negedge WEN, 1.000, 0.500, NOT_WEN);
+      $setuphold(posedge CLK &&& flag, posedge WEN[3], 1.000, 0.500, NOT_WEN3);
+      $setuphold(posedge CLK &&& flag, negedge WEN[3], 1.000, 0.500, NOT_WEN3);
+      $setuphold(posedge CLK &&& flag, posedge WEN[2], 1.000, 0.500, NOT_WEN2);
+      $setuphold(posedge CLK &&& flag, negedge WEN[2], 1.000, 0.500, NOT_WEN2);
+      $setuphold(posedge CLK &&& flag, posedge WEN[1], 1.000, 0.500, NOT_WEN1);
+      $setuphold(posedge CLK &&& flag, negedge WEN[1], 1.000, 0.500, NOT_WEN1);
+      $setuphold(posedge CLK &&& flag, posedge WEN[0], 1.000, 0.500, NOT_WEN0);
+      $setuphold(posedge CLK &&& flag, negedge WEN[0], 1.000, 0.500, NOT_WEN0);
+      $setuphold(posedge CLK &&& flag, posedge GWEN, 1.000, 0.500, NOT_GWEN);
+      $setuphold(posedge CLK &&& flag, negedge GWEN, 1.000, 0.500, NOT_GWEN);
       $setuphold(posedge CLK &&& flag, posedge A[10], 1.000, 0.500, NOT_A10);
       $setuphold(posedge CLK &&& flag, negedge A[10], 1.000, 0.500, NOT_A10);
       $setuphold(posedge CLK &&& flag, posedge A[9], 1.000, 0.500, NOT_A9);
@@ -914,70 +1078,70 @@ module sram_sp_hdc_svt_rvt_hvt (Q, CLK, CEN, WEN, A, D, EMA, RETN);
       $setuphold(posedge CLK &&& flag, negedge A[1], 1.000, 0.500, NOT_A1);
       $setuphold(posedge CLK &&& flag, posedge A[0], 1.000, 0.500, NOT_A0);
       $setuphold(posedge CLK &&& flag, negedge A[0], 1.000, 0.500, NOT_A0);
-      $setuphold(posedge CLK &&& D_flag, posedge D[31], 1.000, 0.500, NOT_D31);
-      $setuphold(posedge CLK &&& D_flag, negedge D[31], 1.000, 0.500, NOT_D31);
-      $setuphold(posedge CLK &&& D_flag, posedge D[30], 1.000, 0.500, NOT_D30);
-      $setuphold(posedge CLK &&& D_flag, negedge D[30], 1.000, 0.500, NOT_D30);
-      $setuphold(posedge CLK &&& D_flag, posedge D[29], 1.000, 0.500, NOT_D29);
-      $setuphold(posedge CLK &&& D_flag, negedge D[29], 1.000, 0.500, NOT_D29);
-      $setuphold(posedge CLK &&& D_flag, posedge D[28], 1.000, 0.500, NOT_D28);
-      $setuphold(posedge CLK &&& D_flag, negedge D[28], 1.000, 0.500, NOT_D28);
-      $setuphold(posedge CLK &&& D_flag, posedge D[27], 1.000, 0.500, NOT_D27);
-      $setuphold(posedge CLK &&& D_flag, negedge D[27], 1.000, 0.500, NOT_D27);
-      $setuphold(posedge CLK &&& D_flag, posedge D[26], 1.000, 0.500, NOT_D26);
-      $setuphold(posedge CLK &&& D_flag, negedge D[26], 1.000, 0.500, NOT_D26);
-      $setuphold(posedge CLK &&& D_flag, posedge D[25], 1.000, 0.500, NOT_D25);
-      $setuphold(posedge CLK &&& D_flag, negedge D[25], 1.000, 0.500, NOT_D25);
-      $setuphold(posedge CLK &&& D_flag, posedge D[24], 1.000, 0.500, NOT_D24);
-      $setuphold(posedge CLK &&& D_flag, negedge D[24], 1.000, 0.500, NOT_D24);
-      $setuphold(posedge CLK &&& D_flag, posedge D[23], 1.000, 0.500, NOT_D23);
-      $setuphold(posedge CLK &&& D_flag, negedge D[23], 1.000, 0.500, NOT_D23);
-      $setuphold(posedge CLK &&& D_flag, posedge D[22], 1.000, 0.500, NOT_D22);
-      $setuphold(posedge CLK &&& D_flag, negedge D[22], 1.000, 0.500, NOT_D22);
-      $setuphold(posedge CLK &&& D_flag, posedge D[21], 1.000, 0.500, NOT_D21);
-      $setuphold(posedge CLK &&& D_flag, negedge D[21], 1.000, 0.500, NOT_D21);
-      $setuphold(posedge CLK &&& D_flag, posedge D[20], 1.000, 0.500, NOT_D20);
-      $setuphold(posedge CLK &&& D_flag, negedge D[20], 1.000, 0.500, NOT_D20);
-      $setuphold(posedge CLK &&& D_flag, posedge D[19], 1.000, 0.500, NOT_D19);
-      $setuphold(posedge CLK &&& D_flag, negedge D[19], 1.000, 0.500, NOT_D19);
-      $setuphold(posedge CLK &&& D_flag, posedge D[18], 1.000, 0.500, NOT_D18);
-      $setuphold(posedge CLK &&& D_flag, negedge D[18], 1.000, 0.500, NOT_D18);
-      $setuphold(posedge CLK &&& D_flag, posedge D[17], 1.000, 0.500, NOT_D17);
-      $setuphold(posedge CLK &&& D_flag, negedge D[17], 1.000, 0.500, NOT_D17);
-      $setuphold(posedge CLK &&& D_flag, posedge D[16], 1.000, 0.500, NOT_D16);
-      $setuphold(posedge CLK &&& D_flag, negedge D[16], 1.000, 0.500, NOT_D16);
-      $setuphold(posedge CLK &&& D_flag, posedge D[15], 1.000, 0.500, NOT_D15);
-      $setuphold(posedge CLK &&& D_flag, negedge D[15], 1.000, 0.500, NOT_D15);
-      $setuphold(posedge CLK &&& D_flag, posedge D[14], 1.000, 0.500, NOT_D14);
-      $setuphold(posedge CLK &&& D_flag, negedge D[14], 1.000, 0.500, NOT_D14);
-      $setuphold(posedge CLK &&& D_flag, posedge D[13], 1.000, 0.500, NOT_D13);
-      $setuphold(posedge CLK &&& D_flag, negedge D[13], 1.000, 0.500, NOT_D13);
-      $setuphold(posedge CLK &&& D_flag, posedge D[12], 1.000, 0.500, NOT_D12);
-      $setuphold(posedge CLK &&& D_flag, negedge D[12], 1.000, 0.500, NOT_D12);
-      $setuphold(posedge CLK &&& D_flag, posedge D[11], 1.000, 0.500, NOT_D11);
-      $setuphold(posedge CLK &&& D_flag, negedge D[11], 1.000, 0.500, NOT_D11);
-      $setuphold(posedge CLK &&& D_flag, posedge D[10], 1.000, 0.500, NOT_D10);
-      $setuphold(posedge CLK &&& D_flag, negedge D[10], 1.000, 0.500, NOT_D10);
-      $setuphold(posedge CLK &&& D_flag, posedge D[9], 1.000, 0.500, NOT_D9);
-      $setuphold(posedge CLK &&& D_flag, negedge D[9], 1.000, 0.500, NOT_D9);
-      $setuphold(posedge CLK &&& D_flag, posedge D[8], 1.000, 0.500, NOT_D8);
-      $setuphold(posedge CLK &&& D_flag, negedge D[8], 1.000, 0.500, NOT_D8);
-      $setuphold(posedge CLK &&& D_flag, posedge D[7], 1.000, 0.500, NOT_D7);
-      $setuphold(posedge CLK &&& D_flag, negedge D[7], 1.000, 0.500, NOT_D7);
-      $setuphold(posedge CLK &&& D_flag, posedge D[6], 1.000, 0.500, NOT_D6);
-      $setuphold(posedge CLK &&& D_flag, negedge D[6], 1.000, 0.500, NOT_D6);
-      $setuphold(posedge CLK &&& D_flag, posedge D[5], 1.000, 0.500, NOT_D5);
-      $setuphold(posedge CLK &&& D_flag, negedge D[5], 1.000, 0.500, NOT_D5);
-      $setuphold(posedge CLK &&& D_flag, posedge D[4], 1.000, 0.500, NOT_D4);
-      $setuphold(posedge CLK &&& D_flag, negedge D[4], 1.000, 0.500, NOT_D4);
-      $setuphold(posedge CLK &&& D_flag, posedge D[3], 1.000, 0.500, NOT_D3);
-      $setuphold(posedge CLK &&& D_flag, negedge D[3], 1.000, 0.500, NOT_D3);
-      $setuphold(posedge CLK &&& D_flag, posedge D[2], 1.000, 0.500, NOT_D2);
-      $setuphold(posedge CLK &&& D_flag, negedge D[2], 1.000, 0.500, NOT_D2);
-      $setuphold(posedge CLK &&& D_flag, posedge D[1], 1.000, 0.500, NOT_D1);
-      $setuphold(posedge CLK &&& D_flag, negedge D[1], 1.000, 0.500, NOT_D1);
-      $setuphold(posedge CLK &&& D_flag, posedge D[0], 1.000, 0.500, NOT_D0);
-      $setuphold(posedge CLK &&& D_flag, negedge D[0], 1.000, 0.500, NOT_D0);
+      $setuphold(posedge CLK &&& D_flag31, posedge D[31], 1.000, 0.500, NOT_D31);
+      $setuphold(posedge CLK &&& D_flag31, negedge D[31], 1.000, 0.500, NOT_D31);
+      $setuphold(posedge CLK &&& D_flag30, posedge D[30], 1.000, 0.500, NOT_D30);
+      $setuphold(posedge CLK &&& D_flag30, negedge D[30], 1.000, 0.500, NOT_D30);
+      $setuphold(posedge CLK &&& D_flag29, posedge D[29], 1.000, 0.500, NOT_D29);
+      $setuphold(posedge CLK &&& D_flag29, negedge D[29], 1.000, 0.500, NOT_D29);
+      $setuphold(posedge CLK &&& D_flag28, posedge D[28], 1.000, 0.500, NOT_D28);
+      $setuphold(posedge CLK &&& D_flag28, negedge D[28], 1.000, 0.500, NOT_D28);
+      $setuphold(posedge CLK &&& D_flag27, posedge D[27], 1.000, 0.500, NOT_D27);
+      $setuphold(posedge CLK &&& D_flag27, negedge D[27], 1.000, 0.500, NOT_D27);
+      $setuphold(posedge CLK &&& D_flag26, posedge D[26], 1.000, 0.500, NOT_D26);
+      $setuphold(posedge CLK &&& D_flag26, negedge D[26], 1.000, 0.500, NOT_D26);
+      $setuphold(posedge CLK &&& D_flag25, posedge D[25], 1.000, 0.500, NOT_D25);
+      $setuphold(posedge CLK &&& D_flag25, negedge D[25], 1.000, 0.500, NOT_D25);
+      $setuphold(posedge CLK &&& D_flag24, posedge D[24], 1.000, 0.500, NOT_D24);
+      $setuphold(posedge CLK &&& D_flag24, negedge D[24], 1.000, 0.500, NOT_D24);
+      $setuphold(posedge CLK &&& D_flag23, posedge D[23], 1.000, 0.500, NOT_D23);
+      $setuphold(posedge CLK &&& D_flag23, negedge D[23], 1.000, 0.500, NOT_D23);
+      $setuphold(posedge CLK &&& D_flag22, posedge D[22], 1.000, 0.500, NOT_D22);
+      $setuphold(posedge CLK &&& D_flag22, negedge D[22], 1.000, 0.500, NOT_D22);
+      $setuphold(posedge CLK &&& D_flag21, posedge D[21], 1.000, 0.500, NOT_D21);
+      $setuphold(posedge CLK &&& D_flag21, negedge D[21], 1.000, 0.500, NOT_D21);
+      $setuphold(posedge CLK &&& D_flag20, posedge D[20], 1.000, 0.500, NOT_D20);
+      $setuphold(posedge CLK &&& D_flag20, negedge D[20], 1.000, 0.500, NOT_D20);
+      $setuphold(posedge CLK &&& D_flag19, posedge D[19], 1.000, 0.500, NOT_D19);
+      $setuphold(posedge CLK &&& D_flag19, negedge D[19], 1.000, 0.500, NOT_D19);
+      $setuphold(posedge CLK &&& D_flag18, posedge D[18], 1.000, 0.500, NOT_D18);
+      $setuphold(posedge CLK &&& D_flag18, negedge D[18], 1.000, 0.500, NOT_D18);
+      $setuphold(posedge CLK &&& D_flag17, posedge D[17], 1.000, 0.500, NOT_D17);
+      $setuphold(posedge CLK &&& D_flag17, negedge D[17], 1.000, 0.500, NOT_D17);
+      $setuphold(posedge CLK &&& D_flag16, posedge D[16], 1.000, 0.500, NOT_D16);
+      $setuphold(posedge CLK &&& D_flag16, negedge D[16], 1.000, 0.500, NOT_D16);
+      $setuphold(posedge CLK &&& D_flag15, posedge D[15], 1.000, 0.500, NOT_D15);
+      $setuphold(posedge CLK &&& D_flag15, negedge D[15], 1.000, 0.500, NOT_D15);
+      $setuphold(posedge CLK &&& D_flag14, posedge D[14], 1.000, 0.500, NOT_D14);
+      $setuphold(posedge CLK &&& D_flag14, negedge D[14], 1.000, 0.500, NOT_D14);
+      $setuphold(posedge CLK &&& D_flag13, posedge D[13], 1.000, 0.500, NOT_D13);
+      $setuphold(posedge CLK &&& D_flag13, negedge D[13], 1.000, 0.500, NOT_D13);
+      $setuphold(posedge CLK &&& D_flag12, posedge D[12], 1.000, 0.500, NOT_D12);
+      $setuphold(posedge CLK &&& D_flag12, negedge D[12], 1.000, 0.500, NOT_D12);
+      $setuphold(posedge CLK &&& D_flag11, posedge D[11], 1.000, 0.500, NOT_D11);
+      $setuphold(posedge CLK &&& D_flag11, negedge D[11], 1.000, 0.500, NOT_D11);
+      $setuphold(posedge CLK &&& D_flag10, posedge D[10], 1.000, 0.500, NOT_D10);
+      $setuphold(posedge CLK &&& D_flag10, negedge D[10], 1.000, 0.500, NOT_D10);
+      $setuphold(posedge CLK &&& D_flag9, posedge D[9], 1.000, 0.500, NOT_D9);
+      $setuphold(posedge CLK &&& D_flag9, negedge D[9], 1.000, 0.500, NOT_D9);
+      $setuphold(posedge CLK &&& D_flag8, posedge D[8], 1.000, 0.500, NOT_D8);
+      $setuphold(posedge CLK &&& D_flag8, negedge D[8], 1.000, 0.500, NOT_D8);
+      $setuphold(posedge CLK &&& D_flag7, posedge D[7], 1.000, 0.500, NOT_D7);
+      $setuphold(posedge CLK &&& D_flag7, negedge D[7], 1.000, 0.500, NOT_D7);
+      $setuphold(posedge CLK &&& D_flag6, posedge D[6], 1.000, 0.500, NOT_D6);
+      $setuphold(posedge CLK &&& D_flag6, negedge D[6], 1.000, 0.500, NOT_D6);
+      $setuphold(posedge CLK &&& D_flag5, posedge D[5], 1.000, 0.500, NOT_D5);
+      $setuphold(posedge CLK &&& D_flag5, negedge D[5], 1.000, 0.500, NOT_D5);
+      $setuphold(posedge CLK &&& D_flag4, posedge D[4], 1.000, 0.500, NOT_D4);
+      $setuphold(posedge CLK &&& D_flag4, negedge D[4], 1.000, 0.500, NOT_D4);
+      $setuphold(posedge CLK &&& D_flag3, posedge D[3], 1.000, 0.500, NOT_D3);
+      $setuphold(posedge CLK &&& D_flag3, negedge D[3], 1.000, 0.500, NOT_D3);
+      $setuphold(posedge CLK &&& D_flag2, posedge D[2], 1.000, 0.500, NOT_D2);
+      $setuphold(posedge CLK &&& D_flag2, negedge D[2], 1.000, 0.500, NOT_D2);
+      $setuphold(posedge CLK &&& D_flag1, posedge D[1], 1.000, 0.500, NOT_D1);
+      $setuphold(posedge CLK &&& D_flag1, negedge D[1], 1.000, 0.500, NOT_D1);
+      $setuphold(posedge CLK &&& D_flag0, posedge D[0], 1.000, 0.500, NOT_D0);
+      $setuphold(posedge CLK &&& D_flag0, negedge D[0], 1.000, 0.500, NOT_D0);
       $setuphold(posedge CLK &&& cyc_flag, posedge EMA[2], 1.000, 0.500, NOT_EMA2);
       $setuphold(posedge CLK &&& cyc_flag, negedge EMA[2], 1.000, 0.500, NOT_EMA2);
       $setuphold(posedge CLK &&& cyc_flag, posedge EMA[1], 1.000, 0.500, NOT_EMA1);

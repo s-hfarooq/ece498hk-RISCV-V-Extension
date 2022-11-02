@@ -34,6 +34,7 @@ logic sram_wr_en;
 logic [10:0] sram_addr;
 logic [31:0] sram_d_in;
 logic [2:0] sram_ema;
+logic [3:0] sram_byte_en;
 logic sram_retn;
 logic [31:0] d_out_tmp;
 
@@ -54,11 +55,12 @@ logic spixpress_spi_mosi;
 
 // Will be using SRAM as a cache
 // TODO: Needs byte enable
-sram_sp_hdc_svt_rvt_hvt sram (
+sram_2048_32_wmask_8bit sram (
     .Q(sram_d_out),
     .CLK(clk),
     .CEN(sram_chip_en),
-    .WEN(sram_wr_en),
+    .WEN(sram_byte_en),
+    .GWEN(sram_wr_en),
     .A(sram_addr),
     .D(sram_d_in),
     .EMA(sram_ema),
@@ -155,6 +157,7 @@ always_comb begin
         sram_ema = 3'b0;
         sram_retn = 1'b1;
         d_out_tmp = sram_d_out;
+        sram_byte_en = mem_be;
     end else begin
         sram_chip_en = 1'b1;
         sram_wr_en = 1'b1;
@@ -162,6 +165,7 @@ always_comb begin
         sram_d_in = 32'b0;
         sram_ema = 3'b0;
         sram_retn = 1'b1;
+        sram_byte_en = 4'b0;
     end
 end
 
