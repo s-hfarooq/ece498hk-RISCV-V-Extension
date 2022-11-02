@@ -38,6 +38,13 @@ module mmu_tb();
     // To/from GPIO
     wire [9:0] gpio_pins;
 
+    // Set input pins to 0's
+    genvar gpio_incr;
+    generate
+        for(gpio_incr = 1; gpio_incr < 10; gpio_incr += 2) begin
+            assign gpio_pins[gpio_incr] = 1'b0;
+        end
+    endgenerate
 
     mmu dut(.*);
 
@@ -77,19 +84,73 @@ module mmu_tb();
     endtask : reset
 
     task gpio_test();
-        // for(int unsigned i = 32'h0000_0101; i <= 32'h0000_010A; i++) begin
-        //     vproc_mem_req_o <= 1'b1;
-        //     vproc_mem_addr_o <= i[31:0];
-        //     if(i % 2 == 0) begin
-        //         $displayh("Setting pin %h to high", i);
-        //         vproc_mem_wdata_o <= 32'h0000_0001;
-        //     end else begin
-        //         vproc_mem_wdata_o <= 32'h0000_0000;
-        //     end
-        // end
-        // $displayh("State: %b", dut.gpio_direction);
-        // $displayh("Value: %b", dut.gpio_curr_value);
+        // Set pin direction
+        for(int unsigned i = 32'h0000_0101; i <= 32'h0000_010A; i++) begin
+            vproc_mem_req_o <= 1'b1;
+            vproc_mem_addr_o <= i[31:0];
+            vproc_mem_we_o <= 1'b1;
+
+            if(i % 2 == 0) begin
+                $displayh("Setting pin %h to input", i);
+                vproc_mem_wdata_o <= 32'h0000_0001;
+            end else begin
+                vproc_mem_wdata_o <= 32'h0000_0000;
+            end
+
+            ##1;
+            assert (dut.gpio_direction[i - 32'h0000_0101] == (i % 2 == 0)) else $error("Pin direction did not set properly (i = %p)", i);
+            vproc_mem_req_o <= 1'b0;
+            vproc_mem_we_o <= 1'b0;
+            ##1;
+        end
         
+        $displayh("Finished setting direction");
+        $displayh("State: %b", dut.gpio_direction);
+        $displayh("Value: %b", dut.gpio_curr_value);
+
+        // Write to output pins
+        for(int unsigned i = 32'h0000_010B; i <= 32'h0000_0114; i++) begin
+            if(i % 2 == 1) begin
+                vproc_mem_req_o <= 1'b1;
+                vproc_mem_addr_o <= i[31:0];
+                vproc_mem_we_o <= 1'b1;
+                vproc_mem_wdata_o <= 32'h0000_0001;
+
+                $displayh("Setting pin %h to high", i);
+            end
+            ##1;
+
+            if (i % 2 == 1) begin
+                assert (gpio_pins[i - 32'h0000_010B] == 1'b1) else $error("Pin value (1) did not set properly (i = %p)", i);
+            end
+
+            vproc_mem_req_o <= 1'b0;
+            vproc_mem_we_o <= 1'b0;
+            ##1;
+        end
+
+        $displayh("Finished setting output pins");
+        $displayh("State: %b", dut.gpio_direction);
+        $displayh("Value: %b", dut.gpio_curr_value);
+        $displayh("gpio_pins: %b", gpio_pins);
+
+        // Read input pins
+        for(int unsigned i = 32'h0000_010B; i <= 32'h0000_0114; i++) begin
+            if(i % 2 == 0) begin
+                vproc_mem_req_o <= 1'b1;
+                vproc_mem_addr_o <= i[31:0];
+                vproc_mem_we_o <= 1'b0;
+                vproc_mem_wdata_o <= 32'h0000_0000;
+
+                ##1;
+                $displayh("Reading pin %h... val = %b", i, vproc_mem_rdata_i[0]);
+                assert (vproc_mem_rdata_i[0] == 1'b0) else $error("Read pin value is incorrect (i = %p)", i);
+            end
+
+            vproc_mem_req_o <= 1'b0;
+            vproc_mem_we_o <= 1'b0;
+            ##1;
+        end
     endtask: gpio_test
 
     task timer_test();
@@ -97,20 +158,24 @@ module mmu_tb();
             vproc_mem_req_o <= 1'b1;
             vproc_mem_we_o <= 1'b1;
             vproc_mem_addr_o <= 32'h0000_0115;
-            ##1;
+            vproc_mem_wdata_o <= i[31:0];
+            ##2; // TODO: works when this is 2, but should it also work when 1?
             vproc_mem_req_o <= 1'b0;
             vproc_mem_we_o <= 1'b0;
+            assert (dut.digitalTimer.counter_trigger_val == i[31:0]) else $error("Timer did not set properly (i = %p)", i);
 
-            ##1;
-            for(int j = 1; j < i/2; j++) begin
-                vproc_mem_req_o <= 1'b1;
-                vproc_mem_addr_o <= 32'h0000_0115;
+            for(int j = 1; j < i; j++) begin
                 ##1;
-                assert (vproc_mem_rdata_i[0] == 1'b0) else $error("timer_is_high HIGH BEFORE IT SHOULD BE (i = %p)", i);
-                vproc_mem_req_o <= 1'b1;
-                ##1;
+                assert (dut.digitalTimer.timer_is_high == 1'b0) else $error("timer_is_high HIGH BEFORE IT SHOULD BE (i = %p)", i);
             end
+
+            vproc_mem_req_o <= 1'b1;
+            vproc_mem_addr_o <= 32'h0000_0115;
+            ##1;
             assert (vproc_mem_rdata_i[0] == 1'b1) else $error("timer_is_high IS NOT HIGH WHEN IT SHOULD BE (i = %p)", i);
+
+            vproc_mem_req_o <= 1'b0;
+            ##1;
         end
     endtask : timer_test
 

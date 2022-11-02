@@ -125,7 +125,7 @@ end
 // Assign GPIO pins
 genvar gpio_incr;
 generate
-    for(gpio_incr = 0; i gpio_incr < 10; gpio_incr++) begin
+    for(gpio_incr = 0; gpio_incr < 10; gpio_incr++) begin
         assign gpio_pins[gpio_incr] = gpio_direction[gpio_incr] ? 'z : gpio_curr_value[gpio_incr];
     end
 endgenerate
