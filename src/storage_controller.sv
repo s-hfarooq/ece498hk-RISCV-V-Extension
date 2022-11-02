@@ -157,7 +157,7 @@ always_comb begin
         sram_ema = 3'b0;
         sram_retn = 1'b1;
         d_out_tmp = sram_d_out;
-        sram_byte_en = mem_be;
+        sram_byte_en = ~mem_be;
     end else begin
         sram_chip_en = 1'b1;
         sram_wr_en = 1'b1;
@@ -165,7 +165,7 @@ always_comb begin
         sram_d_in = 32'b0;
         sram_ema = 3'b0;
         sram_retn = 1'b1;
-        sram_byte_en = 4'b0;
+        sram_byte_en = 4'hF;
     end
 end
 
