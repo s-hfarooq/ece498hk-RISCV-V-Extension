@@ -102,11 +102,12 @@ digitalTimer digitalTimer (
     .set_timer(set_timer)
 );
 
-enum logic [2:0] {
+enum logic [3:0] {
     default_state,
     external_init,
     external_continue,
-    sram_state,
+    sram_state_init,
+    sram_state_done,
     timer_state,
     gpio_state,
     error_state,
@@ -135,7 +136,9 @@ always_comb begin
         next_state = default_state;
     end else if (state == error_state) begin
         next_state = default_state;
-    end else if (state == sram_state) begin
+    end else if (state == sram_state_init) begin
+        next_state = sram_state_done;
+    end else if (state == sram_state_done) begin
         next_state = default_state;
     end else if ((state == external_init || state == external_continue) && ~storage_out_valid) begin
         // Stay in memory state if memory hasn't responded yet
@@ -155,7 +158,7 @@ always_comb begin
             next_state = error_state;
         end else if (vproc_mem_addr_o >= 32'h0000_1000 && vproc_mem_addr_o <= 32'h0000_1FFF) begin
             // SRAM
-            next_state = sram_state;
+            next_state = sram_state_init;
         end else begin
             // External storage
             if (vproc_mem_err_i) begin
@@ -238,7 +241,18 @@ always_comb begin
                         curr_mem_we = 1'b0;
                     end
                 end
-            sram_state:
+            sram_state_init:
+                begin
+                    if (vproc_mem_addr_o >= 32'h0000_1000) begin
+                        curr_addr = vproc_mem_addr_o - 32'h0000_1000;
+                        curr_d_in = vproc_mem_wdata_o;
+                        curr_mem_be = vproc_mem_be_o;
+                        curr_mem_we = vproc_mem_we_o;
+                        memory_access = 1'b1;
+                        vproc_mem_rdata_i = storage_controller_d_out;
+                    end
+                end
+            sram_state_done:
                 begin
                     if (vproc_mem_addr_o >= 32'h0000_1000) begin
                         curr_addr = vproc_mem_addr_o - 32'h0000_1000;

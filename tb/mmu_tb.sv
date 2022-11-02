@@ -205,7 +205,6 @@ module mmu_tb();
             $displayh("dut.curr_d_in = %p", dut.curr_d_in);
             $displayh("dut.curr_mem_be = %p", dut.curr_mem_be);
             $displayh("dut.curr_mem_we = %p", dut.curr_mem_we);
-            $displayh("dut.started_mem_access = %p", dut.started_mem_access);
             ##1;
 
             vproc_mem_req_o <= 1'b1;
