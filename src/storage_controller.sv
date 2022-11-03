@@ -53,8 +53,7 @@ logic spixpress_spi_cs_n;
 logic spixpress_spi_sck;
 logic spixpress_spi_mosi;
 
-// Will be using SRAM as a cache
-// TODO: Needs byte enable
+// Will be using SRAM as scratchpad memory
 sram_2048_32_wmask_8bit sram (
     .Q(sram_d_out),
     .CLK(clk),
