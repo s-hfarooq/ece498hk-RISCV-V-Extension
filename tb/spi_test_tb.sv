@@ -59,7 +59,7 @@ module spi_test_tb();
         ##1;
     endtask : reset
 
-    task write_to_spi(input [7:0] data);
+    task write_to_spi(input [7:0] data, input [7:0] data_expected);
         ##1;
         i_TX_Byte <= data;
         i_TX_DV   <= 1'b1;
@@ -72,6 +72,16 @@ module spi_test_tb();
             assert (o_SPI_MOSI == data[7 - i]) else $error("OUT DIFFERENT THAN EXPECTED (i = %p, o_SPI_MOSI = %h, expected_val = %h", i, o_SPI_MOSI, data[7 - i]); 
         end
         @(posedge o_TX_Ready);
+        // $display("o_TX_Ready = %h", o_TX_Ready);
+
+        // for (int unsigned i = 0; i < 8; i++) begin
+        //     // send serialized 32 bit value to storage
+        //     @(posedge o_SPI_Clk);
+        //     $display("i = %p, data_expected = %h", i, data_expected[7 - i]);
+        //     i_SPI_MISO <= data_expected[7 - i];
+        // end
+        // assert (o_RX_DV == 1'b1) else $error("OUT VALID NOT HIGH WHEN EXPECTED");
+        // assert (o_RX_Byte == data_expected) else $error("d_out NOT SAME AS EXPECTED (%p)", o_RX_Byte);
     endtask : write_to_spi
 
 
@@ -83,7 +93,7 @@ module spi_test_tb();
 
         // write_to_spi(8'h03);
         // write_to_spi(8'hAD);
-        write_to_spi(8'hBE);
+        write_to_spi(8'hBE, 8'h12);
         // write_to_spi(8'hEF);
 
         $display("Finished SPI tests...");

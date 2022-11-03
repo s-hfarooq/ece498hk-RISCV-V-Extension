@@ -121,7 +121,7 @@ module storage_controller_tb();
         end
     endtask : write_and_read_to_sram
 
-    task read_from_external(input [7:0] opcode, input [31:0] addr_val_in);
+    task read_from_external(input [7:0] opcode, input [31:0] addr_val_in, input [31:0] data_expected);
         ##1;
 
         d_in <= 32'b0;
@@ -145,6 +145,15 @@ module storage_controller_tb();
             end
         end
         ##1;
+
+        // for (int unsigned i = 0; i < 32; i++) begin
+        //     // send serialized 32 bit value to storage
+        //     @(posedge external_storage_spi_sck);
+        //     $display("i = %p, data_expected = %h", i, data_expected[31 - i]);
+        //     external_storage_spi_miso <= data_expected[31 - i];
+        // end
+        // assert (out_valid == 1'b1) else $error("OUT VALID NOT HIGH WHEN EXPECTED");
+        // assert (d_out == data_expected) else $error("d_out NOT SAME AS EXPECTED (%p)", d_out);
     endtask : read_from_external
 
     
@@ -168,7 +177,7 @@ module storage_controller_tb();
 
         ##1;
         $display("Starting read_from_external tests...");
-        read_from_external(8'h03, 32'h0000_1001);
+        read_from_external(8'h03, 32'h0000_1001, 32'h1234_5678);
         $display("Finished read_from_external tests...");
         reset();
         ##1;
