@@ -8,7 +8,7 @@ module storage_controller #(
     input logic memory_is_writing,
     input logic [31:0] addr,
     input logic [31:0] d_in,
-    input logic [MEM_W/8-1:0] mem_be, // TODO: never used, probably should 
+    input logic [MEM_W/8-1:0] mem_be,
     output logic [31:0] d_out,
 
     output logic out_valid,
@@ -121,7 +121,6 @@ SPI_Master_With_Single_CS storage_spi (
 enum logic [3:0] {
     default_state,
     waiting_for_sram,
-    waiting_for_external,
     programming_state,
     external_send_1,
     external_send_2,
@@ -135,7 +134,7 @@ enum logic [3:0] {
     external_read_2,
     external_read_3,
     external_read_4
-} state, next_state, stalled_ret_state;
+} state, next_state;
 
 always_ff @(posedge clk) begin
     if (~rst) begin
@@ -159,7 +158,7 @@ always_comb begin
                         if (addr < 32'h0000_0FFF) begin
                             next_state = waiting_for_sram;
                         end else begin
-                            next_state = waiting_for_external;
+                            next_state = external_send_1;
                         end
                     end else begin
                         next_state = default_state;
@@ -171,51 +170,53 @@ always_comb begin
                 end
             external_send_1:
                 begin
-                    if (spi_done) begin
-                        next_state = external_stall_1;
-                    end else begin
-                        next_state = external_send_1;
-                    end
+                    $display("external_send_1");
+                    next_state = external_stall_1;
+                    $display("next_state = %p", next_state);
                 end
             external_stall_1:
                 begin
-                    next_state = external_send_2;
+                    if (spi_done) begin
+                        next_state = external_send_2;
+                    end else begin
+                        next_state = external_stall_1;
+                    end
                 end
             external_send_2:
                 begin
-                    if (spi_done) begin
-                        next_state = external_stall_2;
-                    end else begin
-                        next_state = external_send_2;
-                    end
+                    next_state = external_stall_2;
                 end
             external_stall_2:
                 begin
-                    next_state = external_send_3;
+                    if (spi_done) begin
+                        next_state = external_send_3;
+                    end else begin
+                        next_state = external_stall_2;
+                    end
                 end
             external_send_3:
                 begin
-                    if (spi_done) begin
-                        next_state = external_stall_3;
-                    end else begin
-                        next_state = external_send_3;
-                    end
+                    next_state = external_stall_3;
                 end
             external_stall_3:
                 begin
-                    next_state = external_send_4;
+                    if (spi_done) begin
+                        next_state = external_send_4;
+                    end else begin
+                        next_state = external_stall_3;
+                    end
                 end
             external_send_4:
                 begin
-                    if (spi_done) begin
-                        next_state = external_stall_4;
-                    end else begin
-                        next_state = external_send_4;
-                    end
+                    next_state = external_stall_4;
                 end
             external_stall_4:
                 begin
-                    next_state = external_read_1;
+                    if (spi_done) begin
+                        next_state = external_read_1;
+                    end else begin
+                        next_state = external_stall_4;
+                    end
                 end
             external_read_1:
                 begin

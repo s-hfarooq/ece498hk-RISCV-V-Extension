@@ -68,7 +68,7 @@ module spi_test_tb();
 
         for(int unsigned i = 0; i < 8; i++) begin
             @(posedge o_SPI_Clk);
-            // $displayh("(i = %p, o_SPI_MOSI = %h, expected_val = %h", i, o_SPI_MOSI, data[7 - i]);
+            $displayh("(i = %p, o_SPI_MOSI = %h, expected_val = %h", i, o_SPI_MOSI, data[7 - i]);
             assert (o_SPI_MOSI == data[7 - i]) else $error("OUT DIFFERENT THAN EXPECTED (i = %p, o_SPI_MOSI = %h, expected_val = %h", i, o_SPI_MOSI, data[7 - i]); 
         end
         @(posedge o_TX_Ready);

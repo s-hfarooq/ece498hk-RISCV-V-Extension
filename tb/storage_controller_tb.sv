@@ -121,7 +121,7 @@ module storage_controller_tb();
         end
     endtask : write_and_read_to_sram
 
-    task read_from_external();
+    task read_from_external(input [7:0] opcode, input [31:0] addr_val_in);
         // d_in <= 32'b0;
         // mem_be <= 4'b0;
         // memory_is_writing <= 1'b0;
@@ -139,7 +139,29 @@ module storage_controller_tb();
 
         // end
 
-        
+        ##1;
+
+        d_in <= 32'b0;
+        mem_be <= 4'b0;
+        memory_is_writing <= 1'b0;
+        memory_access <= 1'b1;
+
+        ##1;
+
+        addr <= addr_val_in;
+
+        for(int unsigned i = 0; i < 32; i++) begin
+            @(posedge external_storage_spi_sck);
+
+            if(i < 8) begin
+                $displayh("(i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, opcode[7 - i]);
+                assert (external_storage_spi_mosi == opcode[7 - i]) else $error("OUT DIFFERENT THAN EXPECTED (i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, opcode[7 - i]); 
+            end else begin
+                $displayh("(i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, addr_val_in[31 - i]);
+                assert (external_storage_spi_mosi == addr_val_in[31 - i]) else $error("OUT DIFFERENT THAN EXPECTED (i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, addr_val_in[31 - i]); 
+            end
+        end
+        ##1;
     endtask : read_from_external
 
     
@@ -163,12 +185,12 @@ module storage_controller_tb();
 
         ##1;
         $display("Starting read_from_external tests...");
-        read_from_external();
+        read_from_external(8'h03, 32'h0000_1001);
         $display("Finished read_from_external tests...");
         reset();
         ##1;
 
-        // $display("Finished storage controller tests...");
-        // $finish;
+        $display("Finished storage controller tests...");
+        $finish;
     end
 endmodule
