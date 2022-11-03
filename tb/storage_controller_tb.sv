@@ -122,23 +122,6 @@ module storage_controller_tb();
     endtask : write_and_read_to_sram
 
     task read_from_external(input [7:0] opcode, input [31:0] addr_val_in);
-        // d_in <= 32'b0;
-        // mem_be <= 4'b0;
-        // memory_is_writing <= 1'b0;
-
-        // for(int unsigned i = 32'h0000_1000; i < 32'h0000_1001; i++) begin
-        //     ##1;
-        //     memory_access <= 1'b1;
-        //     memory_is_writing <= 1'b0;
-        //     addr <= i[31:0];
-        //     // ##1;
-        //     for(int unsigned j = 0; j < 10; j++) begin
-        //         ##1;
-        //         $displayh("cs_n = %p, sck = %p, mosi = %p", external_storage_spi_cs_n, external_storage_spi_sck, external_storage_spi_mosi);
-        //     end
-
-        // end
-
         ##1;
 
         d_in <= 32'b0;

@@ -255,7 +255,30 @@ module mmu_tb();
     endtask : spi_passthrough
 
     // TODO
-    task external_storage_test();
+    task external_storage_test(input [7:0] opcode, input [31:0] addr_val_in);
+        ##1;
+
+        vproc_mem_wdata_o <= 32'b0;
+        vproc_mem_be_o <= 4'b0;
+        vproc_mem_we_o <= 1'b0;
+        vproc_mem_req_o <= 1'b1;
+
+        ##1;
+
+        vproc_mem_addr_o <= addr_val_in;
+
+        for(int unsigned i = 0; i < 32; i++) begin
+            @(posedge external_storage_spi_sck);
+
+            if(i < 8) begin
+                $displayh("(i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, opcode[7 - i]);
+                assert (external_storage_spi_mosi == opcode[7 - i]) else $error("OUT DIFFERENT THAN EXPECTED (i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, opcode[7 - i]); 
+            end else begin
+                $displayh("(i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, addr_val_in[31 - i]);
+                assert (external_storage_spi_mosi == addr_val_in[31 - i]) else $error("OUT DIFFERENT THAN EXPECTED (i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, addr_val_in[31 - i]); 
+            end
+        end
+        ##1;
     endtask : external_storage_test
 
     task reserved_addr_test();
@@ -326,7 +349,7 @@ module mmu_tb();
 
         ##1;
         $display("Starting external_storage_test tests...");
-        external_storage_test();
+        external_storage_test(8'h03, 32'h0000_1001);
         $display("Finished external_storage_test tests...");
         reset();
         ##1;
