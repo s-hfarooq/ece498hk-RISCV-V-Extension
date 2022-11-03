@@ -255,7 +255,7 @@ module mmu_tb();
     endtask : spi_passthrough
 
     // TODO
-    task external_storage_test(input [7:0] opcode, input [31:0] addr_val_in);
+    task external_storage_test(input [7:0] opcode, input [31:0] addr_val_in, input [31:0] expected_addr_val_in);
         ##1;
 
         vproc_mem_wdata_o <= 32'b0;
@@ -274,10 +274,21 @@ module mmu_tb();
                 $displayh("(i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, opcode[7 - i]);
                 assert (external_storage_spi_mosi == opcode[7 - i]) else $error("OUT DIFFERENT THAN EXPECTED (i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, opcode[7 - i]); 
             end else begin
-                $displayh("(i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, addr_val_in[31 - i]);
-                assert (external_storage_spi_mosi == addr_val_in[31 - i]) else $error("OUT DIFFERENT THAN EXPECTED (i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, addr_val_in[31 - i]); 
+                $displayh("(i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, expected_addr_val_in[31 - i]);
+                assert (external_storage_spi_mosi == expected_addr_val_in[31 - i]) else $error("OUT DIFFERENT THAN EXPECTED (i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, expected_addr_val_in[31 - i]); 
             end
         end
+        // loop between 0 and 4
+        // for (int unsigned i = 0; i < 4; i++) begin
+        //     for (int unsigned j = 0; j < 8; j++) begin
+        //         @(posedge external_storage_spi_sck);
+        //         $displayh("(i = %p, j = %p, o_SPI_MOSI = %h, expected_val = %h", i, j, external_storage_spi_mosi, opcode[7 - j]);
+        //         assert (external_storage_spi_mosi == opcode[7 - j]) else $error("OUT DIFFERENT THAN EXPECTED (i = %p, j = %p, o_SPI_MOSI = %h, expected_val = %h", i, j, external_storage_spi_mosi, opcode[7 - j]); 
+        //     end
+            // @(posedge external_storage_spi_sck);
+            // $displayh("(i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, opcode[7 - i]);
+            // assert (external_storage_spi_mosi == opcode[7 - i]) else $error("OUT DIFFERENT THAN EXPECTED (i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, opcode[7 - i]); 
+        // end
         ##1;
     endtask : external_storage_test
 
@@ -349,7 +360,7 @@ module mmu_tb();
 
         ##1;
         $display("Starting external_storage_test tests...");
-        external_storage_test(8'h03, 32'h0000_1001);
+        external_storage_test(8'h03, 32'h0000_2001, 32'h0000_1001);
         $display("Finished external_storage_test tests...");
         reset();
         ##1;

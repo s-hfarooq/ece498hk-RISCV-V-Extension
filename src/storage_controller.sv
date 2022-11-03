@@ -357,6 +357,7 @@ always_comb begin
             begin
                 if (spi_out_valid) begin
                     spi_read_full_val[7:0] = spi_curr_recv_byte;
+                    out_valid = 1'b1;
                 end
             end
         programming_state:

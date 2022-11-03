@@ -152,19 +152,19 @@ module storage_controller_tb();
         $display("Starting storage controller tests...");
         reset();
 
-        // ##1;
-        // $display("Starting spi_passthrough tests...");
-        // spi_passthrough();
-        // $display("Finished spi_passthrough tests...");
-        // reset();
-        // ##1;
+        ##1;
+        $display("Starting spi_passthrough tests...");
+        spi_passthrough();
+        $display("Finished spi_passthrough tests...");
+        reset();
+        ##1;
 
-        // ##1;
-        // $display("Starting write_and_read_to_sram tests...");
-        // write_and_read_to_sram();
-        // $display("Finished write_and_read_to_sram tests...");
-        // reset();
-        // ##1;
+        ##1;
+        $display("Starting write_and_read_to_sram tests...");
+        write_and_read_to_sram();
+        $display("Finished write_and_read_to_sram tests...");
+        reset();
+        ##1;
 
         ##1;
         $display("Starting read_from_external tests...");
