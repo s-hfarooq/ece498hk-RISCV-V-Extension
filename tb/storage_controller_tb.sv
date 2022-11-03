@@ -122,22 +122,24 @@ module storage_controller_tb();
     endtask : write_and_read_to_sram
 
     task read_from_external();
-        d_in <= 32'b0;
-        mem_be <= 4'b0;
-        memory_is_writing <= 1'b0;
+        // d_in <= 32'b0;
+        // mem_be <= 4'b0;
+        // memory_is_writing <= 1'b0;
 
-        for(int unsigned i = 32'h0000_1000; i < 32'h0000_1001; i++) begin
-            ##1;
-            memory_access <= 1'b1;
-            memory_is_writing <= 1'b0;
-            addr <= i[31:0];
-            // ##1;
-            for(int unsigned j = 0; j < 10; j++) begin
-                ##1;
-                $displayh("cs_n = %p, sck = %p, mosi = %p", external_storage_spi_cs_n, external_storage_spi_sck, external_storage_spi_mosi);
-            end
+        // for(int unsigned i = 32'h0000_1000; i < 32'h0000_1001; i++) begin
+        //     ##1;
+        //     memory_access <= 1'b1;
+        //     memory_is_writing <= 1'b0;
+        //     addr <= i[31:0];
+        //     // ##1;
+        //     for(int unsigned j = 0; j < 10; j++) begin
+        //         ##1;
+        //         $displayh("cs_n = %p, sck = %p, mosi = %p", external_storage_spi_cs_n, external_storage_spi_sck, external_storage_spi_mosi);
+        //     end
 
-        end
+        // end
+
+        
     endtask : read_from_external
 
     
@@ -145,19 +147,19 @@ module storage_controller_tb();
         $display("Starting storage controller tests...");
         reset();
 
-        ##1;
-        $display("Starting spi_passthrough tests...");
-        spi_passthrough();
-        $display("Finished spi_passthrough tests...");
-        reset();
-        ##1;
+        // ##1;
+        // $display("Starting spi_passthrough tests...");
+        // spi_passthrough();
+        // $display("Finished spi_passthrough tests...");
+        // reset();
+        // ##1;
 
-        ##1;
-        $display("Starting write_and_read_to_sram tests...");
-        write_and_read_to_sram();
-        $display("Finished write_and_read_to_sram tests...");
-        reset();
-        ##1;
+        // ##1;
+        // $display("Starting write_and_read_to_sram tests...");
+        // write_and_read_to_sram();
+        // $display("Finished write_and_read_to_sram tests...");
+        // reset();
+        // ##1;
 
         ##1;
         $display("Starting read_from_external tests...");
@@ -166,7 +168,7 @@ module storage_controller_tb();
         reset();
         ##1;
 
-        $display("Finished storage controller tests...");
-        $finish;
+        // $display("Finished storage controller tests...");
+        // $finish;
     end
 endmodule

@@ -39,15 +39,15 @@ logic sram_retn;
 logic [31:0] d_out_tmp;
 
 // EXTERNAL STORAGE SPI SIGNALS
-logic spi_wb_cyc;
-logic spi_wb_stb;
-logic spi_cfg_stb;
-logic spi_wb_we;
-logic [21:0] spi_wb_addr;
-logic [31:0] spi_i_wb_data;
-logic spi_wb_stall;
-logic spi_wb_ack;
-logic [31:0] spi_o_wb_data;
+// logic spi_wb_cyc;
+// logic spi_wb_stb;
+// logic spi_cfg_stb;
+// logic spi_wb_we;
+// logic [21:0] spi_wb_addr;
+// logic [31:0] spi_i_wb_data;
+// logic spi_wb_stall;
+// logic spi_wb_ack;
+// logic [31:0] spi_o_wb_data;
 
 logic spixpress_spi_cs_n;
 logic spixpress_spi_sck;
@@ -66,33 +66,76 @@ sram_2048_32_wmask_8bit sram (
     .RETN(sram_retn)
 );
 
-spixpress storage_spi (
-    .i_clk(clk),
-    .i_reset(~rst),
-    //
-    .i_wb_cyc(spi_wb_cyc),
-    .i_wb_stb(spi_wb_stb),
-    .i_cfg_stb(spi_cfg_stb),
-    .i_wb_we(spi_wb_we),
-    .i_wb_addr(spi_wb_addr),
-    .i_wb_data(spi_i_wb_data),
-    .o_wb_stall(spi_wb_stall),
-    .o_wb_ack(spi_wb_ack),
-    .o_wb_data(spi_o_wb_data),
-    //	
-    .o_spi_cs_n(spixpress_spi_cs_n),
-    .o_spi_sck(spixpress_spi_sck),
-    .o_spi_mosi(spixpress_spi_mosi),
-    .i_spi_miso(external_storage_spi_miso)
+// EXTERNAL STORAGE SPI SIGNALS
+logic [7:0] spi_curr_send_byte;
+logic [7:0] spi_curr_recv_byte;
+logic spi_in_valid;
+logic spi_out_valid;
+logic spi_done; 
+logic [31:0] spi_read_full_val;
+
+SPI_Master_With_Single_CS storage_spi (
+    // Control/Data Signals,
+    .i_Rst_L(rst),     // FPGA Reset
+    .i_Clk(clk),       // FPGA Clock
+
+    // TX (MOSI) Signals
+    .i_TX_Count(1'b0),  // # bytes per CS low
+    .i_TX_Byte(spi_curr_send_byte),       // Byte to transmit on MOSI
+    .i_TX_DV(spi_in_valid),         // Data Valid Pulse with i_TX_Byte
+    .o_TX_Ready(spi_done),      // Transmit Ready for next byte
+
+    // RX (MISO) Signals
+    .o_RX_Count(),  // Index RX byte
+    .o_RX_DV(spi_out_valid),     // Data Valid pulse (1 clock cycle)
+    .o_RX_Byte(spi_curr_recv_byte),   // Byte received on MISO
+
+    // SPI Interface
+    .o_SPI_Clk(spixpress_spi_sck),
+    .i_SPI_MISO(external_storage_spi_miso),
+    .o_SPI_MOSI(spixpress_spi_mosi),
+    .o_SPI_CS_n(spixpress_spi_cs_n)
 );
 
+// spixpress storage_spi (
+//     .i_clk(clk),
+//     .i_reset(~rst),
+//     //
+//     .i_wb_cyc(spi_wb_cyc),
+//     .i_wb_stb(spi_wb_stb),
+//     .i_cfg_stb(spi_cfg_stb),
+//     .i_wb_we(spi_wb_we),
+//     .i_wb_addr(spi_wb_addr),
+//     .i_wb_data(spi_i_wb_data),
+//     .o_wb_stall(spi_wb_stall),
+//     .o_wb_ack(spi_wb_ack),
+//     .o_wb_data(spi_o_wb_data),
+//     //	
+//     .o_spi_cs_n(spixpress_spi_cs_n),
+//     .o_spi_sck(spixpress_spi_sck),
+//     .o_spi_mosi(spixpress_spi_mosi),
+//     .i_spi_miso(external_storage_spi_miso)
+// );
 
-enum logic [1:0] {
+
+enum logic [3:0] {
     default_state,
     waiting_for_sram,
     waiting_for_external,
-    programming_state
-} state, next_state;
+    programming_state,
+    external_send_1,
+    external_send_2,
+    external_send_3,
+    external_send_4,
+    external_stall_1,
+    external_stall_2,
+    external_stall_3,
+    external_stall_4,
+    external_read_1,
+    external_read_2,
+    external_read_3,
+    external_read_4
+} state, next_state, stalled_ret_state;
 
 always_ff @(posedge clk) begin
     if (~rst) begin
@@ -126,12 +169,84 @@ always_comb begin
                 begin
                     next_state = default_state; // does sram always return immediately for both read and write?
                 end
-            waiting_for_external:
+            external_send_1:
                 begin
-                    if (spi_wb_ack && ~spi_wb_stall) begin // might be possible that this never occurs and we're stuck in the waiting_for_external state
+                    if (spi_done) begin
+                        next_state = external_stall_1;
+                    end else begin
+                        next_state = external_send_1;
+                    end
+                end
+            external_stall_1:
+                begin
+                    next_state = external_send_2;
+                end
+            external_send_2:
+                begin
+                    if (spi_done) begin
+                        next_state = external_stall_2;
+                    end else begin
+                        next_state = external_send_2;
+                    end
+                end
+            external_stall_2:
+                begin
+                    next_state = external_send_3;
+                end
+            external_send_3:
+                begin
+                    if (spi_done) begin
+                        next_state = external_stall_3;
+                    end else begin
+                        next_state = external_send_3;
+                    end
+                end
+            external_stall_3:
+                begin
+                    next_state = external_send_4;
+                end
+            external_send_4:
+                begin
+                    if (spi_done) begin
+                        next_state = external_stall_4;
+                    end else begin
+                        next_state = external_send_4;
+                    end
+                end
+            external_stall_4:
+                begin
+                    next_state = external_read_1;
+                end
+            external_read_1:
+                begin
+                    if (spi_out_valid) begin
+                        next_state = external_read_2;
+                    end else begin
+                        next_state = external_read_1;
+                    end
+                end
+            external_read_2:
+                begin
+                    if (spi_out_valid) begin
+                        next_state = external_read_3;
+                    end else begin
+                        next_state = external_read_2;
+                    end
+                end
+            external_read_3:
+                begin
+                    if (spi_out_valid) begin
+                        next_state = external_read_4;
+                    end else begin
+                        next_state = external_read_3;
+                    end
+                end
+            external_read_4:
+                begin
+                    if (spi_out_valid) begin
                         next_state = default_state;
                     end else begin
-                        next_state = waiting_for_external;
+                        next_state = external_read_4;
                     end
                 end
             programming_state:
@@ -175,12 +290,15 @@ always_comb begin
     out_valid = 1'b0;
 
     // SPI defaults
-    spi_wb_cyc = 1'b0;
-    spi_wb_stb = 1'b0;
-    spi_cfg_stb = 1'b0;
-    spi_wb_we = 1'b0;
-    spi_wb_addr  = 22'b0;
-    spi_i_wb_data = 32'b0;
+    // spi_wb_cyc = 1'b0;
+    // spi_wb_stb = 1'b0;
+    // spi_cfg_stb = 1'b0;
+    // spi_wb_we = 1'b0;
+    // spi_wb_addr  = 22'b0;
+    // spi_i_wb_data = 32'b0;
+
+    spi_curr_send_byte <= 8'b0;
+    spi_in_valid <= 1'b0;
 
     external_storage_spi_cs_n = spixpress_spi_cs_n;
     external_storage_spi_sck = spixpress_spi_sck;
@@ -196,18 +314,48 @@ always_comb begin
                 d_out = d_out_tmp;
                 out_valid = 1'b1;
             end
-        waiting_for_external:
+        external_send_1:
             begin
-                if (spi_wb_ack) begin
-                    d_out = spi_o_wb_data;
-                    out_valid = 1'b1;
-                end else begin
-                    spi_wb_cyc = 1'b1; // no idea what this is for, same as chip enable?
-                    spi_wb_stb = 1'b1; // high when accessing memory
-                    spi_cfg_stb = 1'b0; // high when accessing register values
-                    spi_wb_we = 1'b0; // high when writing, low when reading (should never be writing to memory values)
-                    spi_wb_addr  = addr[21:0];
-                    spi_i_wb_data = 32'b0; // used by config register only, so always 0
+                spi_curr_send_byte <= 8'h03; // 0x03 = read opcode
+                spi_in_valid <= 1'b1;
+            end
+        external_send_2:
+            begin
+                spi_curr_send_byte <= addr[23:16]; // addr pt1
+                spi_in_valid <= 1'b1;
+            end
+        external_send_3:
+            begin
+                spi_curr_send_byte <= addr[15:8]; // addr pt2
+                spi_in_valid <= 1'b1;
+            end
+        external_send_4:
+            begin
+                spi_curr_send_byte <= addr[7:0]; // addr pt3
+                spi_in_valid <= 1'b1;
+            end
+        external_read_1:
+            begin
+                if (spi_out_valid) begin
+                    spi_read_full_val[31:24] = spi_curr_recv_byte;
+                end
+            end
+        external_read_2:
+            begin
+                if (spi_out_valid) begin
+                    spi_read_full_val[23:16] = spi_curr_recv_byte;
+                end
+            end
+        external_read_3:
+            begin
+                if (spi_out_valid) begin
+                    spi_read_full_val[15:8] = spi_curr_recv_byte;
+                end
+            end
+        external_read_4:
+            begin
+                if (spi_out_valid) begin
+                    spi_read_full_val[7:0] = spi_curr_recv_byte;
                 end
             end
         programming_state:
@@ -220,6 +368,7 @@ always_comb begin
             end
         default:
             begin
+                // external_stall_n goes here
                 // Nothing should happen in default state?
             end
     endcase

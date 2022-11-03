@@ -29,8 +29,8 @@ module spi_test_tb();
     logic o_SPI_MOSI;
     logic o_SPI_CS_n;
 
-    logic [7:0] sentData;
-    assign sentData = 8'hFF;
+    logic [7:0] expected_val;
+    assign expected_val = 8'hBE;
     
     SPI_Master_With_Single_CS dut(.*);
 
@@ -65,7 +65,12 @@ module spi_test_tb();
         i_TX_DV   <= 1'b1;
         ##1;
         i_TX_DV <= 1'b0;
-        ##1;
+
+        for(int unsigned i = 0; i < 8; i++) begin
+            @(posedge o_SPI_Clk);
+            // $displayh("(i = %p, o_SPI_MOSI = %h, expected_val = %h", i, o_SPI_MOSI, data[7 - i]);
+            assert (o_SPI_MOSI == data[7 - i]) else $error("OUT DIFFERENT THAN EXPECTED (i = %p, o_SPI_MOSI = %h, expected_val = %h", i, o_SPI_MOSI, data[7 - i]); 
+        end
         @(posedge o_TX_Ready);
     endtask : write_to_spi
 
@@ -76,10 +81,10 @@ module spi_test_tb();
         reset();
         ##1;
 
-        write_to_spi(8'h03);
-        write_to_spi(8'hAD);
+        // write_to_spi(8'h03);
+        // write_to_spi(8'hAD);
         write_to_spi(8'hBE);
-        write_to_spi(8'hEF);
+        // write_to_spi(8'hEF);
 
         $display("Finished SPI tests...");
         $finish;
