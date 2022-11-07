@@ -6,12 +6,12 @@ module qspi_stub(
     input   logic                   qspi_cs_o
 );
 
-            logic   [31:0]           mem [2**11];
+            logic   [31:0]           mem [2**24];
 
     initial
     begin
         $readmemh("/home/hfaroo9/ece498hk-RISCV-V-Extension/src/tmp.vmem", mem);
-        $displayh("mem = %p", mem);
+        // $displayh("mem = %p", mem);
     end
 
     always begin
@@ -19,11 +19,11 @@ module qspi_stub(
         automatic bit [23:0] addr;
         automatic bit [7:0] mode;
         @(negedge qspi_cs_o);
-        $display("negedge qspi_cs_o");
+        // $display("negedge qspi_cs_o");
         for (int i = 7; i >= 0; i--) begin
             @(posedge qspi_ck_o);
             cmd[i] = ~qspi_io_t[0] ? qspi_io_o[0] : 1'bx;
-            $display("cmd[i] = %p, i = %p", cmd[i], i);
+            // $display("cmd[i] = %p, i = %p", cmd[i], i);
         end
         assert (cmd == 8'hEB) else begin
             $display("ERROR: qspi wrong cmd, expected: %h, detected: %h, time: %0t", 8'hEB, cmd, $time);

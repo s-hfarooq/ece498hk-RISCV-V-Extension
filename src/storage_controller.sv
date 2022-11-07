@@ -13,18 +13,21 @@ module storage_controller #(
 
     output logic out_valid,
     input logic set_programming_mode,
+    input logic external_storage_access,
 
     // To/from storage SPI
-    output logic external_storage_spi_cs_n,
-    output logic external_storage_spi_sck,
-    output logic external_storage_spi_mosi,
-    input logic external_storage_spi_miso,
+    input   logic   [3:0]           external_qspi_io_i,
+    output  logic   [3:0]           external_qspi_io_o,
+    output  logic   [3:0]           external_qspi_io_t,
+    output  logic                   external_qspi_ck_o,
+    output  logic                   external_qspi_cs_o,
 
     // To/from programming SPI
-    input logic programming_spi_cs_n,
-    input logic programming_spi_sck,
-    input logic programming_spi_mosi,
-    output logic programming_spi_miso
+    output logic   [3:0]           programming_qspi_io_i,
+    input  logic   [3:0]           programming_qspi_io_o,
+    input  logic   [3:0]           programming_qspi_io_t,
+    input  logic                   programming_qspi_ck_o,
+    input  logic                   programming_qspi_cs_o
 );
 
 // SRAM SIGNALS
@@ -37,21 +40,6 @@ logic [2:0] sram_ema;
 logic [3:0] sram_byte_en;
 logic sram_retn;
 logic [31:0] d_out_tmp;
-
-// EXTERNAL STORAGE SPI SIGNALS
-// logic spi_wb_cyc;
-// logic spi_wb_stb;
-// logic spi_cfg_stb;
-// logic spi_wb_we;
-// logic [21:0] spi_wb_addr;
-// logic [31:0] spi_i_wb_data;
-// logic spi_wb_stall;
-// logic spi_wb_ack;
-// logic [31:0] spi_o_wb_data;
-
-logic spixpress_spi_cs_n;
-logic spixpress_spi_sck;
-logic spixpress_spi_mosi;
 
 // Will be using SRAM as scratchpad memory
 sram_2048_32_wmask_8bit sram (
@@ -66,74 +54,39 @@ sram_2048_32_wmask_8bit sram (
     .RETN(sram_retn)
 );
 
-// EXTERNAL STORAGE SPI SIGNALS
-logic [7:0] spi_curr_send_byte;
-logic [7:0] spi_curr_recv_byte;
-logic spi_in_valid;
-logic spi_out_valid;
-logic spi_done; 
-logic [31:0] spi_read_full_val;
+// QSPI SIGNALS
+logic [31:0] qspi_addr;
+logic qspi_sel;
+logic qspi_write;
+logic qspi_ready;
+logic [31:0] qspi_rdata;
+logic [3:0] qspi_io_i;
+logic [3:0] qspi_io_o;
+logic [3:0] qspi_io_t;
+logic qspi_ck_o;
+logic qspi_cs_o;
 
-SPI_Master_With_Single_CS storage_spi (
-    // Control/Data Signals,
-    .i_Rst_L(rst),     // FPGA Reset
-    .i_Clk(clk),       // FPGA Clock
-
-    // TX (MOSI) Signals
-    .i_TX_Count(1'b0),  // # bytes per CS low
-    .i_TX_Byte(spi_curr_send_byte),       // Byte to transmit on MOSI
-    .i_TX_DV(spi_in_valid),         // Data Valid Pulse with i_TX_Byte
-    .o_TX_Ready(spi_done),      // Transmit Ready for next byte
-
-    // RX (MISO) Signals
-    .o_RX_Count(),  // Index RX byte
-    .o_RX_DV(spi_out_valid),     // Data Valid pulse (1 clock cycle)
-    .o_RX_Byte(spi_curr_recv_byte),   // Byte received on MISO
-
-    // SPI Interface
-    .o_SPI_Clk(spixpress_spi_sck),
-    .i_SPI_MISO(external_storage_spi_miso),
-    .o_SPI_MOSI(spixpress_spi_mosi),
-    .o_SPI_CS_n(spixpress_spi_cs_n)
+qspi_controller qspi_controller (
+    .s_pclk(clk),
+    .s_presetn(rst),
+    .s_paddr(qspi_addr),
+    .s_psel(qspi_sel),
+    .s_pwrite(qspi_write),
+    .s_pready(qspi_ready),
+    .s_prdata(qspi_rdata),
+    .qspi_io_i(external_qspi_io_i),
+    .qspi_io_o(qspi_io_o),
+    .qspi_io_t(qspi_io_t),
+    .qspi_ck_o(qspi_ck_o),
+    .qspi_cs_o(qspi_cs_o)
 );
 
-// spixpress storage_spi (
-//     .i_clk(clk),
-//     .i_reset(~rst),
-//     //
-//     .i_wb_cyc(spi_wb_cyc),
-//     .i_wb_stb(spi_wb_stb),
-//     .i_cfg_stb(spi_cfg_stb),
-//     .i_wb_we(spi_wb_we),
-//     .i_wb_addr(spi_wb_addr),
-//     .i_wb_data(spi_i_wb_data),
-//     .o_wb_stall(spi_wb_stall),
-//     .o_wb_ack(spi_wb_ack),
-//     .o_wb_data(spi_o_wb_data),
-//     //	
-//     .o_spi_cs_n(spixpress_spi_cs_n),
-//     .o_spi_sck(spixpress_spi_sck),
-//     .o_spi_mosi(spixpress_spi_mosi),
-//     .i_spi_miso(external_storage_spi_miso)
-// );
-
-
-enum logic [3:0] {
+enum logic [2:0] {
     default_state,
     waiting_for_sram,
     programming_state,
-    external_send_1,
-    external_send_2,
-    external_send_3,
-    external_send_4,
-    external_stall_1,
-    external_stall_2,
-    external_stall_3,
-    external_stall_4,
-    external_read_1,
-    external_read_2,
-    external_read_3,
-    external_read_4
+    external_send,
+    external_done
 } state, next_state;
 
 always_ff @(posedge clk) begin
@@ -155,10 +108,10 @@ always_comb begin
             default_state:
                 begin
                     if (memory_access) begin
-                        if (addr < 32'h0000_0FFF) begin
+                        if (~external_storage_access) begin
                             next_state = waiting_for_sram;
                         end else begin
-                            next_state = external_send_1;
+                            next_state = external_send;
                         end
                     end else begin
                         next_state = default_state;
@@ -166,89 +119,19 @@ always_comb begin
                 end
             waiting_for_sram:
                 begin
-                    next_state = default_state; // does sram always return immediately for both read and write?
+                    next_state = default_state;
                 end
-            external_send_1:
+            external_send:
                 begin
-                    $display("external_send_1");
-                    next_state = external_stall_1;
-                    $display("next_state = %p", next_state);
-                end
-            external_stall_1:
-                begin
-                    if (spi_done) begin
-                        next_state = external_send_2;
+                    if (qspi_ready) begin
+                        next_state = external_done;
                     end else begin
-                        next_state = external_stall_1;
+                        next_state = external_send;
                     end
                 end
-            external_send_2:
+            external_done:
                 begin
-                    next_state = external_stall_2;
-                end
-            external_stall_2:
-                begin
-                    if (spi_done) begin
-                        next_state = external_send_3;
-                    end else begin
-                        next_state = external_stall_2;
-                    end
-                end
-            external_send_3:
-                begin
-                    next_state = external_stall_3;
-                end
-            external_stall_3:
-                begin
-                    if (spi_done) begin
-                        next_state = external_send_4;
-                    end else begin
-                        next_state = external_stall_3;
-                    end
-                end
-            external_send_4:
-                begin
-                    next_state = external_stall_4;
-                end
-            external_stall_4:
-                begin
-                    if (spi_done) begin
-                        next_state = external_read_1;
-                    end else begin
-                        next_state = external_stall_4;
-                    end
-                end
-            external_read_1:
-                begin
-                    if (spi_out_valid) begin
-                        next_state = external_read_2;
-                    end else begin
-                        next_state = external_read_1;
-                    end
-                end
-            external_read_2:
-                begin
-                    if (spi_out_valid) begin
-                        next_state = external_read_3;
-                    end else begin
-                        next_state = external_read_2;
-                    end
-                end
-            external_read_3:
-                begin
-                    if (spi_out_valid) begin
-                        next_state = external_read_4;
-                    end else begin
-                        next_state = external_read_3;
-                    end
-                end
-            external_read_4:
-                begin
-                    if (spi_out_valid) begin
-                        next_state = default_state;
-                    end else begin
-                        next_state = external_read_4;
-                    end
+                    next_state = default_state;
                 end
             programming_state:
                 begin
@@ -291,19 +174,14 @@ always_comb begin
     out_valid = 1'b0;
 
     // SPI defaults
-    // spi_wb_cyc = 1'b0;
-    // spi_wb_stb = 1'b0;
-    // spi_cfg_stb = 1'b0;
-    // spi_wb_we = 1'b0;
-    // spi_wb_addr  = 22'b0;
-    // spi_i_wb_data = 32'b0;
+    external_qspi_io_o = qspi_io_o;
+    external_qspi_io_t = qspi_io_t;
+    external_qspi_ck_o = qspi_ck_o;
+    external_qspi_cs_o = qspi_cs_o;
 
-    spi_curr_send_byte <= 8'b0;
-    spi_in_valid <= 1'b0;
-
-    external_storage_spi_cs_n = spixpress_spi_cs_n;
-    external_storage_spi_sck = spixpress_spi_sck;
-    external_storage_spi_mosi = spixpress_spi_mosi;
+    qspi_addr = 32'b0;
+    qspi_write = 1'b0;
+    qspi_sel = 1'b0;
 
     unique case (state)
         default_state:
@@ -315,62 +193,29 @@ always_comb begin
                 d_out = d_out_tmp;
                 out_valid = 1'b1;
             end
-        external_send_1:
+        external_send:
             begin
-                spi_curr_send_byte <= 8'h03; // 0x03 = read opcode
-                spi_in_valid <= 1'b1;
+                qspi_addr = addr;
+                qspi_write = 1'b0;
+                qspi_sel = 1'b1;
             end
-        external_send_2:
+        external_done:
             begin
-                spi_curr_send_byte <= addr[23:16]; // addr pt1
-                spi_in_valid <= 1'b1;
-            end
-        external_send_3:
-            begin
-                spi_curr_send_byte <= addr[15:8]; // addr pt2
-                spi_in_valid <= 1'b1;
-            end
-        external_send_4:
-            begin
-                spi_curr_send_byte <= addr[7:0]; // addr pt3
-                spi_in_valid <= 1'b1;
-            end
-        external_read_1:
-            begin
-                if (spi_out_valid) begin
-                    spi_read_full_val[31:24] = spi_curr_recv_byte;
-                end
-            end
-        external_read_2:
-            begin
-                if (spi_out_valid) begin
-                    spi_read_full_val[23:16] = spi_curr_recv_byte;
-                end
-            end
-        external_read_3:
-            begin
-                if (spi_out_valid) begin
-                    spi_read_full_val[15:8] = spi_curr_recv_byte;
-                end
-            end
-        external_read_4:
-            begin
-                if (spi_out_valid) begin
-                    spi_read_full_val[7:0] = spi_curr_recv_byte;
-                    out_valid = 1'b1;
-                end
+                out_valid = 1'b1;
+                d_out = qspi_rdata;
+                qspi_sel = 1'b0;
             end
         programming_state:
             begin
                 // Route programming SPI pins directly to external storage if in programming state
-                external_storage_spi_cs_n = programming_spi_cs_n;
-                external_storage_spi_sck = programming_spi_sck;
-                external_storage_spi_mosi = programming_spi_mosi;
-                programming_spi_miso = external_storage_spi_miso;
+                programming_qspi_io_i = external_qspi_io_i;
+                external_qspi_io_o = programming_qspi_io_o;
+                external_qspi_io_t = programming_qspi_io_t;
+                external_qspi_ck_o = programming_qspi_ck_o;
+                external_qspi_cs_o = programming_qspi_cs_o;
             end
         default:
             begin
-                // external_stall_n goes here
                 // Nothing should happen in default state?
             end
     endcase

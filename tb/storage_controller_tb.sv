@@ -12,20 +12,30 @@ module storage_controller_tb();
     logic [31:0] d_in;
     logic [32/8-1:0] mem_be;
     logic set_programming_mode;
-    logic external_storage_spi_miso;
-    logic programming_spi_cs_n;
-    logic programming_spi_sck;
-    logic programming_spi_mosi;
-
+    logic external_storage_access;
+    logic [3:0] external_qspi_io_i;
+    logic [3:0] programming_qspi_io_o;
+    logic [3:0] programming_qspi_io_t;
+    logic programming_qspi_ck_o;
+    logic programming_qspi_cs_o;
+ 
     // Outputs
     logic [31:0] d_out;
     logic out_valid;
-    logic external_storage_spi_cs_n;
-    logic external_storage_spi_sck;
-    logic external_storage_spi_mosi;
-    logic programming_spi_miso;
+    logic [3:0] external_qspi_io_o;
+    logic [3:0] external_qspi_io_t;
+    logic external_qspi_ck_o;
+    logic external_qspi_cs_o;
+    logic [3:0] programming_qspi_io_i;
 
     storage_controller dut(.*);
+    qspi_stub qspi_stub(
+        .qspi_io_i(external_qspi_io_i),
+        .qspi_io_o(external_qspi_io_o),
+        .qspi_io_t(external_qspi_io_t),
+        .qspi_ck_o(external_qspi_ck_o),
+        .qspi_cs_o(external_qspi_cs_o)
+    );
 
     // Clock Synchronizer for Student Use
     default clocking tb_clk @(negedge clk); endclocking
@@ -48,10 +58,11 @@ module storage_controller_tb();
         d_in <= 32'b0;
         mem_be <= '{default: '0};
         set_programming_mode <= 1'b0;
-        external_storage_spi_miso <= 1'b0;
-        programming_spi_cs_n <= 1'b0;
-        programming_spi_sck <= 1'b0;
-        programming_spi_mosi <= 1'b0;
+        programming_qspi_io_o <= 4'b0;
+        programming_qspi_io_t <= 4'b0;
+        programming_qspi_ck_o <= 1'b0;
+        programming_qspi_cs_o <= 1'b0;
+        external_storage_access <= 1'b0;
 
         ##1;
         rst <= 1'b1;
@@ -67,30 +78,34 @@ module storage_controller_tb();
         ##1;
 
         // Set all possible methods of programming SPI, ensure output at storage SPI is same as input
-        for(int unsigned i = 0; i <= 3'b111; i++) begin
-            $displayh("Current iteration: %p", i[2:0]);
-            programming_spi_cs_n <= i[0];
-            programming_spi_sck <= i[1];
-            programming_spi_mosi <= i[2];
+        for(int unsigned i = 0; i <= 10'hFFF; i++) begin
+            // $displayh("Current iteration: %p", i[2:0]);
+            programming_qspi_io_o <= i[3:0];
+            programming_qspi_io_t <= i[7:4];
+            programming_qspi_ck_o <= i[8];
+            programming_qspi_cs_o <= i[9];
 
             ##1; // should this delay exist?
-            assert (external_storage_spi_cs_n == i[0]) else $error("external_storage_spi_cs_n not same as expected (i = %p)", i);
-            assert (external_storage_spi_sck == i[1]) else $error("external_storage_spi_sck not same as expected (i = %p)", i);
-            assert (external_storage_spi_mosi == i[2]) else $error("external_storage_spi_mosi not same as expected (i = %p)", i);
+            assert (external_qspi_io_o == i[3:0]) else $error("external_qspi_io_o not same as expected (i = %p)", i);
+            assert (external_qspi_io_t == i[7:4]) else $error("external_qspi_io_t not same as expected (i = %p)", i);
+            assert (external_qspi_ck_o == i[8]) else $error("external_qspi_ck_o not same as expected (i = %p)", i);
+            assert (external_qspi_cs_o == i[9]) else $error("external_qspi_cs_o not same as expected (i = %p)", i);
             ##1;
         end
 
         // Ensure storage output sets programming input correctly
-        external_storage_spi_miso <= 1'b0;
-        ##1;
-        assert (programming_spi_miso == 1'b0) else $error("programming_spi_miso not same as expected (should be 0)");
-        ##1;
-        external_storage_spi_miso <= 1'b1;
-        ##1;
-        assert (programming_spi_miso == 1'b1) else $error("programming_spi_miso not same as expected (should be 1)");
+        // external_storage_spi_miso <= 1'b0;
+        // ##1;
+        // assert (programming_spi_miso == 1'b0) else $error("programming_spi_miso not same as expected (should be 0)");
+        // ##1;
+        // external_storage_spi_miso <= 1'b1;
+        // ##1;
+        // assert (programming_spi_miso == 1'b1) else $error("programming_spi_miso not same as expected (should be 1)");
     endtask : spi_passthrough
 
     task write_and_read_to_sram();
+        external_storage_access <= 1'b0;
+
         for(int unsigned i = 0; i <= 11'h7FF; i++) begin
             ##1;
             memory_access <= 1'b1;
@@ -121,39 +136,20 @@ module storage_controller_tb();
         end
     endtask : write_and_read_to_sram
 
-    task read_from_external(input [7:0] opcode, input [31:0] addr_val_in, input [31:0] data_expected);
+    task read_from_external(input [31:0] addr_val_in);
         ##1;
 
         d_in <= 32'b0;
         mem_be <= 4'b0;
         memory_is_writing <= 1'b0;
         memory_access <= 1'b1;
-
-        ##1;
-
+        external_storage_access <= 1'b1;
         addr <= addr_val_in;
 
-        for(int unsigned i = 0; i < 32; i++) begin
-            @(posedge external_storage_spi_sck);
-
-            if(i < 8) begin
-                $displayh("(i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, opcode[7 - i]);
-                assert (external_storage_spi_mosi == opcode[7 - i]) else $error("OUT DIFFERENT THAN EXPECTED (i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, opcode[7 - i]); 
-            end else begin
-                $displayh("(i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, addr_val_in[31 - i]);
-                assert (external_storage_spi_mosi == addr_val_in[31 - i]) else $error("OUT DIFFERENT THAN EXPECTED (i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, addr_val_in[31 - i]); 
-            end
-        end
-        ##1;
-
-        // for (int unsigned i = 0; i < 32; i++) begin
-        //     // send serialized 32 bit value to storage
-        //     @(posedge external_storage_spi_sck);
-        //     $display("i = %p, data_expected = %h", i, data_expected[31 - i]);
-        //     external_storage_spi_miso <= data_expected[31 - i];
-        // end
-        // assert (out_valid == 1'b1) else $error("OUT VALID NOT HIGH WHEN EXPECTED");
-        // assert (d_out == data_expected) else $error("d_out NOT SAME AS EXPECTED (%p)", d_out);
+        @(posedge out_valid);
+        $display("DOUT = %h", d_out);
+        memory_access <= 1'b0;
+        // assert (d_out == opcode[7 - i]) else $error("OUT DIFFERENT THAN EXPECTED (i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, opcode[7 - i]); 
     endtask : read_from_external
 
     
@@ -177,7 +173,7 @@ module storage_controller_tb();
 
         ##1;
         $display("Starting read_from_external tests...");
-        read_from_external(8'h03, 32'h0000_1001, 32'h1234_5678);
+        read_from_external(32'h0000_0005);
         $display("Finished read_from_external tests...");
         reset();
         ##1;
