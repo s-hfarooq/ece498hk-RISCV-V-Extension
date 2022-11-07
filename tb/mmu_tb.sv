@@ -313,6 +313,16 @@ module mmu_tb();
         $display("Starting mmu tests...");
         reset();
 
+        // TODO: if moved after other tests, this fails
+        ##1;
+        $display("Starting external_storage_test tests...");
+        for(int unsigned i = 0; i < 32'h0000_0050; i++) begin
+            external_storage_test(i[31:0]);
+        end
+        $display("Finished external_storage_test tests...");
+        reset();
+        ##1;
+
         ##1;
         $display("Starting gpio_test tests...");
         gpio_test();
@@ -327,26 +337,17 @@ module mmu_tb();
         reset();
         ##1;
 
-        // ##1;
-        // $display("Starting sram_test tests...");
-        // sram_test();
-        // $display("Finished sram_test tests...");
-        // reset();
-        // ##1;
+        ##1;
+        $display("Starting sram_test tests...");
+        sram_test();
+        $display("Finished sram_test tests...");
+        reset();
+        ##1;
 
         ##1;
         $display("Starting spi_passthrough tests...");
         spi_passthrough();
         $display("Finished spi_passthrough tests...");
-        reset();
-        ##1;
-
-        ##1;
-        $display("Starting external_storage_test tests...");
-        for(int unsigned i = 0; i < 32'h0000_0050; i++) begin
-            external_storage_test(i[31:0]);
-        end
-        $display("Finished external_storage_test tests...");
         reset();
         ##1;
 

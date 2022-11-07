@@ -89,7 +89,7 @@ enum logic [2:0] {
     external_done
 } state, next_state;
 
-always_ff @(posedge clk) begin
+always_ff @(negedge clk) begin
     if (~rst) begin
         state <= default_state;
     end else begin
