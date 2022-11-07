@@ -1,3 +1,5 @@
+// From Stanley
+
 module qspi_controller (
     input   logic                   s_pclk,
     input   logic                   s_presetn,

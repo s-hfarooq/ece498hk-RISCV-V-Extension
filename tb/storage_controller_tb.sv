@@ -39,7 +39,7 @@ module storage_controller_tb();
 
     logic [31:0] mem [2**24];
     initial begin
-        $readmemh("/home/hfaroo9/ece498hk-RISCV-V-Extension/src/tmp.vmem", mem);
+        $readmemh("/home/hfaroo9/ece498hk-RISCV-V-Extension/tb/tmp.vmem", mem);
         // $displayh("mem = %p", mem);
     end
 

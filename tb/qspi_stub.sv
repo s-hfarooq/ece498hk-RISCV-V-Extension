@@ -1,3 +1,5 @@
+// From Stanley, modified
+
 module qspi_stub(
     output  logic   [3:0]           qspi_io_i,
     input   logic   [3:0]           qspi_io_o,
@@ -10,7 +12,7 @@ module qspi_stub(
 
     initial
     begin
-        $readmemh("/home/hfaroo9/ece498hk-RISCV-V-Extension/src/tmp.vmem", mem);
+        $readmemh("/home/hfaroo9/ece498hk-RISCV-V-Extension/tb/tmp.vmem", mem);
         // $displayh("mem = %p", mem);
     end
 

@@ -1,3 +1,5 @@
+// From Stanley, modified
+
 module qspi_tb;
 
             logic           s_pclk;
