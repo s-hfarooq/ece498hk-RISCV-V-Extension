@@ -37,6 +37,14 @@ module storage_controller_tb();
         .qspi_cs_o(external_qspi_cs_o)
     );
 
+    logic   [31:0]           mem [2**24];
+
+    initial
+    begin
+        $readmemh("/home/hfaroo9/ece498hk-RISCV-V-Extension/src/tmp.vmem", mem);
+        // $displayh("mem = %p", mem);
+    end
+
     // Clock Synchronizer for Student Use
     default clocking tb_clk @(negedge clk); endclocking
 
@@ -92,15 +100,6 @@ module storage_controller_tb();
             assert (external_qspi_cs_o == i[9]) else $error("external_qspi_cs_o not same as expected (i = %p)", i);
             ##1;
         end
-
-        // Ensure storage output sets programming input correctly
-        // external_storage_spi_miso <= 1'b0;
-        // ##1;
-        // assert (programming_spi_miso == 1'b0) else $error("programming_spi_miso not same as expected (should be 0)");
-        // ##1;
-        // external_storage_spi_miso <= 1'b1;
-        // ##1;
-        // assert (programming_spi_miso == 1'b1) else $error("programming_spi_miso not same as expected (should be 1)");
     endtask : spi_passthrough
 
     task write_and_read_to_sram();
@@ -146,10 +145,12 @@ module storage_controller_tb();
         external_storage_access <= 1'b1;
         addr <= addr_val_in;
 
-        @(posedge out_valid);
-        $display("DOUT = %h", d_out);
+        while(out_valid == 1'b0) begin
+            ##1;
+        end
+
         memory_access <= 1'b0;
-        // assert (d_out == opcode[7 - i]) else $error("OUT DIFFERENT THAN EXPECTED (i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, opcode[7 - i]); 
+        assert (d_out == mem[addr_val_in]) else $error("d_out DIFFERENT THAN EXPECTED (addr = %h, d_out = %h, expected = %h", d_out, addr_val_in, mem[addr_val_in]); 
     endtask : read_from_external
 
     
@@ -159,7 +160,10 @@ module storage_controller_tb();
 
         ##1;
         $display("Starting read_from_external tests...");
-        read_from_external(32'h0000_0005);
+        // TODO: For some reason when this is the last test it fails
+        for(int unsigned i = 0; i < 32'h0000_0050; i++) begin
+            read_from_external(i[31:0]);
+        end
         $display("Finished read_from_external tests...");
         reset();
         ##1;
