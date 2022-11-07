@@ -58,11 +58,11 @@ module storage_controller_tb();
         d_in <= 32'b0;
         mem_be <= '{default: '0};
         set_programming_mode <= 1'b0;
+        external_storage_access <= 1'b0;
         programming_qspi_io_o <= 4'b0;
         programming_qspi_io_t <= 4'b0;
         programming_qspi_ck_o <= 1'b0;
         programming_qspi_cs_o <= 1'b0;
-        external_storage_access <= 1'b0;
 
         ##1;
         rst <= 1'b1;
@@ -158,6 +158,13 @@ module storage_controller_tb();
         reset();
 
         ##1;
+        $display("Starting read_from_external tests...");
+        read_from_external(32'h0000_0005);
+        $display("Finished read_from_external tests...");
+        reset();
+        ##1;
+
+        ##1;
         $display("Starting spi_passthrough tests...");
         spi_passthrough();
         $display("Finished spi_passthrough tests...");
@@ -168,13 +175,6 @@ module storage_controller_tb();
         $display("Starting write_and_read_to_sram tests...");
         write_and_read_to_sram();
         $display("Finished write_and_read_to_sram tests...");
-        reset();
-        ##1;
-
-        ##1;
-        $display("Starting read_from_external tests...");
-        read_from_external(32'h0000_0005);
-        $display("Finished read_from_external tests...");
         reset();
         ##1;
 
