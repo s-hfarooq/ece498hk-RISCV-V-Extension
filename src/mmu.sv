@@ -22,17 +22,19 @@ module mmu #(
     // To/from GPIO
     inout wire [9:0] gpio_pins,
 
-    // Flash storage SPI
-    output logic external_storage_spi_cs_n,
-    output logic external_storage_spi_sck,
-    output logic external_storage_spi_mosi,
-    input logic external_storage_spi_miso,
+    // To/from storage SPI
+    input   logic   [3:0]           external_qspi_io_i,
+    output  logic   [3:0]           external_qspi_io_o,
+    output  logic   [3:0]           external_qspi_io_t,
+    output  logic                   external_qspi_ck_o,
+    output  logic                   external_qspi_cs_o,
 
-    // Programming SPI
-    input logic programming_spi_cs_n,
-    input logic programming_spi_sck,
-    input logic programming_spi_mosi,
-    output logic programming_spi_miso
+    // To/from programming SPI
+    output logic   [3:0]           programming_qspi_io_i,
+    input  logic   [3:0]           programming_qspi_io_o,
+    input  logic   [3:0]           programming_qspi_io_t,
+    input  logic                   programming_qspi_ck_o,
+    input  logic                   programming_qspi_cs_o
 );
 
 //                       MEMORY ADDRESSES
@@ -51,6 +53,7 @@ module mmu #(
 logic memory_access;
 logic [31:0] storage_controller_d_out;
 logic storage_out_valid;
+logic external_storage_access;
 
 // Save data in since mem access can take >1 clock cycle and the input values are only valid for 1
 // TODO: make sure vicuna stalls until mem_rvalid_i goes high for data read/write
@@ -80,18 +83,34 @@ storage_controller #(.MEM_W(MEM_W)) storage_controller (
     .out_valid(storage_out_valid),
 
     .set_programming_mode(set_programming_mode),
+    .external_storage_access(external_storage_access),
 
-    // Flash storage SPI
-    .external_storage_spi_cs_n(external_storage_spi_cs_n),
-    .external_storage_spi_sck(external_storage_spi_sck),
-    .external_storage_spi_mosi(external_storage_spi_mosi),
-    .external_storage_spi_miso(external_storage_spi_miso),
+    // // Flash storage SPI
+    // .external_storage_spi_cs_n(external_storage_spi_cs_n),
+    // .external_storage_spi_sck(external_storage_spi_sck),
+    // .external_storage_spi_mosi(external_storage_spi_mosi),
+    // .external_storage_spi_miso(external_storage_spi_miso),
 
-    // Programming SPI
-    .programming_spi_cs_n(programming_spi_cs_n),
-    .programming_spi_sck(programming_spi_sck),
-    .programming_spi_mosi(programming_spi_mosi),
-    .programming_spi_miso(programming_spi_miso)
+    // // Programming SPI
+    // .programming_spi_cs_n(programming_spi_cs_n),
+    // .programming_spi_sck(programming_spi_sck),
+    // .programming_spi_mosi(programming_spi_mosi),
+    // .programming_spi_miso(programming_spi_miso)
+
+    
+    // To/from storage SPI
+    .external_qspi_io_i(external_qspi_io_i),
+    .external_qspi_io_o(external_qspi_io_o),
+    .external_qspi_io_t(external_qspi_io_t),
+    .external_qspi_ck_o(external_qspi_ck_o),
+    .external_qspi_cs_o(external_qspi_cs_o),
+
+    // To/from programming SPI
+    .programming_qspi_io_i(programming_qspi_io_i),
+    .programming_qspi_io_o(programming_qspi_io_o),
+    .programming_qspi_io_t(programming_qspi_io_t),
+    .programming_qspi_ck_o(programming_qspi_ck_o),
+    .programming_qspi_cs_o(programming_qspi_cs_o)
 );
 
 digitalTimer digitalTimer (
@@ -114,7 +133,7 @@ enum logic [3:0] {
     programming_state
 } state, next_state;
 
-always_ff @(negedge clk) begin
+always_ff @(posedge clk) begin
     if (~rst) begin
         state <= default_state;
     end else begin
@@ -139,6 +158,8 @@ always_comb begin
     end else if (state == sram_state_init) begin
         next_state = sram_state_done;
     end else if (state == sram_state_done) begin
+        next_state = default_state;
+    end else if (state == external_continue && storage_out_valid) begin
         next_state = default_state;
     end else if ((state == external_init || state == external_continue) && ~storage_out_valid) begin
         // Stay in memory state if memory hasn't responded yet
@@ -188,6 +209,7 @@ always_comb begin
         curr_mem_we = 1'b0;
         gpio_direction = 10'b0;
         gpio_curr_value = 10'b0;
+        external_storage_access = 1'b0;
     end else begin
         // Default values for outputs
         // To/from Vicuna/Ibex
@@ -198,6 +220,9 @@ always_comb begin
         // To/from digital timer
         timer_set_val = 32'b0;
         set_timer = 1'b0;
+
+
+        external_storage_access = 1'b0;
         
         unique case (state)
             default_state:
@@ -217,10 +242,11 @@ always_comb begin
                             vproc_mem_err_i = 1'b1;
                             memory_access = 1'b0;
                         end else begin
-                            curr_addr = vproc_mem_addr_o - 32'h0000_1000;
-                            curr_d_in = vproc_mem_wdata_o;
-                            curr_mem_be = vproc_mem_be_o;
-                            curr_mem_we = vproc_mem_we_o;
+                            external_storage_access = 1'b1;
+                            curr_addr = vproc_mem_addr_o - 32'h0000_2000;
+                            curr_d_in = '{default: '0};
+                            curr_mem_be = '{default: '0};
+                            curr_mem_we = 1'b0;
                             memory_access = 1'b1;
                         end
                     end
@@ -230,7 +256,7 @@ always_comb begin
                     // Continue giving storage controller same input until it returns that it's done
                     if (~storage_out_valid) begin
                         memory_access = 1'b1;
-                        memory_access = 1'b0;
+                        external_storage_access = 1'b1;
                     end else begin
                         vproc_mem_rdata_i = storage_controller_d_out;
                         vproc_mem_rvalid_i = 1'b1;
@@ -239,6 +265,8 @@ always_comb begin
                         curr_d_in = '{default: '0};
                         curr_mem_be = '{default: '0};
                         curr_mem_we = 1'b0;
+                        memory_access = 1'b0;
+                        external_storage_access = 1'b0;
                     end
                 end
             sram_state_init:

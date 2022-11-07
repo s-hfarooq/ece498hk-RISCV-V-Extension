@@ -17,22 +17,22 @@ module mmu_tb();
     logic [32  -1:0] vproc_mem_wdata_o;
     // Flash storage SPI
     logic external_storage_spi_miso;
-    // Programming SPI
-    logic programming_spi_cs_n;
-    logic programming_spi_sck;
-    logic programming_spi_mosi;
+    logic [3:0] external_qspi_io_i;
+    logic [3:0] programming_qspi_io_o;
+    logic [3:0] programming_qspi_io_t;
+    logic programming_qspi_ck_o;
+    logic programming_qspi_cs_o;
 
     // Outputs
     // From Vicuna/Ibex
     logic vproc_mem_rvalid_i;
     logic vproc_mem_err_i;
     logic [32  -1:0] vproc_mem_rdata_i;
-    // Flash storage SPI
-    logic external_storage_spi_cs_n;
-    logic external_storage_spi_sck;
-    logic external_storage_spi_mosi;
-    // Programming SPI
-    logic programming_spi_miso;
+    logic [3:0] external_qspi_io_o;
+    logic [3:0] external_qspi_io_t;
+    logic external_qspi_ck_o;
+    logic external_qspi_cs_o;
+    logic [3:0] programming_qspi_io_i;
 
     // Inout
     // To/from GPIO
@@ -47,6 +47,18 @@ module mmu_tb();
     endgenerate
 
     mmu dut(.*);
+    qspi_stub qspi_stub(
+        .qspi_io_i(external_qspi_io_i),
+        .qspi_io_o(external_qspi_io_o),
+        .qspi_io_t(external_qspi_io_t),
+        .qspi_ck_o(external_qspi_ck_o),
+        .qspi_cs_o(external_qspi_cs_o)
+    );
+
+    logic [31:0] mem [2**24];
+    initial begin
+        $readmemh("/home/hfaroo9/ece498hk-RISCV-V-Extension/src/tmp.vmem", mem);
+    end
 
     // Clock Synchronizer for Student Use
     default clocking tb_clk @(negedge clk); endclocking
@@ -71,12 +83,10 @@ module mmu_tb();
         vproc_mem_we_o <= 1'b0; // high when writing, low when reading
         vproc_mem_be_o <= '{default: '0};
         vproc_mem_wdata_o <= 32'b0;
-        // Flash storage SPI
-        external_storage_spi_miso <= 1'b0;
-        // Programming SPI
-        programming_spi_cs_n <= 1'b0;
-        programming_spi_sck <= 1'b0;
-        programming_spi_mosi <= 1'b0;
+        programming_qspi_io_o <= 4'b0;
+        programming_qspi_io_t <= 4'b0;
+        programming_qspi_ck_o <= 1'b0;
+        programming_qspi_cs_o <= 1'b0;
 
         ##1;
         rst <= 1'b1;
@@ -231,65 +241,38 @@ module mmu_tb();
         ##1;
 
         // Set all possible methods of programming SPI, ensure output at storage SPI is same as input
-        for(int unsigned i = 0; i <= 3'b111; i++) begin
-            $displayh("Current iteration: %p", i[2:0]);
-            programming_spi_cs_n <= i[0];
-            programming_spi_sck <= i[1];
-            programming_spi_mosi <= i[2];
+        for(int unsigned i = 0; i <= 10'hFFF; i++) begin
+            // $displayh("Current iteration: %p", i[2:0]);
+            programming_qspi_io_o <= i[3:0];
+            programming_qspi_io_t <= i[7:4];
+            programming_qspi_ck_o <= i[8];
+            programming_qspi_cs_o <= i[9];
 
             ##1; // should this delay exist?
-            assert (external_storage_spi_cs_n == i[0]) else $error("external_storage_spi_cs_n not same as expected (i = %p)", i);
-            assert (external_storage_spi_sck == i[1]) else $error("external_storage_spi_sck not same as expected (i = %p)", i);
-            assert (external_storage_spi_mosi == i[2]) else $error("external_storage_spi_mosi not same as expected (i = %p)", i);
+            assert (external_qspi_io_o == i[3:0]) else $error("external_qspi_io_o not same as expected (i = %p)", i);
+            assert (external_qspi_io_t == i[7:4]) else $error("external_qspi_io_t not same as expected (i = %p)", i);
+            assert (external_qspi_ck_o == i[8]) else $error("external_qspi_ck_o not same as expected (i = %p)", i);
+            assert (external_qspi_cs_o == i[9]) else $error("external_qspi_cs_o not same as expected (i = %p)", i);
             ##1;
         end
-
-        // Ensure storage output sets programming input correctly
-        external_storage_spi_miso <= 1'b0;
-        ##1;
-        assert (programming_spi_miso == 1'b0) else $error("programming_spi_miso not same as expected (should be 0)");
-        ##1;
-        external_storage_spi_miso <= 1'b1;
-        ##1;
-        assert (programming_spi_miso == 1'b1) else $error("programming_spi_miso not same as expected (should be 1)");
     endtask : spi_passthrough
 
-    // TODO
-    task external_storage_test(input [7:0] opcode, input [31:0] addr_val_in, input [31:0] expected_addr_val_in);
+    task external_storage_test(input [31:0] addr_val_in);
         ##1;
 
         vproc_mem_wdata_o <= 32'b0;
         vproc_mem_be_o <= 4'b0;
         vproc_mem_we_o <= 1'b0;
         vproc_mem_req_o <= 1'b1;
+        vproc_mem_addr_o <= addr_val_in + 32'h0000_2000;
 
-        ##1;
-
-        vproc_mem_addr_o <= addr_val_in;
-
-        for(int unsigned i = 0; i < 32; i++) begin
-            @(posedge external_storage_spi_sck);
-
-            if(i < 8) begin
-                $displayh("(i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, opcode[7 - i]);
-                assert (external_storage_spi_mosi == opcode[7 - i]) else $error("OUT DIFFERENT THAN EXPECTED (i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, opcode[7 - i]); 
-            end else begin
-                $displayh("(i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, expected_addr_val_in[31 - i]);
-                assert (external_storage_spi_mosi == expected_addr_val_in[31 - i]) else $error("OUT DIFFERENT THAN EXPECTED (i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, expected_addr_val_in[31 - i]); 
-            end
+        while(vproc_mem_rvalid_i == 1'b0) begin
+            ##1;
         end
-        // loop between 0 and 4
-        // for (int unsigned i = 0; i < 4; i++) begin
-        //     for (int unsigned j = 0; j < 8; j++) begin
-        //         @(posedge external_storage_spi_sck);
-        //         $displayh("(i = %p, j = %p, o_SPI_MOSI = %h, expected_val = %h", i, j, external_storage_spi_mosi, opcode[7 - j]);
-        //         assert (external_storage_spi_mosi == opcode[7 - j]) else $error("OUT DIFFERENT THAN EXPECTED (i = %p, j = %p, o_SPI_MOSI = %h, expected_val = %h", i, j, external_storage_spi_mosi, opcode[7 - j]); 
-        //     end
-            // @(posedge external_storage_spi_sck);
-            // $displayh("(i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, opcode[7 - i]);
-            // assert (external_storage_spi_mosi == opcode[7 - i]) else $error("OUT DIFFERENT THAN EXPECTED (i = %p, o_SPI_MOSI = %h, expected_val = %h", i, external_storage_spi_mosi, opcode[7 - i]); 
-        // end
-        ##1;
+
+        vproc_mem_req_o <= 1'b0;
+
+        assert (vproc_mem_rdata_i == mem[addr_val_in]) else $error("vproc_mem_rdata_i DIFFERENT THAN EXPECTED (addr = %h, d_out = %h, expected = %h", vproc_mem_rdata_i, addr_val_in, mem[addr_val_in]); 
     endtask : external_storage_test
 
     task reserved_addr_test();
@@ -344,12 +327,12 @@ module mmu_tb();
         reset();
         ##1;
 
-        ##1;
-        $display("Starting sram_test tests...");
-        sram_test();
-        $display("Finished sram_test tests...");
-        reset();
-        ##1;
+        // ##1;
+        // $display("Starting sram_test tests...");
+        // sram_test();
+        // $display("Finished sram_test tests...");
+        // reset();
+        // ##1;
 
         ##1;
         $display("Starting spi_passthrough tests...");
@@ -360,7 +343,9 @@ module mmu_tb();
 
         ##1;
         $display("Starting external_storage_test tests...");
-        external_storage_test(8'h03, 32'h0000_2001, 32'h0000_1001);
+        for(int unsigned i = 0; i < 32'h0000_0050; i++) begin
+            external_storage_test(i[31:0]);
+        end
         $display("Finished external_storage_test tests...");
         reset();
         ##1;

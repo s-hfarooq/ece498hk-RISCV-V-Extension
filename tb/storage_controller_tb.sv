@@ -37,10 +37,8 @@ module storage_controller_tb();
         .qspi_cs_o(external_qspi_cs_o)
     );
 
-    logic   [31:0]           mem [2**24];
-
-    initial
-    begin
+    logic [31:0] mem [2**24];
+    initial begin
         $readmemh("/home/hfaroo9/ece498hk-RISCV-V-Extension/src/tmp.vmem", mem);
         // $displayh("mem = %p", mem);
     end
