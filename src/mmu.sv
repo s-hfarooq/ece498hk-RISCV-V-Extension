@@ -133,6 +133,7 @@ enum logic [3:0] {
     programming_state
 } state, next_state;
 
+// TODO: if this is negedge the SRAM timing volations go away
 always_ff @(posedge clk) begin
     if (~rst) begin
         state <= default_state;
@@ -282,15 +283,9 @@ always_comb begin
                 end
             sram_state_done:
                 begin
-                    if (vproc_mem_addr_o >= 32'h0000_1000) begin
-                        curr_addr = vproc_mem_addr_o - 32'h0000_1000;
-                        curr_d_in = vproc_mem_wdata_o;
-                        curr_mem_be = vproc_mem_be_o;
-                        curr_mem_we = vproc_mem_we_o;
-                        memory_access = 1'b1;
-                        vproc_mem_rdata_i = storage_controller_d_out;
-                        vproc_mem_rvalid_i = 1'b1;
-                    end
+                    memory_access = 1'b1;
+                    vproc_mem_rdata_i = storage_controller_d_out;
+                    vproc_mem_rvalid_i = 1'b1;
                 end
             timer_state:
                 begin
