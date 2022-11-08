@@ -40,7 +40,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          submodules: false
+          submodules: true
 
       - uses: actions/cache@v2
         id: cache-verilator
