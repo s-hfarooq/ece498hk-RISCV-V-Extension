@@ -114,7 +114,7 @@ jobs:
             if [ $? -ne 0 ]; then
               retval=1
             fi
-          done < src/vicuna/.github/test_configs.conf
+          done < .github/test_configs.conf
           exit $retval
 
       - name: Archive VCD trace files
