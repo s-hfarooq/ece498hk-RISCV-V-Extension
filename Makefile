@@ -1,5 +1,6 @@
 #Collect All Source Files
-
+OUR_V_FILES := $(shell find $(PWD)/src -maxdepth 1 -name '*.v')
+OUR_SV_FILES := $(shell find $(PWD)/src -maxdepth 1 -name '*.sv')
 VICUNA_PKG_SRCS := $(shell find $(PWD)/src/vicuna/rtl -name '*_pkg.sv')
 VICUNA_CFG_SRCS := $(shell find $(PWD)/src/vicuna/ -name '*_config.sv')
 VICUNA_SRCS := $(shell find $(PWD)/src/vicuna/rtl -name '*.sv' ! -name '*_pkg.sv')
@@ -11,11 +12,11 @@ PRIM_OTHER_SRCS := $(shell find $(PWD)/src/vicuna/ibex/syn/rtl -name '*gating.v'
 IBEX_PKG_SRCS := $(shell find $(PWD)/src/vicuna/ibex/rtl -name '*_pkg.sv')
 IBEX_SRCS := $(shell find $(PWD)/src/vicuna/ibex/rtl -name '*.sv' ! -name '*_pkg.sv' ! -name '*_tracing.sv')
 
-TB_SRCS := $(shell find $(PWD)/src/vicuna/sim -name '*.sv') # this is wrong TB location?
+TB_SRCS := $(PWD)/tb/qspi_stub.sv $(shell find $(PWD)/src/vicuna/sim -name '*.sv') # this is wrong TB location?
 #TB_SRCS := $(shell find $(PWD)/src/vicuna/demo/rtl -name '*.sv')
 
 
-SRCS := $(ENTRO_SRCS) $(DV_SRCS) $(PRIM_PKG_SRCS) $(PRIM_OTHER_SRCS) $(IBEX_PKG_SRCS) $(IBEX_SRCS) $(VICUNA_PKG_SRCS) $(VICUNA_CFG_SRCS) $(VICUNA_SRCS) $(TB_SRCS)
+SRCS := $(ENTRO_SRCS) $(DV_SRCS) $(PRIM_PKG_SRCS) $(PRIM_OTHER_SRCS) $(IBEX_PKG_SRCS) $(IBEX_SRCS) $(VICUNA_PKG_SRCS) $(VICUNA_CFG_SRCS) $(VICUNA_SRCS) $(OUR_V_FILES) $(OUR_SV_FILES) $(TB_SRCS)
 SYNTH_TCL := $(CURDIR)/synthesis.tcl
 VCS_FLAGS = -full64 -lca -sverilog +lint=all,noNS -timescale=lns/10ps -debug -kdb -fsdb +liborder +libverbose +incdir+$(PWD)/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl +incdir+$(PWD)/src/vicuna/ibex/vendor/lowrisc_ip/dv/sv/dv_utils -assert svaext
 

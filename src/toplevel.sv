@@ -1,22 +1,36 @@
 
-module toplevel #(
+module toplevel_498 #(
     parameter int unsigned     MEM_W         = 32 // memory bus width in bits, same as value in vproc_top.sv
     )(
     input logic clk,
     input logic rst,
     inout logic [9:0] gpio_pins,
 
-    // Flash storage SPI
-    output logic external_storage_spi_cs_n,
-    output logic external_storage_spi_sck,
-    output logic external_storage_spi_mosi,
-    input logic external_storage_spi_miso,
+    // // Flash storage SPI
+    // output logic external_storage_spi_cs_n,
+    // output logic external_storage_spi_sck,
+    // output logic external_storage_spi_mosi,
+    // input logic external_storage_spi_miso,
 
-    // Programming SPI
-    input logic programming_spi_cs_n,
-    input logic programming_spi_sck,
-    input logic programming_spi_mosi,
-    output logic programming_spi_miso,
+    // // Programming SPI
+    // input logic programming_spi_cs_n,
+    // input logic programming_spi_sck,
+    // input logic programming_spi_mosi,
+    // output logic programming_spi_miso,
+
+    // To/from storage SPI
+    input   logic   [3:0]           external_qspi_io_i,
+    output  logic   [3:0]           external_qspi_io_o,
+    output  logic   [3:0]           external_qspi_io_t,
+    output  logic                   external_qspi_ck_o,
+    output  logic                   external_qspi_cs_o,
+
+    // To/from programming SPI
+    output logic   [3:0]           programming_qspi_io_i,
+    input  logic   [3:0]           programming_qspi_io_o,
+    input  logic   [3:0]           programming_qspi_io_t,
+    input  logic                   programming_qspi_ck_o,
+    input  logic                   programming_qspi_cs_o,
 
     // Programming/debug set pins
     input logic set_programming_mode,
@@ -25,7 +39,7 @@ module toplevel #(
 
 // VPROC_TOP SIGNALS
 logic vproc_mem_req_o;
-logic [31:0] vproc_mem_addr_o,
+logic [31:0] vproc_mem_addr_o;
 logic vproc_mem_we_o;
 logic [MEM_W/8-1:0] vproc_mem_be_o;
 logic [MEM_W-1:0] vproc_mem_wdata_o;
@@ -76,16 +90,30 @@ mmu #(.MEM_W(MEM_W)) mmu (
     .gpio_pins(gpio_pins),
 
     // Flash storage SPI
-    .external_storage_spi_cs_n(external_storage_spi_cs_n),
-    .external_storage_spi_sck(external_storage_spi_sck),
-    .external_storage_spi_mosi(external_storage_spi_mosi),
-    .external_storage_spi_miso(external_storage_spi_miso),
+    // .external_storage_spi_cs_n(external_storage_spi_cs_n),
+    // .external_storage_spi_sck(external_storage_spi_sck),
+    // .external_storage_spi_mosi(external_storage_spi_mosi),
+    // .external_storage_spi_miso(external_storage_spi_miso),
 
-    // Programming SPI
-    .programming_spi_cs_n(programming_spi_cs_n),
-    .programming_spi_sck(programming_spi_sck),
-    .programming_spi_mosi(programming_spi_mosi),
-    .programming_spi_miso(programming_spi_miso)
+    // // Programming SPI
+    // .programming_spi_cs_n(programming_spi_cs_n),
+    // .programming_spi_sck(programming_spi_sck),
+    // .programming_spi_mosi(programming_spi_mosi),
+    // .programming_spi_miso(programming_spi_miso)
+
+        // To/from storage SPI
+    .external_qspi_io_i(external_qspi_io_i),
+    .external_qspi_io_o(external_qspi_io_o),
+    .external_qspi_io_t(external_qspi_io_t),
+    .external_qspi_ck_o(external_qspi_ck_o),
+    .external_qspi_cs_o(external_qspi_cs_o),
+
+    // To/from programming SPI
+    .programming_qspi_io_i(programming_qspi_io_i),
+    .programming_qspi_io_o(programming_qspi_io_o),
+    .programming_qspi_io_t(programming_qspi_io_t),
+    .programming_qspi_ck_o(programming_qspi_ck_o),
+    .programming_qspi_cs_o(programming_qspi_cs_o)
 );
 
-endmodule : toplevel
+endmodule : toplevel_498
