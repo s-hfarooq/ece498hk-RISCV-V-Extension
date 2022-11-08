@@ -100,6 +100,7 @@ jobs:
       - name: Run tests
         shell: bash {0} # disable fail-fast behavior
         run: |
+          cd src/vicuna/
           export PATH=$PATH:/opt/verilator/bin:/opt/riscv-gcc/bin
           verilator --version
           retval=0
@@ -107,7 +108,6 @@ jobs:
             if [ -z "$line" ] || [ "${line:0:1}" = "#" ]; then
               continue
             fi
-            cd src/vicuna/
             echo "$line" > test/${{ matrix.unit }}/test_configs.conf
             vcd=`echo "${{ matrix.unit }}_${{ matrix.main_core }}_${line}.vcd" | sed 's/  */_/g'`
             make -C test ${{ matrix.unit }} CORE=${{ matrix.main_core }} FULL_LOG=1 TRACE_VCD=$vcd
