@@ -18,7 +18,7 @@ TB_SRCS := $(PWD)/tb/qspi_stub.sv $(shell find $(PWD)/src/vicuna/sim -name '*.sv
 
 SRCS := $(ENTRO_SRCS) $(DV_SRCS) $(PRIM_PKG_SRCS) $(PRIM_OTHER_SRCS) $(IBEX_PKG_SRCS) $(IBEX_SRCS) $(VICUNA_PKG_SRCS) $(VICUNA_CFG_SRCS) $(VICUNA_SRCS) $(OUR_V_FILES) $(OUR_SV_FILES) $(TB_SRCS)
 SYNTH_TCL := $(CURDIR)/synthesis.tcl
-VCS_FLAGS = -full64 -lca -sverilog +lint=all,noNS -timescale=lns/10ps -debug -kdb -fsdb +liborder +libverbose +incdir+$(PWD)/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl +incdir+$(PWD)/src/vicuna/ibex/vendor/lowrisc_ip/dv/sv/dv_utils -assert svaext
+VCS_FLAGS = -full64 -lca -sverilog -timescale=lns/10ps -debug -kdb -fsdb +liborder +libverbose +incdir+$(PWD)/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl +incdir+$(PWD)/src/vicuna/ibex/vendor/lowrisc_ip/dv/sv/dv_utils -assert svaext
 
 .PHONY: clean
 .PHONY: run

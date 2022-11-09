@@ -45,7 +45,7 @@
 //
 `ifdef ARM_UD_MODEL
 
-`timescale 1 ns/1 ps
+// `timescale 1 ns/1 ps
 
 `ifdef ARM_UD_DP
 `else
@@ -385,7 +385,7 @@ module sram_2048_32_wmask_8bit (Q, CLK, CEN, WEN, A, D, EMA, GWEN, RETN);
 endmodule
 `endcelldefine
 `else
-`timescale 1 ns/1 ps
+// `timescale 1 ns/1 ps
 `celldefine
 `ifdef POWER_PINS
 module sram_2048_32_wmask_8bit (Q, CLK, CEN, WEN, A, D, EMA, GWEN, RETN, VSSE, VDDPE,
