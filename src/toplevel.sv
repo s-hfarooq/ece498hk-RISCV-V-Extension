@@ -4,7 +4,7 @@ module toplevel_498 #(
     )(
     input logic clk,
     input logic rst,
-    inout logic [9:0] gpio_pins,
+    inout wire [9:0] gpio_pins,
 
     // To/from storage SPI
     input   logic   [3:0]           external_qspi_io_i,
