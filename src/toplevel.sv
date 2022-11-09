@@ -5,19 +5,7 @@ module toplevel_498 #(
     input logic clk,
     input logic rst,
     inout logic [9:0] gpio_pins,
-
-    // // Flash storage SPI
-    // output logic external_storage_spi_cs_n,
-    // output logic external_storage_spi_sck,
-    // output logic external_storage_spi_mosi,
-    // input logic external_storage_spi_miso,
-
-    // // Programming SPI
-    // input logic programming_spi_cs_n,
-    // input logic programming_spi_sck,
-    // input logic programming_spi_mosi,
-    // output logic programming_spi_miso,
-
+    
     // To/from storage SPI
     input   logic   [3:0]           external_qspi_io_i,
     output  logic   [3:0]           external_qspi_io_o,
@@ -89,19 +77,7 @@ mmu #(.MEM_W(MEM_W)) mmu (
     // To/from GPIO
     .gpio_pins(gpio_pins),
 
-    // Flash storage SPI
-    // .external_storage_spi_cs_n(external_storage_spi_cs_n),
-    // .external_storage_spi_sck(external_storage_spi_sck),
-    // .external_storage_spi_mosi(external_storage_spi_mosi),
-    // .external_storage_spi_miso(external_storage_spi_miso),
-
-    // // Programming SPI
-    // .programming_spi_cs_n(programming_spi_cs_n),
-    // .programming_spi_sck(programming_spi_sck),
-    // .programming_spi_mosi(programming_spi_mosi),
-    // .programming_spi_miso(programming_spi_miso)
-
-        // To/from storage SPI
+    // To/from storage SPI
     .external_qspi_io_i(external_qspi_io_i),
     .external_qspi_io_o(external_qspi_io_o),
     .external_qspi_io_t(external_qspi_io_t),
