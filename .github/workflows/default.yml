@@ -100,6 +100,7 @@ jobs:
       - name: Run tests
         shell: bash {0} # disable fail-fast behavior
         run: |
+          cd src/vicuna
           export PATH=$PATH:/opt/verilator/bin:/opt/riscv-gcc/bin
           verilator --version
           retval=0
