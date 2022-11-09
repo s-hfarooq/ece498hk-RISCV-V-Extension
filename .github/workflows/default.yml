@@ -110,13 +110,13 @@ jobs:
             if [ -z "$line" ] || [ "${line:0:1}" = "#" ]; then
               continue
             fi
-            echo "$line" > src/vicuna/test/${{ matrix.unit }}/test_configs.conf
+            echo "$line" > test/${{ matrix.unit }}/test_configs.conf
             vcd=`echo "${{ matrix.unit }}_${{ matrix.main_core }}_${line}.vcd" | sed 's/  */_/g'`
             make -C test ${{ matrix.unit }} CORE=${{ matrix.main_core }} FULL_LOG=1 TRACE_VCD=$vcd
             if [ $? -ne 0 ]; then
               retval=1
             fi
-          done < src/vicuna/.github/test_configs.conf
+          done < .github/test_configs.conf
           exit $retval
 
       - name: Archive VCD trace files
