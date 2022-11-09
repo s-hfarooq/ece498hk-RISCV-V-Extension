@@ -1,9 +1,9 @@
 name: CI
 on:
   push:
-    branches: [ mmu-integrate ]
+    branches: [ actions-test ]
   pull_request:
-    branches: [ mmu-integrate ]
+    branches: [ actions-test ]
 
 
 jobs:
