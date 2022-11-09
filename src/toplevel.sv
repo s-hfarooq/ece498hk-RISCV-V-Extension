@@ -5,7 +5,7 @@ module toplevel_498 #(
     input logic clk,
     input logic rst,
     inout logic [9:0] gpio_pins,
-    
+
     // To/from storage SPI
     input   logic   [3:0]           external_qspi_io_i,
     output  logic   [3:0]           external_qspi_io_o,
@@ -43,8 +43,8 @@ logic set_timer;
 
 // MODULE DECLARATIONS
 vproc_top #(.MEM_W(MEM_W)) vproc_top (
-    .clk(clk),
-    .rst(rst),
+    .clk_i(clk),
+    .rst_ni(rst),
     .mem_req_o(vproc_mem_req_o),
     .mem_addr_o(vproc_mem_addr_o),
     .mem_we_o(vproc_mem_we_o),
