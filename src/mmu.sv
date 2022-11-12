@@ -237,7 +237,7 @@ always_comb begin
             external_init:
                 begin
                     // Initial memory access cycle - set values so that we save them since input becomes invalidated
-                    if (vproc_mem_req_o) begin
+                    //if (vproc_mem_req_o) begin
                         if (vproc_mem_we_o && (vproc_mem_addr_o >= 32'h0000_2000 || vproc_mem_addr_o <= 32'h0000_0FFF)) begin
                             // Can't write to external memory
                             vproc_mem_err_i = 1'b1;
@@ -250,7 +250,7 @@ always_comb begin
                             curr_mem_we = 1'b0;
                             memory_access = 1'b1;
                         end
-                    end
+                    //end
                 end
             external_continue:
                 begin

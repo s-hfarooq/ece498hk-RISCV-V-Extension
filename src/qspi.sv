@@ -42,6 +42,10 @@ module qspi_controller (
     end
 
     always_comb begin : state_comb
+        // qspi_io_o = 'b0;
+        qspi_io_t = 'b0;
+        // qspi_ck_o = 'b0;
+        qspi_cs_o = 'b0;
         case(state)
         QSPI_CTRL_IDLE : begin
             if (~s_psel) begin
@@ -159,9 +163,11 @@ module qspi_controller (
         endcase
     end
 
-    always_comb begin : io_o_mux
-            automatic logic [3:0]   addr_mux_out;
-            automatic logic         cmd_mux_out;
+    always_comb begin : io_o_mux        
+        automatic logic [3:0]   addr_mux_out;
+        automatic logic         cmd_mux_out;
+                qspi_io_o = 'b0;
+
         case (nibble_counter_q)
             3'b000: addr_mux_out = s_paddr[23:20];
             3'b001: addr_mux_out = s_paddr[19:16];
@@ -189,9 +195,9 @@ module qspi_controller (
         endcase
     end
     
-            logic   [31:0]  rdata_d;
-            logic   [31:0]  rdata_q;
-            logic   [31:0]  rdata_l;
+    logic   [31:0]  rdata_d;
+    logic   [31:0]  rdata_q;
+    logic   [31:0]  rdata_l;
 
     always_comb begin : rdata_reg_comb
         rdata_l = 'd0;
