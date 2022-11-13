@@ -72,7 +72,7 @@ module qspi_stub #(
             @(posedge qspi_ck_o);
         end
         mem_idx = addr[$clog2(MEM_SZ)-1 : $clog2(MEM_W/8)];
-        // $display("QSPI mem_idx = %x, addr = %x, mem[mem_idx] = %x", mem_idx, addr, mem[mem_idx]);
+        $display("QSPI mem_idx = %x, addr = %x, mem[mem_idx] = %x", mem_idx, addr, mem[mem_idx]);
         for (int unsigned i = 0; i < 8; i++) begin
             @(negedge qspi_ck_o);
             // if (i % 2 == 0) begin

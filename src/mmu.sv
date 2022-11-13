@@ -228,7 +228,7 @@ always_comb begin
         unique case (state)
             default_state:
                 begin
-                    curr_addr = 32'b0;
+                    // curr_addr = 32'b0;
                     curr_d_in = '{default: '0};
                     curr_mem_be = '{default: '0};
                     curr_mem_we = 1'b0;
@@ -262,7 +262,7 @@ always_comb begin
                         vproc_mem_rdata_i = storage_controller_d_out;
                         vproc_mem_rvalid_i = 1'b1;
                         
-                        curr_addr = 32'b0;
+                        // curr_addr = 32'b0;
                         curr_d_in = '{default: '0};
                         curr_mem_be = '{default: '0};
                         curr_mem_we = 1'b0;
