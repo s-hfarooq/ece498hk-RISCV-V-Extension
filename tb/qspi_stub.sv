@@ -1,6 +1,9 @@
 // From Stanley, modified
 
-module qspi_stub(
+module qspi_stub #(
+        parameter int unsigned MEM_W           = 32,
+        parameter int unsigned MEM_SZ          = 262144
+    )(
     output  logic   [3:0]           qspi_io_i,
     input   logic   [3:0]           qspi_io_o,
     input   logic   [3:0]           qspi_io_t,
@@ -8,13 +11,24 @@ module qspi_stub(
     input   logic                   qspi_cs_o
 );
 
-            logic   [31:0]           mem [2**24];
+            // logic   [31:0]           mem [2**24];
+
+            logic [MEM_W-1:0]                    mem[MEM_SZ/(MEM_W/8)];
 
     initial
     begin
-        $readmemh("/home/hfaroo9/ece498hk-RISCV-V-Extension/tb/tmp.vmem", mem);
+        $readmemh("/home/hfaroo9/498-integ/ece498hk-RISCV-V-Extension/src/vicuna/sim/vadd_new.vmem", mem);
         // $displayh("mem = %p", mem);
+        // $display("qspimem=%p",mem);
+        for(int unsigned j = 0; j < MEM_SZ/(MEM_W/8); j++) begin
+            if($isunknown(mem[j])) begin
+                mem[j] = 0;
+            end
+        end
     end
+
+    logic [$clog2(MEM_SZ/(MEM_W/8))-1:0] mem_idx;
+    // assign mem_idx = mem_addr[$clog2(MEM_SZ)-1 : $clog2(MEM_W/8)];
 
     always begin
         automatic bit [7:0] cmd;
@@ -37,9 +51,11 @@ module qspi_stub(
             for (int j = 0; j < 4; j++) begin
                 addr[i*4+j] = ~qspi_io_t[j] ? qspi_io_o[j] : 1'bx;
             end
+            // $display("INFO: qspi read addr: %h, data: %h, time: %0t", addr, {mem[addr]} ,$time);
+
         end
         // $display("INFO: qspi read addr: %h, data: %h, time: %0t", addr, {mem[addr+3], mem[addr+2], mem[addr+1], mem[addr]} ,$time);
-        $display("INFO: qspi read addr: %h, data: %h, time: %0t", addr, {mem[addr]} ,$time);
+        // $display("INFO: qspi read addr: %h, data: %h, time: %0t", addr, {mem[addr]} ,$time);
 
         for (int i = 1; i >= 0; i--) begin
             @(posedge qspi_ck_o);
@@ -55,6 +71,8 @@ module qspi_stub(
         for (int i = 0; i < 4; i++) begin
             @(posedge qspi_ck_o);
         end
+        mem_idx = addr[$clog2(MEM_SZ)-1 : $clog2(MEM_W/8)];
+        $display("QSPI mem_idx = %x, addr = %x, mem[mem_idx] = %x", mem_idx, addr, mem[mem_idx]);
         for (int unsigned i = 0; i < 8; i++) begin
             @(negedge qspi_ck_o);
             // if (i % 2 == 0) begin
@@ -64,14 +82,14 @@ module qspi_stub(
             //     addr += 24'd1;
             // end
             case (i)
-                0: qspi_io_i = mem[addr][7:4];
-                1: qspi_io_i = mem[addr][3:0];
-                2: qspi_io_i = mem[addr][15:12];
-                3: qspi_io_i = mem[addr][11:8];
-                4: qspi_io_i = mem[addr][23:20];
-                5: qspi_io_i = mem[addr][19:16];
-                6: qspi_io_i = mem[addr][31:28];
-                7: qspi_io_i = mem[addr][27:24];
+                0: qspi_io_i = mem[mem_idx][7:4];
+                1: qspi_io_i = mem[mem_idx][3:0];
+                2: qspi_io_i = mem[mem_idx][15:12];
+                3: qspi_io_i = mem[mem_idx][11:8];
+                4: qspi_io_i = mem[mem_idx][23:20];
+                5: qspi_io_i = mem[mem_idx][19:16];
+                6: qspi_io_i = mem[mem_idx][31:28];
+                7: qspi_io_i = mem[mem_idx][27:24];
                 default: qspi_io_i = 4'bx;
             endcase
         end

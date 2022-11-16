@@ -39,7 +39,7 @@ module storage_controller_tb();
 
     logic [31:0] mem [2**24];
     initial begin
-        $readmemh("/home/hfaroo9/ece498hk-RISCV-V-Extension/tb/tmp.vmem", mem);
+        $readmemh("/home/hfaroo9/498-integ/ece498hk-RISCV-V-Extension/src/vicuna/sim/vadd_16.vmem", mem);
         // $displayh("mem = %p", mem);
     end
 
@@ -84,7 +84,7 @@ module storage_controller_tb();
         ##1;
 
         // Set all possible methods of programming SPI, ensure output at storage SPI is same as input
-        for(int unsigned i = 0; i <= 10'hFFF; i++) begin
+        for(int unsigned i = 0; i <= 12'hFFF; i++) begin
             // $displayh("Current iteration: %p", i[2:0]);
             programming_qspi_io_o <= i[3:0];
             programming_qspi_io_t <= i[7:4];
@@ -157,6 +157,13 @@ module storage_controller_tb();
         reset();
 
         ##1;
+        $display("Starting spi_passthrough tests...");
+        spi_passthrough();
+        $display("Finished spi_passthrough tests...");
+        reset();
+        ##1;
+
+        ##1;
         $display("Starting read_from_external tests...");
         // TODO: For some reason when this is the last test it fails
         for(int unsigned i = 0; i < 32'h0000_0050; i++) begin
@@ -167,18 +174,12 @@ module storage_controller_tb();
         ##1;
 
         ##1;
-        $display("Starting spi_passthrough tests...");
-        spi_passthrough();
-        $display("Finished spi_passthrough tests...");
-        reset();
-        ##1;
-
-        ##1;
         $display("Starting write_and_read_to_sram tests...");
         write_and_read_to_sram();
         $display("Finished write_and_read_to_sram tests...");
         reset();
         ##1;
+        
 
         $display("Finished storage controller tests...");
         $finish;

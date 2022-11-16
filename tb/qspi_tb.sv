@@ -75,7 +75,7 @@ endtask
 initial begin
     // $fsdbDumpfile("dump.fsdb");
     // $fsdbDumpvars();
-    for(int unsigned i = 28; i < 32; i++) begin
+    for(int unsigned i = 0; i < 32'h0000_0D1F; i++) begin
         reset();
         test_read(i[31:0]);
     end
