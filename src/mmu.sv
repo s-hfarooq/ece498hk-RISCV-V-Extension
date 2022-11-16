@@ -134,7 +134,7 @@ enum logic [3:0] {
 } state, next_state;
 
 // TODO: if this is negedge the SRAM timing volations go away
-always_ff @(negedge clk) begin
+always_ff @(posedge clk) begin
     if (~rst) begin
         state <= default_state;
     end else begin
