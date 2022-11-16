@@ -229,26 +229,43 @@ always_comb begin
             default_state:
                 begin
                     // curr_addr = 32'b0;
-                    curr_d_in = '{default: '0};
-                    curr_mem_be = '{default: '0};
-                    curr_mem_we = 1'b0;
-                    memory_access = 1'b0;
+                    if(vproc_mem_req_o) begin
+                        curr_d_in = vproc_mem_wdata_o;
+                        curr_mem_be = vproc_mem_be_o;
+                        curr_mem_we = vproc_mem_we_o;
+                        memory_access = 1'b0;
+                        if(vproc_mem_addr_o >= 32'h0000_2000) begin
+                            curr_addr = vproc_mem_addr_o - 32'h0000_2000;
+                            external_storage_access = 1'b1;
+                        end else begin
+                            curr_addr = vproc_mem_addr_o;
+                            external_storage_access = 1'b0;
+                        end
+                    end else begin
+                        curr_d_in = '{default: '0};
+                        curr_mem_be = '{default: '0};
+                        curr_mem_we = 1'b0;
+                        memory_access = 1'b0;
+                        curr_addr = 32'b0;
+                        external_storage_access = 1'b0;
+                    end
                 end
             external_init:
                 begin
                     // Initial memory access cycle - set values so that we save them since input becomes invalidated
                     //if (vproc_mem_req_o) begin
-                        if (vproc_mem_we_o && (vproc_mem_addr_o >= 32'h0000_2000 || vproc_mem_addr_o <= 32'h0000_0FFF)) begin
+                        if (curr_mem_we) begin
                             // Can't write to external memory
                             vproc_mem_err_i = 1'b1;
                             memory_access = 1'b0;
                         end else begin
-                            external_storage_access = 1'b1;
-                            curr_addr = vproc_mem_addr_o - 32'h0000_2000;
-                            curr_d_in = '{default: '0};
-                            curr_mem_be = '{default: '0};
-                            curr_mem_we = 1'b0;
                             memory_access = 1'b1;
+                            external_storage_access = 1'b1;
+                            // curr_addr = vproc_mem_addr_o - 32'h0000_2000;
+                            // curr_d_in = '{default: '0};
+                            // curr_mem_be = '{default: '0};
+                            // curr_mem_we = 1'b0;
+                            // memory_access = 1'b1;
                         end
                     //end
                 end
