@@ -218,7 +218,7 @@ always_comb begin
         programming_state:
             begin
                 // Route programming SPI pins directly to external storage if in programming state
-                external_qspi_pins = programming_qspi_pins; // TODO: Will this compile?
+                external_qspi_pins = programming_qspi_pins; // TODO: Will this compile? It does not
                 external_qspi_ck_o = programming_qspi_ck_o;
                 external_qspi_cs_o = programming_qspi_cs_o;
             end

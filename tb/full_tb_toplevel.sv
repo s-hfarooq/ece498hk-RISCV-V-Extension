@@ -91,13 +91,15 @@ module vproc_tb #(
     logic                   programming_qspi_ck_o;
     logic                   programming_qspi_cs_o;
 
+    wire [3:0] external_qspi_pins;
+    wire [3:0] programming_qspi_pins;
+
     mmu #(.MEM_W(MEM_W)) mmu (
         .clk(clk),
         .rst(~rst),
 
         // Set mode inputs
         .set_programming_mode   ('0                     ),
-        .set_debug_mode         ('0                     ),
 
         // To/from Vicuna/Ibex
         .vproc_mem_req_o    (mem_req                    ),
@@ -113,16 +115,18 @@ module vproc_tb #(
         .gpio_pins          (gpio_pins                  ),
 
         // To/from storage SPI
-        .external_qspi_io_i (external_qspi_io_i         ),
-        .external_qspi_io_o (external_qspi_io_o         ),
-        .external_qspi_io_t (external_qspi_io_t         ),
+        // .external_qspi_io_i (external_qspi_io_i         ),
+        // .external_qspi_io_o (external_qspi_io_o         ),
+        // .external_qspi_io_t (external_qspi_io_t         ),
+        .external_qspi_pins (external_qspi_pins         ),
         .external_qspi_ck_o (external_qspi_ck_o         ),
         .external_qspi_cs_o (external_qspi_cs_o         ),
 
         // To/from programming SPI
-        .programming_qspi_io_i  (programming_qspi_io_i  ),
-        .programming_qspi_io_o  (programming_qspi_io_o  ),
-        .programming_qspi_io_t  (programming_qspi_io_t  ),
+        // .programming_qspi_io_i  (programming_qspi_io_i  ),
+        // .programming_qspi_io_o  (programming_qspi_io_o  ),
+        // .programming_qspi_io_t  (programming_qspi_io_t  ),
+        .programming_qspi_pins  (programming_qspi_pins  ),
         .programming_qspi_ck_o  (programming_qspi_ck_o  ),
         .programming_qspi_cs_o  (programming_qspi_cs_o  )
     );
