@@ -16,16 +16,12 @@ module storage_controller #(
     input logic external_storage_access,
 
     // To/from storage SPI
-    input   logic   [3:0]           external_qspi_io_i,
-    output  logic   [3:0]           external_qspi_io_o,
-    output  logic   [3:0]           external_qspi_io_t,
+    inout   wire    [3:0]           external_qspi_pins,
     output  logic                   external_qspi_ck_o,
     output  logic                   external_qspi_cs_o,
 
     // To/from programming SPI
-    output logic   [3:0]           programming_qspi_io_i,
-    input  logic   [3:0]           programming_qspi_io_o,
-    input  logic   [3:0]           programming_qspi_io_t,
+    inout  wire    [3:0]           programming_qspi_pins,
     input  logic                   programming_qspi_ck_o,
     input  logic                   programming_qspi_cs_o
 );
@@ -53,6 +49,20 @@ sram_2048_32_wmask_8bit sram (
     .EMA(sram_ema),
     .RETN(sram_retn)
 );
+
+// QSPI SIGNALS
+logic [3:0] external_qspi_io_i;
+logic [3:0] external_qspi_io_o;
+logic [3:0] external_qspi_io_t;
+
+// external_qspi_io_t determines direction of QSPI IO pins
+always_comb begin
+    // qspi_io_t == 0 means input, 1 == output (?) - TODO: check to see if this is right
+    for(int unsigned i = 0; i < 4; i++) begin
+        external_qspi_pins[i] = external_qspi_io_t[i] == 1'b0 ? 'z : external_qspi_io_o[i];
+        external_qspi_io_i[i] = external_qspi_io_t[i] == 1'b0 ? external_qspi_pins[i] : 'z;
+    end
+end
 
 // QSPI SIGNALS
 logic [31:0] qspi_addr;
@@ -208,9 +218,7 @@ always_comb begin
         programming_state:
             begin
                 // Route programming SPI pins directly to external storage if in programming state
-                programming_qspi_io_i = external_qspi_io_i;
-                external_qspi_io_o = programming_qspi_io_o;
-                external_qspi_io_t = programming_qspi_io_t;
+                external_qspi_pins = programming_qspi_pins; // TODO: Will this compile?
                 external_qspi_ck_o = programming_qspi_ck_o;
                 external_qspi_cs_o = programming_qspi_cs_o;
             end

@@ -7,7 +7,6 @@ module mmu #(
 
     // Set mode inputs
     input  logic set_programming_mode,
-    input  logic set_debug_mode, // Never used
 
     // To/from Vicuna/Ibex
     input  logic               vproc_mem_req_o,
@@ -23,19 +22,16 @@ module mmu #(
     inout wire [9:0] gpio_pins,
 
     // To/from storage SPI
-    input   logic   [3:0]           external_qspi_io_i,
-    output  logic   [3:0]           external_qspi_io_o,
-    output  logic   [3:0]           external_qspi_io_t,
+    inout   wire    [3:0]           external_qspi_pins,
     output  logic                   external_qspi_ck_o,
     output  logic                   external_qspi_cs_o,
 
     // To/from programming SPI
-    output logic   [3:0]           programming_qspi_io_i,
-    input  logic   [3:0]           programming_qspi_io_o,
-    input  logic   [3:0]           programming_qspi_io_t,
+    inout  wire    [3:0]           programming_qspi_pins,
     input  logic                   programming_qspi_ck_o,
     input  logic                   programming_qspi_cs_o
 );
+
 
 //                       MEMORY ADDRESSES
 // | Address Range              | Device                |
@@ -46,7 +42,8 @@ module mmu #(
 // | 0x0000_0115                | Digital Timer         |
 // | 0x0000_0116 - 0x0000_0FFF  | Reserved              |
 // | 0x0000_1000 - 0x0000_1FFF  | SRAM Scratch Memory   |
-// | 0x0000_2000 - 0xFFFF_FFFF  | External Storage      |
+// | 0x0000_2000 - 0x0100_1FFF  | External Storage      |
+// | 0x0100_2000 - 0xFFFF_FFFF  | Reserved              |
 
 
 // STORAGE_CONTROLLER SIGNALS
@@ -85,30 +82,13 @@ storage_controller #(.MEM_W(MEM_W)) storage_controller (
     .set_programming_mode(set_programming_mode),
     .external_storage_access(external_storage_access),
 
-    // // Flash storage SPI
-    // .external_storage_spi_cs_n(external_storage_spi_cs_n),
-    // .external_storage_spi_sck(external_storage_spi_sck),
-    // .external_storage_spi_mosi(external_storage_spi_mosi),
-    // .external_storage_spi_miso(external_storage_spi_miso),
-
-    // // Programming SPI
-    // .programming_spi_cs_n(programming_spi_cs_n),
-    // .programming_spi_sck(programming_spi_sck),
-    // .programming_spi_mosi(programming_spi_mosi),
-    // .programming_spi_miso(programming_spi_miso)
-
-    
     // To/from storage SPI
-    .external_qspi_io_i(external_qspi_io_i),
-    .external_qspi_io_o(external_qspi_io_o),
-    .external_qspi_io_t(external_qspi_io_t),
+    .external_qspi_pins(external_qspi_pins),
     .external_qspi_ck_o(external_qspi_ck_o),
     .external_qspi_cs_o(external_qspi_cs_o),
 
     // To/from programming SPI
-    .programming_qspi_io_i(programming_qspi_io_i),
-    .programming_qspi_io_o(programming_qspi_io_o),
-    .programming_qspi_io_t(programming_qspi_io_t),
+    .programming_qspi_pins(programming_qspi_pins),
     .programming_qspi_ck_o(programming_qspi_ck_o),
     .programming_qspi_cs_o(programming_qspi_cs_o)
 );
@@ -253,21 +233,19 @@ always_comb begin
             external_init:
                 begin
                     // Initial memory access cycle - set values so that we save them since input becomes invalidated
-                    //if (vproc_mem_req_o) begin
-                        if (curr_mem_we) begin
-                            // Can't write to external memory
-                            vproc_mem_err_i = 1'b1;
-                            memory_access = 1'b0;
-                        end else begin
-                            memory_access = 1'b1;
-                            external_storage_access = 1'b1;
-                            // curr_addr = vproc_mem_addr_o - 32'h0000_2000;
-                            // curr_d_in = '{default: '0};
-                            // curr_mem_be = '{default: '0};
-                            // curr_mem_we = 1'b0;
-                            // memory_access = 1'b1;
-                        end
-                    //end
+                    if (curr_mem_we) begin
+                        // Can't write to external memory
+                        vproc_mem_err_i = 1'b1;
+                        memory_access = 1'b0;
+                    end else begin
+                        memory_access = 1'b1;
+                        external_storage_access = 1'b1;
+                        // curr_addr = vproc_mem_addr_o - 32'h0000_2000;
+                        // curr_d_in = '{default: '0};
+                        // curr_mem_be = '{default: '0};
+                        // curr_mem_we = 1'b0;
+                        // memory_access = 1'b1;
+                    end
                 end
             external_continue:
                 begin

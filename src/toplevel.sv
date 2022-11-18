@@ -12,22 +12,17 @@ module toplevel_498 #(
     inout wire [9:0] gpio_pins,
 
     // To/from storage SPI
-    input   logic   [3:0]           external_qspi_io_i,
-    output  logic   [3:0]           external_qspi_io_o,
-    output  logic   [3:0]           external_qspi_io_t,
+    inout   wire    [3:0]           external_qspi_pins,
     output  logic                   external_qspi_ck_o,
     output  logic                   external_qspi_cs_o,
 
     // To/from programming SPI
-    output logic   [3:0]           programming_qspi_io_i,
-    input  logic   [3:0]           programming_qspi_io_o,
-    input  logic   [3:0]           programming_qspi_io_t,
+    inout  wire    [3:0]           programming_qspi_pins,
     input  logic                   programming_qspi_ck_o,
     input  logic                   programming_qspi_cs_o,
 
     // Programming/debug set pins
-    input logic set_programming_mode,
-    input logic set_debug_mode // Never used, maybe should add a debug mode
+    input logic set_programming_mode
 );
 
 // VPROC_TOP SIGNALS
@@ -76,7 +71,6 @@ mmu #(.MEM_W(MEM_W)) mmu (
 
     // Set mode inputs
     .set_programming_mode(set_programming_mode),
-    .set_debug_mode(set_debug_mode),
 
     // To/from Vicuna/Ibex
     .vproc_mem_req_o(vproc_mem_req_o),
@@ -92,16 +86,12 @@ mmu #(.MEM_W(MEM_W)) mmu (
     .gpio_pins(gpio_pins),
 
     // To/from storage SPI
-    .external_qspi_io_i(external_qspi_io_i),
-    .external_qspi_io_o(external_qspi_io_o),
-    .external_qspi_io_t(external_qspi_io_t),
+    .external_qspi_pins(external_qspi_pins),
     .external_qspi_ck_o(external_qspi_ck_o),
     .external_qspi_cs_o(external_qspi_cs_o),
 
     // To/from programming SPI
-    .programming_qspi_io_i(programming_qspi_io_i),
-    .programming_qspi_io_o(programming_qspi_io_o),
-    .programming_qspi_io_t(programming_qspi_io_t),
+    .programming_qspi_pins(programming_qspi_pins),
     .programming_qspi_ck_o(programming_qspi_ck_o),
     .programming_qspi_cs_o(programming_qspi_cs_o)
 );
