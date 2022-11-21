@@ -1,6 +1,7 @@
 
 module storage_controller #(
-    parameter int unsigned     MEM_W         = 32 // memory bus width in bits, same as value in vproc_top.sv
+    parameter int unsigned     MEM_W         = 32, // memory bus width in bits, same as value in vproc_top.sv
+    parameter int unsigned     MEM_SZ        = 262144
     )(
     input logic clk,
     input logic rst,
@@ -205,7 +206,8 @@ always_comb begin
             end
         external_send:
             begin
-                qspi_addr = addr;
+                // qspi_addr = addr;
+                qspi_addr = addr[$clog2(MEM_SZ)-1 : $clog2(MEM_W/8)]; // convert addr to idx
                 qspi_write = 1'b0;
                 qspi_sel = 1'b1;
             end

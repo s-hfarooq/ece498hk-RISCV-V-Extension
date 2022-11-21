@@ -71,7 +71,7 @@ module qspi_stub #(
         for (int i = 0; i < 4; i++) begin
             @(posedge qspi_ck_o);
         end
-        mem_idx = addr[$clog2(MEM_SZ)-1 : $clog2(MEM_W/8)];
+        // mem_idx = addr[$clog2(MEM_SZ)-1 : $clog2(MEM_W/8)];
         $display("QSPI mem_idx = %x, addr = %x, mem[mem_idx] = %x", mem_idx, addr, mem[mem_idx]);
         for (int unsigned i = 0; i < 8; i++) begin
             @(negedge qspi_ck_o);
@@ -82,14 +82,14 @@ module qspi_stub #(
             //     addr += 24'd1;
             // end
             case (i)
-                0: qspi_io_i = mem[mem_idx][7:4];
-                1: qspi_io_i = mem[mem_idx][3:0];
-                2: qspi_io_i = mem[mem_idx][15:12];
-                3: qspi_io_i = mem[mem_idx][11:8];
-                4: qspi_io_i = mem[mem_idx][23:20];
-                5: qspi_io_i = mem[mem_idx][19:16];
-                6: qspi_io_i = mem[mem_idx][31:28];
-                7: qspi_io_i = mem[mem_idx][27:24];
+                0: qspi_io_i = mem[addr][7:4];
+                1: qspi_io_i = mem[addr][3:0];
+                2: qspi_io_i = mem[addr][15:12];
+                3: qspi_io_i = mem[addr][11:8];
+                4: qspi_io_i = mem[addr][23:20];
+                5: qspi_io_i = mem[addr][19:16];
+                6: qspi_io_i = mem[addr][31:28];
+                7: qspi_io_i = mem[addr][27:24];
                 default: qspi_io_i = 4'bx;
             endcase
         end
