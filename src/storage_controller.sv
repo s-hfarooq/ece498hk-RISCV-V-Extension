@@ -95,7 +95,7 @@ enum logic [2:0] {
 always_comb begin
     // qspi_io_t == 0 means input, 1 == output (?) - TODO: check to see if this is right
     for(int unsigned i = 0; i < 4; i++) begin
-        external_qspi_io_i[i] = external_qspi_io_t[i] == 1'b0 ? external_qspi_pins[i] : 'z;
+        external_qspi_io_i[i] = (set_programming_mode == 1'b1) ? 1'b0 : external_qspi_pins[i];
     end
 end
 
@@ -103,7 +103,7 @@ genvar qspi_incr;
 generate
     for(qspi_incr = 0; qspi_incr < 4; qspi_incr++) begin
         // This is terrible but it doesn't compile if I use an if statement instead
-        assign external_qspi_pins[qspi_incr] = state == programming_state ? (programming_qspi_pins[qspi_incr]) : (external_qspi_io_t[qspi_incr] == 1'b0 ? 'z : external_qspi_io_o[qspi_incr]);
+        assign external_qspi_pins[qspi_incr] = (set_programming_mode == 1'b1) ? (programming_qspi_pins[qspi_incr]) : (external_qspi_io_t[qspi_incr] == 1'b1 ? 'z : external_qspi_io_o[qspi_incr]);
     end
 endgenerate
 

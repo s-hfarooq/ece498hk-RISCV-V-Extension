@@ -13,28 +13,40 @@ module storage_controller_tb();
     logic [32/8-1:0] mem_be;
     logic set_programming_mode;
     logic external_storage_access;
-    logic [3:0] external_qspi_io_i;
-    logic [3:0] programming_qspi_io_o;
-    logic [3:0] programming_qspi_io_t;
     logic programming_qspi_ck_o;
     logic programming_qspi_cs_o;
  
     // Outputs
     logic [31:0] d_out;
     logic out_valid;
-    logic [3:0] external_qspi_io_o;
-    logic [3:0] external_qspi_io_t;
     logic external_qspi_ck_o;
     logic external_qspi_cs_o;
-    logic [3:0] programming_qspi_io_i;
+
+    // inout
+    wire [3:0] external_qspi_pins;
+    wire [3:0] programming_qspi_pins;
+
+    // QSPI stub
+    logic [3:0] external_qspi_io_i;
+    logic [3:0] external_qspi_io_o;
+    logic [3:0] external_qspi_io_t;
+
+    logic [3:0] tmp_i;
+
+    genvar i_incr;
+    generate
+        for(i_incr = 0; i_incr < 4; i_incr++) begin
+            assign programming_qspi_pins[i_incr] = tmp_i[i_incr];
+        end
+    endgenerate
 
     storage_controller dut(.*);
     qspi_stub qspi_stub(
         .qspi_io_i(external_qspi_io_i),
         .qspi_io_o(external_qspi_io_o),
         .qspi_io_t(external_qspi_io_t),
-        .qspi_ck_o(external_qspi_ck_o),
-        .qspi_cs_o(external_qspi_cs_o)
+        .qspi_ck_o(external_qspi_ck_o & ~set_programming_mode),
+        .qspi_cs_o(external_qspi_cs_o & ~set_programming_mode)
     );
 
     logic [31:0] mem [2**24];
@@ -65,8 +77,6 @@ module storage_controller_tb();
         mem_be <= '{default: '0};
         set_programming_mode <= 1'b0;
         external_storage_access <= 1'b0;
-        programming_qspi_io_o <= 4'b0;
-        programming_qspi_io_t <= 4'b0;
         programming_qspi_ck_o <= 1'b0;
         programming_qspi_cs_o <= 1'b0;
 
@@ -83,20 +93,19 @@ module storage_controller_tb();
         rst <= 1'b1;
         ##1;
 
-        // Set all possible methods of programming SPI, ensure output at storage SPI is same as input
-        for(int unsigned i = 0; i <= 12'hFFF; i++) begin
-            // $displayh("Current iteration: %p", i[2:0]);
-            programming_qspi_io_o <= i[3:0];
-            programming_qspi_io_t <= i[7:4];
-            programming_qspi_ck_o <= i[8];
-            programming_qspi_cs_o <= i[9];
+        external_qspi_io_o <= 4'b0;
+        external_qspi_io_t <= 4'b0;
 
-            ##1; // should this delay exist?
-            assert (external_qspi_io_o == i[3:0]) else $error("external_qspi_io_o not same as expected (i = %p)", i);
-            assert (external_qspi_io_t == i[7:4]) else $error("external_qspi_io_t not same as expected (i = %p)", i);
-            assert (external_qspi_ck_o == i[8]) else $error("external_qspi_ck_o not same as expected (i = %p)", i);
-            assert (external_qspi_cs_o == i[9]) else $error("external_qspi_cs_o not same as expected (i = %p)", i);
+        for(int unsigned i = 0; i < 6'h3F; i++) begin
+            programming_qspi_ck_o <= i[0];
+            programming_qspi_cs_o <= i[1];
+            tmp_i <= i[5:2];
+
             ##1;
+            
+            assert (external_qspi_ck_o == i[0]) else $error("external_qspi_ck_o not same as expected (external_qspi_ck_o = %p, i = %p)", external_qspi_ck_o, i);
+            assert (external_qspi_cs_o == i[1]) else $error("external_qspi_cs_o not same as expected (external_qspi_cs_o = %p, i = %p)", external_qspi_cs_o, i);
+            assert (external_qspi_pins == i[5:2]) else $error("external_qspi_io_o not same as expected (external_qspi_io_o = %p, i = %p)", external_qspi_pins, i);
         end
     endtask : spi_passthrough
 
@@ -156,12 +165,12 @@ module storage_controller_tb();
         $display("Starting storage controller tests...");
         reset();
 
-        ##1;
-        $display("Starting spi_passthrough tests...");
-        spi_passthrough();
-        $display("Finished spi_passthrough tests...");
-        reset();
-        ##1;
+        // ##1;
+        // $display("Starting spi_passthrough tests...");
+        // spi_passthrough();
+        // $display("Finished spi_passthrough tests...");
+        // reset();
+        // ##1;
 
         ##1;
         $display("Starting read_from_external tests...");
@@ -173,15 +182,20 @@ module storage_controller_tb();
         reset();
         ##1;
 
-        ##1;
-        $display("Starting write_and_read_to_sram tests...");
-        write_and_read_to_sram();
-        $display("Finished write_and_read_to_sram tests...");
-        reset();
-        ##1;
+        // ##1;
+        // $display("Starting write_and_read_to_sram tests...");
+        // write_and_read_to_sram();
+        // $display("Finished write_and_read_to_sram tests...");
+        // reset();
+        // ##1;
         
 
         $display("Finished storage controller tests...");
         $finish;
+    end
+
+    initial begin
+        $dumpfile("storage_controller_tb.vcd");
+        $dumpvars(0, storage_controller_tb);
     end
 endmodule
