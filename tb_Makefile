@@ -6,14 +6,14 @@
 # TEST_FILES = $(PWD)/src/sram_2048_32_wmask_8bit.v $(PWD)/src/qspi.sv $(PWD)/src/storage_controller.sv
 # TB_SRCS := $(PWD)/tb/qspi_stub.sv $(PWD)/tb/storage_controller_tb.sv
 
-TEST_FILES = $(PWD)/src/sram_2048_32_wmask_8bit.v $(PWD)/src/qspi.sv $(PWD)/src/digitalTimer.sv $(PWD)/src/storage_controller.sv $(PWD)/src/mmu.sv 
-TB_SRCS := $(PWD)/tb/qspi_stub.sv $(PWD)/tb/mmu_tb_v2.sv
+# TEST_FILES = $(PWD)/src/sram_2048_32_wmask_8bit.v $(PWD)/src/qspi.sv $(PWD)/src/digitalTimer.sv $(PWD)/src/storage_controller.sv $(PWD)/src/mmu.sv 
+# TB_SRCS := $(PWD)/tb/qspi_stub.sv $(PWD)/tb/mmu_tb_v2.sv
 
 # xrun -gui -linedebug -access +rwc src/sram_2048_32_wmask_8bit.v src/SPI_Master.v src/SPI_Master_With_Single_CS.v src/storage_controller.sv tb/storage_controller_tb.sv
 # xrun -gui -linedebug -access +rwc src/SPI_Master.v src/SPI_Master_With_Single_CS.v tb/spi_test_tb.sv
 
-# TEST_FILES = $(PWD)/src/sram_2048_32_wmask_8bit.v $(PWD)/src/qspi.sv $(PWD)/src/digitalTimer.sv $(PWD)/src/storage_controller.sv $(PWD)/src/mmu.sv 
-# TB_SRCS := $(PWD)/tb/qspi_stub.sv $(PWD)/tb/mmu_tb.sv
+TEST_FILES = $(PWD)/src/sram_2048_32_wmask_8bit.v $(PWD)/src/qspi.sv $(PWD)/src/digitalTimer.sv $(PWD)/src/storage_controller.sv $(PWD)/src/mmu.sv 
+TB_SRCS := $(PWD)/tb/qspi_stub.sv $(PWD)/tb/mmu_tb_v2.sv
 
 # TEST_FILES = $(PWD)/src/qspi.sv
 # TB_SRCS := $(PWD)/tb/qspi_stub.sv $(PWD)/tb/qspi_tb.sv

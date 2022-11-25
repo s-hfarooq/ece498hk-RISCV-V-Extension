@@ -56,15 +56,6 @@ logic [3:0] external_qspi_io_i;
 logic [3:0] external_qspi_io_o;
 logic [3:0] external_qspi_io_t;
 
-// external_qspi_io_t determines direction of QSPI IO pins
-always_comb begin
-    // qspi_io_t == 0 means input, 1 == output (?) - TODO: check to see if this is right
-    for(int unsigned i = 0; i < 4; i++) begin
-        external_qspi_pins[i] = external_qspi_io_t[i] == 1'b0 ? 'z : external_qspi_io_o[i];
-        external_qspi_io_i[i] = external_qspi_io_t[i] == 1'b0 ? external_qspi_pins[i] : 'z;
-    end
-end
-
 // QSPI SIGNALS
 logic [31:0] qspi_addr;
 logic qspi_sel;
@@ -99,6 +90,22 @@ enum logic [2:0] {
     external_send,
     external_done
 } state, next_state;
+
+// external_qspi_io_t determines direction of QSPI IO pins
+always_comb begin
+    // qspi_io_t == 0 means input, 1 == output (?) - TODO: check to see if this is right
+    for(int unsigned i = 0; i < 4; i++) begin
+        external_qspi_io_i[i] = external_qspi_io_t[i] == 1'b0 ? external_qspi_pins[i] : 'z;
+    end
+end
+
+genvar qspi_incr;
+generate
+    for(qspi_incr = 0; qspi_incr < 4; qspi_incr++) begin
+        // This is terrible but it doesn't compile if I use an if statement instead
+        assign external_qspi_pins[qspi_incr] = state == programming_state ? (programming_qspi_pins[qspi_incr]) : (external_qspi_io_t[qspi_incr] == 1'b0 ? 'z : external_qspi_io_o[qspi_incr]);
+    end
+endgenerate
 
 always_ff @(posedge clk) begin
     if (~rst) begin
@@ -220,7 +227,7 @@ always_comb begin
         programming_state:
             begin
                 // Route programming SPI pins directly to external storage if in programming state
-                external_qspi_pins = programming_qspi_pins; // TODO: Will this compile? It does not
+                // external_qspi_pins = programming_qspi_pins; // TODO: Will this compile? It does not
                 external_qspi_ck_o = programming_qspi_ck_o;
                 external_qspi_cs_o = programming_qspi_cs_o;
             end

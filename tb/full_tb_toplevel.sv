@@ -30,6 +30,7 @@ module vproc_tb #(
     // to mem
     logic        mem_req;
     logic [31:0] mem_addr;
+    logic [31:0] mem_addr_m2k;
     logic        mem_we;
     logic [3:0]  mem_be;
     logic [31:0] mem_wdata;
