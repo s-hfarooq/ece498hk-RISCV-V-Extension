@@ -49,6 +49,8 @@ PRIM_OTHER_SRCS := $(shell find $(PWD)/../src/vicuna/ibex/syn/rtl -name '*gating
 IBEX_PKG_SRCS := $(shell find $(PWD)/../src/vicuna/ibex/rtl -name '*_pkg.sv')
 IBEX_SRCS := $(shell find $(PWD)/../src/vicuna/ibex/rtl -name '*.sv' ! -name '*_pkg.sv' ! -name '*_tracing.sv')
 VERILOG_FILES := $(ENTRO_SRCS) $(DV_SRCS) $(PRIM_PKG_SRCS) $(PRIM_OTHER_SRCS) $(IBEX_PKG_SRCS) $(IBEX_SRCS) $(VICUNA_PKG_SRCS) $(VICUNA_CFG_SRCS) $(VICUNA_SRCS) $(OUR_V_FILES) $(OUR_SV_FILES) $(PWD)/../src/toplevel.sv
+
+XMVERILOG_FLAGS := +incdir+$(PWD)/../src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl +incdir+$(PWD)/../src/vicuna/ibex/vendor/lowrisc_ip/dv/sv/dv_utils
 # PNR Cells to take care of RVT/LVT stuff
 POWERCAP_CELL  = FILLCAP16A10TR
 WELLTAP_CELL   = FILLTIE2A10TR
@@ -185,7 +187,7 @@ $(PROJECT_HOME)/.gate_compiled: $(SDF_OUT_DIR) $(SDC_OUT_DIR) $(VLOGOUT_DIR) $(R
 	@echo "#     Synthesizing Verilog                                       #"
 	@echo "##################################################################"
 	@SDF_OUT_DIR=$(SDF_OUT_DIR) SDC_OUT_DIR=$(SDC_OUT_DIR) VLOGOUT_DIR=$(VLOGOUT_DIR) TOP_LEVEL=$(TOP_LEVEL) REPORT_DIR=$(REPORT_DIR) VERILOG_FILES="$(VERILOG_FILES)" SYNOPSYS_DB_DIR=$(TSMC_DB_DIR) SYNOPSYS_DB=$(TSMC_DB) SYNOPSYS_DB_BEST=$(TSMC_DB_BEST) dc_shell-xg-t -f $(PROJECT_HOME)/bin/dc_syn > $(LOG_DIR)/$(TOP_LEVEL)_synthesis.log
-	@xmverilog +xmtimescale+1ns/1ps -c $(VLOGOUT_DIR)/$(TOP_LEVEL).gate.v > $(LOG_DIR)/gate_source_compile.log
+	@xmverilog $(XMVERILOG_FLAGS) +xmtimescale+1ns/1ps -c $(VLOGOUT_DIR)/$(TOP_LEVEL).gate.v > $(LOG_DIR)/gate_source_compile.log
 	@touch $(PROJECT_HOME)/.gate_compiled
 
 
