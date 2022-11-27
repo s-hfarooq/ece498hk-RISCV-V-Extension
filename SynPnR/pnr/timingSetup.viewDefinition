@@ -1,0 +1,8 @@
+create_constraint_mode -name mode -sdc_files $env(SDC_OUT_DIR)/$my_toplevel.gate.sdc
+create_library_set -name slowLib -timing $env(TSMC_LIB)
+create_delay_corner -name slowDC -library_set slowLib 
+create_analysis_view -name slowView -constraint_mode mode -delay_corner slowDC
+create_library_set -name fastLib -timing $env(TSMC_LIB_BEST)
+create_delay_corner -name fastDC -library_set fastLib 
+create_analysis_view -name fastView -constraint_mode mode -delay_corner fastDC
+set_analysis_view -setup {slowView} -hold {fastView}

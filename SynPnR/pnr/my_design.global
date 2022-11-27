@@ -1,0 +1,26 @@
+set my_toplevel          $env(TOP_LEVEL) 
+#set init_verilog        ./../vlogout/acc_pp_6b_v4.gate.v
+set init_verilog        $env(VLOGOUT_DIR)/$my_toplevel.gate.v
+# INFO : rda_Input(ui_timingcon_file) is not required since this information is captured in the view definition file.
+set init_top_cell 		$env(TOP_LEVEL)
+set init_design_netlisttype {Verilog}
+set init_design_settop {1}
+
+set delaycal_use_default_delay_limit {1000}
+set delaycal_default_net_delay {1000.0ps}
+set delaycal_default_net_load {0.5pf}
+set delaycal_input_transition_delay {120.0ps}
+
+set extract_shrink_factor {1.0}
+setLibraryUnit -time 1ns
+setLibraryUnit -cap 1pf
+
+set init_pwr_net {VDD}
+set init_gnd_net {VSS}
+
+set init_assign_buffer {0}
+
+#set init_lef_file {/data/shared/hanumolu/shared_OSU/project/stdcells/tsmc/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/lef/tsmc_cln65_a10_6X2Z_tech.lef /data/shared/hanumolu/shared_OSU/project/stdcells/tsmc/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/lef/tsmc65_lvt_sc_adv10_macro.lef}
+#set init_lef_file {/data/shared/hanumolu/Project/PDK_IC6/TSMC65GP_RFMIM__1P0V_2P5V__1p9m_6X1Z1U_ALRDL/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/lef/tsmc_cln65_a10_6X2Z_tech.lef /data/shared/hanumolu/Project/PDK_IC6/TSMC65GP_RFMIM__1P0V_2P5V__1p9m_6X1Z1U_ALRDL/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/lef/tsmc65_lvt_sc_adv10_macro.lef}
+#set init_lef_file {$env(TECH_LEF) $env(LIB_LEF)}
+set init_mmmc_file .conf2init.viewDefinition.tcl

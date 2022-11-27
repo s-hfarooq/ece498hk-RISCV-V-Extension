@@ -1,0 +1,19 @@
+; Description of parameters :
+; 'gdsInFile			-	GDS2 file to be imported
+; 'verilogInFile		-	Verilog gate level netlist file to be 
+;                                       imported
+; 'primaryCellName		-	Name of the primary cell to be imported
+; 'designLibName		-	Name of the deisng library to which 
+;                                       the gds will be imported
+; 'refLibOrder			-	Names of the reference libraries in 
+;                                       order of preference
+;
+; All the above parameters are REQUIRED!
+
+importVerilogDesignKeys = list( nil
+	'gdsInFile 			"final.gds2"
+	'verilogInFile			".pnr.v"
+	'primaryCellName		""
+	'designLibName			""
+	'refLibOrder			"tsmc065_rvt_stdcells"
+)
