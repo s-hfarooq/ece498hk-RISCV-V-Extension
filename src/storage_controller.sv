@@ -24,7 +24,9 @@ module storage_controller #(
     // To/from programming SPI
     inout  wire    [3:0]           programming_qspi_pins,
     input  logic                   programming_qspi_ck_o,
-    input  logic                   programming_qspi_cs_o
+    input  logic                   programming_qspi_cs_o,
+
+    output logic [3:0] external_qspi_io_t // shouldn't be needed as an output
 );
 
 // SRAM SIGNALS
@@ -54,7 +56,7 @@ sram_2048_32_wmask_8bit sram (
 // QSPI SIGNALS
 logic [3:0] external_qspi_io_i;
 logic [3:0] external_qspi_io_o;
-logic [3:0] external_qspi_io_t;
+// logic [3:0] external_qspi_io_t;
 
 // QSPI SIGNALS
 logic [31:0] qspi_addr;
@@ -93,10 +95,12 @@ enum logic [2:0] {
 
 // external_qspi_io_t determines direction of QSPI IO pins
 always_comb begin
-    // qspi_io_t == 0 means input, 1 == output (?) - TODO: check to see if this is right
-    for(int unsigned i = 0; i < 4; i++) begin
-        external_qspi_io_i[i] = (set_programming_mode == 1'b1) ? 1'b0 : external_qspi_pins[i];
-    end
+    // qspi_io_t == 0 means output, 1 == input - TODO: check to see if this is right
+    // for(int unsigned i = 0; i < 4; i++) begin
+    //     external_qspi_io_i[i] = (set_programming_mode == 1'b1) ? 1'b0 : external_qspi_pins[i];
+    // end
+    
+    external_qspi_io_i = (set_programming_mode == 1'b1) ? 4'hF : external_qspi_pins;
 end
 
 genvar qspi_incr;
