@@ -24,9 +24,7 @@ module storage_controller #(
     // To/from programming SPI
     inout  wire    [3:0]           programming_qspi_pins,
     input  logic                   programming_qspi_ck_o,
-    input  logic                   programming_qspi_cs_o,
-
-    output logic [3:0] external_qspi_io_t // shouldn't be needed as an output
+    input  logic                   programming_qspi_cs_o
 );
 
 // SRAM SIGNALS
@@ -56,7 +54,7 @@ sram_2048_32_wmask_8bit sram (
 // QSPI SIGNALS
 logic [3:0] external_qspi_io_i;
 logic [3:0] external_qspi_io_o;
-// logic [3:0] external_qspi_io_t;
+logic [3:0] external_qspi_io_t;
 
 // QSPI SIGNALS
 logic [31:0] qspi_addr;

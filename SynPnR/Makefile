@@ -168,7 +168,7 @@ $(PROJECT_HOME)/.verilog_compiled: $(LOG_DIR) $(VERILOG_FILES) $(PROJECT_HOME)/.
 	@echo "##################################################################"
 	@echo "#     Compiling RTL Verilog                                      #"
 	@echo "##################################################################"
-	@xmverilog -c $(VERILOG_FILES) > $(LOG_DIR)/verilog_compile.log
+	@xmverilog $(XMVERILOG_FLAGS) -c $(VERILOG_FILES) > $(LOG_DIR)/verilog_compile.log
 	@touch $(PROJECT_HOME)/.verilog_compiled
 
 
@@ -177,7 +177,7 @@ $(PROJECT_HOME)/.verilog_lib_compiled: $(LOG_DIR)
 	@echo "##################################################################"
 	@echo "#     Compiling Verilog Library                                  #"
 	@echo "##################################################################"
-	@xmverilog -c $(VERILOG_LIB) > $(LOG_DIR)/verilog_lib.log
+	@xmverilog $(XMVERILOG_FLAGS) -c $(VERILOG_LIB) > $(LOG_DIR)/verilog_lib.log
 	@touch $(PROJECT_HOME)/.verilog_lib_compiled
 
 
