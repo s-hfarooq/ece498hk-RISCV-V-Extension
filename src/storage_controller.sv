@@ -18,15 +18,15 @@ module storage_controller #(
 
     // To/from storage SPI
     inout   wire    [3:0]           external_qspi_pins,
-    output  logic                   external_qspi_ck_o,
-    output  logic                   external_qspi_cs_o,
+    output  wire                    external_qspi_ck_o,
+    output  wire                    external_qspi_cs_o
 
     // To/from programming SPI
-    inout  wire    [3:0]           programming_qspi_pins,
-    input  logic                   programming_qspi_ck_o,
-    input  logic                   programming_qspi_cs_o,
+    // inout  wire    [3:0]           programming_qspi_pins,
+    // input  logic                   programming_qspi_ck_o,
+    // input  logic                   programming_qspi_cs_o
 
-    output logic [3:0] external_qspi_io_t // shouldn't be needed as an output
+    // output logic external_qspi_io_t // shouldn't be needed as an output
 );
 
 // SRAM SIGNALS
@@ -56,7 +56,7 @@ sram_2048_32_wmask_8bit sram (
 // QSPI SIGNALS
 logic [3:0] external_qspi_io_i;
 logic [3:0] external_qspi_io_o;
-// logic [3:0] external_qspi_io_t;
+logic external_qspi_io_t;
 
 // QSPI SIGNALS
 logic [31:0] qspi_addr;
@@ -66,9 +66,12 @@ logic qspi_ready;
 logic [31:0] qspi_rdata;
 logic [3:0] qspi_io_i;
 logic [3:0] qspi_io_o;
-logic [3:0] qspi_io_t;
-logic qspi_ck_o;
-logic qspi_cs_o;
+logic qspi_io_t;
+// logic qspi_ck_o;
+logic qspi_ck_o_tmp;
+// logic qspi_cs_o;
+logic qspi_cs_o_tmp;
+logic [3:0] io_pad_qpsi_io;
 
 qspi_controller qspi_controller (
     .s_pclk(clk),
@@ -81,8 +84,8 @@ qspi_controller qspi_controller (
     .qspi_io_i(external_qspi_io_i),
     .qspi_io_o(qspi_io_o),
     .qspi_io_t(qspi_io_t),
-    .qspi_ck_o(qspi_ck_o),
-    .qspi_cs_o(qspi_cs_o)
+    .qspi_ck_o(qspi_ck_o_tmp),
+    .qspi_cs_o(qspi_cs_o_tmp)
 );
 
 enum logic [2:0] {
@@ -93,23 +96,47 @@ enum logic [2:0] {
     external_done
 } state, next_state;
 
-// external_qspi_io_t determines direction of QSPI IO pins
-always_comb begin
-    // qspi_io_t == 0 means output, 1 == input - TODO: check to see if this is right
-    // for(int unsigned i = 0; i < 4; i++) begin
-    //     external_qspi_io_i[i] = (set_programming_mode == 1'b1) ? 1'b0 : external_qspi_pins[i];
-    // end
-    
-    external_qspi_io_i = (set_programming_mode == 1'b1) ? 4'hF : external_qspi_pins;
-end
+// external_qspi_io_t determines direction of QSPI IO pins -- TODO: QSPI passthrough commented out
+// always_comb begin
+//     external_qspi_io_i = (set_programming_mode == 1'b1) ? 4'hF : external_qspi_pins;
+// end
 
-genvar qspi_incr;
+// genvar qspi_incr;
+// generate
+//     for(qspi_incr = 0; qspi_incr < 4; qspi_incr++) begin
+//         // This is terrible but it doesn't compile if I use an if statement instead
+//         assign external_qspi_pins[qspi_incr] = (set_programming_mode == 1'b1) ? (programming_qspi_pins[qspi_incr]) : (external_qspi_io_t == 1'b1 ? 'z : external_qspi_io_o[qspi_incr]);
+//     end
+// endgenerate
+
+genvar n;
 generate
-    for(qspi_incr = 0; qspi_incr < 4; qspi_incr++) begin
-        // This is terrible but it doesn't compile if I use an if statement instead
-        assign external_qspi_pins[qspi_incr] = (set_programming_mode == 1'b1) ? (programming_qspi_pins[qspi_incr]) : (external_qspi_io_t[qspi_incr] == 1'b1 ? 'z : external_qspi_io_o[qspi_incr]);
+    for(n = 0; n < 4; n++) begin
+        io_pad io_pad_qspi_io (
+            .io(external_qspi_pins[n]), //io_pad_qpsi_io[n]),
+            .i(external_qspi_io_i[n]),
+            .o(qspi_io_o[n]),
+            .t(qspi_io_t)
+        );
     end
 endgenerate
+
+logic qspi_ck_i;
+logic qspi_cs_i;
+
+io_pad io_pad_qspi_ck (
+    .io(external_qspi_ck_o),
+    .i(qspi_ck_i),
+    .o(qspi_ck_o_tmp),
+    .t(1'b0)
+);
+
+io_pad io_pad_qspi_cs (
+    .io(external_qspi_cs_o),
+    .i(qspi_cs_i),
+    .o(qspi_cs_o_tmp),
+    .t(1'b0)
+);
 
 always_ff @(posedge clk) begin
     if (~rst) begin
@@ -196,10 +223,10 @@ always_comb begin
     out_valid = 1'b0;
 
     // SPI defaults
-    external_qspi_io_o = qspi_io_o;
-    external_qspi_io_t = qspi_io_t;
-    external_qspi_ck_o = qspi_ck_o;
-    external_qspi_cs_o = qspi_cs_o;
+    // external_qspi_io_o = qspi_io_o;
+    // external_qspi_io_t = qspi_io_t;
+    // external_qspi_ck_o = qspi_ck_o;
+    // external_qspi_cs_o = qspi_cs_o;
 
     qspi_addr = 32'b0;
     qspi_write = 1'b0;
@@ -232,8 +259,8 @@ always_comb begin
             begin
                 // Route programming SPI pins directly to external storage if in programming state
                 // external_qspi_pins = programming_qspi_pins; // TODO: Will this compile? It does not
-                external_qspi_ck_o = programming_qspi_ck_o;
-                external_qspi_cs_o = programming_qspi_cs_o;
+                // external_qspi_ck_o = programming_qspi_ck_o;
+                // external_qspi_cs_o = programming_qspi_cs_o;
             end
         default:
             begin
