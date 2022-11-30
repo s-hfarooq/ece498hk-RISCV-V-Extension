@@ -7,6 +7,8 @@ module toplevel_498 #(
         parameter int unsigned DCACHE_SZ       = 0,   // data cache size in bytes
         parameter int unsigned DCACHE_LINE_W   = 512  // data cache line width in bits
     )(
+    input vss,
+    input vdd,
     input logic clk,
     input logic rst,
     inout wire [9:0] gpio_pins,
@@ -17,9 +19,9 @@ module toplevel_498 #(
     output  logic                   external_qspi_cs_o,
 
     // To/from programming SPI
-    inout  wire    [3:0]           programming_qspi_pins,
-    input  logic                   programming_qspi_ck_o,
-    input  logic                   programming_qspi_cs_o,
+    // inout  wire    [3:0]           programming_qspi_pins,
+    // input  logic                   programming_qspi_ck_o,
+    // input  logic                   programming_qspi_cs_o,
 
     // Programming/debug set pins
     input logic set_programming_mode
@@ -88,12 +90,12 @@ mmu #(.MEM_W(MEM_W)) mmu (
     // To/from storage SPI
     .external_qspi_pins(external_qspi_pins),
     .external_qspi_ck_o(external_qspi_ck_o),
-    .external_qspi_cs_o(external_qspi_cs_o),
+    .external_qspi_cs_o(external_qspi_cs_o)
 
     // To/from programming SPI
-    .programming_qspi_pins(programming_qspi_pins),
-    .programming_qspi_ck_o(programming_qspi_ck_o),
-    .programming_qspi_cs_o(programming_qspi_cs_o)
+    // .programming_qspi_pins(programming_qspi_pins),
+    // .programming_qspi_ck_o(programming_qspi_ck_o),
+    // .programming_qspi_cs_o(programming_qspi_cs_o)
 );
 
 endmodule : toplevel_498

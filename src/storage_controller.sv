@@ -19,12 +19,12 @@ module storage_controller #(
     // To/from storage SPI
     inout   wire    [3:0]           external_qspi_pins,
     output  wire                    external_qspi_ck_o,
-    output  wire                    external_qspi_cs_o,
+    output  wire                    external_qspi_cs_o
 
     // To/from programming SPI
-    inout  wire    [3:0]           programming_qspi_pins,
-    input  logic                   programming_qspi_ck_o,
-    input  logic                   programming_qspi_cs_o
+    // inout  wire    [3:0]           programming_qspi_pins,
+    // input  logic                   programming_qspi_ck_o,
+    // input  logic                   programming_qspi_cs_o
 
     // output logic external_qspi_io_t // shouldn't be needed as an output
 );
@@ -72,6 +72,7 @@ logic qspi_ck_o_tmp;
 // logic qspi_cs_o;
 logic qspi_cs_o_tmp;
 logic [3:0] io_pad_qpsi_io;
+// logic [3:0] external_qspi_io_i_tmp;
 
 qspi_controller qspi_controller (
     .s_pclk(clk),
@@ -96,16 +97,18 @@ enum logic [2:0] {
     external_done
 } state, next_state;
 
+// wire [3:0] external_qspi_pins_tmp;
+
 // external_qspi_io_t determines direction of QSPI IO pins -- TODO: QSPI passthrough commented out
 // always_comb begin
-//     external_qspi_io_i = (set_programming_mode == 1'b1) ? 4'hF : external_qspi_pins;
+//     external_qspi_io_i_tmp = (set_programming_mode == 1'b1) ? 4'hF : external_qspi_io_i;
 // end
 
 // genvar qspi_incr;
 // generate
 //     for(qspi_incr = 0; qspi_incr < 4; qspi_incr++) begin
 //         // This is terrible but it doesn't compile if I use an if statement instead
-//         assign external_qspi_pins[qspi_incr] = (set_programming_mode == 1'b1) ? (programming_qspi_pins[qspi_incr]) : (external_qspi_io_t == 1'b1 ? 'z : external_qspi_io_o[qspi_incr]);
+//         assign external_qspi_pins[qspi_incr] = (set_programming_mode == 1'b1) ? (programming_qspi_pins[qspi_incr]) : (external_qspi_pins_tmp[qspi_incr] === 'z ? 'z : external_qspi_pins_tmp[qspi_incr]);
 //     end
 // endgenerate
 
