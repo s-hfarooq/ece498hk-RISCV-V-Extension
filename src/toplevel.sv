@@ -7,8 +7,8 @@ module toplevel_498 #(
         parameter int unsigned DCACHE_SZ       = 0,   // data cache size in bytes
         parameter int unsigned DCACHE_LINE_W   = 512  // data cache line width in bits
     )(
-    input vss,
     input vdd,
+    input vss,
     input logic clk,
     input logic rst,
     inout wire [9:0] gpio_pins,

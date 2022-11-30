@@ -1,0 +1,845 @@
+###################################
+# Run the design through Encounter
+###################################
+
+# Load LEF Files
+loadLefFile $env(TECH_LEF)
+loadLefFile $env(LIB_LEF)
+
+# Setup design and create floorplan
+loadConfig ./encounter.conf 
+
+#Check the design and then save it
+saveDesign [format "%s%s" $env(TOP_LEVEL) ".init.enc"]
+
+# Create Floorplan
+floorplan -s 800 690 20 20 20 20
+setObjFPlanPolygon cell $env(TOP_LEVEL) 0   0 \
+					840 730
+
+#					250 0 \
+					250 390 \
+					450 390 \
+					450 380 \
+					255 380 \
+					255 0 \
+					590 0 \
+					590 380 \
+					595 380 \
+					595 0 \
+					840 0 \
+					840 730 \
+					0   730 \
+					0 0
+
+setObjFPlanBox Module mydesign/switch 255 30 590 380
+
+setObjFPlanBox Module mydesign/out_p  250 220 265 315
+setObjFPlanBox Module mydesign/out_n  590 625 685 655
+setObjFPlanBox Module mydesign/out_s  400 20   495 50
+setObjFPlanBox Module mydesign/out_e  790 210 820 305 
+setObjFPlanBox Module mydesign/out_w  20 50 50 145
+
+editPin -snap MGRID -side INSIDE -layer 3 -assign 265 380 -pin sel_p\[3\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 265.94 380 -pin sel_p\[2\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 266.88 380 -pin sel_p\[1\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 267.82 380 -pin sel_p\[0\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 268.76 380 -pin sel_n\[3\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 269.7 380 -pin sel_n\[2\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 270.64 380 -pin sel_n\[1\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 271.58 380 -pin sel_n\[0\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 272.52 380 -pin sel_s\[3\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 273.46 380 -pin sel_s\[2\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 274.4 380 -pin sel_s\[1\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 275.34 380 -pin sel_s\[0\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 276.28 380 -pin sel_e\[3\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 277.22 380 -pin sel_e\[2\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 278.16 380 -pin sel_e\[1\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 279.1 380 -pin sel_e\[0\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 280.04 380 -pin sel_w\[3\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 280.98 380 -pin sel_w\[2\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 281.92 380 -pin sel_w\[1\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 282.86 380 -pin sel_w\[0\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 283.8 380 -pin clk
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 160.000000 -pin flit_switch_in_w\[0\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 160.940000 -pin flit_switch_in_w\[1\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 161.880000 -pin flit_switch_in_w\[2\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 162.820000 -pin flit_switch_in_w\[3\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 163.760000 -pin flit_switch_in_w\[4\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 164.700000 -pin flit_switch_in_w\[5\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 165.640000 -pin flit_switch_in_w\[6\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 166.580000 -pin flit_switch_in_w\[7\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 167.520000 -pin flit_switch_in_w\[8\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 168.460000 -pin flit_switch_in_w\[9\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 169.400000 -pin flit_switch_in_w\[10\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 170.340000 -pin flit_switch_in_w\[11\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 171.280000 -pin flit_switch_in_w\[12\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 172.220000 -pin flit_switch_in_w\[13\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 173.160000 -pin flit_switch_in_w\[14\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 174.100000 -pin flit_switch_in_w\[15\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 175.040000 -pin flit_switch_in_w\[16\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 175.980000 -pin flit_switch_in_w\[17\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 176.920000 -pin flit_switch_in_w\[18\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 177.860000 -pin flit_switch_in_w\[19\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 178.800000 -pin flit_switch_in_w\[20\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 179.740000 -pin flit_switch_in_w\[21\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 180.680000 -pin flit_switch_in_w\[22\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 181.620000 -pin flit_switch_in_w\[23\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 182.560000 -pin flit_switch_in_w\[24\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 183.500000 -pin flit_switch_in_w\[25\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 184.440000 -pin flit_switch_in_w\[26\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 185.380000 -pin flit_switch_in_w\[27\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 186.320000 -pin flit_switch_in_w\[28\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 187.260000 -pin flit_switch_in_w\[29\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 188.200000 -pin flit_switch_in_w\[30\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 189.140000 -pin flit_switch_in_w\[31\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 190.080000 -pin flit_switch_in_w\[32\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 191.020000 -pin flit_switch_in_w\[33\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 191.960000 -pin flit_switch_in_w\[34\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 192.900000 -pin flit_switch_in_w\[35\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 193.840000 -pin flit_switch_in_w\[36\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 194.780000 -pin flit_switch_in_w\[37\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 195.720000 -pin flit_switch_in_w\[38\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 196.660000 -pin flit_switch_in_w\[39\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 197.600000 -pin flit_switch_in_w\[40\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 198.540000 -pin flit_switch_in_w\[41\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 199.480000 -pin flit_switch_in_w\[42\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 200.420000 -pin flit_switch_in_w\[43\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 201.360000 -pin flit_switch_in_w\[44\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 202.300000 -pin flit_switch_in_w\[45\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 203.240000 -pin flit_switch_in_w\[46\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 204.180000 -pin flit_switch_in_w\[47\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 205.120000 -pin flit_switch_in_w\[48\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 206.060000 -pin flit_switch_in_w\[49\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 207.000000 -pin flit_switch_in_w\[50\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 207.940000 -pin flit_switch_in_w\[51\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 208.880000 -pin flit_switch_in_w\[52\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 209.820000 -pin flit_switch_in_w\[53\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 210.760000 -pin flit_switch_in_w\[54\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 211.700000 -pin flit_switch_in_w\[55\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 212.640000 -pin flit_switch_in_w\[56\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 213.580000 -pin flit_switch_in_w\[57\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 214.520000 -pin flit_switch_in_w\[58\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 215.460000 -pin flit_switch_in_w\[59\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 216.400000 -pin flit_switch_in_w\[60\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 217.340000 -pin flit_switch_in_w\[61\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 218.280000 -pin flit_switch_in_w\[62\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 219.220000 -pin flit_switch_in_w\[63\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 140.000000 -pin flit_switch_in_s\[0\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 140.940000 -pin flit_switch_in_s\[1\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 141.880000 -pin flit_switch_in_s\[2\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 142.820000 -pin flit_switch_in_s\[3\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 143.760000 -pin flit_switch_in_s\[4\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 144.700000 -pin flit_switch_in_s\[5\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 145.640000 -pin flit_switch_in_s\[6\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 146.580000 -pin flit_switch_in_s\[7\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 147.520000 -pin flit_switch_in_s\[8\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 148.460000 -pin flit_switch_in_s\[9\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 149.400000 -pin flit_switch_in_s\[10\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 150.340000 -pin flit_switch_in_s\[11\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 151.280000 -pin flit_switch_in_s\[12\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 152.220000 -pin flit_switch_in_s\[13\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 153.160000 -pin flit_switch_in_s\[14\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 154.100000 -pin flit_switch_in_s\[15\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 155.040000 -pin flit_switch_in_s\[16\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 155.980000 -pin flit_switch_in_s\[17\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 156.920000 -pin flit_switch_in_s\[18\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 157.860000 -pin flit_switch_in_s\[19\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 158.800000 -pin flit_switch_in_s\[20\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 159.740000 -pin flit_switch_in_s\[21\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 160.680000 -pin flit_switch_in_s\[22\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 161.620000 -pin flit_switch_in_s\[23\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 162.560000 -pin flit_switch_in_s\[24\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 163.500000 -pin flit_switch_in_s\[25\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 164.440000 -pin flit_switch_in_s\[26\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 165.380000 -pin flit_switch_in_s\[27\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 166.320000 -pin flit_switch_in_s\[28\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 167.260000 -pin flit_switch_in_s\[29\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 168.200000 -pin flit_switch_in_s\[30\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 169.140000 -pin flit_switch_in_s\[31\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 170.080000 -pin flit_switch_in_s\[32\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 171.020000 -pin flit_switch_in_s\[33\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 171.960000 -pin flit_switch_in_s\[34\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 172.900000 -pin flit_switch_in_s\[35\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 173.840000 -pin flit_switch_in_s\[36\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 174.780000 -pin flit_switch_in_s\[37\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 175.720000 -pin flit_switch_in_s\[38\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 176.660000 -pin flit_switch_in_s\[39\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 177.600000 -pin flit_switch_in_s\[40\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 178.540000 -pin flit_switch_in_s\[41\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 179.480000 -pin flit_switch_in_s\[42\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 180.420000 -pin flit_switch_in_s\[43\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 181.360000 -pin flit_switch_in_s\[44\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 182.300000 -pin flit_switch_in_s\[45\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 183.240000 -pin flit_switch_in_s\[46\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 184.180000 -pin flit_switch_in_s\[47\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 185.120000 -pin flit_switch_in_s\[48\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 186.060000 -pin flit_switch_in_s\[49\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 187.000000 -pin flit_switch_in_s\[50\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 187.940000 -pin flit_switch_in_s\[51\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 188.880000 -pin flit_switch_in_s\[52\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 189.820000 -pin flit_switch_in_s\[53\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 190.760000 -pin flit_switch_in_s\[54\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 191.700000 -pin flit_switch_in_s\[55\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 192.640000 -pin flit_switch_in_s\[56\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 193.580000 -pin flit_switch_in_s\[57\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 194.520000 -pin flit_switch_in_s\[58\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 195.460000 -pin flit_switch_in_s\[59\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 196.400000 -pin flit_switch_in_s\[60\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 197.340000 -pin flit_switch_in_s\[61\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 198.280000 -pin flit_switch_in_s\[62\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 199.220000 -pin flit_switch_in_s\[63\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 205.000000 -pin flit_switch_in_e\[0\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 205.940000 -pin flit_switch_in_e\[1\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 206.880000 -pin flit_switch_in_e\[2\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 207.820000 -pin flit_switch_in_e\[3\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 208.760000 -pin flit_switch_in_e\[4\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 209.700000 -pin flit_switch_in_e\[5\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 210.640000 -pin flit_switch_in_e\[6\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 211.580000 -pin flit_switch_in_e\[7\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 212.520000 -pin flit_switch_in_e\[8\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 213.460000 -pin flit_switch_in_e\[9\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 214.400000 -pin flit_switch_in_e\[10\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 215.340000 -pin flit_switch_in_e\[11\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 216.280000 -pin flit_switch_in_e\[12\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 217.220000 -pin flit_switch_in_e\[13\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 218.160000 -pin flit_switch_in_e\[14\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 219.100000 -pin flit_switch_in_e\[15\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 220.040000 -pin flit_switch_in_e\[16\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 220.980000 -pin flit_switch_in_e\[17\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 221.920000 -pin flit_switch_in_e\[18\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 222.860000 -pin flit_switch_in_e\[19\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 223.800000 -pin flit_switch_in_e\[20\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 224.740000 -pin flit_switch_in_e\[21\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 225.680000 -pin flit_switch_in_e\[22\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 226.620000 -pin flit_switch_in_e\[23\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 227.560000 -pin flit_switch_in_e\[24\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 228.500000 -pin flit_switch_in_e\[25\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 229.440000 -pin flit_switch_in_e\[26\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 230.380000 -pin flit_switch_in_e\[27\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 231.320000 -pin flit_switch_in_e\[28\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 232.260000 -pin flit_switch_in_e\[29\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 233.200000 -pin flit_switch_in_e\[30\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 234.140000 -pin flit_switch_in_e\[31\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 235.080000 -pin flit_switch_in_e\[32\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 236.020000 -pin flit_switch_in_e\[33\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 236.960000 -pin flit_switch_in_e\[34\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 237.900000 -pin flit_switch_in_e\[35\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 238.840000 -pin flit_switch_in_e\[36\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 239.780000 -pin flit_switch_in_e\[37\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 240.720000 -pin flit_switch_in_e\[38\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 241.660000 -pin flit_switch_in_e\[39\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 242.600000 -pin flit_switch_in_e\[40\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 243.540000 -pin flit_switch_in_e\[41\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 244.480000 -pin flit_switch_in_e\[42\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 245.420000 -pin flit_switch_in_e\[43\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 246.360000 -pin flit_switch_in_e\[44\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 247.300000 -pin flit_switch_in_e\[45\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 248.240000 -pin flit_switch_in_e\[46\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 249.180000 -pin flit_switch_in_e\[47\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 250.120000 -pin flit_switch_in_e\[48\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 251.060000 -pin flit_switch_in_e\[49\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 252.000000 -pin flit_switch_in_e\[50\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 252.940000 -pin flit_switch_in_e\[51\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 253.880000 -pin flit_switch_in_e\[52\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 254.820000 -pin flit_switch_in_e\[53\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 255.760000 -pin flit_switch_in_e\[54\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 256.700000 -pin flit_switch_in_e\[55\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 257.640000 -pin flit_switch_in_e\[56\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 258.580000 -pin flit_switch_in_e\[57\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 259.520000 -pin flit_switch_in_e\[58\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 260.460000 -pin flit_switch_in_e\[59\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 261.400000 -pin flit_switch_in_e\[60\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 262.340000 -pin flit_switch_in_e\[61\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 263.280000 -pin flit_switch_in_e\[62\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 264.220000 -pin flit_switch_in_e\[63\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 320.000000 -pin flit_switch_in_n\[0\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 320.940000 -pin flit_switch_in_n\[1\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 321.880000 -pin flit_switch_in_n\[2\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 322.820000 -pin flit_switch_in_n\[3\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 323.760000 -pin flit_switch_in_n\[4\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 324.700000 -pin flit_switch_in_n\[5\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 325.640000 -pin flit_switch_in_n\[6\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 326.580000 -pin flit_switch_in_n\[7\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 327.520000 -pin flit_switch_in_n\[8\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 328.460000 -pin flit_switch_in_n\[9\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 329.400000 -pin flit_switch_in_n\[10\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 330.340000 -pin flit_switch_in_n\[11\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 331.280000 -pin flit_switch_in_n\[12\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 332.220000 -pin flit_switch_in_n\[13\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 333.160000 -pin flit_switch_in_n\[14\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 334.100000 -pin flit_switch_in_n\[15\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 335.040000 -pin flit_switch_in_n\[16\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 335.980000 -pin flit_switch_in_n\[17\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 336.920000 -pin flit_switch_in_n\[18\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 337.860000 -pin flit_switch_in_n\[19\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 338.800000 -pin flit_switch_in_n\[20\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 339.740000 -pin flit_switch_in_n\[21\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 340.680000 -pin flit_switch_in_n\[22\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 341.620000 -pin flit_switch_in_n\[23\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 342.560000 -pin flit_switch_in_n\[24\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 343.500000 -pin flit_switch_in_n\[25\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 344.440000 -pin flit_switch_in_n\[26\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 345.380000 -pin flit_switch_in_n\[27\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 346.320000 -pin flit_switch_in_n\[28\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 347.260000 -pin flit_switch_in_n\[29\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 348.200000 -pin flit_switch_in_n\[30\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 349.140000 -pin flit_switch_in_n\[31\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 350.080000 -pin flit_switch_in_n\[32\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 351.020000 -pin flit_switch_in_n\[33\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 351.960000 -pin flit_switch_in_n\[34\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 352.900000 -pin flit_switch_in_n\[35\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 353.840000 -pin flit_switch_in_n\[36\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 354.780000 -pin flit_switch_in_n\[37\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 355.720000 -pin flit_switch_in_n\[38\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 356.660000 -pin flit_switch_in_n\[39\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 357.600000 -pin flit_switch_in_n\[40\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 358.540000 -pin flit_switch_in_n\[41\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 359.480000 -pin flit_switch_in_n\[42\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 360.420000 -pin flit_switch_in_n\[43\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 361.360000 -pin flit_switch_in_n\[44\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 362.300000 -pin flit_switch_in_n\[45\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 363.240000 -pin flit_switch_in_n\[46\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 364.180000 -pin flit_switch_in_n\[47\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 365.120000 -pin flit_switch_in_n\[48\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 366.060000 -pin flit_switch_in_n\[49\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 367.000000 -pin flit_switch_in_n\[50\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 367.940000 -pin flit_switch_in_n\[51\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 368.880000 -pin flit_switch_in_n\[52\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 369.820000 -pin flit_switch_in_n\[53\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 370.760000 -pin flit_switch_in_n\[54\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 371.700000 -pin flit_switch_in_n\[55\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 372.640000 -pin flit_switch_in_n\[56\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 373.580000 -pin flit_switch_in_n\[57\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 374.520000 -pin flit_switch_in_n\[58\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 375.460000 -pin flit_switch_in_n\[59\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 376.400000 -pin flit_switch_in_n\[60\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 377.340000 -pin flit_switch_in_n\[61\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 378.280000 -pin flit_switch_in_n\[62\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590 379.220000 -pin flit_switch_in_n\[63\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 320.000000 -pin flit_switch_in_p\[0\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 320.940000 -pin flit_switch_in_p\[1\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 321.880000 -pin flit_switch_in_p\[2\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 322.820000 -pin flit_switch_in_p\[3\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 323.760000 -pin flit_switch_in_p\[4\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 324.700000 -pin flit_switch_in_p\[5\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 325.640000 -pin flit_switch_in_p\[6\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 326.580000 -pin flit_switch_in_p\[7\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 327.520000 -pin flit_switch_in_p\[8\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 328.460000 -pin flit_switch_in_p\[9\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 329.400000 -pin flit_switch_in_p\[10\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 330.340000 -pin flit_switch_in_p\[11\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 331.280000 -pin flit_switch_in_p\[12\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 332.220000 -pin flit_switch_in_p\[13\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 333.160000 -pin flit_switch_in_p\[14\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 334.100000 -pin flit_switch_in_p\[15\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 335.040000 -pin flit_switch_in_p\[16\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 335.980000 -pin flit_switch_in_p\[17\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 336.920000 -pin flit_switch_in_p\[18\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 337.860000 -pin flit_switch_in_p\[19\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 338.800000 -pin flit_switch_in_p\[20\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 339.740000 -pin flit_switch_in_p\[21\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 340.680000 -pin flit_switch_in_p\[22\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 341.620000 -pin flit_switch_in_p\[23\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 342.560000 -pin flit_switch_in_p\[24\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 343.500000 -pin flit_switch_in_p\[25\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 344.440000 -pin flit_switch_in_p\[26\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 345.380000 -pin flit_switch_in_p\[27\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 346.320000 -pin flit_switch_in_p\[28\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 347.260000 -pin flit_switch_in_p\[29\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 348.200000 -pin flit_switch_in_p\[30\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 349.140000 -pin flit_switch_in_p\[31\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 350.080000 -pin flit_switch_in_p\[32\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 351.020000 -pin flit_switch_in_p\[33\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 351.960000 -pin flit_switch_in_p\[34\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 352.900000 -pin flit_switch_in_p\[35\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 353.840000 -pin flit_switch_in_p\[36\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 354.780000 -pin flit_switch_in_p\[37\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 355.720000 -pin flit_switch_in_p\[38\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 356.660000 -pin flit_switch_in_p\[39\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 357.600000 -pin flit_switch_in_p\[40\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 358.540000 -pin flit_switch_in_p\[41\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 359.480000 -pin flit_switch_in_p\[42\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 360.420000 -pin flit_switch_in_p\[43\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 361.360000 -pin flit_switch_in_p\[44\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 362.300000 -pin flit_switch_in_p\[45\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 363.240000 -pin flit_switch_in_p\[46\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 364.180000 -pin flit_switch_in_p\[47\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 365.120000 -pin flit_switch_in_p\[48\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 366.060000 -pin flit_switch_in_p\[49\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 367.000000 -pin flit_switch_in_p\[50\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 367.940000 -pin flit_switch_in_p\[51\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 368.880000 -pin flit_switch_in_p\[52\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 369.820000 -pin flit_switch_in_p\[53\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 370.760000 -pin flit_switch_in_p\[54\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 371.700000 -pin flit_switch_in_p\[55\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 372.640000 -pin flit_switch_in_p\[56\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 373.580000 -pin flit_switch_in_p\[57\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 374.520000 -pin flit_switch_in_p\[58\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 375.460000 -pin flit_switch_in_p\[59\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 376.400000 -pin flit_switch_in_p\[60\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 377.340000 -pin flit_switch_in_p\[61\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 378.280000 -pin flit_switch_in_p\[62\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 255 379.220000 -pin flit_switch_in_p\[63\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 400.000000 0 -pin flit_out_s\[0\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 400.940000 0 -pin flit_out_s\[1\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 401.880000 0 -pin flit_out_s\[2\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 402.820000 0 -pin flit_out_s\[3\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 403.760000 0 -pin flit_out_s\[4\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 404.700000 0 -pin flit_out_s\[5\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 405.640000 0 -pin flit_out_s\[6\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 406.580000 0 -pin flit_out_s\[7\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 407.520000 0 -pin flit_out_s\[8\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 408.460000 0 -pin flit_out_s\[9\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 409.400000 0 -pin flit_out_s\[10\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 410.340000 0 -pin flit_out_s\[11\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 411.280000 0 -pin flit_out_s\[12\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 412.220000 0 -pin flit_out_s\[13\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 413.160000 0 -pin flit_out_s\[14\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 414.100000 0 -pin flit_out_s\[15\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 415.040000 0 -pin flit_out_s\[16\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 415.980000 0 -pin flit_out_s\[17\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 416.920000 0 -pin flit_out_s\[18\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 417.860000 0 -pin flit_out_s\[19\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 418.800000 0 -pin flit_out_s\[20\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 419.740000 0 -pin flit_out_s\[21\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 420.680000 0 -pin flit_out_s\[22\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 421.620000 0 -pin flit_out_s\[23\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 422.560000 0 -pin flit_out_s\[24\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 423.500000 0 -pin flit_out_s\[25\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 424.440000 0 -pin flit_out_s\[26\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 425.380000 0 -pin flit_out_s\[27\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 426.320000 0 -pin flit_out_s\[28\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 427.260000 0 -pin flit_out_s\[29\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 428.200000 0 -pin flit_out_s\[30\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 429.140000 0 -pin flit_out_s\[31\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 430.080000 0 -pin flit_out_s\[32\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 431.020000 0 -pin flit_out_s\[33\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 431.960000 0 -pin flit_out_s\[34\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 432.900000 0 -pin flit_out_s\[35\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 433.840000 0 -pin flit_out_s\[36\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 434.780000 0 -pin flit_out_s\[37\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 435.720000 0 -pin flit_out_s\[38\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 436.660000 0 -pin flit_out_s\[39\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 437.600000 0 -pin flit_out_s\[40\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 438.540000 0 -pin flit_out_s\[41\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 439.480000 0 -pin flit_out_s\[42\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 440.420000 0 -pin flit_out_s\[43\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 441.360000 0 -pin flit_out_s\[44\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 442.300000 0 -pin flit_out_s\[45\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 443.240000 0 -pin flit_out_s\[46\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 444.180000 0 -pin flit_out_s\[47\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 445.120000 0 -pin flit_out_s\[48\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 446.060000 0 -pin flit_out_s\[49\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 447.000000 0 -pin flit_out_s\[50\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 447.940000 0 -pin flit_out_s\[51\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 448.880000 0 -pin flit_out_s\[52\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 449.820000 0 -pin flit_out_s\[53\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 450.760000 0 -pin flit_out_s\[54\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 451.700000 0 -pin flit_out_s\[55\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 452.640000 0 -pin flit_out_s\[56\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 453.580000 0 -pin flit_out_s\[57\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 454.520000 0 -pin flit_out_s\[58\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 455.460000 0 -pin flit_out_s\[59\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 456.400000 0 -pin flit_out_s\[60\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 457.340000 0 -pin flit_out_s\[61\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 458.280000 0 -pin flit_out_s\[62\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 459.220000 0 -pin flit_out_s\[63\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 210.000000 -pin flit_out_e\[0\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 210.940000 -pin flit_out_e\[1\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 211.880000 -pin flit_out_e\[2\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 212.820000 -pin flit_out_e\[3\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 213.760000 -pin flit_out_e\[4\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 214.700000 -pin flit_out_e\[5\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 215.640000 -pin flit_out_e\[6\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 216.580000 -pin flit_out_e\[7\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 217.520000 -pin flit_out_e\[8\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 218.460000 -pin flit_out_e\[9\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 219.400000 -pin flit_out_e\[10\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 220.340000 -pin flit_out_e\[11\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 221.280000 -pin flit_out_e\[12\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 222.220000 -pin flit_out_e\[13\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 223.160000 -pin flit_out_e\[14\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 224.100000 -pin flit_out_e\[15\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 225.040000 -pin flit_out_e\[16\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 225.980000 -pin flit_out_e\[17\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 226.920000 -pin flit_out_e\[18\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 227.860000 -pin flit_out_e\[19\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 228.800000 -pin flit_out_e\[20\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 229.740000 -pin flit_out_e\[21\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 230.680000 -pin flit_out_e\[22\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 231.620000 -pin flit_out_e\[23\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 232.560000 -pin flit_out_e\[24\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 233.500000 -pin flit_out_e\[25\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 234.440000 -pin flit_out_e\[26\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 235.380000 -pin flit_out_e\[27\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 236.320000 -pin flit_out_e\[28\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 237.260000 -pin flit_out_e\[29\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 238.200000 -pin flit_out_e\[30\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 239.140000 -pin flit_out_e\[31\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 240.080000 -pin flit_out_e\[32\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 241.020000 -pin flit_out_e\[33\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 241.960000 -pin flit_out_e\[34\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 242.900000 -pin flit_out_e\[35\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 243.840000 -pin flit_out_e\[36\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 244.780000 -pin flit_out_e\[37\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 245.720000 -pin flit_out_e\[38\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 246.660000 -pin flit_out_e\[39\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 247.600000 -pin flit_out_e\[40\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 248.540000 -pin flit_out_e\[41\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 249.480000 -pin flit_out_e\[42\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 250.420000 -pin flit_out_e\[43\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 251.360000 -pin flit_out_e\[44\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 252.300000 -pin flit_out_e\[45\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 253.240000 -pin flit_out_e\[46\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 254.180000 -pin flit_out_e\[47\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 255.120000 -pin flit_out_e\[48\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 256.060000 -pin flit_out_e\[49\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 257.000000 -pin flit_out_e\[50\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 257.940000 -pin flit_out_e\[51\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 258.880000 -pin flit_out_e\[52\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 259.820000 -pin flit_out_e\[53\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 260.760000 -pin flit_out_e\[54\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 261.700000 -pin flit_out_e\[55\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 262.640000 -pin flit_out_e\[56\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 263.580000 -pin flit_out_e\[57\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 264.520000 -pin flit_out_e\[58\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 265.460000 -pin flit_out_e\[59\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 266.400000 -pin flit_out_e\[60\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 267.340000 -pin flit_out_e\[61\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 268.280000 -pin flit_out_e\[62\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 840 269.220000 -pin flit_out_e\[63\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590.000000 730 -pin flit_out_n\[0\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 590.940000 730 -pin flit_out_n\[1\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 591.880000 730 -pin flit_out_n\[2\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 592.820000 730 -pin flit_out_n\[3\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 593.760000 730 -pin flit_out_n\[4\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 594.700000 730 -pin flit_out_n\[5\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 595.640000 730 -pin flit_out_n\[6\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 596.580000 730 -pin flit_out_n\[7\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 597.520000 730 -pin flit_out_n\[8\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 598.460000 730 -pin flit_out_n\[9\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 599.400000 730 -pin flit_out_n\[10\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 600.340000 730 -pin flit_out_n\[11\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 601.280000 730 -pin flit_out_n\[12\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 602.220000 730 -pin flit_out_n\[13\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 603.160000 730 -pin flit_out_n\[14\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 604.100000 730 -pin flit_out_n\[15\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 605.040000 730 -pin flit_out_n\[16\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 605.980000 730 -pin flit_out_n\[17\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 606.920000 730 -pin flit_out_n\[18\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 607.860000 730 -pin flit_out_n\[19\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 608.800000 730 -pin flit_out_n\[20\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 609.740000 730 -pin flit_out_n\[21\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 610.680000 730 -pin flit_out_n\[22\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 611.620000 730 -pin flit_out_n\[23\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 612.560000 730 -pin flit_out_n\[24\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 613.500000 730 -pin flit_out_n\[25\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 614.440000 730 -pin flit_out_n\[26\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 615.380000 730 -pin flit_out_n\[27\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 616.320000 730 -pin flit_out_n\[28\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 617.260000 730 -pin flit_out_n\[29\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 618.200000 730 -pin flit_out_n\[30\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 619.140000 730 -pin flit_out_n\[31\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 620.080000 730 -pin flit_out_n\[32\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 621.020000 730 -pin flit_out_n\[33\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 621.960000 730 -pin flit_out_n\[34\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 622.900000 730 -pin flit_out_n\[35\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 623.840000 730 -pin flit_out_n\[36\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 624.780000 730 -pin flit_out_n\[37\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 625.720000 730 -pin flit_out_n\[38\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 626.660000 730 -pin flit_out_n\[39\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 627.600000 730 -pin flit_out_n\[40\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 628.540000 730 -pin flit_out_n\[41\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 629.480000 730 -pin flit_out_n\[42\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 630.420000 730 -pin flit_out_n\[43\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 631.360000 730 -pin flit_out_n\[44\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 632.300000 730 -pin flit_out_n\[45\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 633.240000 730 -pin flit_out_n\[46\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 634.180000 730 -pin flit_out_n\[47\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 635.120000 730 -pin flit_out_n\[48\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 636.060000 730 -pin flit_out_n\[49\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 637.000000 730 -pin flit_out_n\[50\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 637.940000 730 -pin flit_out_n\[51\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 638.880000 730 -pin flit_out_n\[52\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 639.820000 730 -pin flit_out_n\[53\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 640.760000 730 -pin flit_out_n\[54\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 641.700000 730 -pin flit_out_n\[55\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 642.640000 730 -pin flit_out_n\[56\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 643.580000 730 -pin flit_out_n\[57\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 644.520000 730 -pin flit_out_n\[58\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 645.460000 730 -pin flit_out_n\[59\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 646.400000 730 -pin flit_out_n\[60\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 647.340000 730 -pin flit_out_n\[61\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 648.280000 730 -pin flit_out_n\[62\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 649.220000 730 -pin flit_out_n\[63\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 220.000000 -pin flit_out_p\[0\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 220.940000 -pin flit_out_p\[1\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 221.880000 -pin flit_out_p\[2\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 222.820000 -pin flit_out_p\[3\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 223.760000 -pin flit_out_p\[4\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 224.700000 -pin flit_out_p\[5\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 225.640000 -pin flit_out_p\[6\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 226.580000 -pin flit_out_p\[7\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 227.520000 -pin flit_out_p\[8\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 228.460000 -pin flit_out_p\[9\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 229.400000 -pin flit_out_p\[10\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 230.340000 -pin flit_out_p\[11\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 231.280000 -pin flit_out_p\[12\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 232.220000 -pin flit_out_p\[13\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 233.160000 -pin flit_out_p\[14\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 234.100000 -pin flit_out_p\[15\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 235.040000 -pin flit_out_p\[16\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 235.980000 -pin flit_out_p\[17\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 236.920000 -pin flit_out_p\[18\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 237.860000 -pin flit_out_p\[19\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 238.800000 -pin flit_out_p\[20\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 239.740000 -pin flit_out_p\[21\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 240.680000 -pin flit_out_p\[22\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 241.620000 -pin flit_out_p\[23\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 242.560000 -pin flit_out_p\[24\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 243.500000 -pin flit_out_p\[25\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 244.440000 -pin flit_out_p\[26\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 245.380000 -pin flit_out_p\[27\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 246.320000 -pin flit_out_p\[28\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 247.260000 -pin flit_out_p\[29\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 248.200000 -pin flit_out_p\[30\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 249.140000 -pin flit_out_p\[31\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 250.080000 -pin flit_out_p\[32\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 251.020000 -pin flit_out_p\[33\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 251.960000 -pin flit_out_p\[34\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 252.900000 -pin flit_out_p\[35\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 253.840000 -pin flit_out_p\[36\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 254.780000 -pin flit_out_p\[37\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 255.720000 -pin flit_out_p\[38\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 256.660000 -pin flit_out_p\[39\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 257.600000 -pin flit_out_p\[40\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 258.540000 -pin flit_out_p\[41\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 259.480000 -pin flit_out_p\[42\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 260.420000 -pin flit_out_p\[43\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 261.360000 -pin flit_out_p\[44\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 262.300000 -pin flit_out_p\[45\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 263.240000 -pin flit_out_p\[46\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 264.180000 -pin flit_out_p\[47\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 265.120000 -pin flit_out_p\[48\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 266.060000 -pin flit_out_p\[49\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 267.000000 -pin flit_out_p\[50\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 267.940000 -pin flit_out_p\[51\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 268.880000 -pin flit_out_p\[52\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 269.820000 -pin flit_out_p\[53\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 270.760000 -pin flit_out_p\[54\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 271.700000 -pin flit_out_p\[55\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 272.640000 -pin flit_out_p\[56\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 273.580000 -pin flit_out_p\[57\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 274.520000 -pin flit_out_p\[58\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 275.460000 -pin flit_out_p\[59\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 276.400000 -pin flit_out_p\[60\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 277.340000 -pin flit_out_p\[61\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 278.280000 -pin flit_out_p\[62\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 250 279.220000 -pin flit_out_p\[63\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 50.000000 -pin flit_out_w\[0\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 50.940000 -pin flit_out_w\[1\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 51.880000 -pin flit_out_w\[2\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 52.820000 -pin flit_out_w\[3\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 53.760000 -pin flit_out_w\[4\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 54.700000 -pin flit_out_w\[5\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 55.640000 -pin flit_out_w\[6\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 56.580000 -pin flit_out_w\[7\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 57.520000 -pin flit_out_w\[8\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 58.460000 -pin flit_out_w\[9\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 59.400000 -pin flit_out_w\[10\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 60.340000 -pin flit_out_w\[11\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 61.280000 -pin flit_out_w\[12\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 62.220000 -pin flit_out_w\[13\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 63.160000 -pin flit_out_w\[14\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 64.100000 -pin flit_out_w\[15\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 65.040000 -pin flit_out_w\[16\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 65.980000 -pin flit_out_w\[17\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 66.920000 -pin flit_out_w\[18\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 67.860000 -pin flit_out_w\[19\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 68.800000 -pin flit_out_w\[20\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 69.740000 -pin flit_out_w\[21\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 70.680000 -pin flit_out_w\[22\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 71.620000 -pin flit_out_w\[23\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 72.560000 -pin flit_out_w\[24\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 73.500000 -pin flit_out_w\[25\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 74.440000 -pin flit_out_w\[26\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 75.380000 -pin flit_out_w\[27\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 76.320000 -pin flit_out_w\[28\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 77.260000 -pin flit_out_w\[29\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 78.200000 -pin flit_out_w\[30\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 79.140000 -pin flit_out_w\[31\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 80.080000 -pin flit_out_w\[32\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 81.020000 -pin flit_out_w\[33\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 81.960000 -pin flit_out_w\[34\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 82.900000 -pin flit_out_w\[35\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 83.840000 -pin flit_out_w\[36\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 84.780000 -pin flit_out_w\[37\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 85.720000 -pin flit_out_w\[38\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 86.660000 -pin flit_out_w\[39\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 87.600000 -pin flit_out_w\[40\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 88.540000 -pin flit_out_w\[41\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 89.480000 -pin flit_out_w\[42\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 90.420000 -pin flit_out_w\[43\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 91.360000 -pin flit_out_w\[44\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 92.300000 -pin flit_out_w\[45\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 93.240000 -pin flit_out_w\[46\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 94.180000 -pin flit_out_w\[47\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 95.120000 -pin flit_out_w\[48\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 96.060000 -pin flit_out_w\[49\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 97.000000 -pin flit_out_w\[50\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 97.940000 -pin flit_out_w\[51\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 98.880000 -pin flit_out_w\[52\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 99.820000 -pin flit_out_w\[53\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 100.760000 -pin flit_out_w\[54\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 101.700000 -pin flit_out_w\[55\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 102.640000 -pin flit_out_w\[56\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 103.580000 -pin flit_out_w\[57\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 104.520000 -pin flit_out_w\[58\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 105.460000 -pin flit_out_w\[59\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 106.400000 -pin flit_out_w\[60\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 107.340000 -pin flit_out_w\[61\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 108.280000 -pin flit_out_w\[62\]
+editPin -snap MGRID -side INSIDE -layer 3 -assign 0 109.220000 -pin flit_out_w\[63\]
+
+setMultiCpuUsage \
+      -numThreads 4 \
+      -numHosts   1 \
+      -superThreadsNumThreads 1 \
+      -superThreadsNumHosts   1 
+
+#Place EndCap for Triple Well cells
+#addEndCap -prefix END -preCap ENDCAPTH -postCap ENDCAPTH -flipY
+
+timeDesign -preplace
+
+# Setup Encounter modes
+setPlaceMode -congEffort high
+setPlaceMode -clkGateAware false
+setPlaceMode -placeIoPins false
+setPlaceMode -timingDriven true
+setPlaceMode -fp
+
+#setCTSMode -routeClkNet true
+setCTSMode -routeClkNet true -optAddBuffer true -optLatency true -synthLatencyEffort high -useLibMaxCap true -useLibMaxFanout true -verbose true
+#setCTSMode -routeClkNet true -optAddBuffer true -useLibMaxCap true -useLibMaxFanout true
+
+setOptMode -preserveAssertions  		false
+setOptMode -leakagePowerEffort  		none
+#setOptMode -fixHoldAllowSetupTnsDegrade 	true
+#setOptMode -holdFixingEffort 			low
+setOptMode -criticalRange 			0.2
+
+setOptMode -fixFanoutLoad			true 
+setOptMode -holdFixingEffort 			high
+#setOptMode -yieldEffort			high
+setOptMode -effort				high
+setOptMode -fixHoldAllowSetupTnsDegrade 	false
+#setOptMode -reclaimArea				true
+#setOptMode -usefulSkew 				true
+
+
+setMaxRouteLayer 5
+
+setViaGenOption -invoke_verifyGeometry 1 -create_double_row_cut_via 1 -add_pin_to_pin_via 1 -respect_signal_routes 1
+
+# Add supply rings around core
+#addRing -spacing_bottom 1 -spacing_right 1 -spacing_left 1 -spacing_top 1 -width_left 8 -width_bottom 8 -width_top 8 -width_right 8 -layer_bottom M1 -layer_top M1  -layer_right M2 -layer_left M2 -center 1 -around core -nets { VSS VDD }
+
+addRing -spacing_bottom 1 -width_left 8 -width_bottom 8 -width_top 8 -spacing_top 1 -layer_bottom M1 -stacked_via_top_layer M2_2B -width_right 8 -around core -jog_distance 1 -offset_bottom 1 -layer_top M1 -threshold 1 -offset_left 1 -spacing_right 1 -spacing_left 1 -offset_right 1 -offset_top 1 -layer_right M2 -nets {VSS VDD } -stacked_via_bottom_layer M1 -layer_left M2
+
+
+addStripe -block_ring_top_layer_limit M3 -max_same_layer_jog_length 0.56 -padcore_ring_bottom_layer_limit M1 -number_of_sets 40 -stacked_via_top_layer M2_2B -padcore_ring_top_layer_limit M3 -spacing 2.8 -merge_stripes_value 0.28 -layer M4 -block_ring_bottom_layer_limit M1 -width 2 -nets {VSS VDD } -stacked_via_bottom_layer M1 -break_stripes_at_block_rings 1
+
+# Avoiding adding antenna diodes initially so that LVS will pass easier. Can change this later when design is more finalized/checked.
+setNanoRouteMode -routeInsertAntennaDiode false
+
+# Allow nanoroute to try harder/longer
+#setNanoRouteMode -envNumberFailLimit 11
+
+# Place standard cells
+placeDesign
+refinePlace -checkRoute 0 -honorSoftBlockage 0 -preserveRouting 0 -rmAffectedRouting 0 -swapEEQ 0 -checkPinLayerForAccess 1
+
+
+# Route power nets
+sroute 
+
+#Add tie hi lo cells
+addTieHiLo -cell "TIEHITH TIELOTH" -createHierPort true -reportHierPort true
+
+# Run in-place optimization
+# to fix setup problems
+optDesign -preCTS
+optDesign -preCTS -drv
+
+# Run Clock Tree Synthesis
+#createClockTreeSpec -output encounter.cts
+specifyClockTree -clkfile encounter.cts
+ckSynthesis -rguide cts.rguide -report report.ctsrpt -macromodel report.ctsmdl -fix_added_buffers
+
+# Run in-place optimization
+optDesign -postCTS
+
+# Fix all remaining violations
+optDesign -postCTS -drv
+
+clearClockDomains
+#setClockDomains -fromType register -toType register
+optDesign -postCTS -hold
+#clearClockDomains
+# Add filler cells
+#addFiller -cell {FILL16TH FILL1TH FILL2TH FILL32TH FILL4TH FILL64TH FILL8TH FILLCAP16TH FILLCAP32TH FILLCAP3TH FILLCAP4TH FILLCAP64TH FILLCAP8TH} -prefix FILL -merge true
+
+# Run global Routing
+routeDesign
+
+#Final opt
+
+optDesign -postRoute
+
+#clearClockDomains
+#   setClockDomains -fromType register -toType register
+#   setOptMode -considerNonActivePathGroup true
+#   optDesign -postroute -hold
+#   clearClockDomains
+#   setOptMode -considerNonActivePathGroup false
+
+#optDesign -postRoute -hold
+
+optDesign -postRoute -drv
+
+# Export DEF
+defOut -routing -floorplan final.def
+
+# Output GDSII
+streamOut final.gds2 -mapFile customStreamOut.map -libName DesignLib -merge {cmos9sflvt_twinwell.gds2} -stripes 1 -mode ALL
+
+# Output Verilog Netlist
+saveNetlist -phys final.v -excludeLeafCell -excludeCellInst {ENDCAPTH FILL16TH FILL1TH FILL2TH FILL32TH FILL4TH FILL64TH FILL8TH}
+
+# Output DSPF RC Data
+write_sdf final.sdf
+rcout -spf final.dspf
+
+# Run DRC and Connection checks
+verifyGeometry
+verifyConnectivity -type all -noAntenna
+
+saveDesign [format "%s%s" $env(TOP_LEVEL) ".finished.enc"]
+
+puts "**************************************"
+puts "* Encounter script finished          *"
+puts "*                                    *"
+puts "* Results:                           *"
+puts "* --------                           *"
+puts "* DEF File:final.def                 *"
+puts "* Layout:  final.gds2                *"
+puts "* Netlist: final.v                   *"
+puts "* Timing:  timing.rep.5.final        *"
+puts "*                                    *"
+puts "* Type 'win' to get the Main Window  *"
+puts "* or type 'exit' to quit             *"
+puts "*                                    *"
+puts "**************************************"
+

@@ -1,0 +1,68 @@
+\o Program:		@(#)$CDS: libManager version 6.1.8 - CAT37 07/23/2021 16:48 (sjfdcl1033) $
+\o Sub version:		sub-version  s203 
+\o Arguments:		-unmapped -mpssession virtuoso759185 -mpshost ece-498hk-01.ece.illinois.edu -ADVM 
+\o Working Directory:	ece-498hk-01.ece.illinois.edu:/home/hfaroo9/Syn
+\o 64-bit offsets
+\o Qt version: 		5.9.1
+\o changeWorkingDir("/home/hfaroo9/Syn") unnecessary.
+\o ddSetForcedLib("") unnecessary.
+\o Log file is "/home/hfaroo9/Syn/libManager.log".
+\o Opening libManager window.
+\a nrSetWindowVisibility(cdsLibManager "show")
+\o MPS service: map window
+\o Library Manager customization server connected.
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(50 78 602 491))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 28 1728 977))
+\a cdsLibManager->FileNewLibButton->value = t
+\a nrSetWindowVisibility(NewLibShell "show")
+\a nrSetCurrentWindow(NewLibShell)
+\a nrSetCurrentWindow(NewLibShell->subDialog)
+\a nrResizeWindow(NewLibShell list(601 197 507 559))
+\a NewLibShell->QLineEdit1->value = "/home/hfaroo9/"
+\a nrResizeWindow(NewLibShell list(479 214 507 559))
+\a nrSetCurrentWindow(NewLibShell)
+\a nrSetCurrentWindow(NewLibShell->subDialog)
+\a NewLibShell->QLineEdit1->value = "/home/hfaroo9/virt-demp"
+\a nrDialogAccept(NewLibShell->subDialog)
+\a NewLibShell->newLibNameText->value = "hfaroo9_test"
+\a NewLibShell->newLibOKButton->value = t
+\o ERROR (CLM-288): Directory "/home/hfaroo9/virt-demp" doesn't exist.\nThe directory must exist in order to create the library.
+\a nrSetWindowVisibility(errorDialog "show")
+\a nrSetCurrentWindow(errorDialog)
+\a nrResizeWindow(errorDialog list(691 456 347 122))
+\a errorDialog->errorOkButton->value = t
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(errorDialog list(691 419 347 122))
+\a nrSetCurrentWindow(NewLibShell)
+\a nrSetCurrentWindow(NewLibShell->subDialog)
+\a NewLibShell->newLibCancelButton->value = t
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(NewLibShell list(479 177 507 559))
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->FileNewLibButton->value = t
+\a NewLibShell->newLibNameText->value = ""
+\a nrSetWindowVisibility(NewLibShell->subDialog "show")
+\a nrSetCurrentWindow(NewLibShell)
+\a nrSetCurrentWindow(NewLibShell->subDialog)
+\a nrResizeWindow(NewLibShell list(601 234 507 559))
+\a NewLibShell->QLineEdit1->value = "/home/hfaroo9/virt-test"
+\a nrDialogAccept(NewLibShell->subDialog)
+\a NewLibShell->newLibNameText->value = "hfaroo9_test"
+\a NewLibShell->newLibOKButton->value = t
+\a nrSetWindowVisibility(workingDialogForm "show")
+\a nrSetCurrentWindow(workingDialogForm)
+\o Created new library "hfaroo9_test" at /home/hfaroo9/virt-test/hfaroo9_test.
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(workingDialogForm list(699 373 310 133))
+\a nrResizeWindow(NewLibShell list(601 197 507 559))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetWindowVisibility(cdsLibManager "hide")
+\a _lmgrCloseIconify("cdsLibManager" 1)
+\a nrSetWindowVisibility(cdsLibManager "show")
+\a nrSetWindowVisibility(cdsLibManager "hide")
+\a nrResizeWindow(cdsLibManager list(50 78 602 491))
+\o MPS service: shutdown
+\o libManager is exiting.
+\a exit(0)

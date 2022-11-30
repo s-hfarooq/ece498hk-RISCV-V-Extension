@@ -1,0 +1,25 @@
+all:
+	SDF_OUT_DIR=../$(SDF_OUT_DIR) GDS_LIB=$(GDS_LIB) LIB_LEF=$(LIB_LEF) TECH_LEF=$(TECH_LEF) SDC_OUT_DIR=../$(SDC_OUT_DIR) VLOGOUT_DIR=../$(VLOGOUT_DIR) TIME_LIB=$(TSMC_LIB) TOP_LEVEL=$(TOP_LEVEL) encounter -init encounter.tcl
+	@v2lvs -lsp $(CDL_LIB) -o ../$(VLOGOUT_DIR)/$(TOP_LEVEL).pnr.v.sp -s $(CDL_LIB) -v ../$(VLOGOUT_DIR)/$(TOP_LEVEL).pnr.v
+	@echo ".GLOBAL VDD VSS" > ../$(VLOGOUT_DIR)/tempfile
+	@cat ../$(VLOGOUT_DIR)/$(TOP_LEVEL).pnr.v.sp >> ../$(VLOGOUT_DIR)/tempfile
+	@mv -f ../$(VLOGOUT_DIR)/tempfile ../$(VLOGOUT_DIR)/$(TOP_LEVEL).pnr.v.sp
+
+
+clean:
+	rm -rf .routing_guide.rgf
+	rm -rf .tdrlog
+	rm -rf .timing_file.tif
+	rm -rf cts.rguide
+	rm -rf encounter.cmd
+	rm -rf encounter.log
+	rm -rf final.def
+	rm -rf final.dspf
+	rm -rf final.gds2
+	rm -rf report.*
+	rm -rf $(TOP_LEVEL).*
+	rm -rf tiehilo.rpt
+	rm -rf timingReports
+	rm -rf v2lvs.log
+	rm -rf .viaViol.*
+	rm -rf .clock_group_typView_*

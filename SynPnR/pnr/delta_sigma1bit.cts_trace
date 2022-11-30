@@ -1,0 +1,69 @@
+
+
+
+
+
+Tracing Clock clk
+
+****** Clock Tree (clk) Structure
+Nr. Subtrees                   : 1
+Nr. Sinks                      : 15
+Nr.          Rising  Sync Pins : 0
+Nr. Inverter Rising  Sync Pins : 0
+Nr.          Falling Sync Pins : 0
+Nr. Inverter Falling Sync Pins : 15
+Nr. Unsync Pins                : 0
+
+** Leaf Pins
+CELL (PORT)                            Nr.
+-----------------------------------------------
+DFFNRPQX1MA10TR (CKN)                   15
+-----------------------------------------------
+
+
+
+
+** Unsync Pins
+CELL (PORT)                            Nr.
+-----------------------------------------------
+-----------------------------------------------
+
+
+
+
+** Gate Component Input Pins
+CELL (PORT)                            Nr.
+-----------------------------------------------
+-----------------------------------------------
+
+
+
+** Subtree Detail
+*DEPTH 0 Input_Pin: (EMPTY) Output_Pin: (clk) Cell: (EMPTY) Net: (clk) NO-INV
+          Nr. of Exclude Pins           : 0
+          Nr. of Unsync Pins            : 0
+          Nr. of Total Sync Pins        : 15
+          Nr. of     Rising  Sync Pins  : 0
+          Nr. of Inv Rising  Sync Pins  : 0
+          Nr. of     Falling Sync Pins  : 0
+          Nr. of Inv Falling Sync Pins  : 15
+          Nr. of Gated Clocks           : 0
+***********************************************************
+
+****** Pre CTS Detail Structure for clock clk
+*DEPTH 0: clk
+ (Sync)sdm_reg1_reg_14_/CKN
+ (Sync)sdm_reg1_reg_13_/CKN
+ (Sync)sdm_reg1_reg_12_/CKN
+ (Sync)sdm_reg1_reg_11_/CKN
+ (Sync)sdm_reg1_reg_10_/CKN
+ (Sync)sdm_reg1_reg_9_/CKN
+ (Sync)sdm_reg1_reg_8_/CKN
+ (Sync)sdm_reg1_reg_7_/CKN
+ (Sync)sdm_reg1_reg_6_/CKN
+ (Sync)sdm_reg1_reg_5_/CKN
+ (Sync)sdm_reg1_reg_4_/CKN
+ (Sync)sdm_reg1_reg_3_/CKN
+ (Sync)sdm_reg1_reg_2_/CKN
+ (Sync)sdm_reg1_reg_1_/CKN
+ (Sync)sdm_reg1_reg_0_/CKN
