@@ -27,6 +27,11 @@ module toplevel_498 #(
     input logic set_programming_mode
 );
 
+// TODO
+/// NEED TO CHANGE VICUNA/IBEX TO HAVE PC START AT X2000
+///
+///
+
 // VPROC_TOP SIGNALS
 logic vproc_mem_req_o;
 logic [31:0] vproc_mem_addr_o;
