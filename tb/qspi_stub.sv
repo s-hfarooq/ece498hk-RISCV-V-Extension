@@ -39,7 +39,7 @@ module qspi_stub #(
         for (int i = 7; i >= 0; i--) begin
             @(posedge qspi_ck_o);
             cmd[i] = ~qspi_io_t[0] ? qspi_io_o[0] : 1'bx;
-            // $display("cmd[i] = %p, i = %p", cmd[i], i);
+            // $display("cmd[i] = %p, i = %p, qspi_io_t[0] = %p", cmd[i], i, qspi_io_t[0]);
         end
         assert (cmd == 8'hEB) else begin
             $display("ERROR: qspi wrong cmd, expected: %h, detected: %h, time: %0t", 8'hEB, cmd, $time);
