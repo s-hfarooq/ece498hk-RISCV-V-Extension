@@ -121,15 +121,15 @@ module vproc_tb #(
         // .external_qspi_io_t (external_qspi_io_t         ),
         .external_qspi_pins (external_qspi_pins         ),
         .external_qspi_ck_o (external_qspi_ck_o         ),
-        .external_qspi_cs_o (external_qspi_cs_o         ),
+        .external_qspi_cs_o (external_qspi_cs_o         )
 
         // To/from programming SPI
         // .programming_qspi_io_i  (programming_qspi_io_i  ),
         // .programming_qspi_io_o  (programming_qspi_io_o  ),
         // .programming_qspi_io_t  (programming_qspi_io_t  ),
-        .programming_qspi_pins  (programming_qspi_pins  ),
-        .programming_qspi_ck_o  (programming_qspi_ck_o  ),
-        .programming_qspi_cs_o  (programming_qspi_cs_o  )
+        // .programming_qspi_pins  (programming_qspi_pins  ),
+        // .programming_qspi_ck_o  (programming_qspi_ck_o  ),
+        // .programming_qspi_cs_o  (programming_qspi_cs_o  )
     );
 
     qspi_stub qspi_stub(

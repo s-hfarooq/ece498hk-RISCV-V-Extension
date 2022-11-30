@@ -1,5 +1,8 @@
 
-module storage_controller_tb();
+module storage_controller_tb #(
+    parameter int unsigned     MEM_W         = 32, // memory bus width in bits, same as value in vproc_top.sv
+    parameter int unsigned     MEM_SZ        = 262144
+    )();
     timeunit 10ns;
     timeprecision 1ns; // TODO: are these correct?
 
@@ -29,56 +32,65 @@ module storage_controller_tb();
     // QSPI stub
     logic [3:0] external_qspi_io_i;
     logic [3:0] external_qspi_io_o;
-    logic [3:0] external_qspi_io_t;
 
     logic [3:0] tmp_i;
 
     logic [3:0] external_pin_tmp;
 
+    logic [3:0] external_qspi_io_t;
+
     assign external_pin_tmp = external_qspi_pins;
+
+    storage_controller dut(.*);
 
     genvar i_incr;
     generate
         for(i_incr = 0; i_incr < 4; i_incr++) begin
-            assign programming_qspi_pins[i_incr] = tmp_i[i_incr];
-
-            // assign external_qspi_io_o[i_incr] = (external_qspi_pins[i_incr] == 'z) ? 'z : external_qspi_pins[i_incr];
-            // assign external_qspi_io_t[i_incr] = (external_qspi_pins[i_incr] == 'z) ? 1'b1 : 1'b0;
-
-
-            // assign external_qspi_pins[i_incr] = (external_qspi_pins[i_incr] === 'z) ? external_qspi_io_i[i_incr] : external_pin_tmp[i_incr];
-
-            // assign external_qspi_pins[i_incr] = (external_qspi_io_t[i_incr] == 1'b1) ? external_qspi_io_i[i_incr] : external_pin_tmp[i_incr];            
-
-            assign external_qspi_pins[i_incr] = (external_qspi_io_t[i_incr] == 1'b1) ? external_qspi_io_i[i_incr] : external_pin_tmp[i_incr];            
+            assign programming_qspi_pins[i_incr] = (set_programming_mode == 1'b1) ? tmp_i[i_incr] : 'z;
         end
     endgenerate
 
     always_comb begin
         for(int unsigned i = 0; i < 4; i++) begin
-            if(external_qspi_pins[i] === 'z) begin
-                external_qspi_io_o[i] <= 'z;
-                // external_qspi_io_t[i] <= 1'b1;
-                // external_qspi_pins[i] <= external_qspi_io_i[i];
+            if(dut.qspi_io_t == 1'b1) begin
+                external_qspi_io_t[i] = 1'b1;
             end else begin
-                external_qspi_io_o[i] <= external_qspi_pins[i];
-                // external_qspi_io_t[i] <= 1'b0;
+                external_qspi_io_t[i] = 1'b0;
             end
+
+            external_qspi_io_o[i] = external_qspi_pins[i];
         end
     end
 
+    genvar n;
+    logic [3:0] io_tmp;
+    generate
+        for(n = 0; n < 4; n++) begin
+            io_pad io_pad_qspi_io (
+                .io(external_qspi_pins[n]),
+                .i(io_tmp[n]),
+                .o(external_qspi_io_i[n]),
+                .t(~dut.qspi_io_t)
+            );
+        end
+    endgenerate
+
     always begin
-        ##1;
+        @(posedge external_qspi_ck_o);
         for(int unsigned i = 0; i < 4; i++) begin
             if(external_qspi_io_i[i] === 'z) begin
                 //
             end else begin
-                $display("external_qspi_io_i[%p] = %x", i, external_qspi_io_i[i]);
+                // $display("external_qspi_io_i[%p] = %x", i, external_qspi_io_i[i]);
+                // $display("external_qspi_pins[%p] = %x", i, external_qspi_pins[i]);
+                // $display("external_qspi_io_o[%p] = %x", i, external_qspi_io_o[i]);
+                // assert (external_qspi_io_o[i] == external_qspi_pins[i]) else $error("NOT EQUAL");
+                // $display("qspi_io_o[%p] = %x", i, dut.qspi_io_o[i]);
+                // $display("qspi_io_t[%p] = %x", i, dut.qspi_io_t[i]);
             end
         end
     end
 
-    storage_controller dut(.*);
     qspi_stub qspi_stub(
         .qspi_io_i(external_qspi_io_i),
         .qspi_io_o(external_qspi_io_o),
@@ -141,9 +153,9 @@ module storage_controller_tb();
 
             ##1;
             
-            assert (external_qspi_ck_o == i[0]) else $error("external_qspi_ck_o not same as expected (external_qspi_ck_o = %p, i = %p)", external_qspi_ck_o, i);
-            assert (external_qspi_cs_o == i[1]) else $error("external_qspi_cs_o not same as expected (external_qspi_cs_o = %p, i = %p)", external_qspi_cs_o, i);
-            assert (external_qspi_pins == i[5:2]) else $error("external_qspi_io_o not same as expected (external_qspi_io_o = %p, i = %p)", external_qspi_pins, i);
+            // assert (external_qspi_ck_o == i[0]) else $error("external_qspi_ck_o not same as expected (external_qspi_ck_o = %p, i = %p)", external_qspi_ck_o, i);
+            // assert (external_qspi_cs_o == i[1]) else $error("external_qspi_cs_o not same as expected (external_qspi_cs_o = %p, i = %p)", external_qspi_cs_o, i);
+            assert (external_qspi_pins == i[5:2]) else $error("external_qspi_io_o not same as expected (external_qspi_io_o = %p, i = %p, external_qspi_pins = %p)", external_qspi_pins, i, external_qspi_pins);
         end
     endtask : spi_passthrough
 
@@ -189,6 +201,7 @@ module storage_controller_tb();
         memory_is_writing <= 1'b0;
         memory_access <= 1'b1;
         external_storage_access <= 1'b1;
+        // addr <= addr_val_in;
         addr <= addr_val_in;
 
         while(out_valid == 1'b0) begin
@@ -196,7 +209,7 @@ module storage_controller_tb();
         end
 
         memory_access <= 1'b0;
-        assert (d_out == mem[addr_val_in]) else $error("d_out DIFFERENT THAN EXPECTED (addr = %h, d_out = %h, expected = %h", addr_val_in, d_out, mem[addr_val_in]); 
+        assert (d_out == mem[addr_val_in[$clog2(MEM_SZ)-1 : $clog2(MEM_W/8)]]) else $error("d_out DIFFERENT THAN EXPECTED (addr = %h, d_out = %h, expected = %h", addr_val_in, d_out, mem[addr_val_in[$clog2(MEM_SZ)-1 : $clog2(MEM_W/8)]]); 
     endtask : read_from_external
 
     
@@ -214,7 +227,7 @@ module storage_controller_tb();
         ##1;
         $display("Starting read_from_external tests...");
         // TODO: For some reason when this is the last test it fails
-        for(int unsigned i = 0; i < 32'h0000_0050; i++) begin
+        for(int unsigned i = 0; i < 32'h0000_00FF; i++) begin
             read_from_external(i[31:0]);
         end
         $display("Finished read_from_external tests...");

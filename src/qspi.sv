@@ -14,10 +14,11 @@ module qspi_controller (
 
     input   logic   [3:0]           qspi_io_i,
     output  logic   [3:0]           qspi_io_o,
-    output  logic   [3:0]           qspi_io_t,
+    output  logic                   qspi_io_t,
     output  logic                   qspi_ck_o,
     output  logic                   qspi_cs_o
 );
+
 
     enum {
         QSPI_CTRL_IDLE,
@@ -42,17 +43,13 @@ module qspi_controller (
     end
 
     always_comb begin : state_comb
-        // qspi_io_o = 'b0;
-        qspi_io_t = 'b0;
-        // qspi_ck_o = 'b0;
-        qspi_cs_o = 'b0;
         case(state)
         QSPI_CTRL_IDLE : begin
             if (~s_psel) begin
                 state_next = QSPI_CTRL_IDLE;
                 nibble_counter_d_mux_sel = 1'b0;
                 io_o_mux_sel = 2'b00;
-                qspi_io_t = 4'hf;
+                qspi_io_t = 1'b1;
                 qspi_cs_o = 1'b1;
                 s_pready = 1'b0;
             end else begin
@@ -60,14 +57,14 @@ module qspi_controller (
                     state_next = QSPI_CTRL_CMD;
                     nibble_counter_d_mux_sel = 1'b0;
                     io_o_mux_sel = 2'b00;
-                    qspi_io_t = 4'hf;
+                    qspi_io_t = 1'b1;
                     qspi_cs_o = 1'b0;
                     s_pready = 1'b0;
                 end else begin
                     state_next = QSPI_CTRL_ACK;
                     nibble_counter_d_mux_sel = 1'b0;
                     io_o_mux_sel = 2'b00;
-                    qspi_io_t = 4'hf;
+                    qspi_io_t = 1'b1;
                     qspi_cs_o = 1'b1;
                     s_pready = 1'b0;
                 end
@@ -78,14 +75,14 @@ module qspi_controller (
                 state_next = QSPI_CTRL_CMD;
                 nibble_counter_d_mux_sel = 1'b1;
                 io_o_mux_sel = 2'b10;
-                qspi_io_t = 4'h0;
+                qspi_io_t = 1'b0;
                 qspi_cs_o = 1'b0;
                 s_pready = 1'b0;
             end else begin
                 state_next = QSPI_CTRL_ADDR;
                 nibble_counter_d_mux_sel = 1'b0;
                 io_o_mux_sel = 2'b10;
-                qspi_io_t = 4'h0;
+                qspi_io_t = 1'b0;
                 qspi_cs_o = 1'b0;
                 s_pready = 1'b0;
             end
@@ -95,14 +92,14 @@ module qspi_controller (
                 state_next = QSPI_CTRL_ADDR;
                 nibble_counter_d_mux_sel = 1'b1;
                 io_o_mux_sel = 2'b11;
-                qspi_io_t = 4'h0;
+                qspi_io_t = 1'b0;
                 qspi_cs_o = 1'b0;
                 s_pready = 1'b0;
             end else begin
                 state_next = QSPI_CTRL_DUMMY;
                 nibble_counter_d_mux_sel = 1'b0;
                 io_o_mux_sel = 2'b11;
-                qspi_io_t = 4'h0;
+                qspi_io_t = 1'b0;
                 qspi_cs_o = 1'b0;
                 s_pready = 1'b0;
             end
@@ -112,14 +109,14 @@ module qspi_controller (
                 state_next = QSPI_CTRL_DUMMY;
                 nibble_counter_d_mux_sel = 1'b1;
                 io_o_mux_sel = 2'b00;
-                qspi_io_t = 4'hf;
+                qspi_io_t = 1'b1;
                 qspi_cs_o = 1'b0;
                 s_pready = 1'b0;
             end else begin
                 state_next = QSPI_CTRL_DATA;
                 nibble_counter_d_mux_sel = 1'b0;
                 io_o_mux_sel = 2'b00;
-                qspi_io_t = 4'hf;
+                qspi_io_t = 1'b1;
                 qspi_cs_o = 1'b0;
                 s_pready = 1'b0;
             end
@@ -129,14 +126,14 @@ module qspi_controller (
                 state_next = QSPI_CTRL_DATA;
                 nibble_counter_d_mux_sel = 1'b1;
                 io_o_mux_sel = 2'b00;
-                qspi_io_t = 4'hf;
+                qspi_io_t = 1'b1;
                 qspi_cs_o = 1'b0;
                 s_pready = 1'b0;
             end else begin
                 state_next = QSPI_CTRL_ACK;
                 nibble_counter_d_mux_sel = 1'b0;
                 io_o_mux_sel = 2'b00;
-                qspi_io_t = 4'hf;
+                qspi_io_t = 1'b1;
                 qspi_cs_o = 1'b0;
                 s_pready = 1'b0;
             end
@@ -145,7 +142,7 @@ module qspi_controller (
             state_next = QSPI_CTRL_IDLE;
             nibble_counter_d_mux_sel = 1'b0;
             io_o_mux_sel = 2'b00;
-            qspi_io_t = 4'hf;
+            qspi_io_t = 1'b1;
             qspi_cs_o = 1'b1;
             s_pready = 1'b1;
         end
@@ -163,11 +160,9 @@ module qspi_controller (
         endcase
     end
 
-    always_comb begin : io_o_mux        
-        automatic logic [3:0]   addr_mux_out;
-        automatic logic         cmd_mux_out;
-                qspi_io_o = 'b0;
-
+    always_comb begin : io_o_mux
+            automatic logic [3:0]   addr_mux_out;
+            automatic logic         cmd_mux_out;
         case (nibble_counter_q)
             3'b000: addr_mux_out = s_paddr[23:20];
             3'b001: addr_mux_out = s_paddr[19:16];
@@ -195,9 +190,9 @@ module qspi_controller (
         endcase
     end
     
-    logic   [31:0]  rdata_d;
-    logic   [31:0]  rdata_q;
-    logic   [31:0]  rdata_l;
+            logic   [31:0]  rdata_d;
+            logic   [31:0]  rdata_q;
+            logic   [31:0]  rdata_l;
 
     always_comb begin : rdata_reg_comb
         rdata_l = 'd0;

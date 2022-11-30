@@ -12,7 +12,7 @@ PRIM_OTHER_SRCS := $(shell find $(PWD)/src/vicuna/ibex/syn/rtl -name '*gating.v'
 IBEX_PKG_SRCS := $(shell find $(PWD)/src/vicuna/ibex/rtl -name '*_pkg.sv')
 IBEX_SRCS := $(shell find $(PWD)/src/vicuna/ibex/rtl -name '*.sv' ! -name '*_pkg.sv' ! -name '*_tracing.sv')
 
-TB_SRCS := $(PWD)/tb/qspi_stub.sv $(PWD)/tb/full_tb_toplevel.sv
+TB_SRCS := $(PWD)/tb/qspi_stub.sv $(PWD)/tb/498_tb_toplevel.sv
 #TB_SRCS := $(PWD)/tb/qspi_stub.sv $(shell find $(PWD)/src/vicuna/sim -name '*.sv') # this is wrong TB location?
 #TB_SRCS := $(shell find $(PWD)/src/vicuna/demo/rtl -name '*.sv')
 
