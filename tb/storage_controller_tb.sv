@@ -1,5 +1,8 @@
 
-module storage_controller_tb();
+module storage_controller_tb #(
+    parameter int unsigned     MEM_W         = 32, // memory bus width in bits, same as value in vproc_top.sv
+    parameter int unsigned     MEM_SZ        = 262144
+    )();
     timeunit 10ns;
     timeprecision 1ns; // TODO: are these correct?
 
@@ -79,7 +82,7 @@ module storage_controller_tb();
                 //
             end else begin
                 // $display("external_qspi_io_i[%p] = %x", i, external_qspi_io_i[i]);
-                $display("external_qspi_pins[%p] = %x", i, external_qspi_pins[i]);
+                // $display("external_qspi_pins[%p] = %x", i, external_qspi_pins[i]);
                 // $display("external_qspi_io_o[%p] = %x", i, external_qspi_io_o[i]);
                 // assert (external_qspi_io_o[i] == external_qspi_pins[i]) else $error("NOT EQUAL");
                 // $display("qspi_io_o[%p] = %x", i, dut.qspi_io_o[i]);
@@ -198,6 +201,7 @@ module storage_controller_tb();
         memory_is_writing <= 1'b0;
         memory_access <= 1'b1;
         external_storage_access <= 1'b1;
+        // addr <= addr_val_in;
         addr <= addr_val_in;
 
         while(out_valid == 1'b0) begin
@@ -205,7 +209,7 @@ module storage_controller_tb();
         end
 
         memory_access <= 1'b0;
-        assert (d_out == mem[addr_val_in]) else $error("d_out DIFFERENT THAN EXPECTED (addr = %h, d_out = %h, expected = %h", addr_val_in, d_out, mem[addr_val_in]); 
+        assert (d_out == mem[addr_val_in[$clog2(MEM_SZ)-1 : $clog2(MEM_W/8)]]) else $error("d_out DIFFERENT THAN EXPECTED (addr = %h, d_out = %h, expected = %h", addr_val_in, d_out, mem[addr_val_in[$clog2(MEM_SZ)-1 : $clog2(MEM_W/8)]]); 
     endtask : read_from_external
 
     
