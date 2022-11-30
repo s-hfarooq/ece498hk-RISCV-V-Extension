@@ -19,12 +19,12 @@ module storage_controller #(
     // To/from storage SPI
     inout   wire    [3:0]           external_qspi_pins,
     output  wire                    external_qspi_ck_o,
-    output  wire                    external_qspi_cs_o
+    output  wire                    external_qspi_cs_o,
 
     // To/from programming SPI
-    // inout  wire    [3:0]           programming_qspi_pins,
-    // input  logic                   programming_qspi_ck_o,
-    // input  logic                   programming_qspi_cs_o
+    inout  wire    [3:0]           programming_qspi_pins,
+    input  logic                   programming_qspi_ck_o,
+    input  logic                   programming_qspi_cs_o
 
     // output logic external_qspi_io_t // shouldn't be needed as an output
 );

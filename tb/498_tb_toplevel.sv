@@ -29,6 +29,9 @@ module vproc_tb #(
 
     wire [9:0] gpio_pins;
     wire [3:0] external_qspi_pins;
+    wire [3:0] programming_qspi_pins;
+    logic external_qspi_ck_o;
+    logic external_qspi_cs_o;
     logic programming_qspi_ck_o;
     logic programming_qspi_cs_o;
     logic set_programming_mode;
@@ -36,6 +39,8 @@ module vproc_tb #(
     logic [3:0] external_qspi_io_i;
     logic [3:0] external_qspi_io_o;
     logic [3:0] external_qspi_io_t;
+
+    assign set_programming_mode = 1'b0;
 
     toplevel_498 toplevel_498 (
         .clk(clk),
@@ -47,7 +52,12 @@ module vproc_tb #(
         .external_qspi_ck_o(external_qspi_ck_o),
         .external_qspi_cs_o(external_qspi_cs_o),
 
-        // Programming/debug set pins
+        // To/from external programming pins
+        .programming_qspi_pins(programming_qspi_pins),
+        .programming_qspi_ck_o(programming_qspi_ck_o),
+        .programming_qspi_cs_o(programming_qspi_cs_o),
+
+        // Programming set pins
         .set_programming_mode(set_programming_mode)
     );
 
