@@ -41,17 +41,17 @@ logic sram_retn;
 logic [31:0] d_out_tmp;
 
 // Will be using SRAM as scratchpad memory
-sram_2048_32_wmask_8bit sram (
-    .Q(sram_d_out),
-    .CLK(clk),
-    .CEN(sram_chip_en),
-    .WEN(sram_byte_en),
-    .GWEN(sram_wr_en),
-    .A(sram_addr),
-    .D(sram_d_in),
-    .EMA(sram_ema),
-    .RETN(sram_retn)
-);
+// sram_2048_32_wmask_8bit sram (
+//     .Q(sram_d_out),
+//     .CLK(clk),
+//     .CEN(sram_chip_en),
+//     .WEN(sram_byte_en),
+//     .GWEN(sram_wr_en),
+//     .A(sram_addr),
+//     .D(sram_d_in),
+//     .EMA(sram_ema),
+//     .RETN(sram_retn)
+// );
 
 // QSPI SIGNALS
 logic [3:0] external_qspi_io_i;

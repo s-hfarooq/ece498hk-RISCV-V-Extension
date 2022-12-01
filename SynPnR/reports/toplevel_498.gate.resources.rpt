@@ -1,0 +1,598 @@
+ 
+****************************************
+Report : resources
+Design : toplevel_498
+Version: R-2020.09-SP4
+Date   : Thu Dec  1 10:10:03 2022
+****************************************
+
+
+Resource Report for this hierarchy in file
+        /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/SynPnR/../src/vicuna/rtl/vproc_top.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| add_x_1        | DW01_inc       | width=3    | vproc_top/add_200 (vproc_top.sv:200) |
+| sub_x_11       | DW01_dec       | width=5    | vproc_top/sub_689 (vproc_top.sv:689) |
+| add_x_12       | DW01_inc       | width=5    | vproc_top/add_700 (vproc_top.sv:700) |
+| lte_x_84       | DW_cmp         | width=32   | mmu/lte_149 (mmu.sv:149)   |
+| lte_x_85       | DW_cmp         | width=32   | mmu/lte_152 (mmu.sv:152)   |
+| gte_x_86       | DW_cmp         | width=32   | mmu/gte_158 (mmu.sv:158)   |
+| lte_x_87       | DW_cmp         | width=32   | mmu/lte_158 (mmu.sv:158)   |
+| lte_x_88       | DW_cmp         | width=32   | mmu/lte_161 (mmu.sv:161)   |
+| lte_x_91       | DW_cmp         | width=32   | mmu/lte_301 (mmu.sv:301)   |
+| sub_x_92       | DW01_sub       | width=32   | mmu/sub_304 (mmu.sv:304)   |
+| sub_x_93       | DW01_dec       | width=4    | mmu/sub_306 (mmu.sv:306)   |
+| sub_x_95       | DW01_sub       | width=32   | mmu/sub_317 (mmu.sv:317)   |
+| eq_x_163       | DW_cmp         | width=3    | vproc_top/v_core/eq_438_2 (vproc_core.sv:438) |
+| ne_x_231       | DW_cmp         | width=3    | vproc_top/v_core/ne_594 (vproc_core.sv:594) |
+| add_x_277      | DW01_inc       | width=32   | mmu/digitalTimer/add_15 (digitalTimer.sv:15) |
+| sub_x_278      | DW01_dec       | width=32   | mmu/digitalTimer/sub_27 (digitalTimer.sv:27) |
+| gte_x_279      | DW_cmp         | width=32   | mmu/digitalTimer/gte_27 (digitalTimer.sv:27) |
+| ash_447        | DW_leftsh      | A_width=5  | vproc_top/v_core/vreg_wr_mux/sll_164 (vproc_vreg_wr_mux.sv:164) |
+| SH_width=2 |                         |
+| eq_x_448       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I2 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_449       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I3 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_450       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I4 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_451       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I5 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_452       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I6 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_453       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I7 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_454       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I8 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_455       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I9 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_456       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I10 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_457       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I11 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_458       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I12 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_459       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I13 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_460       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I14 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_461       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I15 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_462       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I16 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_463       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I17 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_464       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I18 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_465       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I19 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_466       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I20 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_467       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I21 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_468       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I22 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_469       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I23 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_470       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I24 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_471       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I25 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_472       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I26 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_473       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I27 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_474       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I28 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_475       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I29 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_476       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I30 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_477       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I31 (vproc_vreg_wr_mux.sv:170) |
+| eq_x_478       | DW_cmp         | width=5    | vproc_top/v_core/vreg_wr_mux/eq_170_I32 (vproc_vreg_wr_mux.sv:170) |
+| add_x_631      | DW01_add       | width=32   | vproc_top/u_core/u_ibex_core/if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/add_221 (ibex_prefetch_buffer.sv:221) |
+| add_x_766      | DW01_add       | width=32   | vproc_top/u_core/u_ibex_core/id_stage_i/controller_i/add_695_aco (ibex_controller.sv:695) |
+| add_x_826      | DW01_add       | width=34   | vproc_top/u_core/u_ibex_core/ex_block_i/alu_i/add_86 (ibex_alu.sv:86) |
+| eq_x_828       | DW_cmp         | width=32   | vproc_top/u_core/u_ibex_core/ex_block_i/alu_i/eq_113 (ibex_alu.sv:113) |
+| sub_x_831      | DW01_sub       | width=5    | vproc_top/u_core/u_ibex_core/ex_block_i/alu_i/sub_261 (ibex_alu.sv:261) |
+| ashr_837       | DW_rightsh     | A_width=33 | vproc_top/u_core/u_ibex_core/ex_block_i/alu_i/sra_323 (ibex_alu.sv:323) |
+| SH_width=5 |                 |
+| add_x_855      | DW01_add       | width=31   | vproc_top/u_core/u_ibex_core/if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/add_145 (ibex_fetch_fifo.sv:145) |
+| gte_x_864      | DW_cmp         | width=32   | mmu/gte_152 (mmu.sv:152)   |
+|                |                |            | mmu/gte_301 (mmu.sv:301)   |
+| eq_x_865       | DW_cmp         | width=3    | vproc_top/v_core/eq_424 (vproc_core.sv:424) |
+|                |            | vproc_top/v_core/eq_431 (vproc_core.sv:431) |
+| sub_x_94       | DW01_sub       | width=4    | mmu/sub_313 (mmu.sv:313)   |
+|                |                |            | mmu/sub_321 (mmu.sv:321)   |
+|                |                |            | mmu/sub_325 (mmu.sv:325)   |
+| sub_x_230      | DW01_dec       | width=32   | vproc_top/v_core/sub_484 (vproc_core.sv:484) |
+                |            | vproc_top/v_core/sub_485 (vproc_core.sv:485) |
+                |            | vproc_top/v_core/sub_486 (vproc_core.sv:486) |
+| DP_OP_1699J2_129_9567           |            |                            |
+|                | DP_OP_1699J2_129_9567 |     |                            |
+| DP_OP_1678J2_125_4159           |            |                            |
+|                | DP_OP_1678J2_125_4159 |     |                            |
+| DP_OP_1674J2_122_9082           |            |                            |
+|                | DP_OP_1674J2_122_9082 |     |                            |
+=============================================================================
+
+Datapath Report for DP_OP_1699J2_129_9567
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_1699J2_129_9567 | vproc_top/v_core/genblk9[0].pipe/add_373 (vproc_pipeline_wrapper.sv:373) |
+ | vproc_top/v_core/genblk9[0].pipe/add_377 (vproc_pipeline_wrapper.sv:377) |
+  | vproc_top/v_core/genblk9[0].pipe/add_381 (vproc_pipeline_wrapper.sv:381) |
+  | vproc_top/v_core/genblk9[0].pipe/sub_366 (vproc_pipeline_wrapper.sv:366) |
+  | vproc_top/v_core/genblk9[0].pipe/sub_367 (vproc_pipeline_wrapper.sv:367) |
+  | vproc_top/v_core/genblk9[0].pipe/sub_368 (vproc_pipeline_wrapper.sv:368) |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 5     |                                          |
+| I2    | PI   | Unsigned | 7     |                                          |
+| I3    | PI   | Unsigned | 1     |                                          |
+| O1    | PO   | Signed   | 8     | addsub(I1,I2,I3) ( vproc_pipeline_wrapper.sv:366 vproc_pipeline_wrapper.sv:367 vproc_pipeline_wrapper.sv:368 vproc_pipeline_wrapper.sv:373 vproc_pipeline_wrapper.sv:377 vproc_pipeline_wrapper.sv:381 ) |
+==============================================================================
+
+Datapath Report for DP_OP_1678J2_125_4159
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_1678J2_125_4159 | vproc_top/v_core/genblk9[0].pipe/sub_436 (vproc_pipeline_wrapper.sv:436) |
+ | vproc_top/v_core/genblk9[0].pipe/sub_437 (vproc_pipeline_wrapper.sv:437) |
+  | vproc_top/v_core/genblk9[0].pipe/sub_438 (vproc_pipeline_wrapper.sv:438) |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Unsigned | 7     |                                          |
+| O1    | PO   | Signed   | 8     | $unsigned(1'b0) - I1 ( vproc_pipeline_wrapper.sv:436 vproc_pipeline_wrapper.sv:437 vproc_pipeline_wrapper.sv:438 ) |
+==============================================================================
+
+Datapath Report for DP_OP_1674J2_122_9082
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_1674J2_122_9082 | mmu/sub_218_aco (mmu.sv:218)                       |
+|                      | mmu/sub_271 (mmu.sv:271)                            |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 32    |                                          |
+| I2    | PI   | Unsigned | 14    |                                          |
+| O1    | PO   | Signed   | 32    | I1 - I2 ( mmu.sv:218 mmu.sv:271 )        |
+==============================================================================
+
+
+Resource Report for Ungrouped Hierarchy mmu/storage_controller in file
+        /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/SynPnR/../src/storage_controller.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| lt_x_5         | DW_cmp         | width=32   | lt_202 (storage_controller.sv:202) |
+=============================================================================
+
+
+Datapath Extraction Report
+
+Information: Operator associated with resources 'vproc_top/v_core/sub_484 (vproc_core.sv:484) vproc_top/v_core/sub_485 (vproc_core.sv:485) vproc_top/v_core/sub_486 (vproc_core.sv:486)' in design 'toplevel_498' breaks the datapath extraction because there is leakage due to truncation on its fanout to operator of resources 'vproc_top/v_core/C2962 (vproc_core.sv:483)'.  (HDL-120)
+
+Information: Operator associated with resources 'mmu/digitalTimer/sub_27 (digitalTimer.sv:27)' in design 'toplevel_498' breaks the datapath extraction because there is leakage due to truncation on its fanout to operator of resources 'mmu/digitalTimer/gte_27 (digitalTimer.sv:27)'.  (HDL-120)
+
+Information: Operator associated with resources 'vproc_top/v_core/vreg_wr_mux/eq_170_I16 (vproc_vreg_wr_mux.sv:170)' in design 'toplevel_498' breaks the datapath extraction because there is leakage due to truncation on the fanout of its driver 'vproc_top/v_core/vreg_wr_mux/sll_164 (vproc_vreg_wr_mux.sv:164)'.  (HDL-120)
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| add_x_1            | DW01_inc         | apparch (area)     |                |
+| sub_x_11           | DW01_dec         | apparch (area)     |                |
+| add_x_12           | DW01_inc         | apparch (area)     |                |
+| lte_x_84           | DW_cmp           | apparch (area)     |                |
+| lte_x_85           | DW_cmp           | apparch (area)     |                |
+| gte_x_86           | DW_cmp           | apparch (area)     |                |
+| lte_x_87           | DW_cmp           | apparch (area)     |                |
+| lte_x_88           | DW_cmp           | apparch (area)     |                |
+| lte_x_91           | DW_cmp           | apparch (area)     |                |
+| sub_x_92           | DW01_sub         | apparch (area)     |                |
+| sub_x_93           | DW01_dec         | apparch (area)     |                |
+| sub_x_95           | DW01_sub         | apparch (area)     |                |
+| eq_x_163           | DW_cmp           | apparch (area)     |                |
+| ne_x_231           | DW_cmp           | apparch (area)     |                |
+| add_x_277          | DW01_inc         | apparch (area)     |                |
+| sub_x_278          | DW01_dec         | apparch (area)     |                |
+| gte_x_279          | DW_cmp           | apparch (area)     |                |
+| ash_447            | DW_leftsh        | astr (area)        |                |
+| eq_x_448           | DW_cmp           | apparch (area)     |                |
+| eq_x_449           | DW_cmp           | apparch (area)     |                |
+| eq_x_450           | DW_cmp           | apparch (area)     |                |
+| eq_x_451           | DW_cmp           | apparch (area)     |                |
+| eq_x_452           | DW_cmp           | apparch (area)     |                |
+| eq_x_453           | DW_cmp           | apparch (area)     |                |
+| eq_x_454           | DW_cmp           | apparch (area)     |                |
+| eq_x_455           | DW_cmp           | apparch (area)     |                |
+| eq_x_456           | DW_cmp           | apparch (area)     |                |
+| eq_x_457           | DW_cmp           | apparch (area)     |                |
+| eq_x_458           | DW_cmp           | apparch (area)     |                |
+| eq_x_459           | DW_cmp           | apparch (area)     |                |
+| eq_x_460           | DW_cmp           | apparch (area)     |                |
+| eq_x_461           | DW_cmp           | apparch (area)     |                |
+| eq_x_462           | DW_cmp           | apparch (area)     |                |
+| eq_x_463           | DW_cmp           | apparch (area)     |                |
+| eq_x_464           | DW_cmp           | apparch (area)     |                |
+| eq_x_465           | DW_cmp           | apparch (area)     |                |
+| eq_x_466           | DW_cmp           | apparch (area)     |                |
+| eq_x_467           | DW_cmp           | apparch (area)     |                |
+| eq_x_468           | DW_cmp           | apparch (area)     |                |
+| eq_x_469           | DW_cmp           | apparch (area)     |                |
+| eq_x_470           | DW_cmp           | apparch (area)     |                |
+| eq_x_471           | DW_cmp           | apparch (area)     |                |
+| eq_x_472           | DW_cmp           | apparch (area)     |                |
+| eq_x_473           | DW_cmp           | apparch (area)     |                |
+| eq_x_474           | DW_cmp           | apparch (area)     |                |
+| eq_x_475           | DW_cmp           | apparch (area)     |                |
+| eq_x_476           | DW_cmp           | apparch (area)     |                |
+| eq_x_477           | DW_cmp           | apparch (area)     |                |
+| eq_x_478           | DW_cmp           | apparch (area)     |                |
+| add_x_631          | DW01_add         | apparch (area)     |                |
+| add_x_766          | DW01_add         | apparch (area)     |                |
+| add_x_826          | DW01_add         | apparch (area)     |                |
+| eq_x_828           | DW_cmp           | apparch (area)     |                |
+| sub_x_831          | DW01_sub         | apparch (area)     |                |
+| ashr_837           | DW_rightsh       | astr (area)        |                |
+| add_x_855          | DW01_add         | apparch (area)     |                |
+| gte_x_864          | DW_cmp           | apparch (area)     |                |
+| eq_x_865           | DW_cmp           | apparch (area)     |                |
+| sub_x_94           | DW01_sub         | apparch (area)     |                |
+| sub_x_230          | DW01_dec         | apparch (area)     |                |
+| DP_OP_1699J2_129_9567                 |                    |                |
+|                    | DP_OP_1699J2_129_9567 | str (area)    |                |
+| DP_OP_1678J2_125_4159                 |                    |                |
+|                    | DP_OP_1678J2_125_4159 | str (area)    |                |
+| DP_OP_1674J2_122_9082                 |                    |                |
+|                    | DP_OP_1674J2_122_9082 | str (area)    |                |
+===============================================================================
+
+1
+ 
+****************************************
+Report : reference
+Design : toplevel_498
+Version: R-2020.09-SP4
+Date   : Thu Dec  1 10:10:03 2022
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+ADDFX1MA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  8.400000      37    310.799986  r
+ADDHX1MA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  5.200000       6     31.199999  r
+AND2X0P5MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000      70    168.000007  
+AND2X0P7MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000       3      7.200000  
+AND2X2MA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000       1      2.800000  
+AND2X3MA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.400000       1      4.400000  
+AND2X4MA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.800000       1      4.800000  
+AND2X6MA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  6.800000       2     13.600000  
+AND3X0P5MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000       3      8.400000  
+AND3X0P7MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000       2      5.600000  
+AND4X0P5MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.200000      11     35.200001  
+AND4X0P7MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.200000       1      3.200000  
+AO21BX0P5MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000      81    226.799996  
+AO21X0P5MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.200000       9     28.800000  
+AO22X0P5MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.000000     204    816.000000  
+AOI2XB1X0P5MA10TR  scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.200000       8     25.600000  
+AOI21BX0P5MA10TR   scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.200000      16     51.200001  
+AOI21X0P5MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000     166    398.400016  
+AOI21X0P7MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000       3      7.200000  
+AOI21X1MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000       7     16.800001  
+AOI21X1P4MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.000000       3     12.000000  
+AOI22X0P5MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000     861   2410.799959  
+AOI22X1MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000       4     11.200000  
+AOI22X2MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.800000       1      4.800000  
+AOI31X0P5MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000      50    139.999998  
+AOI31X0P7MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000       1      2.800000  
+AOI31X1P4MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  5.200000       1      5.200000  
+AOI32X0P5MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.200000      92    294.400004  
+AOI32X1MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.200000       2      6.400000  
+AOI32X2MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  6.000000       1      6.000000  
+AOI211X0P5MA10TR   scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000     112    313.599995  
+AOI211X0P7MA10TR   scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000      24     67.199999  
+AOI211X1MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000      17     47.599999  
+AOI211X1P4MA10TR   scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.800000       1      4.800000  
+AOI221X0P5MA10TR   scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.600000      25     89.999998  
+AOI221X1MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.600000       1      3.600000  
+AOI222X0P5MA10TR   scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.400000     157    690.800015  
+AOI222X1MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.400000       7     30.800001  
+AOI222X2MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  7.200000       4     28.799999  
+BUFHX6MA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  6.000000       1      6.000000  
+BUFX0P8BA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  1.600000       7     11.200000  
+BUFX1BA10TR        scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  1.600000      19     30.400000  
+BUFX1P2MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000       4      9.600000  
+BUFX1P4MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000       2      4.800000  
+BUFX1P7MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000       8     19.200001  
+BUFX2MA10TR        scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000      11     26.400001  
+BUFX2P5MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000      45    125.999998  
+BUFX3MA10TR        scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000       6     16.800000  
+BUFX3P5MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.000000       3     12.000000  
+BUFX4MA10TR        scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.000000       3     12.000000  
+BUFX5MA10TR        scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.400000       1      4.400000  
+BUFX11MA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  8.400000       1      8.400000  
+BUFZX1MA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.400000      16     70.400002  n
+DFFQX0P5MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  8.000000     921   7368.000000  n
+DFFQX1MA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  8.400000      36    302.399986  n
+DFFQX2MA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  8.800000      11     96.800002  n
+DFFRPQNX0P5MA10TR  scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  9.600000       1      9.600000  n
+DFFRPQX0P5MA10TR   scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  9.600000     166   1593.600063  n
+DFFRPQX1MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  9.600000       8     76.800003  n
+EDFFQX0P5MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                 12.400000      33    409.199987  n
+INVX0P5MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  1.200000     836   1003.200040  
+INVX0P6MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  1.200000      19     22.800001  
+INVX0P8BA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  1.200000      30     36.000001  
+INVX1BA10TR        scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  1.200000      12     14.400001  
+INVX1MA10TR        scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  1.200000       7      8.400000  
+INVX1P2MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  1.600000       9     14.400000  
+INVX1P7BA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  1.600000      11     17.600000  
+INVX2MA10TR        scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  1.600000      26     41.600001  
+INVX2P5BA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000      12     28.800001  
+INVX3MA10TR        scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000       8     19.200001  
+INVX3P5MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000       1      2.800000  
+INVX5MA10TR        scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.200000       2      6.400000  
+INVX6MA10TR        scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.000000       1      4.000000  
+INVX7P5MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.800000       1      4.800000  
+LATNQNX0P5MA10TR   scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  5.200000       1      5.200000  n
+LATQX0P5MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.800000      75    360.000014  n
+LATQX1MA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.800000      29    139.200006  n
+LATQX2MA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  5.200000       1      5.200000  n
+NAND2X0P5AA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  1.600000     600    960.000014  
+NAND2X0P5BA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  1.600000       4      6.400000  
+NAND2X0P7AA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  1.600000      15     24.000000  
+NAND2X0P7BA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  1.600000       6      9.600000  
+NAND2X1AA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  1.600000       5      8.000000  
+NAND2X1BA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  1.600000       2      3.200000  
+NAND2X1P4AA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000       1      2.800000  
+NAND2X3AA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.000000       3     12.000000  
+NAND2X4BA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.800000       1      4.800000  
+NAND2XBX0P5MA10TR  scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000      35     84.000003  
+NAND2XBX0P7MA10TR  scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000       2      4.800000  
+NAND2XBX1MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000       7     16.800001  
+NAND2XBX1P4MA10TR  scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.200000       1      3.200000  
+NAND3BX0P5MA10TR   scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000       3      8.400000  
+NAND3X0P5AA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000       6     14.400001  
+NAND3X0P5MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000      24     57.600002  
+NAND3X0P7AA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000       1      2.400000  
+NAND3X1AA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000       2      4.800000  
+NAND3X1MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000       1      2.400000  
+NAND3X1P4MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.600000       1      3.600000  
+NAND3X2AA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.000000       1      4.000000  
+NAND3X2MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.000000       1      4.000000  
+NAND3XXBX1MA10TR   scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000       1      2.800000  
+NAND4X0P5AA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000       7     19.600000  
+NAND4X0P5MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000      47    131.599998  
+NAND4X0P7MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000       1      2.800000  
+NAND4X1AA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000       1      2.800000  
+NAND4X1MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000       1      2.800000  
+NAND4XXXBX0P5MA10TR
+                   scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.200000      17     54.400001  
+NAND4XXXBX1MA10TR  scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.200000       1      3.200000  
+NOR2BX1MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000       2      4.800000  
+NOR2BX1P4MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.200000       2      6.400000  
+NOR2BX2MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.200000       1      3.200000  
+NOR2X0P5MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  1.600000     397    635.200009  
+NOR2X0P7MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  1.600000      39     62.400001  
+NOR2X1MA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  1.600000      20     32.000000  
+NOR2X1P4MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000      20     55.999999  
+NOR2X2MA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000      10     28.000000  
+NOR2X3AA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.000000       1      4.000000  
+NOR2X3MA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.000000       3     12.000000  
+NOR2X8AA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  9.200000       1      9.200000  
+NOR2XBX0P5MA10TR   scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000      69    165.600007  
+NOR2XBX0P7MA10TR   scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000       2      4.800000  
+NOR2XBX1MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000       1      2.400000  
+NOR3X0P5AA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000      27     64.800003  
+NOR3X0P7MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000      15     36.000001  
+NOR3X1MA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000      12     28.800001  
+NOR3X1P4MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.600000       3     10.800000  
+NOR3X2MA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.000000       3     12.000000  
+OA21X0P5MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.200000      20     64.000001  
+OA22X0P5MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.000000     333   1332.000000  
+OA211X0P5MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.600000      17     61.199998  
+OA211X0P7MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.600000       1      3.600000  
+OAI2XB1X0P5MA10TR  scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.200000       6     19.200000  
+OAI21BX0P5MA10TR   scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.200000       1      3.200000  
+OAI21BX0P7MA10TR   scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  3.200000       1      3.200000  
+OAI21X0P5MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000     343    823.200033  
+OAI21X0P7MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000       4      9.600000  
+OAI21X1MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000       5     12.000000  
+OAI21X1P4MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.000000       3     12.000000  
+OAI22X0P5MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000     125    349.999994  
+OAI22X0P7MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000       6     16.800000  
+OAI22X1MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000       3      8.400000  
+OAI22X2MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.800000       1      4.800000  
+OAI211X0P5MA10TR   scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000     202    565.599990  
+OAI211X0P7MA10TR   scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000       8     22.400000  
+OAI211X1MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000       3      8.400000  
+OAI211X1P4MA10TR   scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.800000       4     19.200001  
+OAI221X0P7MA10TR   scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.000000       1      4.000000  
+OAI222X0P5MA10TR   scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.400000      22     96.800002  
+OR2X0P5MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000      37     88.800004  
+OR2X0P7MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000       7     16.800001  
+OR2X1MA10TR        scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.400000       2      4.800000  
+OR2X3MA10TR        scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  5.200000       1      5.200000  
+OR3X0P5MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  2.800000       8     22.400000  
+OR4X0P5MA10TR      scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.400000       2      8.800000  
+XNOR2X0P5MA10TR    scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.000000      10     40.000000  
+XOR2X0P5MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.000000      12     48.000000  
+XOR2X1MA10TR       scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  4.000000       1      4.000000  
+XOR3X0P7MA10TR     scadv10_cln65gp_rvt_ss_0p9v_125c
+                                  7.600000       1      7.600000  
+ibex_cs_registers_0_00000001_0_0_0_0_00000000_00000028_0_00000000_00000004_0_2_0_00000007
+                               7971.200185       1   7971.200185  h, n
+ibex_multdiv_fast_RV32M2       5515.599990       1   5515.599990  h, n
+ibex_register_file_ff_0_00000020_0
+                              17981.200346       1  17981.200346  h, n
+io_buf_2                          0.000000       1      0.000000  h
+io_buf_3                          0.000000       1      0.000000  h
+io_buf_4                          0.000000       1      0.000000  h
+io_buf_5                          0.000000       1      0.000000  h
+qspi_controller                 654.400005       1    654.400005  h, n
+vproc_decoder_00000007_00000020_1_0
+                               1642.400010       1   1642.400010  h
+vproc_pending_wr_0             1033.200006       1   1033.200006  h
+vproc_pipeline_00000080_00000007_00000003_00000008_3f_00000080_00000005_00000001_00000080_00000005_1_00000020_00000006_1_08_30_02_03_23_10_01_0_00000004_00000020_00000002_0000002000000004_2_1_1_0_0_1_00000001_00000004_1_0_0_0_I_xif_mem_if_vproc_xif_coproc_mem_X_ID_WIDTH_32_h00000003_X_MEM_WIDTH_32_h00000020I_xif_memres_if_vproc_xif_coproc_mem_result_X_ID_WIDTH_32_h00000003_X_MEM_WIDTH_32_h00000020
+                              210056.801165
+                                                 1  210056.801165 h, n
+vproc_vregfile_0_00000080_00000080_00000005_00000002_0000008000000080_00000001_00000080
+                              61060.799948       1  61060.799948  h, n
+-----------------------------------------------------------------------------
+Total 170 references                                330526.001803
+1

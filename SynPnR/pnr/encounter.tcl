@@ -41,8 +41,8 @@ saveDesign [format "%s%s" $env(TOP_LEVEL) ".init.enc"]
 
 
 # Create Floorplan
-set width 40
-set height 10
+set width 2000
+set height 2000
 set offset 0 
 
 floorplan -s $width $height $offset $offset $offset $offset
@@ -52,16 +52,42 @@ setObjFPlanPolygon cell $env(TOP_LEVEL) 0  0 $width $height
 #setObjFPlanBox Module mydesign/switch 255 30 590 380
 #-------------------------------------------------------------------------------------------------
 # Output pins
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	40	4	-pin	clkout
+# editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	40	4	-pin	clkout
 
 # Input	pins									
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	1	-pin	clkin
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	1.4	-pin	rstb
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	7.0	-pin	div_ctrl\[0\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	7.2	-pin	div_ctrl\[1\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	7.4	-pin	div_ctrl\[2\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	7.6	-pin	div_ctrl\[3\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	7.8	-pin	div_ctrl\[4\]
+# editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	1	-pin	clkin
+# editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	1.4	-pin	rstb
+# editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	7.0	-pin	div_ctrl\[0\]
+# editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	7.2	-pin	div_ctrl\[1\]
+# editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	7.4	-pin	div_ctrl\[2\]
+# editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	7.6	-pin	div_ctrl\[3\]
+# editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	7.8	-pin	div_ctrl\[4\]
+
+
+# Output pins
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	4	-pin	external_qspi_ck_o
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	4.4	-pin	external_qspi_cs_o
+
+# Inout pins
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	7	-pin	gpio_pins\[0\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	7.2	-pin	gpio_pins\[1\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	7.4	-pin	gpio_pins\[2\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	7.6	-pin	gpio_pins\[3\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	7.8	-pin	gpio_pins\[4\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	8	-pin	gpio_pins\[5\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	8.2	-pin	gpio_pins\[6\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	8.4	-pin	gpio_pins\[7\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	8.6	-pin	gpio_pins\[8\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	8.8	-pin	gpio_pins\[9\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	10	-pin	external_qspi_pins\[0\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	10.2	-pin	external_qspi_pins\[1\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	10.4	-pin	external_qspi_pins\[2\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	10.8	-pin	external_qspi_pins\[3\]
+
+# Input	pins									
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	1	-pin	clk
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	1.4	-pin	rst
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	1.8	-pin	set_programming_mode
 #-------------------------------------------------------------------------------------------------								
 
 setMultiCpuUsage -localCpu 4

@@ -1,0 +1,358 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v21.10-p004_1, built Tue May 18 11:58:29 PDT 2021
+Options:	
+Date:		Thu Dec  1 11:37:04 2022
+Host:		ece-498hk-04.ece.illinois.edu (x86_64 w/Linux 4.18.0-348.el8.x86_64) (1core*4cpus*Intel(R) Xeon(R) Silver 4216 CPU @ 2.10GHz 22528KB)
+OS:		AlmaLinux release 8.6 (Sky Tiger)
+
+License:
+		invs	Innovus Implementation System	21.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+Change the soft stacksize limit to 0.2%RAM (15 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> getVersion
+<CMD> getVersion
+<CMD> getVersion
+[INFO] Loading PVS 21.10 fill procedures
+<CMD> win
+<CMD> set init_verilog vlogout/toplevel_498.pnr.v
+<CMD> init_design
+**WARN: (IMPSYT-10026):	No LEF physical data was provided but timing libraries were given, so only timing analysis can be run. Any commands that require physical data will fail. This mode is meant for doing Tempus vs Innovus comparisons using common scripts, and is not intended for normal usage.
+Use timer mode.
+*** End library_loading (cpu=0.00min, real=0.00min, mem=0.0M, fe_cpu=0.50min, fe_real=2.82min, fe_mem=832.6M) ***
+#% Begin Load netlist data ... (date=12/01 11:39:53, mem=833.7M)
+*** Begin netlist parsing (mem=832.6M) ***
+Created 0 new cells from 0 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilog netlist 'vlogout/toplevel_498.pnr.v'
+Module BUFHX1MA10TR is not defined and will be treated as an empty module.
+Module DLY2X0P5MA10TR is not defined and will be treated as an empty module.
+Module BUFX1MA10TR is not defined and will be treated as an empty module.
+Module FRICGX11BA10TR is not defined and will be treated as an empty module.
+Module BUFX16MA10TR is not defined and will be treated as an empty module.
+Module FRICGX13BA10TR is not defined and will be treated as an empty module.
+Module BUFX5BA10TR is not defined and will be treated as an empty module.
+Module BUFX2BA10TR is not defined and will be treated as an empty module.
+Module INVX1MA10TR is not defined and will be treated as an empty module.
+Module INVX0P6BA10TR is not defined and will be treated as an empty module.
+Module BUFHX1P7MA10TR is not defined and will be treated as an empty module.
+Module BUFX2MA10TR is not defined and will be treated as an empty module.
+Module INVX3MA10TR is not defined and will be treated as an empty module.
+Module INVX2MA10TR is not defined and will be treated as an empty module.
+Module TIEHIX1MA10TR is not defined and will be treated as an empty module.
+Module INVX0P5MA10TR is not defined and will be treated as an empty module.
+Module INVX1BA10TR is not defined and will be treated as an empty module.
+Module INVX0P6MA10TR is not defined and will be treated as an empty module.
+Module DFFRPQX0P5MA10TR is not defined and will be treated as an empty module.
+Module NAND3X1P4AA10TR is not defined and will be treated as an empty module.
+Module NAND3X1AA10TR is not defined and will be treated as an empty module.
+Module NOR2X1AA10TR is not defined and will be treated as an empty module.
+Module NAND3X0P5AA10TR is not defined and will be treated as an empty module.
+Module NOR2XBX0P7MA10TR is not defined and will be treated as an empty module.
+Module NAND3X1P4MA10TR is not defined and will be treated as an empty module.
+Module AOI211X0P5MA10TR is not defined and will be treated as an empty module.
+Module NAND2X0P7BA10TR is not defined and will be treated as an empty module.
+Module NAND2X0P5AA10TR is not defined and will be treated as an empty module.
+Module AOI22X0P5MA10TR is not defined and will be treated as an empty module.
+Module NAND3X0P5MA10TR is not defined and will be treated as an empty module.
+Module NAND4X0P5MA10TR is not defined and will be treated as an empty module.
+Module NOR2XBX0P5MA10TR is not defined and will be treated as an empty module.
+Module NAND2X0P7AA10TR is not defined and will be treated as an empty module.
+Module NOR2X0P5MA10TR is not defined and will be treated as an empty module.
+Module AND4X0P5MA10TR is not defined and will be treated as an empty module.
+Module NOR2X1MA10TR is not defined and will be treated as an empty module.
+Module NAND3X0P7AA10TR is not defined and will be treated as an empty module.
+Module NAND3X1MA10TR is not defined and will be treated as an empty module.
+Module OA22X0P5MA10TR is not defined and will be treated as an empty module.
+Module AND2X0P5MA10TR is not defined and will be treated as an empty module.
+Module BUFX3MA10TR is not defined and will be treated as an empty module.
+Module INVX4BA10TR is not defined and will be treated as an empty module.
+Module BUFX4MA10TR is not defined and will be treated as an empty module.
+Module DFFQX0P5MA10TR is not defined and will be treated as an empty module.
+Module NAND2X2BA10TR is not defined and will be treated as an empty module.
+Module NAND2X1BA10TR is not defined and will be treated as an empty module.
+Module OR2X0P5MA10TR is not defined and will be treated as an empty module.
+Module OR2X0P7MA10TR is not defined and will be treated as an empty module.
+Module NAND2X1P4BA10TR is not defined and will be treated as an empty module.
+Module NAND2X2AA10TR is not defined and will be treated as an empty module.
+Module NAND2X2MA10TR is not defined and will be treated as an empty module.
+Module INVX0P8BA10TR is not defined and will be treated as an empty module.
+Module NOR2X0P7MA10TR is not defined and will be treated as an empty module.
+Module NOR3X1AA10TR is not defined and will be treated as an empty module.
+Module NOR3X1MA10TR is not defined and will be treated as an empty module.
+Module NOR3X0P5AA10TR is not defined and will be treated as an empty module.
+Module NOR2X2AA10TR is not defined and will be treated as an empty module.
+Module AND3X1MA10TR is not defined and will be treated as an empty module.
+Module AOI21X1MA10TR is not defined and will be treated as an empty module.
+Module OAI22X0P5MA10TR is not defined and will be treated as an empty module.
+Module AOI32X0P5MA10TR is not defined and will be treated as an empty module.
+Module OAI211X0P5MA10TR is not defined and will be treated as an empty module.
+Module OAI222X0P5MA10TR is not defined and will be treated as an empty module.
+Module NAND2XBX0P5MA10TR is not defined and will be treated as an empty module.
+Module AOI31X0P5MA10TR is not defined and will be treated as an empty module.
+Module OAI21X1MA10TR is not defined and will be treated as an empty module.
+Module AOI32X1MA10TR is not defined and will be treated as an empty module.
+Module OAI21X0P7MA10TR is not defined and will be treated as an empty module.
+Module NAND4X1MA10TR is not defined and will be treated as an empty module.
+Module NAND2X1AA10TR is not defined and will be treated as an empty module.
+Module AOI21X0P5MA10TR is not defined and will be treated as an empty module.
+Module AO22X0P5MA10TR is not defined and will be treated as an empty module.
+Module OAI21X0P5MA10TR is not defined and will be treated as an empty module.
+Module AOI211X1MA10TR is not defined and will be treated as an empty module.
+Module OAI211X0P7MA10TR is not defined and will be treated as an empty module.
+Module AOI211X0P7MA10TR is not defined and will be treated as an empty module.
+Module AO21BX0P5MA10TR is not defined and will be treated as an empty module.
+Module AO21X0P5MA10TR is not defined and will be treated as an empty module.
+Module AOI2XB1X0P5MA10TR is not defined and will be treated as an empty module.
+Module OAI2XB1X0P5MA10TR is not defined and will be treated as an empty module.
+Module AOI221X0P5MA10TR is not defined and will be treated as an empty module.
+Module NOR3X0P7MA10TR is not defined and will be treated as an empty module.
+Module NAND3BX0P5MA10TR is not defined and will be treated as an empty module.
+Module OAI211X1MA10TR is not defined and will be treated as an empty module.
+Module NAND3BX1MA10TR is not defined and will be treated as an empty module.
+Module NAND2X0P5BA10TR is not defined and will be treated as an empty module.
+Module AOI32X0P7MA10TR is not defined and will be treated as an empty module.
+Module AOI221X1MA10TR is not defined and will be treated as an empty module.
+Module AOI222X0P5MA10TR is not defined and will be treated as an empty module.
+Module NAND4XXXBX0P5MA10TR is not defined and will be treated as an empty module.
+Module AOI31X1MA10TR is not defined and will be treated as an empty module.
+Module OAI21BX0P5MA10TR is not defined and will be treated as an empty module.
+Module NAND4X0P5AA10TR is not defined and will be treated as an empty module.
+Module NAND4X0P7AA10TR is not defined and will be treated as an empty module.
+Module AOI21BX0P5MA10TR is not defined and will be treated as an empty module.
+Module OAI22X1MA10TR is not defined and will be treated as an empty module.
+Module OAI22X0P7MA10TR is not defined and will be treated as an empty module.
+Module AND3X0P5MA10TR is not defined and will be treated as an empty module.
+Module OA21X0P5MA10TR is not defined and will be treated as an empty module.
+Module OR3X0P5MA10TR is not defined and will be treated as an empty module.
+Module DFFRPQNX0P5MA10TR is not defined and will be treated as an empty module.
+Module AO21BX1MA10TR is not defined and will be treated as an empty module.
+Module OR2X2MA10TR is not defined and will be treated as an empty module.
+Module NAND4X1AA10TR is not defined and will be treated as an empty module.
+Module NAND2BX1MA10TR is not defined and will be treated as an empty module.
+Module AOI21BX1P4MA10TR is not defined and will be treated as an empty module.
+Module AND2X0P7MA10TR is not defined and will be treated as an empty module.
+Module NOR2BX1MA10TR is not defined and will be treated as an empty module.
+Module NOR2X2MA10TR is not defined and will be treated as an empty module.
+Module OA211X0P5MA10TR is not defined and will be treated as an empty module.
+Module NOR2XBX1MA10TR is not defined and will be treated as an empty module.
+Module AOI21X0P7MA10TR is not defined and will be treated as an empty module.
+Module AND2X1MA10TR is not defined and will be treated as an empty module.
+Module BUFHX2MA10TR is not defined and will be treated as an empty module.
+Module BUFHX0P7MA10TR is not defined and will be treated as an empty module.
+Module BUFX0P7MA10TR is not defined and will be treated as an empty module.
+Module AO21X1MA10TR is not defined and will be treated as an empty module.
+Module TIELOX1MA10TR is not defined and will be treated as an empty module.
+Module BUFX0P7BA10TR is not defined and will be treated as an empty module.
+Module INVX1P7BA10TR is not defined and will be treated as an empty module.
+Module EDFFQX0P5MA10TR is not defined and will be treated as an empty module.
+Module EDFFQX1MA10TR is not defined and will be treated as an empty module.
+Module EDFFQNX0P5MA10TR is not defined and will be treated as an empty module.
+Module OR2X1MA10TR is not defined and will be treated as an empty module.
+Module AO1B2X1MA10TR is not defined and will be treated as an empty module.
+Module AND2X2MA10TR is not defined and will be treated as an empty module.
+Module NOR3X1P4MA10TR is not defined and will be treated as an empty module.
+Module NAND3BX0P7MA10TR is not defined and will be treated as an empty module.
+Module OAI2XB1X1MA10TR is not defined and will be treated as an empty module.
+Module OAI221X0P5MA10TR is not defined and will be treated as an empty module.
+Module NAND2XBX3MA10TR is not defined and will be treated as an empty module.
+Module NOR2XBX3MA10TR is not defined and will be treated as an empty module.
+Module AO21X0P7MA10TR is not defined and will be treated as an empty module.
+Module ADDHX1MA10TR is not defined and will be treated as an empty module.
+Module ADDFX1MA10TR is not defined and will be treated as an empty module.
+Module NAND3XXBX1MA10TR is not defined and will be treated as an empty module.
+Module MXT2X0P5MA10TR is not defined and will be treated as an empty module.
+Module NOR2XBX2MA10TR is not defined and will be treated as an empty module.
+Module XOR3X0P5MA10TR is not defined and will be treated as an empty module.
+Module XOR2X0P5MA10TR is not defined and will be treated as an empty module.
+Module XNOR2X0P5MA10TR is not defined and will be treated as an empty module.
+Module AOI22X1MA10TR is not defined and will be treated as an empty module.
+Module AOI222X1MA10TR is not defined and will be treated as an empty module.
+Module AOI2XB1X0P7MA10TR is not defined and will be treated as an empty module.
+Module NAND2XBX1MA10TR is not defined and will be treated as an empty module.
+Module OAI222X0P7MA10TR is not defined and will be treated as an empty module.
+Module MXIT2X0P5MA10TR is not defined and will be treated as an empty module.
+Module NAND4XXXBX0P7MA10TR is not defined and will be treated as an empty module.
+Module NAND2XBX0P7MA10TR is not defined and will be treated as an empty module.
+Module DFFQX1MA10TR is not defined and will be treated as an empty module.
+Module EDFFQX2MA10TR is not defined and will be treated as an empty module.
+Module DFFQX2MA10TR is not defined and will be treated as an empty module.
+Module NOR2BX2MA10TR is not defined and will be treated as an empty module.
+Module XNOR2X2MA10TR is not defined and will be treated as an empty module.
+Module NAND2BX2MA10TR is not defined and will be treated as an empty module.
+Module NOR2X4MA10TR is not defined and will be treated as an empty module.
+Module NOR2X3MA10TR is not defined and will be treated as an empty module.
+Module XNOR2X1MA10TR is not defined and will be treated as an empty module.
+Module AND2X3MA10TR is not defined and will be treated as an empty module.
+Module XNOR2X0P7MA10TR is not defined and will be treated as an empty module.
+Module XOR2X1MA10TR is not defined and will be treated as an empty module.
+Module XNOR2X3MA10TR is not defined and will be treated as an empty module.
+Module XOR2X0P7MA10TR is not defined and will be treated as an empty module.
+Module AO1B2X0P7MA10TR is not defined and will be treated as an empty module.
+Module OAI21X3MA10TR is not defined and will be treated as an empty module.
+Module AOI22X0P7MA10TR is not defined and will be treated as an empty module.
+Module OAI21X2MA10TR is not defined and will be treated as an empty module.
+Module OAI21X4MA10TR is not defined and will be treated as an empty module.
+Module OR4X0P7MA10TR is not defined and will be treated as an empty module.
+Module AOI31X0P7MA10TR is not defined and will be treated as an empty module.
+Module NAND4X3AA10TR is not defined and will be treated as an empty module.
+Module NOR2X3AA10TR is not defined and will be treated as an empty module.
+Module NOR2X6AA10TR is not defined and will be treated as an empty module.
+Module NAND3X0P7MA10TR is not defined and will be treated as an empty module.
+Module NAND2X1MA10TR is not defined and will be treated as an empty module.
+Module NOR2X0P7AA10TR is not defined and will be treated as an empty module.
+Module OAI211X2MA10TR is not defined and will be treated as an empty module.
+Module AO1B2X3MA10TR is not defined and will be treated as an empty module.
+Module AOI211X2MA10TR is not defined and will be treated as an empty module.
+Module AOI31X2MA10TR is not defined and will be treated as an empty module.
+Module AOI211X1P4MA10TR is not defined and will be treated as an empty module.
+Module OAI21X1P4MA10TR is not defined and will be treated as an empty module.
+Module INVX6MA10TR is not defined and will be treated as an empty module.
+Module NAND3X3AA10TR is not defined and will be treated as an empty module.
+Module NAND4BX0P7MA10TR is not defined and will be treated as an empty module.
+Module NAND4X0P7MA10TR is not defined and will be treated as an empty module.
+Module AO21BX0P7MA10TR is not defined and will be treated as an empty module.
+Module NAND3XXBX0P5MA10TR is not defined and will be treated as an empty module.
+Module NAND4BX0P5MA10TR is not defined and will be treated as an empty module.
+Module NOR2X1P4AA10TR is not defined and will be treated as an empty module.
+Module NOR3X0P7AA10TR is not defined and will be treated as an empty module.
+Module MXIT2X1MA10TR is not defined and will be treated as an empty module.
+Module NAND3X2AA10TR is not defined and will be treated as an empty module.
+Module NAND4BX3MA10TR is not defined and will be treated as an empty module.
+Module AOI21BX0P7MA10TR is not defined and will be treated as an empty module.
+Module AND4X0P7MA10TR is not defined and will be treated as an empty module.
+Module INVX1P7MA10TR is not defined and will be treated as an empty module.
+Module AO21X2MA10TR is not defined and will be treated as an empty module.
+Module AO1B2X2MA10TR is not defined and will be treated as an empty module.
+Module AND3X0P7MA10TR is not defined and will be treated as an empty module.
+Module MXT2X0P7MA10TR is not defined and will be treated as an empty module.
+Module MXT2X2MA10TR is not defined and will be treated as an empty module.
+Module NAND2XBX2MA10TR is not defined and will be treated as an empty module.
+Module NAND2X3AA10TR is not defined and will be treated as an empty module.
+Module AOI21X2MA10TR is not defined and will be treated as an empty module.
+Module MXIT2X2MA10TR is not defined and will be treated as an empty module.
+Module AND3X6MA10TR is not defined and will be treated as an empty module.
+Module OR6X0P5MA10TR is not defined and will be treated as an empty module.
+Module AOI2XB1X2MA10TR is not defined and will be treated as an empty module.
+Module NAND4X2AA10TR is not defined and will be treated as an empty module.
+Module OAI211X1P4MA10TR is not defined and will be treated as an empty module.
+Module AO1B2X1P4MA10TR is not defined and will be treated as an empty module.
+Module NAND4XXXBX1MA10TR is not defined and will be treated as an empty module.
+Module AOI2XB1X1MA10TR is not defined and will be treated as an empty module.
+Module MXIT2X0P7MA10TR is not defined and will be treated as an empty module.
+Module MXT2X1MA10TR is not defined and will be treated as an empty module.
+Module MXT2X1P4MA10TR is not defined and will be treated as an empty module.
+Module NOR3X2AA10TR is not defined and will be treated as an empty module.
+Module OR6X0P7MA10TR is not defined and will be treated as an empty module.
+Module NAND4BX1MA10TR is not defined and will be treated as an empty module.
+Module INVX2P5MA10TR is not defined and will be treated as an empty module.
+Module NOR2X1P4MA10TR is not defined and will be treated as an empty module.
+Module NAND4X3MA10TR is not defined and will be treated as an empty module.
+Module AOI21X1P4MA10TR is not defined and will be treated as an empty module.
+Module XNOR2X1P4MA10TR is not defined and will be treated as an empty module.
+Module AOI21BX1MA10TR is not defined and will be treated as an empty module.
+Module XOR2X2MA10TR is not defined and will be treated as an empty module.
+Module OA211X0P7MA10TR is not defined and will be treated as an empty module.
+Module OAI2XB1X0P7MA10TR is not defined and will be treated as an empty module.
+Module XNOR3X0P5MA10TR is not defined and will be treated as an empty module.
+Module OR6X1MA10TR is not defined and will be treated as an empty module.
+Module INVX1P2MA10TR is not defined and will be treated as an empty module.
+Module OA21X0P7MA10TR is not defined and will be treated as an empty module.
+Module OR4X0P5MA10TR is not defined and will be treated as an empty module.
+Module DFFRPQX1MA10TR is not defined and will be treated as an empty module.
+Module OAI222X1MA10TR is not defined and will be treated as an empty module.
+Module AOI22X2MA10TR is not defined and will be treated as an empty module.
+Module INVX3BA10TR is not defined and will be treated as an empty module.
+Module LATQX0P5MA10TR is not defined and will be treated as an empty module.
+Module NOR2X6MA10TR is not defined and will be treated as an empty module.
+Module BUFZX1MA10TR is not defined and will be treated as an empty module.
+Module LATQX1MA10TR is not defined and will be treated as an empty module.
+Module LATNQNX0P5MA10TR is not defined and will be treated as an empty module.
+Module BUFZX11MA10TR is not defined and will be treated as an empty module.
+Module OAI221X0P7MA10TR is not defined and will be treated as an empty module.
+Module XOR3X0P7MA10TR is not defined and will be treated as an empty module.
+Module OAI21BX0P7MA10TR is not defined and will be treated as an empty module.
+Module AND2X8MA10TR is not defined and will be treated as an empty module.
+Module FILLCAP16A10TR is not defined and will be treated as an empty module.
+Module FILLCAP8A10TR is not defined and will be treated as an empty module.
+
+*** Memory Usage v#1 (Current mem = 897.582M, initial mem = 324.102M) ***
+*** End netlist parsing (cpu=0:00:01.8, real=0:00:02.0, mem=897.6M) ***
+#% End Load netlist data ... (date=12/01 11:39:55, total cpu=0:00:01.9, real=0:00:02.0, peak res=901.3M, current mem=899.6M)
+Top level cell is toplevel_498.
+Hooked 0 DB cells to tlib cells.
+**WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'BUFHX1MA10TR' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+Type 'man IMPDB-2504' for more detail.
+**WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'BUFX1MA10TR' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+Type 'man IMPDB-2504' for more detail.
+**WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'DLY2X0P5MA10TR' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+Type 'man IMPDB-2504' for more detail.
+**WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'BUFX5BA10TR' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+Type 'man IMPDB-2504' for more detail.
+**WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'FRICGX13BA10TR' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+Type 'man IMPDB-2504' for more detail.
+**WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'BUFX16MA10TR' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+Type 'man IMPDB-2504' for more detail.
+**WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'FRICGX11BA10TR' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+Type 'man IMPDB-2504' for more detail.
+**WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'TIEHIX1MA10TR' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+Type 'man IMPDB-2504' for more detail.
+**WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'INVX2MA10TR' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+Type 'man IMPDB-2504' for more detail.
+**WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'INVX3MA10TR' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+Type 'man IMPDB-2504' for more detail.
+**WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'BUFX2MA10TR' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+Type 'man IMPDB-2504' for more detail.
+**WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'BUFHX1P7MA10TR' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+Type 'man IMPDB-2504' for more detail.
+**WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'INVX0P6BA10TR' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+Type 'man IMPDB-2504' for more detail.
+**WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'INVX1MA10TR' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+Type 'man IMPDB-2504' for more detail.
+**WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'BUFX2BA10TR' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+Type 'man IMPDB-2504' for more detail.
+**WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'NAND4X0P5MA10TR' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+Type 'man IMPDB-2504' for more detail.
+**WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'NAND3X0P5MA10TR' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+Type 'man IMPDB-2504' for more detail.
+**WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'AOI22X0P5MA10TR' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+Type 'man IMPDB-2504' for more detail.
+**WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'NAND2X0P5AA10TR' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+Type 'man IMPDB-2504' for more detail.
+**WARN: (IMPDB-2504):	Unable to find netlist cell in the design data of the library or LEF. The 'NAND2X0P7BA10TR' cell is instantiated in the Verilog netlist, but not defined in the library or design data.  Its pin directions might be derived incorrectly. Include the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+Type 'man IMPDB-2504' for more detail.
+**WARN: (EMS-27):	Message (IMPDB-2504) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+250 empty module found.
+Starting recursive module instantiation check.
+No recursion found.
+Term dir updated for 0 vinsts of 250 cells.
+Building hierarchical netlist for Cell toplevel_498 ...
+*** Netlist is unique.
+** info: there are 251 modules.
+** info: there are 0 stdCell insts.
+
+*** Memory Usage v#1 (Current mem = 1165.621M, initial mem = 324.102M) ***
+Set Default Net Delay as 1000 ps.
+Set Default Net Load as 0.5 pF. 
+Set Default Input Pin Transition as 0.1 ps.
+**WARN: (IMPSYT-7328):	The design has been initialized in physical-only mode because the init_mmmc_file global variable was not defined. Timing analysis will not be possible within this session. You can only use commands that do not depend on timing data. If you need to use timing, you need to restart with an init_mmmc_file to define the timing setup, or you can save this design and use restoreDesign -mmmc_file <viewDef.tcl> to add the timing setup information.
+Extraction setup Started 
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPSYT-7328          1  The design has been initialized in physi...
+WARNING   IMPSYT-10026         1  No LEF physical data was provided but ti...
+WARNING   IMPDB-2504         248  Unable to find netlist cell in the desig...
+*** Message Summary: 250 warning(s), 0 error(s)
+
+<CMD> zoomBox -0.04500 -0.02100 0.25000 0.14000
+<CMD> zoomBox -0.10900 -0.12800 0.45900 0.18200

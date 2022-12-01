@@ -30,7 +30,7 @@ set design_clock_pin [getenv DESIGN_CLOCK]
 set design_reset_pin [getenv DESIGN_RESET]
 
 #/* Max target frequency in MHz for optimization       */
-set design_clk_freq_MHz 25
+set design_clk_freq_MHz 15
 
 # Input delay and output delay are specified to describe delay outside of your design
 #/* Delay of input signals                         */
@@ -106,6 +106,10 @@ create_clock -period $design_period -name my_clk $clk_name
 set_clock_uncertainty -setup 0.1 my_clk
 set_clock_uncertainty -hold  0.1 my_clk
 
+set qspi_output_trace_delay_max 2
+set qspi_output_trace_delay_min 0
+set tri_state_delay 1
+
 #Set the input and output delay
 set_input_delay  $design_input_delay_ns  -clock my_clk [all_inputs]
 set_output_delay $design_output_delay_ns -clock my_clk [all_outputs]
@@ -115,13 +119,25 @@ set_output_delay $design_output_delay_ns -clock my_clk [all_outputs]
 set_false_path -from [get_ports "rst"]
 set_false_path -from [get_ports "gpio_pins"]
 set_false_path -from [get_ports "external_qspi_pins"]
-set_false_path -from [get_ports "external_qspi_ck_o"]
-set_false_path -from [get_ports "external_qspi_cs_o"]
-set_false_path -from [get_ports "programming_qspi_pins"]
-set_false_path -from [get_ports "programming_qspi_ck_o"]
-set_false_path -from [get_ports "programming_qspi_cs_o"]
+# set_false_path -from [get_ports "external_qspi_ck_o"]
+# set_false_path -from [get_ports "external_qspi_cs_o"]
+# set_false_path -from [get_ports "programming_qspi_pins"]
+# set_false_path -from [get_ports "programming_qspi_ck_o"]
+# set_false_path -from [get_ports "programming_qspi_cs_o"]
 set_false_path -from [get_ports "set_programming_mode"]
 
+create_generated_clock -name external_qspi_ck_o -source mmu/storage_controller/qspi_controller/s_pclk -divide_by 1 -invert mmu/storage_controller/qspi_controller/qspi_ck_o
+
+set_input_delay -clock external_qspi_ck_o -clock_fall -max [expr $qspi_output_trace_delay_max + 6 + $qspi_output_trace_delay_max] external_qspi_pins
+set_input_delay -clock external_qspi_ck_o -clock_fall -min [expr $qspi_output_trace_delay_min + 1.5 + $qspi_output_trace_delay_min] external_qspi_pins
+set_output_delay -clock external_qspi_ck_o -max [expr $qspi_output_trace_delay_max + 1 - $qspi_output_trace_delay_min] external_qspi_pins
+set_output_delay -clock external_qspi_ck_o -min [expr 2 + $qspi_output_trace_delay_max - $qspi_output_trace_delay_min] external_qspi_pins
+# set_output_delay -clock external_qspi_ck_o -max [expr $qspi_output_trace_delay_max + 1 - $qspi_output_trace_delay_min + $tri_state_delay] qspi_io_t
+# set_output_delay -clock external_qspi_ck_o -min [expr 2 + $qspi_output_trace_delay_max - $qspi_output_trace_delay_min - $tri_state_delay] qspi_io_t
+
+set_output_delay -clock external_qspi_ck_o -max [expr $qspi_output_trace_delay_max + 3 - $qspi_output_trace_delay_min] external_qspi_cs_o
+set_output_delay -clock external_qspi_ck_o -min [expr 3 + $qspi_output_trace_delay_max - $qspi_output_trace_delay_min] external_qspi_cs_o
+set_fix_hold external_qspi_ck_o
 
 
 #set_max_delay -from [get_ports a[*]] -to [get_ports out[*]] $design_max_delay_ns 

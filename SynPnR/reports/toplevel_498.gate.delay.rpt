@@ -1,0 +1,517 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : toplevel_498
+Version: R-2020.09-SP4
+Date   : Thu Dec  1 10:09:53 2022
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: ss_0p9v_125c   Library: scadv10_cln65gp_rvt_ss_0p9v_125c
+Wire Load Model Mode: top
+
+  Startpoint: mmu_storage_controller_qspi_controller/nibble_counter_q_reg_1_
+              (rising edge-triggered flip-flop clocked by my_clk)
+  Endpoint: external_qspi_pins[3]
+            (output port clocked by external_qspi_ck_o)
+  Path Group: external_qspi_ck_o
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  toplevel_498       tsmc65_wl10           scadv10_cln65gp_rvt_ss_0p9v_125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock my_clk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  mmu_storage_controller_qspi_controller/nibble_counter_q_reg_1_/CK (DFFQX0P5MA10TR)
+                                                          0.00 #     0.00 r
+  mmu_storage_controller_qspi_controller/nibble_counter_q_reg_1_/Q (DFFQX0P5MA10TR)
+                                                          0.59       0.59 r
+  mmu_storage_controller_qspi_controller/U36/Y (INVX0P6MA10TR)
+                                                          0.56       1.15 f
+  mmu_storage_controller_qspi_controller/U38/Y (NOR2X1MA10TR)
+                                                          0.60       1.75 r
+  mmu_storage_controller_qspi_controller/U134/Y (NOR2XBX0P7MA10TR)
+                                                          0.64       2.39 r
+  mmu_storage_controller_qspi_controller/U136/Y (AOI22X0P5MA10TR)
+                                                          0.35       2.74 f
+  mmu_storage_controller_qspi_controller/U142/Y (NAND4X0P5MA10TR)
+                                                          0.32       3.06 r
+  mmu_storage_controller_qspi_controller/qspi_io_o[3] (qspi_controller)
+                                                          0.00       3.06 r
+  mmu_storage_controller_genblk1_3__io_pad_qspi_io_tri_buf_/Y (BUFZX1MA10TR)
+                                                          0.35       3.40 r
+  external_qspi_pins[3] (inout)                           0.00       3.40 r
+  data arrival time                                                  3.40
+
+  clock external_qspi_ck_o (rise edge)                   33.33      33.33
+  clock network delay (ideal)                             0.00      33.33
+  output external delay                                  -3.00      30.33
+  data required time                                                30.33
+  --------------------------------------------------------------------------
+  data required time                                                30.33
+  data arrival time                                                 -3.40
+  --------------------------------------------------------------------------
+  slack (MET)                                                       26.93
+
+
+  Startpoint: vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/R_32047
+              (rising edge-triggered flip-flop clocked by my_clk)
+  Endpoint: vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/unit_mux_genblk1_2__genblk1_unit_genblk1_div_genblk5_0__div_block_genblk1_div_q_reg_1_
+            (rising edge-triggered flip-flop clocked by my_clk)
+  Path Group: my_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  toplevel_498       tsmc65_wl10           scadv10_cln65gp_rvt_ss_0p9v_125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock my_clk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/R_32047/CK (DFFQX0P5MA10TR)
+                                                          0.00 #     0.00 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/R_32047/Q (DFFQX0P5MA10TR)
+                                                          0.51       0.51 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U449/Y (AND3X1MA10TR)
+                                                          0.25       0.76 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2550/Y (AND3X0P7MA10TR)
+                                                          0.27       1.03 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U4218/Y (AND3X1MA10TR)
+                                                          0.23       1.27 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U6076/Y (AND3X1MA10TR)
+                                                          0.23       1.50 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U114/Y (AND2X3MA10TR)
+                                                          0.13       1.63 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2478/Y (AND3X6MA10TR)
+                                                          0.09       1.72 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2462/Y (AND3X6MA10TR)
+                                                          0.08       1.79 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U5966/Y (AND3X1MA10TR)
+                                                          0.20       1.99 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U8785/Y (AND3X1MA10TR)
+                                                          0.23       2.21 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2439/Y (AND3X1MA10TR)
+                                                          0.23       2.44 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2427/Y (AND3X1MA10TR)
+                                                          0.23       2.67 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U6215/Y (AND3X1MA10TR)
+                                                          0.23       2.89 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U6361/Y (AND3X1MA10TR)
+                                                          0.22       3.12 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U6420/Y (AND2X1MA10TR)
+                                                          0.22       3.33 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U513/Y (NAND2X0P5AA10TR)
+                                                          0.18       3.51 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U112/Y (XNOR2X0P5MA10TR)
+                                                          0.21       3.72 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U110/Y (NAND2X0P5AA10TR)
+                                                          0.22       3.94 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U30212/Y (OAI21X2MA10TR)
+                                                          0.36       4.30 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U6457/Y (NOR2X0P5MA10TR)
+                                                          0.26       4.56 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U7147/Y (OA21X0P5MA10TR)
+                                                          0.20       4.76 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2366/Y (AOI21X1MA10TR)
+                                                          0.14       4.90 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2357/Y (NAND2X0P7AA10TR)
+                                                          0.33       5.23 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2347/Y (INVX0P8BA10TR)
+                                                          0.40       5.63 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2337/Y (MXIT2X2MA10TR)
+                                                          0.22       5.85 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2329/Y (INVX0P6MA10TR)
+                                                          0.14       5.99 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2327/Y (NOR2X1AA10TR)
+                                                          0.33       6.31 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U30248/Y (NAND2X0P5AA10TR)
+                                                          0.26       6.57 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2311/Y (NAND2X3AA10TR)
+                                                          0.34       6.91 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2298/Y (NAND2X0P5BA10TR)
+                                                          0.41       7.32 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2289/Y (OAI21X0P7MA10TR)
+                                                          0.29       7.61 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2283/Y (AOI31X1MA10TR)
+                                                          0.19       7.80 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2280/Y (NAND3BX0P7MA10TR)
+                                                          0.25       8.05 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U3807/Y (AOI211X2MA10TR)
+                                                          0.51       8.57 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2271/Y (NAND2X1AA10TR)
+                                                          0.26       8.83 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2263/Y (OAI21X1MA10TR)
+                                                          0.42       9.25 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2254/Y (INVX0P6MA10TR)
+                                                          0.22       9.47 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2239/Y (NOR2X3MA10TR)
+                                                          0.35       9.82 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2228/Y (AOI22X0P7MA10TR)
+                                                          0.26      10.08 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2224/Y (NAND2X2BA10TR)
+                                                          0.35      10.43 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2215/Y (AOI21X0P5MA10TR)
+                                                          0.27      10.70 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U3731/Y (INVX1P7MA10TR)
+                                                          0.46      11.16 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U31372/Y (NOR2X0P7MA10TR)
+                                                          0.33      11.49 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U31373/Y (INVX0P5MA10TR)
+                                                          0.30      11.80 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U31382/Y (AOI31X1MA10TR)
+                                                          0.31      12.10 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U6421/Y (INVX0P5MA10TR)
+                                                          0.31      12.41 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2158/Y (AND3X0P5MA10TR)
+                                                          0.19      12.61 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U3700/Y (AOI211X0P7MA10TR)
+                                                          0.15      12.76 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U3698/Y (AOI211X0P7MA10TR)
+                                                          0.29      13.05 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U3687/Y (INVX0P5MA10TR)
+                                                          0.17      13.23 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2117/Y (OAI21X1MA10TR)
+                                                          0.49      13.71 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2108/Y (INVX0P6MA10TR)
+                                                          0.23      13.95 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U31504/Y (NOR2X3AA10TR)
+                                                          0.53      14.47 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2083/Y (AOI22X0P7MA10TR)
+                                                          0.31      14.79 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U3670/Y (NAND2X2BA10TR)
+                                                          0.47      15.25 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2060/Y (AOI21X0P5MA10TR)
+                                                          0.33      15.58 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U3641/Y (INVX1P7MA10TR)
+                                                          0.46      16.04 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U6241/Y (NAND2X0P5AA10TR)
+                                                          0.47      16.51 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2040/Y (OAI21X0P5MA10TR)
+                                                          0.35      16.86 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U31943/Y (AOI31X1MA10TR)
+                                                          0.32      17.17 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2005/Y (OAI21X0P7MA10TR)
+                                                          0.44      17.61 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U31953/Y (INVX1MA10TR)
+                                                          0.19      17.80 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U3599/Y (AOI211X2MA10TR)
+                                                          0.48      18.28 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U31960/Y (MXIT2X1MA10TR)
+                                                          0.43      18.71 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U32014/Y (INVX1MA10TR)
+                                                          0.21      18.92 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1970/Y (NAND2XBX1MA10TR)
+                                                          0.27      19.19 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1946/Y (OAI22X0P7MA10TR)
+                                                          0.20      19.39 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1943/Y (NOR2X2AA10TR)
+                                                          0.31      19.70 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U474/Y (INVX1MA10TR)
+                                                          0.29      19.99 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1929/Y (NOR2X2AA10TR)
+                                                          0.60      20.59 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U7039/Y (AOI22X0P5MA10TR)
+                                                          0.35      20.94 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U492/Y (NAND4X0P5MA10TR)
+                                                          0.32      21.25 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1888/Y (BUFX1P7MA10TR)
+                                                          0.45      21.70 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U6257/Y (NOR2X0P5MA10TR)
+                                                          0.38      22.09 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U32264/Y (INVX0P5MA10TR)
+                                                          0.32      22.41 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U32277/Y (AOI31X1MA10TR)
+                                                          0.37      22.77 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U6428/Y (NOR3X0P5AA10TR)
+                                                          0.46      23.23 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1854/Y (AOI211X1P4MA10TR)
+                                                          0.36      23.59 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U6776/Y (INVX0P5MA10TR)
+                                                          0.32      23.91 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U3492/Y (AOI31X0P7MA10TR)
+                                                          0.21      24.12 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U3483/Y (NOR3X1MA10TR)
+                                                          0.22      24.34 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1791/Y (MXIT2X1MA10TR)
+                                                          0.29      24.63 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U550/Y (NAND2X0P5AA10TR)
+                                                          0.48      25.11 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1758/Y (OAI22X0P7MA10TR)
+                                                          0.25      25.36 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1749/Y (NOR2X1P4AA10TR)
+                                                          0.55      25.91 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U32819/Y (INVX2MA10TR)
+                                                          0.24      26.15 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1723/Y (NOR2X1AA10TR)
+                                                          0.54      26.68 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1712/Y (BUFX1P7MA10TR)
+                                                          0.40      27.08 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U6134/Y (AOI22X0P5MA10TR)
+                                                          0.24      27.32 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U6132/Y (NAND4X0P5MA10TR)
+                                                          0.31      27.63 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1665/Y (BUFX1P7MA10TR)
+                                                          0.45      28.08 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U9237/Y (NAND2X0P5AA10TR)
+                                                          0.46      28.54 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1649/Y (OAI21X0P7MA10TR)
+                                                          0.29      28.83 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U33424/Y (AOI31X1MA10TR)
+                                                          0.29      29.12 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1624/Y (NOR3X0P7MA10TR)
+                                                          0.37      29.48 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U33427/Y (AOI211X2MA10TR)
+                                                          0.30      29.78 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U6429/Y (INVX0P5MA10TR)
+                                                          0.32      30.10 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U33453/Y (AOI31X1MA10TR)
+                                                          0.17      30.26 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U33456/Y (OR6X1MA10TR)
+                                                          0.17      30.44 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1558/Y (NAND2X1BA10TR)
+                                                          0.26      30.70 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U33460/Y (MXIT2X1MA10TR)
+                                                          0.37      31.07 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U529/Y (INVX0P5MA10TR)
+                                                          0.30      31.38 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U33521/Y (NAND2XBX1MA10TR)
+                                                          0.30      31.67 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1533/Y (OAI22X0P7MA10TR)
+                                                          0.21      31.88 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1532/Y (NOR2X2AA10TR)
+                                                          0.27      32.15 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U68/Y (INVX1MA10TR)
+                                                          0.31      32.46 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1525/Y (NOR2X3AA10TR)
+                                                          0.61      33.07 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U7044/Y (AOI22X0P5MA10TR)
+                                                          0.35      33.41 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U6077/Y (NAND4X0P5MA10TR)
+                                                          0.33      33.74 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1465/Y (BUFX1P7MA10TR)
+                                                          0.45      34.19 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U6147/Y (NAND2X0P5AA10TR)
+                                                          0.46      34.66 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1412/Y (OAI21X0P7MA10TR)
+                                                          0.29      34.94 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U34296/Y (AOI31X1MA10TR)
+                                                          0.29      35.23 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1375/Y (NOR3X0P7MA10TR)
+                                                          0.35      35.58 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1366/Y (AOI211X1MA10TR)
+                                                          0.34      35.92 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U34319/Y (OAI21X1MA10TR)
+                                                          0.42      36.34 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1345/Y (INVX0P6MA10TR)
+                                                          0.24      36.58 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U9877/Y (OAI22X1MA10TR)
+                                                          0.52      37.10 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U34320/Y (MXIT2X1MA10TR)
+                                                          0.44      37.54 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U34397/Y (INVX1MA10TR)
+                                                          0.21      37.76 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1331/Y (NAND2XBX1MA10TR)
+                                                          0.27      38.03 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1320/Y (OAI22X0P7MA10TR)
+                                                          0.20      38.23 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1313/Y (NOR2X2AA10TR)
+                                                          0.28      38.51 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U34626/Y (INVX2MA10TR)
+                                                          0.20      38.71 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U34656/Y (NOR2X2AA10TR)
+                                                          0.53      39.24 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U471/Y (BUFX1BA10TR)
+                                                          0.62      39.86 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U34940/Y (AOI22X0P5MA10TR)
+                                                          0.30      40.16 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U6188/Y (NAND4X0P5MA10TR)
+                                                          0.33      40.49 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1236/Y (BUFX1P7MA10TR)
+                                                          0.45      40.94 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U34941/Y (NOR2X0P5MA10TR)
+                                                          0.47      41.40 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U6302/Y (NOR2X0P5MA10TR)
+                                                          0.50      41.90 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U35027/Y (NAND2X0P5AA10TR)
+                                                          0.26      42.17 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1156/Y (OAI21X1P4MA10TR)
+                                                          0.46      42.63 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U35299/Y (AOI31X1MA10TR)
+                                                          0.46      43.09 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1140/Y (INVX1MA10TR)
+                                                          0.24      43.32 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U35300/Y (NAND4XXXBX1MA10TR)
+                                                          0.17      43.49 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U6488/Y (AO1B2X1MA10TR)
+                                                          0.33      43.82 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U2998/Y (NAND2X1AA10TR)
+                                                          0.15      43.97 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1107/Y (OAI21X1MA10TR)
+                                                          0.36      44.33 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1101/Y (INVX0P6MA10TR)
+                                                          0.27      44.60 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1097/Y (NOR2X1AA10TR)
+                                                          0.27      44.87 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1089/Y (AOI22X0P7MA10TR)
+                                                          0.21      45.07 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1083/Y (AND2X2MA10TR)
+                                                          0.20      45.27 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U451/Y (INVX0P5MA10TR)
+                                                          0.41      45.68 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U35861/Y (NOR2X1AA10TR)
+                                                          0.33      46.01 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U35862/Y (BUFX2MA10TR)
+                                                          0.38      46.38 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U9124/Y (AOI22X0P5MA10TR)
+                                                          0.31      46.70 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1042/Y (NAND4X0P5AA10TR)
+                                                          0.28      46.97 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U1022/Y (BUFX1P4MA10TR)
+                                                          0.41      47.38 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U36652/Y (NOR2X0P5MA10TR)
+                                                          0.66      48.04 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U36654/Y (NOR2X0P5MA10TR)
+                                                          0.46      48.50 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U36697/Y (AOI21X0P5MA10TR)
+                                                          0.47      48.97 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U36698/Y (NOR2X0P5MA10TR)
+                                                          0.26      49.23 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U36699/Y (AOI211X0P5MA10TR)
+                                                          0.37      49.60 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U36700/Y (AO1B2X0P7MA10TR)
+                                                          0.52      50.13 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U905/Y (NAND3X0P5AA10TR)
+                                                          0.32      50.45 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U36707/Y (AND3X0P5MA10TR)
+                                                          0.23      50.68 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U884/Y (OAI21X4MA10TR)
+                                                          0.13      50.81 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U879/Y (INVX0P6MA10TR)
+                                                          0.20      51.01 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U872/Y (NOR2X0P7MA10TR)
+                                                          0.23      51.24 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U864/Y (AOI22X0P7MA10TR)
+                                                          0.24      51.48 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U860/Y (AND2X2MA10TR)
+                                                          0.21      51.69 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U859/Y (INVX1MA10TR)
+                                                          0.18      51.87 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U846/Y (NOR2X1AA10TR)
+                                                          0.51      52.39 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U37254/Y (BUFX1P7MA10TR)
+                                                          0.65      53.03 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U38022/Y (AOI22X0P5MA10TR)
+                                                          0.35      53.38 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U448/Y (NAND4X0P5MA10TR)
+                                                          0.33      53.71 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U38031/Y (BUFX1P2MA10TR)
+                                                          0.60      54.31 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U38370/Y (NOR2X0P5MA10TR)
+                                                          0.55      54.86 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U38371/Y (NOR2X0P5MA10TR)
+                                                          0.49      55.35 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U38372/Y (INVX0P5MA10TR)
+                                                          0.20      55.55 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U38377/Y (NOR2X0P5MA10TR)
+                                                          0.58      56.13 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U38384/Y (NAND2X0P5AA10TR)
+                                                          0.29      56.43 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U726/Y (OAI21X0P7MA10TR)
+                                                          0.24      56.67 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U721/Y (BUFX1P7MA10TR)
+                                                          0.46      57.13 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U716/Y (INVX0P6MA10TR)
+                                                          0.19      57.32 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U712/Y (NOR3X0P7MA10TR)
+                                                          0.27      57.59 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U709/Y (AOI211X0P7MA10TR)
+                                                          0.22      57.81 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U704/Y (INVX0P6MA10TR)
+                                                          0.17      57.98 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U32/Y (NAND2X2MA10TR)
+                                                          0.08      58.06 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U702/Y (OAI21X4MA10TR)
+                                                          0.12      58.18 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U699/Y (NOR2X0P7MA10TR)
+                                                          0.20      58.39 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U551/Y (AOI22X0P5MA10TR)
+                                                          0.25      58.64 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U556/Y (AND2X1MA10TR)
+                                                          0.38      59.02 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U683/Y (INVX0P8BA10TR)
+                                                          0.36      59.38 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U679/Y (NOR2X1AA10TR)
+                                                          0.56      59.94 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U38905/Y (BUFX2MA10TR)
+                                                          0.63      60.56 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U39790/Y (AOI22X0P5MA10TR)
+                                                          0.30      60.87 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U39798/Y (NAND4X0P5MA10TR)
+                                                          0.32      61.19 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U664/Y (BUFX1P4MA10TR)
+                                                          0.49      61.68 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U39799/Y (NOR2X0P5MA10TR)
+                                                          0.40      62.08 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U39800/Y (NOR2X0P5MA10TR)
+                                                          0.47      62.55 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U39874/Y (NAND2X0P5AA10TR)
+                                                          0.36      62.91 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U39997/Y (NOR2X0P5MA10TR)
+                                                          0.29      63.21 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U631/Y (AOI211X0P7MA10TR)
+                                                          0.21      63.41 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U39998/Y (AO21BX0P5MA10TR)
+                                                          0.18      63.60 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U622/Y (NAND3X0P5AA10TR)
+                                                          0.20      63.80 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U619/Y (OAI211X0P7MA10TR)
+                                                          0.22      64.02 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U554/Y (AND2X1MA10TR)
+                                                          0.36      64.38 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U544/Y (NAND2X0P5AA10TR)
+                                                          0.35      64.73 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U611/Y (OAI21X4MA10TR)
+                                                          0.20      64.93 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U40367/Y (INVX0P5MA10TR)
+                                                          0.12      65.05 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U604/Y (NOR2X0P7MA10TR)
+                                                          0.18      65.23 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U601/Y (AOI22X0P7MA10TR)
+                                                          0.16      65.39 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U600/Y (AND2X0P7MA10TR)
+                                                          0.16      65.55 f
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U597/Y (XNOR2X0P7MA10TR)
+                                                          0.23      65.78 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U5296/Y (AND2X1MA10TR)
+                                                          0.29      66.07 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U48871/Y (XOR2X0P5MA10TR)
+                                                          0.22      66.29 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U580/Y (AO1B2X0P7MA10TR)
+                                                          0.20      66.50 r
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/unit_mux_genblk1_2__genblk1_unit_genblk1_div_genblk5_0__div_block_genblk1_div_q_reg_1_/D (DFFQX0P5MA10TR)
+                                                          0.00      66.50 r
+  data arrival time                                                 66.50
+
+  clock my_clk (rise edge)                               66.67      66.67
+  clock network delay (ideal)                             0.00      66.67
+  clock uncertainty                                      -0.10      66.57
+  vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/unit_mux_genblk1_2__genblk1_unit_genblk1_div_genblk5_0__div_block_genblk1_div_q_reg_1_/CK (DFFQX0P5MA10TR)
+                                                          0.00      66.57 r
+  library setup time                                     -0.07      66.50
+  data required time                                                66.50
+  --------------------------------------------------------------------------
+  data required time                                                66.50
+  data arrival time                                                -66.50
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+1

@@ -1,3 +1,2 @@
-SOFTINCLUDE /software/cadence-2021-09/XCELIUM2103/tools/inca/files/cds.lib
 include ../../cds.lib
 define worklib ../worklib

@@ -121,7 +121,7 @@ connectGlobalNets
 
 # -- place design ------------------------------------------------------------
 
-setDesignMode -topRoutingLayer 6
+setDesignMode -topRoutingLayer 7
 
 setPlaceMode -place_detail_legalization_inst_gap 2
 

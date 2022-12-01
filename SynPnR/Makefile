@@ -4,15 +4,18 @@ export
 # Master Verilog file
 TOP_LEVEL	= toplevel_498
 # svt standard cells
-TSMC65RF_PDK_IC6 = /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK
+DCROOT = /software/Synopsys-2021_x86_64
+TSMC65RF_PDK_IC6 = /ece498hk/libs/TSMC65GP_RFMIM__1P0V_2P5V__1p9m_6X1Z1U_ALRDL # TODO: CHANGE TO OTHER LIB
 PDK_HOME	= $(TSMC65RF_PDK_IC6)/stdcell_dig/fb_tsmc065gp_rvt_lvt
 VERILOG_LIB	= $(PDK_HOME)/aci/sc-ad10/verilog/tsmc65_rvt_sc_adv10.v
 PROJECT_HOME	= .
 OUT_DIR		= $(PROJECT_HOME)
 
 TSMC_DB_DIR		= $(PDK_HOME)/aci/sc-ad10/synopsys
+SYNOPSYS_DB_DIR = $(PDK_HOME)/aci/sc-ad10/synopsys
 #TSMC_DB			= typical.db
 TSMC_DB			= scadv10_cln65gp_rvt_ss_0p9v_125c.db
+SYNOPSYS_DB = scadv10_cln65gp_rvt_ss_0p9v_125c.db
 #TSMC_DB			= scadv10_cln65gp_rvt_tt_1p0v_25c.db
 TSMC_DB_BEST	= scadv10_cln65gp_rvt_ff_1p1v_m40c.db
 TSMC_LIB		= $(TSMC_DB_DIR)/scadv10_cln65gp_rvt_ss_0p9v_125c.lib
@@ -36,19 +39,25 @@ SDF_OUT_DIR		= $(PROJECT_HOME)/sdfout
 VLOGOUT_DIR		= $(PROJECT_HOME)/vlogout
 
 # VERILOG_FILES   = $(RTL_DIR)/verilog.sv
-OUR_V_FILES := $(shell find $(PWD)/../src -maxdepth 1 -name '*.v')
+OUR_V_FILES := $(shell find $(PWD)/../src -maxdepth 1 -name '*.v' ! -name "sram_*")
 OUR_SV_FILES := $(shell find $(PWD)/../src -maxdepth 1 -name '*.sv' ! -name "toplevel.sv")
 VICUNA_PKG_SRCS := $(shell find $(PWD)/../src/vicuna/rtl -name '*_pkg.sv')
 VICUNA_CFG_SRCS := $(shell find $(PWD)/../src/vicuna/ -name '*_config.sv')
 VICUNA_SRCS := $(shell find $(PWD)/../src/vicuna/rtl -name '*.sv' ! -name '*_pkg.sv')
 
 ENTRO_SRCS := $(shell find $(PWD)/../src/vicuna/ibex/other -name '*.sv')
-DV_SRCS := $(shell find $(PWD)/../src/vicuna/ibex/vendor/lowrisc_ip/dv/sv/dv_utils -name '*.svh')
+# DV_SVH := $(shell find $(PWD)/../src/vicuna/ibex/vendor/lowrisc_ip/dv/sv/dv_utils -name '*.svh' -name '*_pkg.sv')
+# DV_PKGS := $(shell find $(PWD)/../src/vicuna/ibex/vendor/lowrisc_ip/dv/sv/dv_utils -name '*_pkg.sv')
+# DV_UTILS := $(shell find $(PWD)/../src/vicuna/ibex/vendor/lowrisc_ip/dv/sv/dv_utils -name '*.sv' ! -name '*_pkg.sv')
+PRIM_SVH := $(shell find $(PWD)/../src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl -name '*.svh')
 PRIM_PKG_SRCS := $(shell find $(PWD)/../src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl -name '*_pkg.sv')
+PRIM_ALL := $(shell find $(PWD)/../src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl -name '*.sv' ! -name '*_pkg.sv' ! -name 'prim_edn_req.sv' ! -name 'prim_lc_dec.sv ! -name 'prim_lc_sender.sv')
 PRIM_OTHER_SRCS := $(shell find $(PWD)/../src/vicuna/ibex/syn/rtl -name '*gating.v')
 IBEX_PKG_SRCS := $(shell find $(PWD)/../src/vicuna/ibex/rtl -name '*_pkg.sv')
-IBEX_SRCS := $(shell find $(PWD)/../src/vicuna/ibex/rtl -name '*.sv' ! -name '*_pkg.sv' ! -name '*_tracing.sv')
-VERILOG_FILES := $(ENTRO_SRCS) $(DV_SRCS) $(PRIM_PKG_SRCS) $(PRIM_OTHER_SRCS) $(IBEX_PKG_SRCS) $(IBEX_SRCS) $(VICUNA_PKG_SRCS) $(VICUNA_CFG_SRCS) $(VICUNA_SRCS) $(OUR_V_FILES) $(OUR_SV_FILES) $(PWD)/../src/toplevel.sv
+IBEX_SRCS := $(shell find $(PWD)/../src/vicuna/ibex/rtl -name '*.sv' ! -name '*_pkg.sv' ! -name '*_tracing.sv' ! -name '*_tracer.sv')
+# PRIM_RTL := $(shell find $(PWD)/../src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl -name '*.sv' ! -name '*_pkg.sv' ! -name '*_tracing.sv') 
+# PRIM_RTL := $(shell find $(PWD)/../src/vicuna/prim/rtl -name '*.sv' ! -name '*_pkg.sv' ! -name '*_tracing.sv') 
+VERILOG_FILES := $(ENTRO_SRCS) $(PWD)/../src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_assert.sv $(PRIM_PKG_SRCS) $(PRIM_ALL) $(PRIM_OTHER_SRCS) $(IBEX_PKG_SRCS) $(IBEX_SRCS) $(VICUNA_PKG_SRCS) $(VICUNA_CFG_SRCS) $(VICUNA_SRCS) $(OUR_V_FILES) $(OUR_SV_FILES) $(PWD)/../src/toplevel.sv
 
 XMVERILOG_FLAGS := +incdir+$(PWD)/../src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl +incdir+$(PWD)/../src/vicuna/ibex/vendor/lowrisc_ip/dv/sv/dv_utils
 # PNR Cells to take care of RVT/LVT stuff
@@ -168,7 +177,7 @@ $(PROJECT_HOME)/.verilog_compiled: $(LOG_DIR) $(VERILOG_FILES) $(PROJECT_HOME)/.
 	@echo "##################################################################"
 	@echo "#     Compiling RTL Verilog                                      #"
 	@echo "##################################################################"
-	@xmverilog $(XMVERILOG_FLAGS) -c $(VERILOG_FILES) > $(LOG_DIR)/verilog_compile.log
+	@xmverilog $(XMVERILOG_FLAGS) +xmtimescale+1ns/10ps -c $(VERILOG_FILES) > $(LOG_DIR)/verilog_compile.log
 	@touch $(PROJECT_HOME)/.verilog_compiled
 
 
@@ -177,7 +186,7 @@ $(PROJECT_HOME)/.verilog_lib_compiled: $(LOG_DIR)
 	@echo "##################################################################"
 	@echo "#     Compiling Verilog Library                                  #"
 	@echo "##################################################################"
-	@xmverilog $(XMVERILOG_FLAGS) -c $(VERILOG_LIB) > $(LOG_DIR)/verilog_lib.log
+	@xmverilog $(XMVERILOG_FLAGS) +xmtimescale+1ns/10ps -c $(VERILOG_LIB) > $(LOG_DIR)/verilog_lib.log
 	@touch $(PROJECT_HOME)/.verilog_lib_compiled
 
 
@@ -186,8 +195,8 @@ $(PROJECT_HOME)/.gate_compiled: $(SDF_OUT_DIR) $(SDC_OUT_DIR) $(VLOGOUT_DIR) $(R
 	@echo "##################################################################"
 	@echo "#     Synthesizing Verilog                                       #"
 	@echo "##################################################################"
-	@SDF_OUT_DIR=$(SDF_OUT_DIR) SDC_OUT_DIR=$(SDC_OUT_DIR) VLOGOUT_DIR=$(VLOGOUT_DIR) TOP_LEVEL=$(TOP_LEVEL) REPORT_DIR=$(REPORT_DIR) VERILOG_FILES="$(VERILOG_FILES)" SYNOPSYS_DB_DIR=$(TSMC_DB_DIR) SYNOPSYS_DB=$(TSMC_DB) SYNOPSYS_DB_BEST=$(TSMC_DB_BEST) dc_shell-xg-t -f $(PROJECT_HOME)/bin/dc_syn > $(LOG_DIR)/$(TOP_LEVEL)_synthesis.log
-	@xmverilog $(XMVERILOG_FLAGS) +xmtimescale+1ns/1ps -c $(VLOGOUT_DIR)/$(TOP_LEVEL).gate.v > $(LOG_DIR)/gate_source_compile.log
+	@SDF_OUT_DIR=$(SDF_OUT_DIR) SDC_OUT_DIR=$(SDC_OUT_DIR) VLOGOUT_DIR=$(VLOGOUT_DIR) TOP_LEVEL=$(TOP_LEVEL) REPORT_DIR=$(REPORT_DIR) VERILOG_FILES="$(VERILOG_FILES)" SYNOPSYS_DB_DIR=$(TSMC_DB_DIR) SYNOPSYS_DB=$(TSMC_DB) SYNOPSYS_DB_BEST=$(TSMC_DB_BEST) dc_shell-xg-t -64bit -f $(PROJECT_HOME)/bin/dc_syn > $(LOG_DIR)/$(TOP_LEVEL)_synthesis.log
+	@xmverilog +xmtimescale+1ns/1ps -c $(VERILOG_LIB) $(VLOGOUT_DIR)/$(TOP_LEVEL).gate.v > $(LOG_DIR)/gate_source_compile.log
 	@touch $(PROJECT_HOME)/.gate_compiled
 
 

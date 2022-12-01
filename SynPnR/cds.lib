@@ -1,2 +1,2 @@
 SOFTINCLUDE /software/cadence-2021-09/ICADVM201/share/cdssetup/cds.lib
-DEFINE hfaroo9_test /home/hfaroo9/virt-test/hfaroo9_test
+# DEFINE hfaroo9_test /home/hfaroo9/virt-test/hfaroo9_test

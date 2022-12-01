@@ -1,0 +1,71 @@
+catch { setDesignMode -topRoutingLayer M6 }
+catch { setAnalysisMode -analysisType onChipVariation }
+catch { setAnalysisMode -checkType setup }
+catch { setAnalysisMode -clkSrcPath true }
+catch { setAnalysisMode -clockPropagation sdcControl }
+catch { setAnalysisMode -cppr both }
+catch { setOptMode -activeSetupViews { slowView } }
+catch { setOptMode -allEndPoints true }
+catch { setOptMode -autoSetupViews { slowView} }
+catch { setOptMode -autoTDGRSetupViews { slowView} }
+catch { setOptMode -deleteInst true }
+catch { setOptMode -drcMargin 0 }
+catch { setOptMode -effort high }
+catch { setOptMode -fixDrc true }
+catch { setOptMode -fixFanoutLoad true }
+catch { setOptMode -fixHoldAllowSetupTnsDegrade false }
+catch { setOptMode -leakagePowerEffort none }
+catch { setOptMode -preserveAllSequential false }
+catch { setOptMode -preserveAssertions false }
+catch { setOptMode -setupTargetSlack 0 }
+catch { setExtractRCMode  -engine postRoute -total_c_th 5 -relative_c_th 0.03 -coupling_c_th 3 -minNetTermNrToBeInMem 50 }
+catch { setCTSMode -addClockRootProp true }
+catch { setCTSMode -traceDPinAsLeaf true }
+catch { setCTSMode -traceIoPinAsLeaf true }
+catch {setNanoRouteMode -quiet -drouteStartIteration 0}
+catch {setNanoRouteMode -quiet -drouteUseMinSpacingForBlockage auto}
+catch {setNanoRouteMode -quiet -extractThirdPartyCompatible false}
+catch {setNanoRouteMode -quiet -grouteExpTdStdDelay 15.600000}
+catch {setNanoRouteMode -quiet -grouteExpTdUseTifTimingEngineForImportDesign false}
+catch {setNanoRouteMode -quiet -routeFillerInstPrefix "FILL"}
+catch {setNanoRouteMode -quiet -routeInsertAntennaDiode false}
+catch {setNanoRouteMode -quiet -routeReInsertFillerCellList "FILL128A10TR FILL64A10TR FILL32A10TR FILL16A10TR FILLCAP8A10TR FILL4A10TR FILL2A10TR FILL1A10TR"}
+catch {setNanoRouteMode -quiet -routeReInsertFillerCellListFromFile false}
+catch {setNanoRouteMode -quiet -routeStrictlyHonorNonDefaultRule "false"}
+catch {setNanoRouteMode -quiet -routeTopRoutingLayer 6}
+catch {setNanoRouteMode -quiet -routeWithSiPostRouteFix false}
+
+catch { setPlaceMode -place_design_floorplan_mode true }
+catch { setPlaceMode -place_global_clock_gate_aware false }
+catch { setPlaceMode -place_global_cong_effort high }
+catch { setPlaceMode -place_global_place_io_pins false }
+catch { setPlaceMode -timingDriven true }
+catch { setIlmMode -keepHighFanoutPorts true -keepLoopBack false -keepInstInSdc false -keepFlatten true }
+catch { setUsefulSkewMode -ecoRoute false }
+catch { setViaGenMode -add_pin_to_pin_via true }
+catch { setViaGenMode -create_double_row_cut_via 1 }
+catch { setViaGenMode -invoke_verifyGeometry true }
+catch { setViaGenMode -respect_signal_routes 1 }
+catch { setDelayCalMode -enable_high_fanout true }
+catch { setDelayCalMode -engine aae }
+catch { setDelayCalMode -ignoreNetLoad false }
+catch { setDelayCalMode -SIAware true }
+catch { setDelayCalMode -socv_accuracy_mode low }
+catch { setPinAssignMode -maxLayer 6 }
+catch { setAddRingMode -avoid_short true }
+catch { setHierMode -disableArt false }
+catch { setHierMode -reportPostRouteArtTiming false }
+catch { setHierMode -trialRouteHonorReadOnly false }
+catch { setImportMode -discardFloatingVNets false }
+catch { setImportMode -keepEmptyModule true }
+catch { setSIMode -separate_delta_delay_on_data true }
+catch { setSIMode -si_reselection slack }
+catch { setRouteMode -earlyGlobalMaxRouteLayer 6 }
+catch { setRouteMode -earlyGlobalMinRouteLayer 2 }
+catch { setRouteMode -earlyGlobalRouteSecondPG false }
+catch { setFillerMode -core {FILL128A10TR FILL64A10TR FILL32A10TR FILL16A10TR FILLCAP8A10TR FILL4A10TR FILL2A10TR FILL1A10TR} }
+catch { setFillerMode -corePrefix FILL }
+catch { setFillerMode -merge true }
+catch { setFPlanMode -defaultTechSite TSMC65ADV10TSITE }
+catch { setFPlanMode -maxIoHeight false }
+catch { setFPlanMode -powerRailLayer {} }

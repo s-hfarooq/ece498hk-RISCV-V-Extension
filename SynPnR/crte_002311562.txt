@@ -1,0 +1,183 @@
+CRTE_SNAPSHOT_START
+
+SECTION_CRTE_VERSION
+3.0
+
+SECTION_PID
+2311562
+
+SECTION_POLLING_INTERVAL
+5
+
+SECTION_DATE_TIME
+Thu Dec 01 01:13:09 CST 2022 (1669878789)
+
+SECTION_OS_VERSION
+osname: Linux
+hostname: ece-498hk-03.ece.illinois.edu
+arch: x86_64
+release_version: 4.18.0-348.el8.x86_64
+
+SECTION_IPC_INFO
+Error: command <ipcs -msq 2>/dev/null> can not be executed.
+SECTION_ULIMIT
+Error: command <sh -c "ulimit -a"> can not be executed.
+SECTION_SYSCONF
+_SC_THREAD_SAFE_FUNCTIONS= 200809
+_SC_CLK_TCK= 100
+_SC_OPEN_MAX= 262144
+_SC_PAGE_SIZE= 4096
+_SC_ARG_MAX= 4611686018427387903
+_SC_CHILD_MAX= 30838
+_SC_LINE_MAX= 2048
+
+SECTION_FULL_COMMAND
+/software/Synopsys-2021_x86_64/syn/R-2020.09-SP4/linux64/syn/bin/common_shell_exec -64 -shell dc_shell -r /software/Synopsys-2021_x86_64/syn/R-2020.09-SP4 -f ./bin/dc_syn
+
+SECTION_CPUINFO
+total_core: 4
+
+model_name:  Intel(R) Xeon(R) Silver 4216 CPU @ 2.10GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xsaves arat pku ospke md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2095
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 22528
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Silver 4216 CPU @ 2.10GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xsaves arat pku ospke md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2095
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 22528
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Silver 4216 CPU @ 2.10GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xsaves arat pku ospke md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2095
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 22528
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Silver 4216 CPU @ 2.10GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xsaves arat pku ospke md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2095
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 22528
+ht: 0
+
+SECTION_OS_RELEASE_VERSION
+Error: command <cat /etc/redhat-release> can not be executed.
+
+SECTION_SYS/VM
+Error: command <grep '' /proc/sys/vm/* 2> /dev/null> can not be executed.
+
+SECTION_SWAP
+swap_partition: /dev/dm-1
+size_gb: 3
+
+CRTE_SNAPSHOT_END
+
+CRTE_PERIODIC_START 1 1669878789886
+
+SECTION_MPSTAT
+total_core: 4
+
+CPU     %user   %kernel %wait   %idle   
+all   3.475709 1.980273 0.033105 94.510910
+0     3.613037 2.652357 0.033393 93.701218
+1     3.143647 1.014626 0.031110 95.810623
+2     3.381485 1.055843 0.034031 95.528648
+3     3.764561 3.197804 0.033884 93.003754
+SECTION_LOADAVG
+2.16 1.95 1.73 2/1879 2311659
+
+SECTION_PID_STATUS
+name: common_shell_ex
+state: 1
+vmsize: 2494604
+vmrss: 725064
+vmdata: 1747900
+vmstk: 284
+vmexe: 368964
+vmlib: 248564
+threads: 1
+
+SECTION_PROCESS_CPU_UTIL
+pid: 2311562
+cpu_total_time: 2949623846
+cpu_used_time: 4603
+cpu_p: 
+
+SECTION_SYSTEM_CPU_UTIL
+sys_cpu_p: 
+
+SECTION_MEMINFO
+memtotal: 7953920
+memfree: 284284
+cached: 875088
+swapcached: 89888
+active: 1619896
+swaptotal: 4194300
+swapfree: 649480
+
+SECTION_SMAPS
+shared_kb: 146892
+private_kb: 578364
+
+SECTION_DF
+Filesystem  Size  Used Avail Use%
+filesystem        3G  0G  3G    9
+
+Filesystem    Inodes   IUsed   IFree   IUse%
+filesystem          2097152  843 2096309   4294718724
+
+SECTION_CWD
+Filesystem  Size  Used Avail Use%
+filesystem        1549G  812G  737G    52
+
+Filesystem    Inodes   IUsed   IFree   IUse%
+filesystem          812537856  7315565 805222291   4294966957
+
+SECTION_SWAP_RATE
+blk_read: 20905624
+blk_wrtn: 44622240
+swap_in_rate: 
+swap_out_rate: 
+swap_in_rate: 
+swap_out_rate: 
+
+SECTION_FD_SIZE
+files: 14
+total_size: 30964942
+
+SECTION_NET_INTERFACE
+total_eth_avbl: 3
+
+name net_rx_err net_rx_drp net_tx_err net_tx_drp 
+    lo:         0        0        0        0
+  eth0:         0        8442        0        0
+virbr0:               0        0        0        0
+
+SECTION_NFSSTAT
+readlink: 0
+write: 15
+getattr: 39
+retrans: 0
+raw_data: 
+net 0 0 0 0
+rpc 95422429 0 95433344
+proc3 22 3 37564768 2996459 11574577 4972916 170536 17769425 14464329 1330049 146954 5184 0 1024663 107653 172284 29907 288 1161614 1010739 1048 524 921726
+
+
+SECTION_THREAD_CPU_UTIL
+2311562 : 2311562 (common_shell_ex) R 2311561 2311505 2294753 34816 2311505 16384 166258 7344 174 141 4474 115 3 12 20 0 1 0 738068382 2554474496 181266 18446744073709551615 4194304 382009473 140737488307936 0 0 0 0 67112960 1132490495 0 0 0 17 3 0 0 66 0 0 384107072 398656111 1622118400 140737488309586 140737488309757 140737488309757 140737488351141 0
+
+CRTE_PERIODIC_END 1 1669878789886
