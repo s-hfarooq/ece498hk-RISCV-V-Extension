@@ -5,7 +5,7 @@ export
 TOP_LEVEL	= toplevel_498
 # svt standard cells
 DCROOT = /software/Synopsys-2021_x86_64
-TSMC65RF_PDK_IC6 = /ece498hk/libs/TSMC65GP_RFMIM__1P0V_2P5V__1p9m_6X1Z1U_ALRDL # TODO: CHANGE TO OTHER LIB
+TSMC65RF_PDK_IC6 = /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK
 PDK_HOME	= $(TSMC65RF_PDK_IC6)/stdcell_dig/fb_tsmc065gp_rvt_lvt
 VERILOG_LIB	= $(PDK_HOME)/aci/sc-ad10/verilog/tsmc65_rvt_sc_adv10.v
 PROJECT_HOME	= .
