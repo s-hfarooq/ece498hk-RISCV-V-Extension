@@ -8,13 +8,13 @@ Report : power
         -verbose
 Design : toplevel_498
 Version: R-2020.09-SP4
-Date   : Thu Dec  1 10:10:10 2022
+Date   : Fri Dec  9 00:31:53 2022
 ****************************************
 
 
 Library(s) Used:
 
-    scadv10_cln65gp_rvt_ss_0p9v_125c (File: /ece498hk/libs/TSMC65GP_RFMIM__1P0V_2P5V__1p9m_6X1Z1U_ALRDL/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/synopsys/scadv10_cln65gp_rvt_ss_0p9v_125c.db)
+    scadv10_cln65gp_rvt_ss_0p9v_125c (File: /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/synopsys/scadv10_cln65gp_rvt_ss_0p9v_125c.db)
 
 
 Operating Conditions: ss_0p9v_125c   Library: scadv10_cln65gp_rvt_ss_0p9v_125c
@@ -34,12 +34,12 @@ Power-specific unit information :
     Leakage Power Units = 1pW
 
 
-  Cell Internal Power  = 849.0789 uW   (12%)
-  Net Switching Power  =   5.9789 mW   (88%)
+  Cell Internal Power  = 839.1259 uW   (13%)
+  Net Switching Power  =   5.7010 mW   (87%)
                          ---------
-Total Dynamic Power    =   6.8280 mW  (100%)
+Total Dynamic Power    =   6.5402 mW  (100%)
 
-Cell Leakage Power     =   1.3115 mW
+Cell Leakage Power     =   1.3109 mW
 
                  Internal         Switching           Leakage            Total                         Cell
 Power Group      Power            Power               Power              Power   (   %    )  Attrs  Count
@@ -47,10 +47,10 @@ Power Group      Power            Power               Power              Power  
 io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)            0
 memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)            0
 black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)            0
-clock_network  5.7465e-02            5.9569        3.7624e+04            6.0144  (  73.89%)            3
-register           0.7901        1.1907e-03        3.3727e+08            1.1286  (  13.87%)            11326
-sequential     1.1713e-04        5.0397e-05        2.0638e+06        2.2313e-03  (   0.03%)            114
-combinational  1.3950e-03        2.0704e-02        9.7208e+08            0.9942  (  12.21%)            94993
+clock_network  5.4775e-02            5.6768        3.7705e+04            5.7316  (  73.00%)            3
+register           0.7825        1.3286e-03        3.3612e+08            1.1199  (  14.26%)            11263
+sequential     1.2195e-04        3.0601e-05        2.2376e+06        2.3901e-03  (   0.03%)            114
+combinational  1.7593e-03        2.2861e-02        9.7254e+08            0.9972  (  12.70%)            95033
 ---------------------------------------------------------------------------------------------------------
-Total              0.8491 mW         5.9789 mW     1.3115e+09 pW         8.1394 mW
+Total              0.8391 mW         5.7010 mW     1.3109e+09 pW         7.8511 mW
 1

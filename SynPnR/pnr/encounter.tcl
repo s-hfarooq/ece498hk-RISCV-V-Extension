@@ -41,8 +41,8 @@ saveDesign [format "%s%s" $env(TOP_LEVEL) ".init.enc"]
 
 
 # Create Floorplan
-set width 2000
-set height 2000
+set width 800
+set height 800
 set offset 0 
 
 floorplan -s $width $height $offset $offset $offset $offset

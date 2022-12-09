@@ -6,7 +6,7 @@ Report : timing
         -max_paths 1
 Design : toplevel_498
 Version: R-2020.09-SP4
-Date   : Thu Dec  1 10:09:53 2022
+Date   : Fri Dec  9 00:31:34 2022
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.
@@ -33,9 +33,9 @@ Wire Load Model Mode: top
                                                           0.00 #    66.67 r
   mmu_storage_controller_qspi_controller/nibble_counter_q_reg_2_/Q (DFFQX0P5MA10TR)
                                                           0.47      67.14 f
-  mmu_storage_controller_qspi_controller/U140/Y (NAND2X0P5AA10TR)
+  mmu_storage_controller_qspi_controller/U11/Y (NAND2X0P5AA10TR)
                                                           0.46      67.60 r
-  mmu_storage_controller_qspi_controller/U142/Y (NAND4X0P5MA10TR)
+  mmu_storage_controller_qspi_controller/U149/Y (NAND4X0P5MA10TR)
                                                           0.31      67.91 f
   mmu_storage_controller_qspi_controller/qspi_io_o[3] (qspi_controller)
                                                           0.00      67.91 f

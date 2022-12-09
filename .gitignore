@@ -2,3 +2,5 @@
 ./SynPnR/xcelium.d/worklib/xm.lnx86.072.pak
 *.pak
 *.gds2
+*.def
+

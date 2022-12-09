@@ -22,3 +22,15 @@ Change the soft stacksize limit to 0.2%RAM (15 mbytes). Set global soft_stack_si
 <CMD> getVersion
 [INFO] Loading PVS 21.10 fill procedures
 <CMD> win
+
+--------------------------------------------------------------------------------
+Exiting Innovus on Thu Dec  1 14:29:34 2022
+  Total CPU time:     0:08:07
+  Total real time:    2:44:12
+  Peak memory (main): 535.12MB
+
+
+*** Memory Usage v#1 (Current mem = 845.777M, initial mem = 316.102M) ***
+*** Message Summary: 0 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:08:07, real=2:44:09, mem=845.8M) ---

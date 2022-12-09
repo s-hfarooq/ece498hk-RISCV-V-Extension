@@ -1,7 +1,7 @@
 #######################################################
 #                                                     
 #  Innovus Command Logging File                     
-#  Created on Thu Dec  1 08:51:27 2022                
+#  Created on Fri Dec  9 00:32:44 2022                
 #                                                     
 #######################################################
 
@@ -18,7 +18,7 @@ suppressMessage ENCEXT-2799
 getVersion
 getVersion
 getVersion
-set init_lef_file {/ece498hk/libs/TSMC65GP_RFMIM__1P0V_2P5V__1p9m_6X1Z1U_ALRDL/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/lef/tsmc_cln65_a10_6X2Z_tech.lef /ece498hk/libs/TSMC65GP_RFMIM__1P0V_2P5V__1p9m_6X1Z1U_ALRDL/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/lef/tsmc65_rvt_sc_adv10_macro.lef}
+set init_lef_file {/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/lef/tsmc_cln65_a10_6X2Z_tech.lef /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/lef/tsmc65_rvt_sc_adv10_macro.lef}
 set init_verilog .././vlogout/toplevel_498.gate.v
 set init_top_cell toplevel_498
 set init_design_netlisttype Verilog
@@ -298,17 +298,27 @@ setAnalysisMode -analysisType onChipVariation -cppr both
 optDesign -postRoute
 optDesign -postRoute -drv
 defOut -routing -floorplan final.def
-streamOut final.gds2 -mapFile tsmc065.map -libName DesignLib -merge /ece498hk/libs/TSMC65GP_RFMIM__1P0V_2P5V__1p9m_6X1Z1U_ALRDL/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/gds2/tsmc65_rvt_sc_adv10.gds2 -stripes 1 -mode ALL
+streamOut final.gds2 -mapFile tsmc065.map -libName DesignLib -merge /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/gds2/tsmc65_rvt_sc_adv10.gds2 -stripes 1 -mode ALL
 saveNetlist .././vlogout/toplevel_498.pnr.v -flat -includePhysicalCell {FILLCAP16A10TR FILLCAP8A10TR} -excludeLeafCell -excludeCellInst {FILL128A10TR FILLTIE128A10TR FILL64A10TR FILLTIE64A10TR FILL32A10TR FILLTIE32A10TR FILL16A10TR FILLTIE16A10TR FILL8A10TR FILLTIE8A10TR FILL4A10TR FILLTIE4A10TR FILL2A10TR FILLTIE2A10TR FILL1A10TR}
 write_sdf -view slowView -min_period_edges posedge $env(SDF_OUT_DIR)/$env(TOP_LEVEL).pnr.sdf
-saveDrc /tmp/innovus_temp_1495449_ece-498hk-04.ece.illinois.edu_hfaroo9_Wbhkhm/vergQTmpARKoSp/qthread_src.drc
+saveDrc /tmp/innovus_temp_803443_ece-498hk-01.ece.illinois.edu_hfaroo9_EWTMq6/vergQTmpKYw2NJ/qthread_src.drc
 clearDrc
-saveDrc /tmp/innovus_temp_1495449_ece-498hk-04.ece.illinois.edu_hfaroo9_Wbhkhm/vergQTmpARKoSp/qthread_1.drc
-saveDrc /tmp/innovus_temp_1495449_ece-498hk-04.ece.illinois.edu_hfaroo9_Wbhkhm/vergQTmpARKoSp/qthread_2.drc
-saveDrc /tmp/innovus_temp_1495449_ece-498hk-04.ece.illinois.edu_hfaroo9_Wbhkhm/vergQTmpARKoSp/qthread_3.drc
-saveDrc /tmp/innovus_temp_1495449_ece-498hk-04.ece.illinois.edu_hfaroo9_Wbhkhm/vergQTmpARKoSp/qthread_0.drc
-loadDrc /tmp/innovus_temp_1495449_ece-498hk-04.ece.illinois.edu_hfaroo9_Wbhkhm/vergQTmpARKoSp/qthread.drc
-loadDrc -incremental /tmp/innovus_temp_1495449_ece-498hk-04.ece.illinois.edu_hfaroo9_Wbhkhm/vergQTmpARKoSp/qthread_src.drc
+saveDrc /tmp/innovus_temp_803443_ece-498hk-01.ece.illinois.edu_hfaroo9_EWTMq6/vergQTmpKYw2NJ/qthread_2.drc
+saveDrc /tmp/innovus_temp_803443_ece-498hk-01.ece.illinois.edu_hfaroo9_EWTMq6/vergQTmpKYw2NJ/qthread_3.drc
+saveDrc /tmp/innovus_temp_803443_ece-498hk-01.ece.illinois.edu_hfaroo9_EWTMq6/vergQTmpKYw2NJ/qthread_1.drc
+saveDrc /tmp/innovus_temp_803443_ece-498hk-01.ece.illinois.edu_hfaroo9_EWTMq6/vergQTmpKYw2NJ/qthread_0.drc
+loadDrc /tmp/innovus_temp_803443_ece-498hk-01.ece.illinois.edu_hfaroo9_EWTMq6/vergQTmpKYw2NJ/qthread.drc
+loadDrc -incremental /tmp/innovus_temp_803443_ece-498hk-01.ece.illinois.edu_hfaroo9_EWTMq6/vergQTmpKYw2NJ/qthread_src.drc
 verifyConnectivity -type all -noAntenna
 saveDesign toplevel_498.finished.enc
 win
+zoomBox -259.60400 -125.73850 1877.50950 907.47800
+pan 266.01500 760.99200
+zoomBox 173.34450 555.16900 1989.89150 1433.40350
+zoomBox 538.36600 672.76850 1653.95350 1212.11450
+zoomBox 625.50600 700.84250 1573.75650 1159.28700
+zoomBox 1101.59450 863.23300 1128.15000 876.07150
+zoomBox 1103.61800 864.09750 1126.19050 875.01050
+zoomBox 1105.33850 864.83250 1124.52500 874.10850
+zoomBox 1106.80050 865.45700 1123.11000 873.34200
+zoomBox 1113.69900 868.40400 1116.42950 869.72400

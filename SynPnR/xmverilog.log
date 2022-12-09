@@ -1,13 +1,10 @@
 xmverilog: 21.03-s007: (c) Copyright 1995-2021 Cadence Design Systems, Inc.
-TOOL:	xmverilog	21.03-s007: Started on Dec 01, 2022 at 10:10:17 CST
+TOOL:	xmverilog	21.03-s007: Started on Dec 09, 2022 at 00:32:03 CST
 xmverilog
 	+xmtimescale+1ns/1ps
 	-c
-	/ece498hk/libs/TSMC65GP_RFMIM__1P0V_2P5V__1p9m_6X1Z1U_ALRDL/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/verilog/tsmc65_rvt_sc_adv10.v
+	/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/verilog/tsmc65_rvt_sc_adv10.v
 	./vlogout/toplevel_498.gate.v
-Recompiling... reason: file './vlogout/toplevel_498.gate.v' is newer than expected.
-	expected: Thu Dec  1 08:24:55 2022
-	actual:   Thu Dec  1 10:10:13 2022
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
 	Building instance overlay tables: .................... Done
@@ -15,15 +12,15 @@ Recompiling... reason: file './vlogout/toplevel_498.gate.v' is newer than expect
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
 		                    Instances  Unique
-		Modules:               107026     883
-		UDPs:                   11852      11
-		Primitives:            193497      10
-		Timing outputs:        107429     261
-		Registers:              11676     260
-		Scalar wires:          120460       -
+		Modules:               107011     883
+		UDPs:                   11791      11
+		Primitives:            193349      10
+		Timing outputs:        107406     253
+		Registers:              11613     260
+		Scalar wires:          120375       -
 		Vectored wires:            12       -
 		Cont. assignments:          0       4
-		Timing checks:          93440    1950
+		Timing checks:          92999    1956
 		Simulation timescale:     1ps
 	Writing initial simulation snapshot: worklib.XOR3X4MA10TR:v
-TOOL:	xmverilog	21.03-s007: Exiting on Dec 01, 2022 at 10:10:33 CST  (total: 00:00:16)
+TOOL:	xmverilog	21.03-s007: Exiting on Dec 09, 2022 at 00:32:19 CST  (total: 00:00:16)

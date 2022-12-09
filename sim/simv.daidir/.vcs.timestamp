@@ -1,0 +1,304 @@
+5        
+0 prim_assert.sv
+0 /software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1/etc/systemverilog/prim_assert.sv
+0 dv_fcov_macros.svh
+0 /software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1/etc/systemverilog/dv_fcov_macros.svh
+0 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/dv_fcov_macros.svh
+122
++cli+4
++incdir+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/dv/sv/dv_utils
++incdir+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl
++itf+/software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1/linux64/lib/vcsdp.tab
++liborder
++libverbose
++memcbk
++vcsd
++vpi
+-Mamsrun=
+-Masflags=
+-Mcc=gcc
+-Mcfl= -pipe -fPIC -O -I/software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1/include
+-Mcplusplus=g++
+-Mcrt0=
+-Mcrtn=
+-Mcsrc=
+-Mexternalobj=
+-Mldflags= -rdynamic
+-Mobjects= /software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1/linux64/lib/libvirsim.so /software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1/linux64/lib/liberrorinf.so /software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1/linux64/lib/libsnpsmalloc.so /software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1/linux64/lib/libvfs.so
+-Mout=simv
+-Msaverestoreobj=/software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1/linux64/lib/vcs_save_restore_new.o
+-Msyslibs=/software/Synopsys-2021_x86_64/verdi/R-2020.12-SP1-1/share/PLI/VCS/LINUX64/pli.a -ldl
+-Mvcsaceobjs=
+-Mxcflags= -pipe -fPIC -I/software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1/include
+-P
+-Xcbug=0x1
+-Xufe=2steps
+-Xvcs_run_simv=1
+-assert
+-debug=3
+-fsdb
+-full64
+-gen_obj
+-kdb
+-lca
+-msg_config=../warn.config
+-picarchive
+-sverilog
+-timescale=1ns/10ps
+/software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1/linux64/bin/vcs1
+/software/Synopsys-2021_x86_64/verdi/R-2020.12-SP1-1/share/PLI/VCS/LINUX64/verdi.tab
+svaext
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/dv/sv/dv_utils/dv_fcov_macros.svh
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/dv/sv/dv_utils/dv_macros.svh
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_alert_pkg.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_cipher_pkg.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_esc_pkg.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_otp_pkg.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_pad_wrapper_pkg.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_ram_1p_pkg.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_ram_2p_pkg.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_rom_pkg.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_pkg.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_util_pkg.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/syn/rtl/prim_clock_gating.v
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_pkg.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_tracer_pkg.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_alu.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_branch_predict.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_compressed_decoder.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_controller.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_core.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_counter.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_cs_registers.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_csr.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_decoder.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_dummy_instr.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_ex_block.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_fetch_fifo.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_icache.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_id_stage.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_if_stage.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_load_store_unit.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_lockstep.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_multdiv_fast.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_multdiv_slow.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_pmp.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_prefetch_buffer.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_register_file_ff.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_register_file_fpga.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_register_file_latch.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_top.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_tracer.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_wb_stage.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_pkg.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/vproc_config.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_vregpack.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_vregunpack.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_xif.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_alu.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_core.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_decoder.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_dispatcher.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_div.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_div_block.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_elem.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_lsu.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_mul.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_mul_block.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_pending_wr.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_pipeline.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_pipeline_wrapper.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_queue.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_result.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_sld.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_unit_mux.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_unit_wrapper.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_vreg_wr_mux.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_vregfile.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_cache.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_top.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/sram_2048_32_wmask_8bit.v
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/digitalTimer.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/mmu.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/qspi.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/storage_controller.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/toplevel.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/io_buf.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/io_pad.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/tb/qspi_stub.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/tb/498_tb_toplevel.sv
+82
+which_declare=declare -f
+apath=/usr/bin/acroread
+acroread_path=/usr/bin/acroread
+__LMOD_STACK_apath=L3Vzci9iaW4vYWNyb3JlYWQ=
+__LMOD_STACK_acroread_path=L3Vzci9iaW4vYWNyb3JlYWQ=
+__LMOD_STACK_VERDI_HOME=L3NvZnR3YXJlL1N5bm9wc3lzLTIwMjFfeDg2XzY0L3ZlcmRpL1ItMjAyMC4xMi1TUDEtMQ==
+__LMOD_STACK_VCS_HOME=L3NvZnR3YXJlL1N5bm9wc3lzLTIwMjFfeDg2XzY0L3Zjcy9SLTIwMjAuMTItU1AxLTE=
+__LMOD_STACK_SYNOPSYS_LC_ROOT=L3NvZnR3YXJlL1N5bm9wc3lzLTIwMjFfeDg2XzY0L2xjL1ItMjAyMC4wOS1TUDU=
+__LMOD_REF_COUNT_PATH=/software/Synopsys-2021_x86_64/wv/R-2020.12-SP1/bin:1;/software/Synopsys-2021_x86_64/vui/R-2020.09-SP4/bin:1;/software/Synopsys-2021_x86_64/vtran/R-2020.09-SP4/bin:1;/software/Synopsys-2021_x86_64/vgen/R-2020.09-SP4/bin:1;/software/Synopsys-2021_x86_64/verdi/R-2020.12-SP1-1/bin:1;/software/Synopsys-2021_x86_64/vc_static/R-2020.12-SP1-1/bin:1;/software/Synopsys-2021_x86_64/vcs-mx/O-2018.09-SP2-3/bin:1;/software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1/bin:1;/software/Synopsys-2021_x86_64/vc_ml_platform/2019.06/mlplatform/bin:1;/software/Synopsys-2021_x86_64/vcap/R-2020.09-SP4/bin:1;/software/Synopsys-2021_x86_64/ufe_optional_spyglass-vcs/R-2020.12-SP1-1/SPYGLASS_HOME/bin:1;/software/Synopsys-2021_x86_64/txs/R-2020.09-SP4/bin:1;/software/Synopsys-2021_x86_64/taurus_tsuprem4/R_2020.09/bin:1;/software/Synopsys-2021_x86_64/taurus_medici/	R_2020.09/bin:1;/software/Synopsys-2021_x86_64/syn/R-2020.09-SP4/bin:1;/software/Synopsys-2021_x86_64/starrc/R-2020.09-SP5/bin:1;/software/Synopsys-2021_x86_64/spyglass/R-2020.12-SP1-1/SPYGLASS_HOME/bin:1;/software/Synopsys-2021_x86_64/spx/R-2020.09-SP2/bin:1;/software/Synopsys-2021_x86_64/siliconsmart/R-2020.12-SP1/bin:1;/software/Synopsys-2021_x86_64/sentaurus/R_2020.09-SP1/bin:1;/software/Synopsys-2021_x86_64/raphael/R_2020.09a/bin:1;/software/Synopsys-2021_x86_64/prime/R-2020.09-SP5/bin:1;/software/Synopsys-2021_x86_64/pcm_studio/R-2021.03/bin:1;/software/Synopsys-2021_x86_64/nt/R-2020.09-SP5/bin:1;/software/Synopsys-2021_x86_64/mw/R-2020.09-SP4/bin/linux64:1;/software/Synopsys-2021_x86_64/mlwizard/R-2021.03-SP1/bin:1;/software/Synopsys-2021_x86_64/lc/R-2020.09-SP5/bin:1;/software/Synopsys-2021_x86_64/laker/L-2020.06-3/bin:1;/software/Synopsys-2021_x86_64/idq/R-2020.09-SP4/linux64/iddq/bin:1;/software/Synopsys-2021_x86_64/identify/R-2021.03/bin:1;/software/Synopsys-2021_x86_64/icv_workbench/R-2020.09-SP2/bin:1;/software/Synopsys-2021_x86_64/icvalidator/R-2020.09-SP3-3/bin:1;/software/Synopsys-2021_x86_64/icc2/R-2020.09-SP5/bin:1;/software/Synopsys-2021_x86_64/icc/R-2020.09-SP4/bin:1;/software/Synopsys-2021_x86_64/hspice/R-2020.12-SP1/hspice/bin:1;/software/Synopsys-2021_x86_64/hsim/R-2020.12-SP1/hsimplus/bin:1;/software/Synopsys-2021_x86_64/fpga/R-2021.03/bin:1;/software/Synopsys-2021_x86_64/fm/R-2020.09-SP5/bin:1;/software/Synopsys-2021_x86_64/finesim/R-2020.12-SP1-1/bin:1;/software/Synopsys-2021_x86_64/esp/R-2020.09-SP2/bin:1;/software/Synopsys-2021_x86_64/dftview/R-2020.09-SP4/bin:1;/software/Synopsys-2021_x86_64/customcompiler/R-2020.12-SP1/bin:1;/software/Synopsys-2021_x86_64/coretools/R-2020.12-SP3/bin:1;/home/hfaroo9/miniconda3/bin:1;/home/hfaroo9/miniconda3/condabin:1;/usr/local/bin:1;/usr/bin:1;/usr/local/sbin:1;/usr/sbin:1
+__LMOD_REF_COUNT_MODULEPATH=/usr/share/modulefiles:1;/usr/share/Modules/modulefiles:1;/usr/share/modulefiles/Linux:1;/usr/share/modulefiles/Core:1;/usr/share/lmod/lmod/modulefiles/Core:1;/etc/modulefiles/env:1;/etc/modulefiles/class:1;/etc/modulefiles/software:1
+__LMOD_REF_COUNT_LM_LICENSE_FILE=27005@synopsys.webstore.illinois.edu:1
+__LMOD_REF_COUNT_LD_LIBRARY_PATH=/software/Synopsys-2021_x86_64/syn/R-2020.09-SP4/linux64/tcl/lib:1
+_ModuleTable_Sz_=3
+_ModuleTable003_=bGVzL0NvcmU6L2V0Yy9tb2R1bGVmaWxlcy9lbnY6L2V0Yy9tb2R1bGVmaWxlcy9jbGFzczovZXRjL21vZHVsZWZpbGVzL3NvZnR3YXJlIiwKfQo=
+_ModuleTable002_=ZXMiLCAiL3Vzci9zaGFyZS9Nb2R1bGVzL21vZHVsZWZpbGVzIiwgIi91c3Ivc2hhcmUvbW9kdWxlZmlsZXMvTGludXgiLCAiL3Vzci9zaGFyZS9tb2R1bGVmaWxlcy9Db3JlIiwgIi91c3Ivc2hhcmUvbG1vZC9sbW9kL21vZHVsZWZpbGVzL0NvcmUiLCAiL2V0Yy9tb2R1bGVmaWxlcy9lbnYiLCAiL2V0Yy9tb2R1bGVmaWxlcy9jbGFzcyIsICIvZXRjL21vZHVsZWZpbGVzL3NvZnR3YXJlIiwKfSwKc3lzdGVtQmFzZU1QQVRIID0gIi91c3Ivc2hhcmUvbW9kdWxlZmlsZXM6L3Vzci9zaGFyZS9Nb2R1bGVzL21vZHVsZWZpbGVzOi91c3Ivc2hhcmUvbW9kdWxlZmlsZXMvTGludXg6L3Vzci9zaGFyZS9tb2R1bGVmaWxlcy9Db3JlOi91c3Ivc2hhcmUvbG1vZC9sbW9kL21vZHVsZWZp
+_ModuleTable001_=X01vZHVsZVRhYmxlXyA9IHsKTVR2ZXJzaW9uID0gMywKY19yZWJ1aWxkVGltZSA9IGZhbHNlLApjX3Nob3J0VGltZSA9IGZhbHNlLApkZXB0aFQgPSB7fSwKZmFtaWx5ID0ge30sCm1UID0gewpbIlN5bm9wc3lzX3g4Ni02NCJdID0gewpmbiA9ICIvZXRjL21vZHVsZWZpbGVzL3NvZnR3YXJlL1N5bm9wc3lzX3g4Ni02NC8yMDIxLmx1YSIsCmZ1bGxOYW1lID0gIlN5bm9wc3lzX3g4Ni02NC8yMDIxIiwKbG9hZE9yZGVyID0gMSwKcHJvcFQgPSB7fSwKc3RhY2tEZXB0aCA9IDAsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJTeW5vcHN5c194ODYtNjQiLAp3ViA9ICIwMDAwMDIwMjEuKnpmaW5hbCIsCn0sCn0sCm1wYXRoQSA9IHsKIi91c3Ivc2hhcmUvbW9kdWxlZmls
+_LMFILES_=/etc/modulefiles/software/Synopsys_x86-64/2021.lua
+_CE_M=
+_CE_CONDA=
+XDG_SESSION_ID=25
+XDG_RUNTIME_DIR=/run/user/1096455
+XDG_DATA_DIRS=/home/hfaroo9/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+VMR_MODE_FLAG=64
+VERDI_HOME=/software/Synopsys-2021_x86_64/verdi/R-2020.12-SP1-1
+VCS_MX_HOME_INTERNAL=1
+VCS_MODE_FLAG=64
+VCS_LCAMSG_PRINT_OFF=1
+VCS_HOME=/software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1
+VCS_DEPTH=0
+VCS_ARG_ADDED_FOR_TMP=1
+VCS_ARCH=linux64
+UNAME=/bin/uname
+TOOL_HOME=/software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1/linux64
+SYNOPSYS_LC_ROOT=/software/Synopsys-2021_x86_64/lc/R-2020.09-SP5
+SSH_TTY=/dev/pts/7
+SSH_CONNECTION=10.251.7.45 50105 172.22.230.64 22
+SSH_CLIENT=10.251.7.45 50105 22
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+SOFTPATH=/software
+SNPS_VERDI_INTERNAL_LP_XML_NEW_FLOW=1
+SELINUX_USE_CURRENT_RANGE=
+SELINUX_ROLE_REQUESTED=
+SELINUX_LEVEL_REQUESTED=
+SCRNAME=vcs
+SCRIPT_NAME=vcs
+OVA_UUM=0
+MODULESHOME=/usr/share/lmod/lmod
+MODULEPATH_ROOT=/usr/share/modulefiles
+MODULEPATH=/usr/share/modulefiles:/usr/share/Modules/modulefiles:/usr/share/modulefiles/Linux:/usr/share/modulefiles/Core:/usr/share/lmod/lmod/modulefiles/Core:/etc/modulefiles/env:/etc/modulefiles/class:/etc/modulefiles/software
+MFLAGS=
+MAKE_TERMOUT=/dev/pts/7
+MAKE_TERMERR=/dev/pts/7
+MAKELEVEL=1
+MAKEFLAGS=
+LOADEDMODULES=Synopsys_x86-64/2021
+LMOD_sys=Linux
+LMOD_arch=x86_64
+LMOD_VERSION=8.7.7
+LMOD_SHELL_PRGM=bash
+LMOD_SETTARG_FULL_SUPPORT=no
+LMOD_ROOT=/usr/share/lmod
+LMOD_PKG=/usr/share/lmod/lmod
+LMOD_DIR=/usr/share/lmod/lmod/libexec
+LMOD_CMD=/usr/share/lmod/lmod/libexec/lmod
+LMODARCH=x86_64
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+LC_ALL=C
+KRB5CCNAME=KCM:
+HISTCONTROL=ignoredups
+DISTARCH=Linux-x86_64
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1096455/bus
+CONDA_SHLVL=1
+CONDA_PYTHON_EXE=/home/hfaroo9/miniconda3/bin/python
+CONDA_PROMPT_MODIFIER=(base) 
+CONDA_PREFIX=/home/hfaroo9/miniconda3
+CONDA_EXE=/home/hfaroo9/miniconda3/bin/conda
+CONDA_DEFAULT_ENV=base
+COBBLER_SERVER=cobbler-03.engrit.illinois.edu
+BASH_FUNC_which%%=() {  ( alias;_ eval ${which_declare} ) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@_}
+BASH_FUNC_module%%=() {  if [ -z "${LMOD_SH_DBG_ON+x}" ]; then_ case "$-" in _ *v*x*)_ __lmod_sh_dbg='vx'_ ;;_ *v*)_ __lmod_sh_dbg='v'_ ;;_ *x*)_ __lmod_sh_dbg='x'_ ;;_ esac;_ fi;_ if [ -n "${__lmod_sh_dbg:-}" ]; then_ set +$__lmod_sh_dbg;_ echo "Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output" 1>&2;_ fi;_ eval "$($LMOD_CMD $LMOD_SHELL_PRGM "$@")" && eval "$(${LMOD_SETTARG_CMD:-:} -s sh)";_ __lmod_my_status=$?;_ if [ -n "${__lmod_sh_dbg:-}" ]; then_ echo "Shell debugging restarted" 1>&2;_ set -$__lmod_sh_dbg;_ fi;_ unset __lmod_sh_dbg;_ return $__lmod_my_status_}
+BASH_FUNC_ml%%=() {  eval "$($LMOD_DIR/ml_cmd "$@")"_}
+BASH_ENV=/usr/share/lmod/lmod/init/bash
+0
+83
+1670556656 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_assert.sv
+1618974642 /software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1/etc/sva/rec_ltl_classes_package.svp
+1670556658 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/tb/498_tb_toplevel.sv
+1670556658 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/tb/qspi_stub.sv
+1670556651 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/io_pad.sv
+1670556651 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/io_buf.sv
+1670556651 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/toplevel.sv
+1670556651 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/storage_controller.sv
+1670556651 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/qspi.sv
+1670556651 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/mmu.sv
+1670556651 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/digitalTimer.sv
+1670556651 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/sram_2048_32_wmask_8bit.v
+1670558306 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_top.sv
+1670556962 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_cache.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_vregfile.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_vreg_wr_mux.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_unit_wrapper.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_unit_mux.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_sld.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_result.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_queue.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_pipeline_wrapper.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_pipeline.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_pending_wr.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_mul_block.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_mul.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_lsu.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_elem.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_div_block.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_div.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_dispatcher.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_decoder.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_core.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_alu.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_xif.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_vregunpack.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_vregpack.sv
+1670556962 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/vproc_config.sv
+1670556657 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_pkg.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_wb_stage.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_tracer.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_top.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_register_file_latch.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_register_file_fpga.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_register_file_ff.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_prefetch_buffer.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_pmp.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_multdiv_slow.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_multdiv_fast.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_lockstep.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_load_store_unit.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_if_stage.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_id_stage.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_icache.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_fetch_fifo.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_ex_block.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_dummy_instr.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_decoder.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_csr.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_cs_registers.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_counter.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_core.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_controller.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_compressed_decoder.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_branch_predict.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_alu.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_tracer_pkg.sv
+1670556654 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_pkg.sv
+1670556655 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/syn/rtl/prim_clock_gating.v
+1670556656 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_util_pkg.sv
+1670556656 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_pkg.sv
+1670556656 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_rom_pkg.sv
+1670556656 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_ram_2p_pkg.sv
+1670556656 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_ram_1p_pkg.sv
+1670556656 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_pad_wrapper_pkg.sv
+1670556656 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_otp_pkg.sv
+1670556656 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_esc_pkg.sv
+1670556656 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_cipher_pkg.sv
+1670556656 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_alert_pkg.sv
+1670556655 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/dv/sv/dv_utils/dv_macros.svh
+1670556655 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/dv/sv/dv_utils/dv_fcov_macros.svh
+1618974649 /software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1/linux64/lib/vcsdp.tab
+1618931515 /software/Synopsys-2021_x86_64/verdi/R-2020.12-SP1-1/share/PLI/VCS/LINUX64/verdi.tab
+4
+1618976102 /software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1/linux64/lib/libvirsim.so
+1618975343 /software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1/linux64/lib/liberrorinf.so
+1618975120 /software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1/linux64/lib/libsnpsmalloc.so
+1618975339 /software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1/linux64/lib/libvfs.so
+1670558327 simv.daidir
+-1 partitionlib

@@ -3,28 +3,28 @@
 Report : area
 Design : toplevel_498
 Version: R-2020.09-SP4
-Date   : Thu Dec  1 10:09:53 2022
+Date   : Fri Dec  9 00:31:34 2022
 ****************************************
 
 Library(s) Used:
 
-    scadv10_cln65gp_rvt_ss_0p9v_125c (File: /ece498hk/libs/TSMC65GP_RFMIM__1P0V_2P5V__1p9m_6X1Z1U_ALRDL/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/synopsys/scadv10_cln65gp_rvt_ss_0p9v_125c.db)
+    scadv10_cln65gp_rvt_ss_0p9v_125c (File: /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/synopsys/scadv10_cln65gp_rvt_ss_0p9v_125c.db)
 
-Number of ports:                         5411
-Number of nets:                        111094
-Number of cells:                       106708
-Number of combinational cells:          94980
-Number of sequential cells:             11456
+Number of ports:                         5413
+Number of nets:                        111072
+Number of cells:                       106686
+Number of combinational cells:          95020
+Number of sequential cells:             11393
 Number of macros/black boxes:               0
-Number of buf/inv:                      16143
-Number of references:                     170
+Number of buf/inv:                      16169
+Number of references:                     164
 
-Combinational area:             230186.001714
-Buf/Inv area:                    22292.000756
-Noncombinational area:          100340.000089
+Combinational area:             230133.201726
+Buf/Inv area:                    22326.000764
+Noncombinational area:           99846.800081
 Macro/Black Box area:                0.000000
-Net Interconnect area:        12417456.243042
+Net Interconnect area:        12413489.541412
 
-Total cell area:                330526.001803
-Total area:                   12747982.244845
+Total cell area:                329980.001808
+Total area:                   12743469.543220
 1

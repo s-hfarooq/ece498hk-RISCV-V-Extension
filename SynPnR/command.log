@@ -1,7 +1,7 @@
 #@ # 
 #@ # Running dc_shell Version R-2020.09-SP4 for linux64 -- Mar 02, 2021
-#@ # Date:   Thu Dec  1 09:27:40 2022
-#@ # Run by: hfaroo9@ece-498hk-04.ece.illinois.edu
+#@ # Date:   Thu Dec  8 23:48:33 2022
+#@ # Run by: hfaroo9@ece-498hk-01.ece.illinois.edu
 #@ 
 
 source /software/Synopsys-2021_x86_64/syn/R-2020.09-SP4/admin/setup/.synopsys_dc.setup
