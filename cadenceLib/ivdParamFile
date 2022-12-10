@@ -1,0 +1,19 @@
+; Description of parameters :
+; 'gdsInFile			-	GDS2 file to be imported
+; 'verilogInFile		-	Verilog gate level netlist file to be 
+;                                       imported
+; 'primaryCellName		-	Name of the primary cell to be imported
+; 'designLibName		-	Name of the deisng library to which 
+;                                       the gds will be imported
+; 'refLibOrder			-	Names of the reference libraries in 
+;                                       order of preference
+;
+; All the above parameters are REQUIRED!
+
+importVerilogDesignKeys = list( nil
+	'gdsInFile 			"/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/SynPnR/pnr/final.gds2"
+	'verilogInFile			"/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/SynPnR/vlogout/toplevel_498.pnr.v"
+	'primaryCellName		"toplevel_498"
+	'designLibName			"hfaroo9_digital"
+	'refLibOrder			"tsmcN65"
+)

@@ -1,0 +1,4 @@
+-- Verilog In Form
+dest_sch_lib := hfaroo9_digital
+ref_lib_list := basic, tsmcN65
+log_file_name := ./verilogIn_hfaroo9.log

@@ -1,0 +1,83 @@
+\o Program:		@(#)$CDS: libManager version 6.1.8 - CAT37 07/23/2021 16:48 (sjfdcl1033) $
+\o Sub version:		sub-version  s203 
+\o Arguments:		-unmapped -mpssession virtuoso2074122 -mpshost ece-498hk-01.ece.illinois.edu -ADVM 
+\o Working Directory:	ece-498hk-01.ece.illinois.edu:/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib
+\o 64-bit offsets
+\o Qt version: 		5.9.1
+\o changeWorkingDir("/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib") unnecessary.
+\o ddSetForcedLib("") unnecessary.
+\o Log file is "/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/libManager.log".
+\o Opening libManager window.
+\a nrSetWindowVisibility(cdsLibManager "show")
+\o MPS service: map window
+\o Library Manager customization server connected.
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(930 169 794 548))
+\a cdsLibManager->FileNewLibButton->value = t
+\a nrSetWindowVisibility(NewLibShell "show")
+\a nrSetCurrentWindow(NewLibShell)
+\a nrSetCurrentWindow(NewLibShell->subDialog)
+\a nrResizeWindow(NewLibShell list(1064 161 507 559))
+\a NewLibShell->newLibNameText->value = "hfaroo9_digital"
+\a NewLibShell->newLibOKButton->value = t
+\a nrSetWindowVisibility(workingDialogForm "show")
+\a nrSetCurrentWindow(workingDialogForm)
+\o Created new library "hfaroo9_digital" at /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/hfaroo9_digital.
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(workingDialogForm list(1156 300 322 133))
+\a nrResizeWindow(NewLibShell list(1064 87 507 559))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\o DB was auto refreshed.
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->FileNewLibButton->value = t
+\a NewLibShell->newLibNameText->value = ""
+\a NewLibShell->QLineEdit1->value = ""
+\a NewLibShell->QLineEdit1->value = "/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib"
+\a nrSetWindowVisibility(NewLibShell->subDialog "show")
+\a nrSetCurrentWindow(NewLibShell)
+\a nrSetCurrentWindow(NewLibShell->subDialog)
+\a nrResizeWindow(NewLibShell list(1064 161 507 559))
+\a NewLibShell->newLibCancelButton->value = t
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(NewLibShell list(1064 124 507 559))
+\a nrSetWindowVisibility(cdsLibManager "hide")
+\a _lmgrCloseIconify("cdsLibManager" 1)
+\a nrSetWindowVisibility(cdsLibManager "show")
+\o MPS service: map window
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->libListBox->value = "hfaroo9_digital"
+\a cdsLibManager->libLineEdit->value = "hfaroo9_digital"
+\a lmgrLogShowPopup("mainListPopup0" 44 112 2 "hfaroo9_digital")
+\a cdsLibManager->editDeleteButton->value = t
+\a deleteForm->deleteFilterEdit->value = "*"
+\a deleteForm->notDeleteFilterEdit->value = "*"
+\a nrSetWindowVisibility(deleteForm "show")
+\a nrSetCurrentWindow(deleteForm)
+\a nrResizeWindow(deleteForm list(1004 228 627 425))
+\a deleteForm->OK->value = t
+\o QUESTION (CLM-199): The following 1 items are marked for deletion.  Are you sure?
+\a nrSetWindowVisibility(mcMBXDLG "show")
+\a nrSetCurrentWindow(mcMBXDLG)
+\a nrResizeWindow(mcMBXDLG list(1178 259 278 289))
+\a nrSetCurrentWindow(mcMBXDLG)
+\a mcMBXDLG->pushButton1->value = t
+\o Deleting 1 library.
+\o Deleting library "hfaroo9_digital".
+\a nrSetCurrentWindow(deleteForm)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(workingDialogForm)
+\a nrResizeWindow(workingDialogForm list(1156 374 322 133))
+\a nrResizeWindow(deleteForm list(1004 154 627 425))
+\o Deleted library 'hfaroo9_digital'.
+\o Delete of library "hfaroo9_digital" succeeded.
+\o Deletion of library done.
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->libLineEdit->value = ""
+\a nrResizeWindow(workingDialogForm list(1156 337 322 133))
+\a nrSetWindowVisibility(cdsLibManager "hide")
+\a _lmgrCloseIconify("cdsLibManager" 1)
+\o MPS service: shutdown
+\o libManager is exiting.
+\a exit(0)

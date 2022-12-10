@@ -1,0 +1,17 @@
+SOFTINCLUDE /software/cadence-2021-09/ICADVM201/share/cdssetup/cds.lib
+#Removed by ddDeleteObj: DEFINE test_ /home/hfaroo9/virt-test/test_
+DEFINE shared_lib /ece498hk/ece498hk_f22_t65_shared_lib
+#Removed by ddDeleteObj: DEFINE h_test /home/hfaroo9/virt-test/h_test
+
+DEFINE tsmc065_rvt_stdcells /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/stdcellLibs/tsmc065_rvt_stdcells
+
+# DEFINE cdsDefTechLib $CDSHOME/tools/dfII/etc/cdsDefTechLib 
+# DEFINE basic $CDSHOME/tools/dfII/etc/cdslib/basic
+# DEFINE analogLib $CDSHOME/tools/dfII/etc/cdslib/artist/analogLib
+DEFINE tsmcN65 /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65
+DEFINE layout_lib /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/PDK_doc/RF_flow/layout_lib
+DEFINE lna_lib_n65 /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/PDK_doc/RF_flow/lna_lib_n65
+#Removed by ddDeleteObj: DEFINE hfaroo9_digital /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/hfaroo9_digital
+#Removed by ddDeleteObj: DEFINE hfaroo9_digital /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/hfaroo9_digital
+#Removed by ddDeleteObj: DEFINE hfaroo9_digital /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/hfaroo9_digital
+DEFINE innovus_import /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/innovus_import

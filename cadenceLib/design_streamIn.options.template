@@ -1,0 +1,23 @@
+streamInKeys = list(nil
+    'library         "hfaroo9_digital"
+    'strmFile        "/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/SynPnR/pnr/final.gds2"
+    'runDir          "."
+    'logFile         "strmIn.log"
+    'topCell         "toplevel_498"
+    'view            "layout"
+    'hierDepth       32
+    'summaryFile     ""
+    'cellMap         ""
+    'case            "preserve"
+    'layerMap        ""
+    'fontMap         ""
+    'propMap         ""
+    'objectMap       ""
+    'viaMap          ""
+    'userSkillFile   ""
+    'propSeparator   ","
+    'pinAttNum       0
+    'refLibList      ""
+    'attachTechFileOfLib "tsmcN65"
+    'loadTechFile    ""
+)

@@ -1,7 +1,7 @@
 #######################################################
 #                                                     
 #  Innovus Command Logging File                     
-#  Created on Fri Dec  9 15:13:32 2022                
+#  Created on Sat Dec 10 02:06:16 2022                
 #                                                     
 #######################################################
 
@@ -36,24 +36,24 @@ set init_assign_buffer 0
 set init_mmmc_file timingSetup.viewDefinition
 init_design
 saveDesign toplevel_498.init.enc
-floorPlan -s 800 800 0 0 0 0
-setObjFPlanPolygon cell toplevel_498 0 0 800 800
-editPin -snap TRACK -side INSIDE -layer 3 -assign 2000 4 -pin external_qspi_ck_o
-editPin -snap TRACK -side INSIDE -layer 3 -assign 2000 4.4 -pin external_qspi_cs_o
-editPin -snap TRACK -side INSIDE -layer 3 -assign 2000 7 -pin {gpio_pins[0]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 2000 7.2 -pin {gpio_pins[1]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 2000 7.4 -pin {gpio_pins[2]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 2000 7.6 -pin {gpio_pins[3]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 2000 7.8 -pin {gpio_pins[4]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 2000 8 -pin {gpio_pins[5]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 2000 8.2 -pin {gpio_pins[6]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 2000 8.4 -pin {gpio_pins[7]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 2000 8.6 -pin {gpio_pins[8]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 2000 8.8 -pin {gpio_pins[9]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 2000 10 -pin {external_qspi_pins[0]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 2000 10.2 -pin {external_qspi_pins[1]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 2000 10.4 -pin {external_qspi_pins[2]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 2000 10.8 -pin {external_qspi_pins[3]}
+floorPlan -s 825 825 0 0 0 0
+setObjFPlanPolygon cell toplevel_498 0 0 825 825
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 4 -pin external_qspi_ck_o
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 4.4 -pin external_qspi_cs_o
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 7 -pin {gpio_pins[0]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 7.2 -pin {gpio_pins[1]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 7.4 -pin {gpio_pins[2]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 7.6 -pin {gpio_pins[3]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 7.8 -pin {gpio_pins[4]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 8 -pin {gpio_pins[5]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 8.2 -pin {gpio_pins[6]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 8.4 -pin {gpio_pins[7]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 8.6 -pin {gpio_pins[8]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 8.8 -pin {gpio_pins[9]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 10 -pin {external_qspi_pins[0]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 10.2 -pin {external_qspi_pins[1]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 10.4 -pin {external_qspi_pins[2]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 10.8 -pin {external_qspi_pins[3]}
 editPin -snap TRACK -side INSIDE -layer 3 -assign 0 1 -pin clk
 editPin -snap TRACK -side INSIDE -layer 3 -assign 0 1.4 -pin rst
 editPin -snap TRACK -side INSIDE -layer 3 -assign 0 1.8 -pin set_programming_mode
@@ -301,107 +301,61 @@ defOut -routing -floorplan final.def
 streamOut final.gds2 -mapFile tsmc065.map -libName DesignLib -merge /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/gds2/tsmc65_rvt_sc_adv10.gds2 -stripes 1 -mode ALL
 saveNetlist .././vlogout/toplevel_498.pnr.v -flat -includePhysicalCell {FILLCAP16A10TR FILLCAP8A10TR} -excludeLeafCell -excludeCellInst {FILL128A10TR FILLTIE128A10TR FILL64A10TR FILLTIE64A10TR FILL32A10TR FILLTIE32A10TR FILL16A10TR FILLTIE16A10TR FILL8A10TR FILLTIE8A10TR FILL4A10TR FILLTIE4A10TR FILL2A10TR FILLTIE2A10TR FILL1A10TR}
 write_sdf -view slowView -min_period_edges posedge $env(SDF_OUT_DIR)/$env(TOP_LEVEL).pnr.sdf
-saveDrc /tmp/innovus_temp_1318001_ece-498hk-01.ece.illinois.edu_hfaroo9_ndBuTK/vergQTmpBc3Tyi/qthread_src.drc
+saveDrc /tmp/innovus_temp_1561211_ece-498hk-01.ece.illinois.edu_hfaroo9_2pICGH/vergQTmpcgWdTt/qthread_src.drc
 clearDrc
-saveDrc /tmp/innovus_temp_1318001_ece-498hk-01.ece.illinois.edu_hfaroo9_ndBuTK/vergQTmpBc3Tyi/qthread_2.drc
-saveDrc /tmp/innovus_temp_1318001_ece-498hk-01.ece.illinois.edu_hfaroo9_ndBuTK/vergQTmpBc3Tyi/qthread_0.drc
-saveDrc /tmp/innovus_temp_1318001_ece-498hk-01.ece.illinois.edu_hfaroo9_ndBuTK/vergQTmpBc3Tyi/qthread_1.drc
-saveDrc /tmp/innovus_temp_1318001_ece-498hk-01.ece.illinois.edu_hfaroo9_ndBuTK/vergQTmpBc3Tyi/qthread_3.drc
-loadDrc -incremental /tmp/innovus_temp_1318001_ece-498hk-01.ece.illinois.edu_hfaroo9_ndBuTK/vergQTmpBc3Tyi/qthread_src.drc
+saveDrc /tmp/innovus_temp_1561211_ece-498hk-01.ece.illinois.edu_hfaroo9_2pICGH/vergQTmpcgWdTt/qthread_1.drc
+saveDrc /tmp/innovus_temp_1561211_ece-498hk-01.ece.illinois.edu_hfaroo9_2pICGH/vergQTmpcgWdTt/qthread_2.drc
+saveDrc /tmp/innovus_temp_1561211_ece-498hk-01.ece.illinois.edu_hfaroo9_2pICGH/vergQTmpcgWdTt/qthread_3.drc
+saveDrc /tmp/innovus_temp_1561211_ece-498hk-01.ece.illinois.edu_hfaroo9_2pICGH/vergQTmpcgWdTt/qthread_0.drc
+loadDrc /tmp/innovus_temp_1561211_ece-498hk-01.ece.illinois.edu_hfaroo9_2pICGH/vergQTmpcgWdTt/qthread.drc
+loadDrc -incremental /tmp/innovus_temp_1561211_ece-498hk-01.ece.illinois.edu_hfaroo9_2pICGH/vergQTmpcgWdTt/qthread_src.drc
 verifyConnectivity -type all -noAntenna
 saveDesign toplevel_498.finished.enc
 win
-pan -158.84550 -21.95650
-pan -339.75250 50.11250
-zoomBox -456.17300 -97.19400 1622.86150 907.94350
-zoomBox 216.15200 404.36750 1138.63150 850.35300
-zoomBox 296.94500 463.86000 1081.05300 842.94750
-zoomBox 587.32750 671.91300 883.05400 814.88600
-zoomBox 636.42750 706.06100 850.09000 809.35900
-zoomBox 716.05100 761.43750 796.63500 800.39700
-zoomBox 729.76650 769.14250 787.98900 797.29100
-zoomBox 470.11200 623.27750 951.67200 856.09400
-zoomBox -2108.57200 -825.33650 2577.25400 1440.09000
-zoomBox -1690.98950 -595.83550 2291.96250 1329.77700
-zoomBox -1336.04450 -401.11850 2049.46450 1235.65200
-zoomBox -558.64800 16.44900 1520.47850 1021.63100
-pan -86.26550 433.82150
-selectWire 719.0500 739.4500 719.1500 764.3500 4 vproc_top_u_core_gen_regfile_ff_register_file_i/FE_OFN713_n1550
-zoomBox -109.89900 205.63850 1166.94600 822.94650
-deselectAll
-selectInst vproc_top_u_core_gen_regfile_ff_register_file_i/U2341
-deselectAll
-selectInst vproc_top_u_core_gen_regfile_ff_register_file_i/U1734
-deselectAll
-zoomSelected
-selectWire 738.4500 740.0500 738.5500 742.9500 2 {vproc_top_u_core_gen_regfile_ff_register_file_i/rf_reg_q[255]}
-deselectAll
-selectWire 419.8500 524.2500 421.3500 524.3500 3 vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/FE_DBTN102_unpack_out_ops_8
-deselectAll
-selectWire 214.0500 569.0500 214.1500 570.9500 2 CTS_59
-deselectAll
-selectWire 125.2500 419.8500 129.1500 419.9500 3 vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/n1827
-deselectAll
-selectInst FE_OFC517_n9406
-deselectAll
-selectInst TAP_5737
-deselectAll
-selectInst U8659
-deselectAll
-selectInst U9938
-deselectAll
-selectInst vproc_top_v_core_genblk9_0__pipe_genblk2_pipeline/U45671
-deselectAll
-selectInst vproc_top_v_core_vregfile/genblk1_0__genblk1_genblk1_1__ram_reg_8__58_
-deselectAll
-selectInst vproc_top_v_core_vregfile/genblk1_0__genblk1_genblk1_1__ram_reg_3__77_
-zoomBox 20.81850 294.54900 1106.13650 819.26100
-zoomBox 131.92700 370.12300 1054.44850 816.12850
-zoomBox 375.95300 533.66300 942.49600 807.56600
-zoomBox 525.81500 634.09650 873.74350 802.30750
-zoomBox 541.91350 651.07450 837.65350 794.05400
-zoomBox 555.59800 665.50600 806.97700 787.03850
-zoomBox 597.08300 685.13700 778.70450 772.94450
-deselectAll
-selectInst vproc_top_u_core_gen_regfile_ff_register_file_i/rf_reg_q_reg_20__31_
-zoomBox 627.05600 699.32050 758.27800 762.76150
-zoomBox 639.21150 705.33300 750.75050 759.25800
-zoomBox 695.98100 732.03250 714.64750 741.05700
-zoomBox 693.96850 731.09750 715.92900 741.71450
-zoomBox 691.60100 729.99700 717.43700 742.48800
-zoomBox 688.81500 728.70250 719.21100 743.39800
-zoomBox 685.53750 727.18000 721.29800 744.46900
-zoomBox 681.68150 725.39250 723.75300 745.73250
-zoomBox 677.14550 723.28950 726.64150 747.21900
-zoomBox 665.53050 717.90500 734.03750 751.02550
-zoomBox 457.27050 621.35950 866.65800 819.28350
-zoomBox 413.13250 600.94150 894.76550 833.79350
-zoomBox 300.11600 548.66050 966.73600 870.94700
-pan -89.79100 137.50800
-zoomBox 100.53800 410.17750 884.79700 789.33800
-zoomBox 34.87500 372.39450 957.53300 818.46600
-zoomBox -133.25700 275.64950 1143.77800 893.04950
-pan -55.28950 243.03800
-deselectAll
-zoomBox -3568.68850 -846.44600 1944.87750 1819.16250
-zoomBox -5303.06150 -1322.69800 2328.17150 2366.72550
-zoomBox -13138.97900 -3474.41100 4059.89750 4840.62000
-zoomBox -7575.87450 -2224.18550 2986.38550 2882.28300
-zoomBox -3349.90900 -1119.11950 2163.65800 1546.48950
-zoomBox -2657.64700 -938.09700 2028.88550 1327.67100
-zoomBox -144.19700 32.84250 941.28400 557.63300
-zoomBox -213.65450 -23.36850 1063.38200 594.03200
-pan -212.71150 114.26300
-pan 479.94450 659.48000
-pan -211.17600 19.04200
-zoomBox -336.61100 7.70950 1165.78450 734.06300
-pan 12.64800 59.74150
-zoomBox 56.91200 -154.66200 841.17250 224.49950
-zoomBox 468.93950 -3.53500 487.60900 5.49100
-zoomBox 466.69250 -5.20400 492.53300 7.28900
-zoomBox 461.60600 -8.98250 503.68250 11.36000
-zoomBox 445.07750 -21.25950 539.90950 24.58850
-zoomBox 417.81900 -41.41550 599.48950 46.41550
-zoomBox -177.96350 -481.97350 1901.75750 523.49600
-pan -493.98050 144.95000
-zoomBox 247.57750 533.59700 289.65700 553.94100
+zoomBox 29.40850 -43.14250 1868.41000 961.99500
+zoomBox 327.64450 -32.23500 1457.02200 585.04550
+zoomBox 753.65050 -8.35200 914.29700 79.45200
+zoomBox 825.16550 10.97150 826.60900 11.76050
+pan -0.63300 -814.22600
+zoomBox 824.37250 10.90200 826.07150 11.83050
+zoomBox 821.53300 10.23450 827.77100 13.64400
+zoomBox 820.84450 10.07250 828.18350 14.08400
+zoomBox 820.00800 9.83200 829.77000 14.55150
+gui_select -rect {825.66100 10.99400 825.87800 11.89250}
+pan -0.67500 -812.21900
+zoomBox 818.28250 7.49900 829.76750 13.05150
+zoomBox 815.51300 6.82200 831.40950 14.50750
+zoomBox 813.75200 6.39200 832.45350 15.43350
+zoomBox 811.68000 5.88600 833.68200 16.52300
+zoomBox 809.24200 5.29050 835.12700 17.80500
+zoomBox 794.36200 1.65550 843.95000 25.62950
+zoomBox 788.86800 0.31350 847.20750 28.51850
+zoomBox 755.33100 -7.87850 867.09250 46.15400
+zoomBox 728.38300 -14.46050 883.07000 60.32500
+zoomBox 711.24600 -18.64650 893.23050 69.33650
+zoomBox 691.08450 -23.57100 905.18450 79.93850
+zoomBox 639.46050 -36.18050 935.79300 107.08550
+zoomBox 606.63150 -44.19900 955.25800 124.34900
+zoomBox 522.57050 -64.73150 1005.09900 168.55350
+zoomBox 469.11300 -77.78850 1036.79400 196.66450
+zoomBox 332.23350 -111.22200 1117.95150 268.64400
+zoomBox 245.18800 -132.48300 1169.56200 314.41800
+zoomBox 22.30300 -186.92300 1301.71300 431.62500
+zoomBox -286.18850 -262.27300 1484.62150 593.84900
+zoomBox -713.16650 -366.56400 1737.78200 818.38050
+pan -44.21450 417.34550
+zoomBox -644.85600 -253.81750 1438.45050 753.38550
+zoomBox -467.91050 -187.76700 1037.27950 539.93750
+zoomBox -340.56900 -135.27300 746.93100 390.49350
+zoomBox -290.83700 -114.77200 633.53800 332.12950
+zoomBox -246.48050 -97.68000 539.23850 282.18650
+zoomBox -106.82250 -43.73900 241.80550 124.81000
+zoomBox -19.27350 -9.86200 49.36350 23.32150
+zoomBox -16.60550 -8.08500 41.73600 20.12100
+zoomBox -10.71350 -4.16000 25.11600 13.16250
+zoomBox -9.30550 -3.22300 21.15100 11.50150
+zoomBox -8.10800 -2.42650 17.78050 10.08950
+zoomBox -3.15300 -0.19650 6.61100 4.52400
+zoomBox -1.99600 0.32450 4.00150 3.22400
+zoomBox -1.48350 0.55350 2.84950 2.64850
+zoomBox -0.42100 0.85250 1.21400 1.64300

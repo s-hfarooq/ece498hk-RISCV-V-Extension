@@ -41,8 +41,8 @@ saveDesign [format "%s%s" $env(TOP_LEVEL) ".init.enc"]
 
 
 # Create Floorplan
-set width 800
-set height 800
+set width 825
+set height 825
 set offset 0 
 
 floorplan -s $width $height $offset $offset $offset $offset
@@ -65,24 +65,24 @@ setObjFPlanPolygon cell $env(TOP_LEVEL) 0  0 $width $height
 
 
 # Output pins
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	4	-pin	external_qspi_ck_o
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	4.4	-pin	external_qspi_cs_o
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	4	-pin	external_qspi_ck_o
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	4.4	-pin	external_qspi_cs_o
 
 # Inout pins
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	7	-pin	gpio_pins\[0\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	7.2	-pin	gpio_pins\[1\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	7.4	-pin	gpio_pins\[2\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	7.6	-pin	gpio_pins\[3\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	7.8	-pin	gpio_pins\[4\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	8	-pin	gpio_pins\[5\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	8.2	-pin	gpio_pins\[6\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	8.4	-pin	gpio_pins\[7\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	8.6	-pin	gpio_pins\[8\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	8.8	-pin	gpio_pins\[9\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	10	-pin	external_qspi_pins\[0\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	10.2	-pin	external_qspi_pins\[1\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	10.4	-pin	external_qspi_pins\[2\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	2000	10.8	-pin	external_qspi_pins\[3\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	7	-pin	gpio_pins\[0\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	7.2	-pin	gpio_pins\[1\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	7.4	-pin	gpio_pins\[2\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	7.6	-pin	gpio_pins\[3\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	7.8	-pin	gpio_pins\[4\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	8	-pin	gpio_pins\[5\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	8.2	-pin	gpio_pins\[6\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	8.4	-pin	gpio_pins\[7\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	8.6	-pin	gpio_pins\[8\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	8.8	-pin	gpio_pins\[9\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	10	-pin	external_qspi_pins\[0\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	10.2	-pin	external_qspi_pins\[1\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	10.4	-pin	external_qspi_pins\[2\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	10.8	-pin	external_qspi_pins\[3\]
 
 # Input	pins									
 editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	1	-pin	clk
