@@ -5,63 +5,63 @@
         "module",
         1
     ],
+    "prim_secded_pkg": [
+        "prim_secded_pkg",
+        "zJKRF",
+        "module",
+        2
+    ],
+    "prim_util_pkg": [
+        "prim_util_pkg",
+        "GASTi",
+        "module",
+        3
+    ],
     "prim_alert_pkg": [
         "prim_alert_pkg",
         "na1Bx",
         "module",
-        2
+        4
     ],
     "prim_cipher_pkg": [
         "prim_cipher_pkg",
         "KGFJg",
         "module",
-        3
+        5
     ],
     "prim_esc_pkg": [
         "prim_esc_pkg",
         "UEgfZ",
         "module",
-        4
+        6
     ],
     "prim_otp_pkg": [
         "prim_otp_pkg",
         "PF0Ua",
         "module",
-        5
+        7
     ],
     "prim_pad_wrapper_pkg": [
         "prim_pad_wrapper_pkg",
         "b9Ga8",
         "module",
-        6
+        8
     ],
     "prim_ram_1p_pkg": [
         "prim_ram_1p_pkg",
         "JYtvx",
         "module",
-        7
+        9
     ],
     "prim_ram_2p_pkg": [
         "prim_ram_2p_pkg",
         "x7R1Q",
         "module",
-        8
+        10
     ],
     "prim_rom_pkg": [
         "prim_rom_pkg",
         "enLsP",
-        "module",
-        9
-    ],
-    "prim_secded_pkg": [
-        "prim_secded_pkg",
-        "zJKRF",
-        "module",
-        10
-    ],
-    "prim_util_pkg": [
-        "prim_util_pkg",
-        "GASTi",
         "module",
         11
     ],
@@ -87,180 +87,204 @@
         "ibex_core_0000",
         "NKVwf",
         "module",
-        16
+        15
     ],
     "ibex_cs_registers_0000": [
         "ibex_cs_registers_0000",
         "ZYcQd",
         "module",
-        17
+        16
     ],
     "ibex_ex_block_0000": [
         "ibex_ex_block_0000",
         "Yw9K4",
         "module",
-        19
+        17
     ],
     "ibex_id_stage_0000": [
         "ibex_id_stage_0000",
         "z1VhH",
         "module",
-        20
+        18
     ],
     "ibex_if_stage_0000": [
         "ibex_if_stage_0000",
         "L7dFI",
         "module",
-        21
+        19
     ],
     "ibex_multdiv_fast_0000": [
         "ibex_multdiv_fast_0000",
         "s4Vfp",
         "module",
-        22
+        20
     ],
     "ibex_top_0000": [
         "ibex_top_0000",
         "iUZPM",
         "module",
-        23
+        21
     ],
     "ibex_tracer": [
         "ibex_tracer",
         "R58tZ",
         "module",
-        24
+        22
     ],
     "vproc_pkg": [
         "vproc_pkg",
         "AZue9",
         "module",
-        25
+        23
     ],
     "vproc_config": [
         "vproc_config",
         "EnazR",
         "module",
-        26
+        24
     ],
     "vproc_vregpack_0000": [
         "vproc_vregpack_0000",
         "vv9TE",
         "module",
-        39
+        25
     ],
     "vproc_vregunpack_0000": [
         "vproc_vregunpack_0000",
         "dcRsI",
         "module",
-        40
+        26
     ],
     "vproc_xif": [
         "vproc_xif",
         "v9TYp",
         "module",
-        41
+        27
+    ],
+    "vproc_cache_0000": [
+        "vproc_cache_0000",
+        "IEHzV",
+        "module",
+        28
+    ],
+    "vproc_cache_0000_0000": [
+        "vproc_cache_0000_0000",
+        "AubHL",
+        "module",
+        29
+    ],
+    "vproc_cache_way": [
+        "vproc_cache_way",
+        "EDjax",
+        "module",
+        30
+    ],
+    "vproc_cache_way_0000": [
+        "vproc_cache_way_0000",
+        "Sgv7T",
+        "module",
+        31
     ],
     "vproc_decoder": [
         "vproc_decoder",
         "TW0eb",
         "module",
-        27
+        32
     ],
     "vproc_dispatcher": [
         "vproc_dispatcher",
         "N07vP",
         "module",
-        28
+        33
     ],
     "vproc_pending_wr": [
         "vproc_pending_wr",
         "MbFxJ",
         "module",
-        29
+        34
     ],
     "vproc_queue": [
         "vproc_queue",
         "QjdA6",
         "module",
-        30
+        35
     ],
     "vproc_queue_0000": [
         "vproc_queue_0000",
         "bpma7",
         "module",
-        31
+        36
     ],
     "vproc_result": [
         "vproc_result",
         "qwhh4",
         "module",
-        32
+        37
     ],
     "vproc_unit_wrapper_0001": [
         "vproc_unit_wrapper_0001",
         "qc3k1",
         "module",
-        33
+        38
     ],
     "vproc_unit_wrapper_0002": [
         "vproc_unit_wrapper_0002",
         "Sst2I",
         "module",
-        34
+        39
     ],
     "vproc_unit_wrapper_0003": [
         "vproc_unit_wrapper_0003",
         "Pa1wb",
         "module",
-        35
+        40
     ],
     "vproc_unit_wrapper_0004": [
         "vproc_unit_wrapper_0004",
         "x3a1b",
         "module",
-        36
+        41
     ],
     "vproc_vreg_wr_mux_0000": [
         "vproc_vreg_wr_mux_0000",
         "TM8wR",
         "module",
-        37
+        42
     ],
     "vproc_vregfile_0000": [
         "vproc_vregfile_0000",
         "JjFjD",
         "module",
-        38
+        43
     ],
     "sram_2048_32_wmask_8bit": [
         "sram_2048_32_wmask_8bit",
         "F2CJg",
         "module",
-        46
+        44
     ],
     "mmu_0000": [
         "mmu_0000",
         "SFD3N",
         "module",
-        42
+        45
     ],
     "qspi_stub": [
         "qspi_stub",
         "In3Qc",
         "module",
-        43
+        46
     ],
     "vproc_tb": [
         "vproc_tb",
         "FrHIx",
         "module",
-        44
+        47
     ],
     "...MASTER...": [
         "SIM",
         "amcQw",
         "module",
-        45
+        48
     ]
 }

@@ -2,9 +2,9 @@
 module toplevel_498 #(
         parameter int unsigned MEM_W           = 32,
         parameter int unsigned VMEM_W          = 32,
-        parameter int unsigned ICACHE_SZ       = 0,   // instruction cache size in bytes
+        parameter int unsigned ICACHE_SZ       = 1024,   // instruction cache size in bytes
         parameter int unsigned ICACHE_LINE_W   = 128, // instruction cache line width in bits
-        parameter int unsigned DCACHE_SZ       = 0,   // data cache size in bytes
+        parameter int unsigned DCACHE_SZ       = 1024,   // data cache size in bytes
         parameter int unsigned DCACHE_LINE_W   = 512  // data cache line width in bits
     )(
     input vdd,

@@ -3,28 +3,28 @@
 Report : area
 Design : toplevel_498
 Version: R-2020.09-SP4
-Date   : Fri Dec  9 00:31:34 2022
+Date   : Fri Dec  9 15:10:57 2022
 ****************************************
 
 Library(s) Used:
 
     scadv10_cln65gp_rvt_ss_0p9v_125c (File: /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/synopsys/scadv10_cln65gp_rvt_ss_0p9v_125c.db)
 
-Number of ports:                         5413
-Number of nets:                        111072
-Number of cells:                       106686
-Number of combinational cells:          95020
-Number of sequential cells:             11393
+Number of ports:                         6578
+Number of nets:                        162664
+Number of cells:                       157334
+Number of combinational cells:         125287
+Number of sequential cells:             30808
 Number of macros/black boxes:               0
-Number of buf/inv:                      16169
-Number of references:                     164
+Number of buf/inv:                      18346
+Number of references:                     198
 
-Combinational area:             230133.201726
-Buf/Inv area:                    22326.000764
-Noncombinational area:           99846.800081
+Combinational area:             337029.201166
+Buf/Inv area:                    27075.200848
+Noncombinational area:          261426.399627
 Macro/Black Box area:                0.000000
-Net Interconnect area:        12413489.541412
+Net Interconnect area:        19949728.729462
 
-Total cell area:                329980.001808
-Total area:                   12743469.543220
+Total cell area:                598455.600792
+Total area:                   20548184.330254
 1

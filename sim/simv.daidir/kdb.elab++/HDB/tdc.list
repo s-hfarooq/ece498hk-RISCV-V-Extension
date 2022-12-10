@@ -39,6 +39,7 @@
 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_pkg.sv
 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_util_pkg.sv
 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_alu.sv
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_cache.sv
 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_core.sv
 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_decoder.sv
 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/rtl/vproc_dispatcher.sv

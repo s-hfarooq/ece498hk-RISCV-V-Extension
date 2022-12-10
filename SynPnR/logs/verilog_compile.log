@@ -1,4 +1,4 @@
-TOOL:	xmverilog	21.03-s007: Started on Dec 08, 2022 at 23:48:27 CST
+TOOL:	xmverilog	21.03-s007: Started on Dec 09, 2022 at 14:14:35 CST
 xmverilog: 21.03-s007: (c) Copyright 1995-2021 Cadence Design Systems, Inc.
 file: /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/SynPnR/../src/toplevel.sv
 xmvlog: *W,SPDUSD: Include directory /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/SynPnR/../src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl given but not used.
@@ -13,18 +13,18 @@ xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
 		                  Instances  Unique
-		Modules:                 88      59
+		Modules:                 94      59
 		Interfaces:               8       1
 		Verilog packages:         4      14
 		Primitives:              12       2
-		Registers:             2759    3036
-		Scalar wires:          1461       -
+		Registers:             2908    3036
+		Scalar wires:          1540       -
 		Expanded wires:         192       1
-		Vectored wires:        1350       -
-		Always blocks:          399     400
-		Initial blocks:           0       4
-		Cont. assignments:      815    1458
-		Pseudo assignments:     870     777
+		Vectored wires:        1425       -
+		Always blocks:          408     400
+		Initial blocks:           8       2
+		Cont. assignments:      847    1458
+		Pseudo assignments:     908     815
 		Simulation timescale:  10ps
 	Writing initial simulation snapshot: worklib.toplevel_498:sv
-TOOL:	xmverilog	21.03-s007: Exiting on Dec 08, 2022 at 23:48:28 CST  (total: 00:00:01)
+TOOL:	xmverilog	21.03-s007: Exiting on Dec 09, 2022 at 14:14:38 CST  (total: 00:00:03)

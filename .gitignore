@@ -3,4 +3,5 @@
 *.pak
 *.gds2
 *.def
-
+*.sdf
+*.rpt
