@@ -1,7 +1,5 @@
-@(#)$CDS: ihdl version ICADVM20.1-64b 08/17/2021 18:50 (cpgsrv07) $  Sat Dec 10 15:47:47 2022
+@(#)$CDS: ihdl version ICADVM20.1-64b 08/17/2021 18:50 (cpgsrv07) $  Sun Dec 11 14:01:02 2022
 
-WARNING (VERILOGIN-19): The library, sram, is not specified in the cds.lib file. Add the library in the
-cds.lib file and run the command again.
 INFO (VERILOGIN-589): Using xmvlog binary for compilation.
 INFO (VERILOGIN-126): Unable to find the Verilog definition for module DLY2X0P5MA10TR. Therefore using library
 tsmc065_rvt_stdcells, cell DLY2X0P5MA10TR, and view symbol as the symbol.

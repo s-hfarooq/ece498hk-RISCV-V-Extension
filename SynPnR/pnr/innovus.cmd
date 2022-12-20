@@ -1,7 +1,7 @@
 #######################################################
 #                                                     
 #  Innovus Command Logging File                     
-#  Created on Thu Dec 15 12:41:05 2022                
+#  Created on Tue Dec 20 01:03:22 2022                
 #                                                     
 #######################################################
 
@@ -301,36 +301,12 @@ defOut -routing -floorplan final.def
 streamOut final.gds2 -mapFile tsmc065.map -libName DesignLib -merge /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/gds2/tsmc65_rvt_sc_adv10.gds2 -stripes 1 -mode ALL
 saveNetlist .././vlogout/toplevel_498.pnr.v -flat -includePhysicalCell {FILLCAP16A10TR FILLCAP8A10TR} -excludeLeafCell -excludeCellInst {FILL128A10TR FILLTIE128A10TR FILL64A10TR FILLTIE64A10TR FILL32A10TR FILLTIE32A10TR FILL16A10TR FILLTIE16A10TR FILL8A10TR FILLTIE8A10TR FILL4A10TR FILLTIE4A10TR FILL2A10TR FILLTIE2A10TR FILL1A10TR}
 write_sdf -view slowView -min_period_edges posedge $env(SDF_OUT_DIR)/$env(TOP_LEVEL).pnr.sdf
-saveDrc /tmp/innovus_temp_602034_ece-498hk-01.ece.illinois.edu_hfaroo9_ofMSXp/vergQTmpP0Gamk/qthread_src.drc
+saveDrc /tmp/innovus_temp_1274566_ece-498hk-03.ece.illinois.edu_hfaroo9_b6EeNw/vergQTmpKEPeIe/qthread_src.drc
 clearDrc
-saveDrc /tmp/innovus_temp_602034_ece-498hk-01.ece.illinois.edu_hfaroo9_ofMSXp/vergQTmpP0Gamk/qthread_1.drc
-saveDrc /tmp/innovus_temp_602034_ece-498hk-01.ece.illinois.edu_hfaroo9_ofMSXp/vergQTmpP0Gamk/qthread_2.drc
-saveDrc /tmp/innovus_temp_602034_ece-498hk-01.ece.illinois.edu_hfaroo9_ofMSXp/vergQTmpP0Gamk/qthread_3.drc
-saveDrc /tmp/innovus_temp_602034_ece-498hk-01.ece.illinois.edu_hfaroo9_ofMSXp/vergQTmpP0Gamk/qthread_0.drc
+saveDrc /tmp/innovus_temp_1274566_ece-498hk-03.ece.illinois.edu_hfaroo9_b6EeNw/vergQTmpKEPeIe/qthread_3.drc
+saveDrc /tmp/innovus_temp_1274566_ece-498hk-03.ece.illinois.edu_hfaroo9_b6EeNw/vergQTmpKEPeIe/qthread_2.drc
+saveDrc /tmp/innovus_temp_1274566_ece-498hk-03.ece.illinois.edu_hfaroo9_b6EeNw/vergQTmpKEPeIe/qthread_1.drc
+saveDrc /tmp/innovus_temp_1274566_ece-498hk-03.ece.illinois.edu_hfaroo9_b6EeNw/vergQTmpKEPeIe/qthread_0.drc
 verifyConnectivity -type all -noAntenna
 saveDesign toplevel_498.finished.enc
 win
-zoomBox 191.17200 221.86450 1831.21800 1014.76700
-zoomBox 304.19000 325.41500 1698.22950 999.38250
-zoomBox 400.25500 413.18150 1585.18900 986.05400
-zoomBox 660.46050 650.90900 1279.00350 949.95200
-zoomBox 400.25350 412.84050 1585.18900 985.71350
-zoomBox 270.61500 339.78500 1664.65700 1013.75350
-zoomBox -61.33200 152.72300 1868.13900 1085.55200
-zoomBox -272.42650 33.76450 1997.53950 1131.21050
-pan -166.52800 240.67200
-zoomBox -438.95500 -225.42150 2231.59350 1065.69150
-zoomBox -1432.42350 -742.12150 3683.51000 1731.24600
-gui_select -rect {1770.03400 1039.07200 1600.83600 786.81350}
-zoomBox -1077.56900 -524.77900 3270.97450 1577.58350
-zoomBox -775.94300 -340.03800 2920.31950 1446.97050
-zoomBox -301.63600 -49.53250 2368.91450 1241.58150
-zoomBox 199.05100 308.63250 1839.10300 1101.53800
-zoomBox 318.57800 394.13600 1712.62300 1068.10600
-selectInst PwrCap_728
-zoomBox 693.97950 711.58350 1219.74400 965.77150
-zoomBox 728.07650 740.41650 1174.97650 956.47650
-zoomBox 845.24100 840.00650 1013.79050 921.49400
-zoomBox 855.88300 849.05200 999.15000 918.31650
-zoomBox -207.93700 -55.19400 2462.65900 1235.94200
-deselectAll
