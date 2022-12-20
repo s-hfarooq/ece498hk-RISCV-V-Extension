@@ -1,5 +1,5 @@
 xmverilog: 21.03-s007: (c) Copyright 1995-2021 Cadence Design Systems, Inc.
-TOOL:	xmverilog	21.03-s007: Started on Dec 20, 2022 at 01:02:44 CST
+TOOL:	xmverilog	21.03-s007: Started on Dec 20, 2022 at 02:09:55 CST
 xmverilog
 	+xmtimescale+1ns/1ps
 	-c
@@ -23,4 +23,4 @@ xmverilog
 		Timing checks:         234419    1940
 		Simulation timescale:     1ps
 	Writing initial simulation snapshot: worklib.XOR3X4MA10TR:v
-TOOL:	xmverilog	21.03-s007: Exiting on Dec 20, 2022 at 01:03:03 CST  (total: 00:00:19)
+TOOL:	xmverilog	21.03-s007: Exiting on Dec 20, 2022 at 02:10:13 CST  (total: 00:00:18)

@@ -1,7 +1,7 @@
 #######################################################
 #                                                     
 #  Innovus Command Logging File                     
-#  Created on Tue Dec 20 01:03:22 2022                
+#  Created on Tue Dec 20 02:10:31 2022                
 #                                                     
 #######################################################
 
@@ -36,8 +36,8 @@ set init_assign_buffer 0
 set init_mmmc_file timingSetup.viewDefinition
 init_design
 saveDesign toplevel_498.init.enc
-floorPlan -s 850 850 150 150 150 150
-setObjFPlanPolygon cell toplevel_498 0 0 850 850
+floorPlan -s 800 800 150 150 150 150
+setObjFPlanPolygon cell toplevel_498 0 0 800 800
 editPin -snap TRACK -side INSIDE -layer 3 -assign 825 4 -pin external_qspi_ck_o
 editPin -snap TRACK -side INSIDE -layer 3 -assign 825 4.4 -pin external_qspi_cs_o
 editPin -snap TRACK -side INSIDE -layer 3 -assign 825 7 -pin {gpio_pins[0]}
@@ -301,12 +301,12 @@ defOut -routing -floorplan final.def
 streamOut final.gds2 -mapFile tsmc065.map -libName DesignLib -merge /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/gds2/tsmc65_rvt_sc_adv10.gds2 -stripes 1 -mode ALL
 saveNetlist .././vlogout/toplevel_498.pnr.v -flat -includePhysicalCell {FILLCAP16A10TR FILLCAP8A10TR} -excludeLeafCell -excludeCellInst {FILL128A10TR FILLTIE128A10TR FILL64A10TR FILLTIE64A10TR FILL32A10TR FILLTIE32A10TR FILL16A10TR FILLTIE16A10TR FILL8A10TR FILLTIE8A10TR FILL4A10TR FILLTIE4A10TR FILL2A10TR FILLTIE2A10TR FILL1A10TR}
 write_sdf -view slowView -min_period_edges posedge $env(SDF_OUT_DIR)/$env(TOP_LEVEL).pnr.sdf
-saveDrc /tmp/innovus_temp_1274566_ece-498hk-03.ece.illinois.edu_hfaroo9_b6EeNw/vergQTmpKEPeIe/qthread_src.drc
+saveDrc /tmp/innovus_temp_1302007_ece-498hk-03.ece.illinois.edu_hfaroo9_dC6Tzh/vergQTmpPrmIJ3/qthread_src.drc
 clearDrc
-saveDrc /tmp/innovus_temp_1274566_ece-498hk-03.ece.illinois.edu_hfaroo9_b6EeNw/vergQTmpKEPeIe/qthread_3.drc
-saveDrc /tmp/innovus_temp_1274566_ece-498hk-03.ece.illinois.edu_hfaroo9_b6EeNw/vergQTmpKEPeIe/qthread_2.drc
-saveDrc /tmp/innovus_temp_1274566_ece-498hk-03.ece.illinois.edu_hfaroo9_b6EeNw/vergQTmpKEPeIe/qthread_1.drc
-saveDrc /tmp/innovus_temp_1274566_ece-498hk-03.ece.illinois.edu_hfaroo9_b6EeNw/vergQTmpKEPeIe/qthread_0.drc
+saveDrc /tmp/innovus_temp_1302007_ece-498hk-03.ece.illinois.edu_hfaroo9_dC6Tzh/vergQTmpPrmIJ3/qthread_2.drc
+saveDrc /tmp/innovus_temp_1302007_ece-498hk-03.ece.illinois.edu_hfaroo9_dC6Tzh/vergQTmpPrmIJ3/qthread_3.drc
+saveDrc /tmp/innovus_temp_1302007_ece-498hk-03.ece.illinois.edu_hfaroo9_dC6Tzh/vergQTmpPrmIJ3/qthread_1.drc
+saveDrc /tmp/innovus_temp_1302007_ece-498hk-03.ece.illinois.edu_hfaroo9_dC6Tzh/vergQTmpPrmIJ3/qthread_0.drc
 verifyConnectivity -type all -noAntenna
 saveDesign toplevel_498.finished.enc
 win
