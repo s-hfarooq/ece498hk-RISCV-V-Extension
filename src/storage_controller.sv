@@ -41,7 +41,7 @@ logic sram_retn;
 logic [31:0] d_out_tmp;
 
 // Will be using SRAM as scratchpad memory
-// sram_2048_32_wmask_8bit sram (
+// sram512 sram (
 //     .Q(sram_d_out),
 //     .CLK(clk),
 //     .CEN(sram_chip_en),

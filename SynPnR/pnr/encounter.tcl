@@ -41,9 +41,9 @@ saveDesign [format "%s%s" $env(TOP_LEVEL) ".init.enc"]
 
 
 # Create Floorplan
-set width 825
-set height 825
-set offset 0 
+set width 850
+set height 850
+set offset 150 
 
 floorplan -s $width $height $offset $offset $offset $offset
 setObjFPlanPolygon cell $env(TOP_LEVEL) 0  0 $width $height
@@ -136,7 +136,7 @@ addRing \
 	-width {top 0.6 bottom 0.6 left 0.6 right 0.6} \
 	-layer {top M1 bottom M1 left M2 right M2} \
 	-center 1 \
-	-nets {vss vdd}
+	-nets {vss vdd clk rst set_programming_mode external_qspi_ck_o external_qspi_cs_o external_qspi_pins\[\0] external_qspi_pins\[\1] external_qspi_pins\[\2] external_qspi_pins\[\3] gpio_pins\[\0] gpio_pins\[\1] gpio_pins\[\2] gpio_pins\[\3] gpio_pins\[\4] gpio_pins\[\5] gpio_pins\[\6] gpio_pins\[\7] gpio_pins\[\8] gpio_pins\[\9]}
 
 # Add pwr/gnd stripe
 #setAddStripeMode -break_at {block_ring} ;# Specifies the break point of stripes.

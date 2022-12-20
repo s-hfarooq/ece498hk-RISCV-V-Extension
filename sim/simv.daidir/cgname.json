@@ -257,34 +257,28 @@
         "module",
         43
     ],
-    "sram_2048_32_wmask_8bit": [
-        "sram_2048_32_wmask_8bit",
-        "F2CJg",
-        "module",
-        44
-    ],
     "mmu_0000": [
         "mmu_0000",
         "SFD3N",
         "module",
-        45
+        44
     ],
     "qspi_stub": [
         "qspi_stub",
         "In3Qc",
         "module",
-        46
+        45
     ],
     "vproc_tb": [
         "vproc_tb",
         "FrHIx",
         "module",
-        47
+        46
     ],
     "...MASTER...": [
         "SIM",
         "amcQw",
         "module",
-        48
+        47
     ]
 }

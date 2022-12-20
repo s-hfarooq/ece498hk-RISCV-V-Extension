@@ -3,7 +3,7 @@
 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/io_pad.sv
 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/mmu.sv
 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/qspi.sv
-/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/sram_2048_32_wmask_8bit.v
+/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/sram512.v
 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/storage_controller.sv
 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/toplevel.sv
 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/src/vicuna/ibex/rtl/ibex_alu.sv

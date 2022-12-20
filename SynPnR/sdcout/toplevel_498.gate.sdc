@@ -1,35 +1,11 @@
 ###################################################################
 
-# Created by write_sdc on Sat Dec 10 02:05:29 2022
+# Created by write_sdc on Thu Dec 15 12:39:49 2022
 
 ###################################################################
 set sdc_version 2.1
 
 set_units -time ns -resistance kOhm -capacitance pF -voltage V -current mA
-set_wire_load_model -name tsmc65_wl10 -library scadv10_cln65gp_rvt_ss_0p9v_125c
-set_driving_cell -lib_cell INVX1BA10TR -pin Y [get_ports vdd]
-set_driving_cell -lib_cell INVX1BA10TR -pin Y [get_ports vss]
-set_driving_cell -lib_cell INVX1BA10TR -pin Y [get_ports clk]
-set_driving_cell -lib_cell INVX1BA10TR -pin Y [get_ports rst]
-set_driving_cell -lib_cell INVX1BA10TR -pin Y [get_ports {gpio_pins[9]}]
-set_driving_cell -lib_cell INVX1BA10TR -pin Y [get_ports {gpio_pins[8]}]
-set_driving_cell -lib_cell INVX1BA10TR -pin Y [get_ports {gpio_pins[7]}]
-set_driving_cell -lib_cell INVX1BA10TR -pin Y [get_ports {gpio_pins[6]}]
-set_driving_cell -lib_cell INVX1BA10TR -pin Y [get_ports {gpio_pins[5]}]
-set_driving_cell -lib_cell INVX1BA10TR -pin Y [get_ports {gpio_pins[4]}]
-set_driving_cell -lib_cell INVX1BA10TR -pin Y [get_ports {gpio_pins[3]}]
-set_driving_cell -lib_cell INVX1BA10TR -pin Y [get_ports {gpio_pins[2]}]
-set_driving_cell -lib_cell INVX1BA10TR -pin Y [get_ports {gpio_pins[1]}]
-set_driving_cell -lib_cell INVX1BA10TR -pin Y [get_ports {gpio_pins[0]}]
-set_driving_cell -lib_cell INVX1BA10TR -pin Y [get_ports                       \
-{external_qspi_pins[3]}]
-set_driving_cell -lib_cell INVX1BA10TR -pin Y [get_ports                       \
-{external_qspi_pins[2]}]
-set_driving_cell -lib_cell INVX1BA10TR -pin Y [get_ports                       \
-{external_qspi_pins[1]}]
-set_driving_cell -lib_cell INVX1BA10TR -pin Y [get_ports                       \
-{external_qspi_pins[0]}]
-set_driving_cell -lib_cell INVX1BA10TR -pin Y [get_ports set_programming_mode]
 set_load -pin_load 0.04 [get_ports {gpio_pins[9]}]
 set_load -pin_load 0.04 [get_ports {gpio_pins[8]}]
 set_load -pin_load 0.04 [get_ports {gpio_pins[7]}]
@@ -67,7 +43,7 @@ set_max_fanout 1 [get_ports {external_qspi_pins[0]}]
 set_max_fanout 1 [get_ports set_programming_mode]
 create_clock [get_ports clk]  -name my_clk  -period 66.6667  -waveform {0 33.3333}
 set_clock_uncertainty 0.1  [get_clocks my_clk]
-create_generated_clock [get_pins mmu_storage_controller_qspi_controller/qspi_ck_o]  -name external_qspi_ck_o  -source [get_pins mmu_storage_controller_qspi_controller/s_pclk]  -divide_by 1  -invert
+create_generated_clock [get_pins mmu_storage_controller/qspi_controller/qspi_ck_o]  -name external_qspi_ck_o  -source [get_pins mmu_storage_controller/qspi_controller/s_pclk]  -divide_by 1  -invert
 set_false_path   -from [get_ports rst]
 set_false_path   -from [list [get_ports {gpio_pins[9]}] [get_ports {gpio_pins[8]}] [get_ports  \
 {gpio_pins[7]}] [get_ports {gpio_pins[6]}] [get_ports {gpio_pins[5]}]          \

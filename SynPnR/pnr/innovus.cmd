@@ -1,7 +1,7 @@
 #######################################################
 #                                                     
 #  Innovus Command Logging File                     
-#  Created on Sat Dec 10 02:06:16 2022                
+#  Created on Thu Dec 15 12:41:05 2022                
 #                                                     
 #######################################################
 
@@ -36,8 +36,8 @@ set init_assign_buffer 0
 set init_mmmc_file timingSetup.viewDefinition
 init_design
 saveDesign toplevel_498.init.enc
-floorPlan -s 825 825 0 0 0 0
-setObjFPlanPolygon cell toplevel_498 0 0 825 825
+floorPlan -s 850 850 150 150 150 150
+setObjFPlanPolygon cell toplevel_498 0 0 850 850
 editPin -snap TRACK -side INSIDE -layer 3 -assign 825 4 -pin external_qspi_ck_o
 editPin -snap TRACK -side INSIDE -layer 3 -assign 825 4.4 -pin external_qspi_cs_o
 editPin -snap TRACK -side INSIDE -layer 3 -assign 825 7 -pin {gpio_pins[0]}
@@ -77,7 +77,7 @@ setNanoRouteMode -routeTopRoutingLayer 6
 setDesignMode -topRoutingLayer M6
 setViaGenMode -invoke_verifyGeometry true -create_double_row_cut_via 1 -add_pin_to_pin_via true -respect_signal_routes 1
 setAddRingOption -avoid_short 1
-addRing -spacing {top 0.2 bottom 0.2 left 0.2 right 0.2} -width {top 0.6 bottom 0.6 left 0.6 right 0.6} -layer {top M1 bottom M1 left M2 right M2} -center 1 -nets {vss vdd}
+addRing -spacing {top 0.2 bottom 0.2 left 0.2 right 0.2} -width {top 0.6 bottom 0.6 left 0.6 right 0.6} -layer {top M1 bottom M1 left M2 right M2} -center 1 -nets {vss vdd clk rst set_programming_mode external_qspi_ck_o external_qspi_cs_o external_qspi_pins\[\0] external_qspi_pins\[\1] external_qspi_pins\[\2] external_qspi_pins\[\3] gpio_pins\[\0] gpio_pins\[\1] gpio_pins\[\2] gpio_pins\[\3] gpio_pins\[\4] gpio_pins\[\5] gpio_pins\[\6] gpio_pins\[\7] gpio_pins\[\8] gpio_pins\[\9]}
 addStripe -block_ring_top_layer_limit M5 -max_same_layer_jog_length 0.56 -padcore_ring_bottom_layer_limit M1 -number_of_sets 6 -padcore_ring_top_layer_limit M4 -spacing 1.84 -merge_stripes_value 0.28 -layer M5 -block_ring_bottom_layer_limit M1 -width 1 -nets { vss vdd }
 sroute
 addEndCap -prefix PwrCap -preCap FILLCAP16A10TR -postCap FILLCAP16A10TR -flipY
@@ -301,61 +301,36 @@ defOut -routing -floorplan final.def
 streamOut final.gds2 -mapFile tsmc065.map -libName DesignLib -merge /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/gds2/tsmc65_rvt_sc_adv10.gds2 -stripes 1 -mode ALL
 saveNetlist .././vlogout/toplevel_498.pnr.v -flat -includePhysicalCell {FILLCAP16A10TR FILLCAP8A10TR} -excludeLeafCell -excludeCellInst {FILL128A10TR FILLTIE128A10TR FILL64A10TR FILLTIE64A10TR FILL32A10TR FILLTIE32A10TR FILL16A10TR FILLTIE16A10TR FILL8A10TR FILLTIE8A10TR FILL4A10TR FILLTIE4A10TR FILL2A10TR FILLTIE2A10TR FILL1A10TR}
 write_sdf -view slowView -min_period_edges posedge $env(SDF_OUT_DIR)/$env(TOP_LEVEL).pnr.sdf
-saveDrc /tmp/innovus_temp_1561211_ece-498hk-01.ece.illinois.edu_hfaroo9_2pICGH/vergQTmpcgWdTt/qthread_src.drc
+saveDrc /tmp/innovus_temp_602034_ece-498hk-01.ece.illinois.edu_hfaroo9_ofMSXp/vergQTmpP0Gamk/qthread_src.drc
 clearDrc
-saveDrc /tmp/innovus_temp_1561211_ece-498hk-01.ece.illinois.edu_hfaroo9_2pICGH/vergQTmpcgWdTt/qthread_1.drc
-saveDrc /tmp/innovus_temp_1561211_ece-498hk-01.ece.illinois.edu_hfaroo9_2pICGH/vergQTmpcgWdTt/qthread_2.drc
-saveDrc /tmp/innovus_temp_1561211_ece-498hk-01.ece.illinois.edu_hfaroo9_2pICGH/vergQTmpcgWdTt/qthread_3.drc
-saveDrc /tmp/innovus_temp_1561211_ece-498hk-01.ece.illinois.edu_hfaroo9_2pICGH/vergQTmpcgWdTt/qthread_0.drc
-loadDrc /tmp/innovus_temp_1561211_ece-498hk-01.ece.illinois.edu_hfaroo9_2pICGH/vergQTmpcgWdTt/qthread.drc
-loadDrc -incremental /tmp/innovus_temp_1561211_ece-498hk-01.ece.illinois.edu_hfaroo9_2pICGH/vergQTmpcgWdTt/qthread_src.drc
+saveDrc /tmp/innovus_temp_602034_ece-498hk-01.ece.illinois.edu_hfaroo9_ofMSXp/vergQTmpP0Gamk/qthread_1.drc
+saveDrc /tmp/innovus_temp_602034_ece-498hk-01.ece.illinois.edu_hfaroo9_ofMSXp/vergQTmpP0Gamk/qthread_2.drc
+saveDrc /tmp/innovus_temp_602034_ece-498hk-01.ece.illinois.edu_hfaroo9_ofMSXp/vergQTmpP0Gamk/qthread_3.drc
+saveDrc /tmp/innovus_temp_602034_ece-498hk-01.ece.illinois.edu_hfaroo9_ofMSXp/vergQTmpP0Gamk/qthread_0.drc
 verifyConnectivity -type all -noAntenna
 saveDesign toplevel_498.finished.enc
 win
-zoomBox 29.40850 -43.14250 1868.41000 961.99500
-zoomBox 327.64450 -32.23500 1457.02200 585.04550
-zoomBox 753.65050 -8.35200 914.29700 79.45200
-zoomBox 825.16550 10.97150 826.60900 11.76050
-pan -0.63300 -814.22600
-zoomBox 824.37250 10.90200 826.07150 11.83050
-zoomBox 821.53300 10.23450 827.77100 13.64400
-zoomBox 820.84450 10.07250 828.18350 14.08400
-zoomBox 820.00800 9.83200 829.77000 14.55150
-gui_select -rect {825.66100 10.99400 825.87800 11.89250}
-pan -0.67500 -812.21900
-zoomBox 818.28250 7.49900 829.76750 13.05150
-zoomBox 815.51300 6.82200 831.40950 14.50750
-zoomBox 813.75200 6.39200 832.45350 15.43350
-zoomBox 811.68000 5.88600 833.68200 16.52300
-zoomBox 809.24200 5.29050 835.12700 17.80500
-zoomBox 794.36200 1.65550 843.95000 25.62950
-zoomBox 788.86800 0.31350 847.20750 28.51850
-zoomBox 755.33100 -7.87850 867.09250 46.15400
-zoomBox 728.38300 -14.46050 883.07000 60.32500
-zoomBox 711.24600 -18.64650 893.23050 69.33650
-zoomBox 691.08450 -23.57100 905.18450 79.93850
-zoomBox 639.46050 -36.18050 935.79300 107.08550
-zoomBox 606.63150 -44.19900 955.25800 124.34900
-zoomBox 522.57050 -64.73150 1005.09900 168.55350
-zoomBox 469.11300 -77.78850 1036.79400 196.66450
-zoomBox 332.23350 -111.22200 1117.95150 268.64400
-zoomBox 245.18800 -132.48300 1169.56200 314.41800
-zoomBox 22.30300 -186.92300 1301.71300 431.62500
-zoomBox -286.18850 -262.27300 1484.62150 593.84900
-zoomBox -713.16650 -366.56400 1737.78200 818.38050
-pan -44.21450 417.34550
-zoomBox -644.85600 -253.81750 1438.45050 753.38550
-zoomBox -467.91050 -187.76700 1037.27950 539.93750
-zoomBox -340.56900 -135.27300 746.93100 390.49350
-zoomBox -290.83700 -114.77200 633.53800 332.12950
-zoomBox -246.48050 -97.68000 539.23850 282.18650
-zoomBox -106.82250 -43.73900 241.80550 124.81000
-zoomBox -19.27350 -9.86200 49.36350 23.32150
-zoomBox -16.60550 -8.08500 41.73600 20.12100
-zoomBox -10.71350 -4.16000 25.11600 13.16250
-zoomBox -9.30550 -3.22300 21.15100 11.50150
-zoomBox -8.10800 -2.42650 17.78050 10.08950
-zoomBox -3.15300 -0.19650 6.61100 4.52400
-zoomBox -1.99600 0.32450 4.00150 3.22400
-zoomBox -1.48350 0.55350 2.84950 2.64850
-zoomBox -0.42100 0.85250 1.21400 1.64300
+zoomBox 191.17200 221.86450 1831.21800 1014.76700
+zoomBox 304.19000 325.41500 1698.22950 999.38250
+zoomBox 400.25500 413.18150 1585.18900 986.05400
+zoomBox 660.46050 650.90900 1279.00350 949.95200
+zoomBox 400.25350 412.84050 1585.18900 985.71350
+zoomBox 270.61500 339.78500 1664.65700 1013.75350
+zoomBox -61.33200 152.72300 1868.13900 1085.55200
+zoomBox -272.42650 33.76450 1997.53950 1131.21050
+pan -166.52800 240.67200
+zoomBox -438.95500 -225.42150 2231.59350 1065.69150
+zoomBox -1432.42350 -742.12150 3683.51000 1731.24600
+gui_select -rect {1770.03400 1039.07200 1600.83600 786.81350}
+zoomBox -1077.56900 -524.77900 3270.97450 1577.58350
+zoomBox -775.94300 -340.03800 2920.31950 1446.97050
+zoomBox -301.63600 -49.53250 2368.91450 1241.58150
+zoomBox 199.05100 308.63250 1839.10300 1101.53800
+zoomBox 318.57800 394.13600 1712.62300 1068.10600
+selectInst PwrCap_728
+zoomBox 693.97950 711.58350 1219.74400 965.77150
+zoomBox 728.07650 740.41650 1174.97650 956.47650
+zoomBox 845.24100 840.00650 1013.79050 921.49400
+zoomBox 855.88300 849.05200 999.15000 918.31650
+zoomBox -207.93700 -55.19400 2462.65900 1235.94200
+deselectAll

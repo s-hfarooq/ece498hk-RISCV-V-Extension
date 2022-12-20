@@ -1,5 +1,5 @@
 Command Line: /software/Synopsys-2021_x86_64/vcs/R-2020.12-SP1-1/linux64/bin/elabcom -logdir simv.daidir/elabcomLog -simvdaidir simv.daidir -lib simv.daidir/work -saveLevel -elab simv.daidir/kdb -simflow -simdir simv.daidir/kdb_libs -topfile simv.daidir/.elabcomTopFile -pkgfile simv.daidir/.elabcomPkgFile -Lf work +disable_message+C00380+C00381 +disable_message+C00388+C00389
-uname(Linux ece-498hk-01.ece.illinois.edu 4.18.0-372.26.1.el8_6.x86_64 #1 SMP Tue Sep 13 06:07:14 EDT 2022 x86_64)
+uname(Linux ece-498hk-04.ece.illinois.edu 4.18.0-372.26.1.el8_6.x86_64 #1 SMP Tue Sep 13 06:07:14 EDT 2022 x86_64)
 [INFO] error/warning message 'C00388' has been suppressed.
 [INFO] error/warning message 'C00389' has been suppressed.
-au time 1.402634 0.225954 0.039396 delta 109834240 109834240 total 227295232 227295232
+au time 1.149894 0.218127 0.047255 delta 109785088 109785088 total 227246080 227246080

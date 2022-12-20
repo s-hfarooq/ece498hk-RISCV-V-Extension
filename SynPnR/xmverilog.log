@@ -1,26 +1,116 @@
 xmverilog: 21.03-s007: (c) Copyright 1995-2021 Cadence Design Systems, Inc.
-TOOL:	xmverilog	21.03-s007: Started on Dec 10, 2022 at 02:05:30 CST
+TOOL:	xmverilog	21.03-s007: Started on Dec 15, 2022 at 12:39:50 CST
 xmverilog
 	+xmtimescale+1ns/1ps
 	-c
 	/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/verilog/tsmc65_rvt_sc_adv10.v
 	./vlogout/toplevel_498.gate.v
+file: ./vlogout/toplevel_498.gate.v
+	module worklib.vproc_cache_way_00000017_00000003_00000040_1:v
+		errors: 0, warnings: 0
+	module worklib.vproc_cache_way_00000017_00000003_00000040_0:v
+		errors: 0, warnings: 0
+	module worklib.vproc_cache_32_00000004_00000004_00000040_00000008:v
+		errors: 0, warnings: 0
+	module worklib.qspi_controller:v
+		errors: 0, warnings: 0
+	module worklib.io_buf_5:v
+		errors: 0, warnings: 0
+	module worklib.io_buf_4:v
+		errors: 0, warnings: 0
+	module worklib.io_buf_3:v
+		errors: 0, warnings: 0
+	module worklib.io_buf_2:v
+		errors: 0, warnings: 0
+	module worklib.storage_controller_00000020:v
+		errors: 0, warnings: 0
+	module worklib.ibex_register_file_ff_0_00000020_0:v
+		errors: 0, warnings: 0
+	module worklib.vproc_vregfile_0_00000080_00000080_00000005_00000002_0000008000000080_00000001_00000080:v
+		errors: 0, warnings: 0
+	module worklib.vproc_pending_wr_0:v
+		errors: 0, warnings: 0
+	module worklib.vproc_decoder_00000007_00000020_1_0:v
+		errors: 0, warnings: 0
+	module worklib.vproc_cache_way_00000017_00000005_00000010_0:v
+		errors: 0, warnings: 0
+	module worklib.ibex_cs_registers_0_00000001_0_0_0_0_00000000_00000028_0_00000000_00000004_0_2_0_00000007:v
+		errors: 0, warnings: 0
+	module worklib.vproc_vregunpack_00000080_00000005_00000001_00000080_00000005_1_00000080_00000020_00000006_00000001_08_30_02_03_23_10_02_00000004_83_0:v
+		errors: 0, warnings: 0
+	module worklib.vproc_lsu_00000020_00000003_00000008_00000004_1_0_I_xif_mem_if_vproc_xif_coproc_mem_X_ID_WIDTH_32_h00000003_X_MEM_WIDTH_32_h00000020I_xif_memres_if_vproc_xif_coproc_mem_result_X_ID_WIDTH_32_h00000003_X_MEM_WIDTH_32_h00000020:v
+		errors: 0, warnings: 0
+	module worklib.vproc_alu_00000020_0:v
+		errors: 0, warnings: 0
+	module worklib.vproc_elem_00000080_00000020_0:v
+		errors: 0, warnings: 0
+	module worklib.vproc_pipeline_00000080_00000007_00000003_00000008_3f_00000080_00000005_00000001_00000080_00000005_1_00000020_00000006_1_08_30_02_03_23_10_01_0_00000004_00000020_00000002_0000002000000004_2_1_1_0_0_1_00000001_00000004_1_0_0_0_I_xif_mem_if_vproc_xif_coproc_mem_X_ID_WIDTH_32_h00000003_X_MEM_WIDTH_32_h00000020I_xif_memres_if_vproc_xif_coproc_mem_result_X_ID_WIDTH_32_h00000003_X_MEM_WIDTH_32_h00000020:v
+		errors: 0, warnings: 0
+	module worklib.ibex_multdiv_fast_RV32M2:v
+		errors: 0, warnings: 0
+	module worklib.vproc_cache_way_00000017_00000005_00000010_1:v
+		errors: 0, warnings: 0
+	module worklib.toplevel_498:v
+		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
 	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.OA22X1MA10TR:v <0x2c19c4cc>
+			streams:   0, words:     0
+		worklib.OAI22X0P7MA10TR:v <0x2a2ae416>
+			streams:   0, words:     0
+		worklib.AOI21BX1MA10TR:v <0x59d49cb7>
+			streams:   0, words:     0
+		worklib.ADDFX1MA10TR:v <0x20ab5ef8>
+			streams:   0, words:     0
+		worklib.OAI222X0P7MA10TR:v <0x7609115a>
+			streams:   0, words:     0
+		worklib.AOI222X0P7MA10TR:v <0x4362cd2e>
+			streams:   0, words:     0
+		worklib.AOI211X2MA10TR:v <0x454ba316>
+			streams:   0, words:     0
+		worklib.vproc_elem_00000080_00000020_0:v <0x03247198>
+			streams:   0, words:     0
+		worklib.vproc_pipeline_00000080_00000007_00000003_00000008_3f_00000080_00000005_00000001_00000080_00000005_1_00000020_00000006_1_08_30_02_03_23_10_01_0_00000004_00000020_00000002_0000002000000004_2_1_1_0_0_1_00000001_00000004_1_0_0_0_I_xif_mem_if_vproc_xif_coproc_mem_X_ID_WIDTH_32_h00000003_X_MEM_WIDTH_32_h00000020I_xif_memres_if_vproc_xif_coproc_mem_result_X_ID_WIDTH_32_h00000003_X_MEM_WIDTH_32_h00000020:v <0x234f812e>
+			streams:   0, words:     0
+		worklib.AOI21BX0P7MA10TR:v <0x58f90299>
+			streams:   0, words:     0
+		worklib.vproc_cache_way_00000017_00000005_00000010_1:v <0x0be87d52>
+			streams:   0, words:     0
+		worklib.vproc_cache_way_00000017_00000005_00000010_0:v <0x1005f251>
+			streams:   0, words:     0
+		worklib.io_buf_4:v <0x4b3643e7>
+			streams:   0, words:     0
+		worklib.io_buf_3:v <0x1485f347>
+			streams:   0, words:     0
+		worklib.io_buf_2:v <0x3db8ceca>
+			streams:   0, words:     0
+		worklib.io_buf_5:v <0x620b7e6a>
+			streams:   0, words:     0
+		worklib.storage_controller_00000020:v <0x53c08b1a>
+			streams:   0, words:     0
+		worklib.AO22X1MA10TR:v <0x76de5f00>
+			streams:   0, words:     0
+		worklib.AO22X0P7MA10TR:v <0x7c6ee374>
+			streams:   0, words:     0
+		worklib.vproc_cache_32_00000004_00000004_00000040_00000008:v <0x70b8fa1b>
+			streams:   0, words:     0
+		worklib.toplevel_498:v <0x31c257f4>
+			streams:   0, words:     0
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
 		                    Instances  Unique
-		Modules:               156689     884
-		UDPs:                   31207      11
-		Primitives:            339767      10
-		Timing outputs:        157102     256
-		Registers:              31027     260
-		Scalar wires:          189010       -
-		Vectored wires:             6       -
-		Cont. assignments:          0       4
-		Timing checks:         235006    1951
+		Modules:               114299     890
+		UDPs:                   31101      11
+		Primitives:            294355      10
+		Timing outputs:        116743     135
+		Registers:              30941     260
+		Scalar wires:          148267       -
+		Vectored wires:            14       -
+		Cont. assignments:          0      36
+		Timing checks:         234419    1940
 		Simulation timescale:     1ps
 	Writing initial simulation snapshot: worklib.XOR3X4MA10TR:v
-TOOL:	xmverilog	21.03-s007: Exiting on Dec 10, 2022 at 02:05:54 CST  (total: 00:00:24)
+TOOL:	xmverilog	21.03-s007: Exiting on Dec 15, 2022 at 12:40:16 CST  (total: 00:00:26)

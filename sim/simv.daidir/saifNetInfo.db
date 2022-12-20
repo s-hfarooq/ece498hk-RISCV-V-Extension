@@ -1,1 +1,10 @@
-0
+3
+storage_controller
+sram_chip_en
+Scal
+storage_controller
+sram_retn
+Scal
+storage_controller
+sram_wr_en
+Scal

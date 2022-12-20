@@ -9,7 +9,7 @@ UUM=FALSE
 KDB=TRUE
 USE_NOVAS_HOME=FALSE
 COSIM=FALSE
-TOP=ibex_tracer sram_2048_32_wmask_8bit vproc_tb 
+TOP=ibex_tracer vproc_tb 
 ELAB=TRUE
 SIMV_WRAPPER=FALSE
 [vcs]

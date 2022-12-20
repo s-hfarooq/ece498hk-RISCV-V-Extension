@@ -1,0 +1,6377 @@
+%!PS-Adobe-3.0
+% FE Release Version: 2.4.24
+%%BoundingBox: 0 0 612 792
+%%Creator: post
+%%DocumentData: Clean8Bit
+%%DocumentPaperSizes: Letter
+%%Orientation: Portrait
+%%Pages: (atend)
+%%PageOrder: Ascend
+%%For: Artisan Components
+%%EndComments
+
+%%BeginProlog
+
+% TableRow sets the table row height
+% Expects dy on the stack
+/TableRow {
+  /tablerow exch def
+} def
+
+
+% ArrowRight prints an arrow pointing to the right
+% Expects text x y on the stack
+/ArrowRight {
+  newpath
+  moveto
+  -2.5 1 rmoveto
+  2.5 -1 rlineto
+  -2.5 -1 rlineto
+  stroke
+} def
+
+
+% ArrowLeft prints an arrow pointing to the left
+% Expects text x y on the stack
+/ArrowLeft {
+  newpath
+  moveto
+  2.5 1 rmoveto
+  -2.5 -1 rlineto
+  2.5 -1 rlineto
+  stroke
+} def
+
+
+% ArrowUp prints an arrow pointing up
+% Expects text x y on the stack
+/ArrowUp {
+  newpath
+  moveto
+  1 -2.5 rmoveto
+  -1 2.5 rlineto
+  -1 -2.5 rlineto
+  stroke
+} def
+
+
+% ArrowDown prints an arrow pointing down
+% Expects text x y on the stack
+/ArrowDown {
+  newpath
+  moveto
+  1 2.5 rmoveto
+  -1 -2.5 rlineto
+  -1 2.5 rlineto
+  stroke
+} def
+
+
+% CenterLabel prints text centered at the x,y
+% centers on x only
+% Expects text subscript x y on the stack
+/CenterLabel {
+  moveto
+  /subscr exch def      % save the subscript
+  /txt exch def         % save the text
+  txt stringwidth pop   % string x on stack
+  subscr stringwidth pop % subscr x on stack
+  add 2 div 0 exch sub   %  0-dx/2 on stack
+  0 rmoveto
+  txt show
+  0 -2 rmoveto
+  subscr show
+} def
+
+
+% LeftLabel prints text to the left of the x,y
+% centers on x only
+% Expects text subscript x y on the stack
+/LeftLabel {
+  moveto
+  /subscr exch def      % save the subscript
+  /txt exch def         % save the text
+  txt stringwidth pop   % string x on stack
+  subscr stringwidth pop % subscr x on stack
+  add 0 exch sub         %  0-dx on stack
+  0 rmoveto
+  txt show
+  0 -2 rmoveto
+  subscr show
+} def
+
+
+% RightLabel prints text to the right of the x,y
+% Expects text subscript x y on the stack
+/RightLabel {
+  moveto
+  exch
+  show
+  0 -2 rmoveto
+  show
+} def
+
+
+% CenterText prints text centered at the x,y
+% centers on x only
+% Expects text x y on the stack
+/CenterText {
+  moveto
+  dup stringwidth pop   % string x on stack
+  2 div 0 exch sub      % string 0-x/2 on stack
+  0 rmoveto
+  show
+} def
+
+
+% Table2start begins a 2 column table.
+% Expects 5 values on the stack: w1 w2 xs ys dy
+% (col widths xstart ystart at upper left of table and height of row)
+/Table2Start {
+  TableRow % uses yrow on stack
+  /tabley exch def
+  /tablex exch def
+  /table2width exch def
+  /table1width exch def
+  /tableystart tabley def
+
+  % no drawing done yet
+  % no need to update the x and y
+} def
+
+ 
+% Table2End ends the table
+% Expects nothing on the stack
+% Draws a line at the bottom of the table
+/Table2End {
+  1 setlinewidth
+  tablex tabley
+  table1width table2width add
+  tableystart tabley sub
+  rectstroke
+  % no need to update the x and y
+  tabley % return y
+} def
+
+
+% Table2DoubleLine doubles up the line at the bottom of a box
+% Expects nothing on the stack
+/Table2DoubleLine {
+  newpath
+  tablex tabley moveto
+  table1width 0 rlineto
+  table2width 0 rlineto
+  1.5 setlinewidth
+  stroke
+} def
+
+
+% Table2Verticals puts the verticals and the horiz bar
+% on one row of the table
+% Expects nothing on the stack
+/Table2Verticals {
+  % complete the box for each
+  newpath
+  tablex tabley moveto
+  table1width 0 rmoveto
+  0 tablerow rlineto
+  0.5 setlinewidth
+  stroke
+
+  % bottom
+  newpath
+  tablex tabley moveto
+  table1width 0 rlineto
+  table2width 0 rlineto
+  0.5 setlinewidth
+  stroke
+
+  1 setlinewidth
+} def
+
+
+% Table2CC prints centered strings at the top of a 2 column table.
+% Expects string string on the stack
+/Table2CC {
+
+  % update the x and y
+  /tabley tabley tablerow sub def
+
+  % complete the box for each
+  Table2Verticals
+
+  % set fonts for this row
+  TextFont setfont
+
+  % col 2
+  tablex table1width add table2width 2 div add
+  tabley 3 add  % string xcenter y+3 on stack
+  CenterText
+
+  % col 1
+  tablex table1width 2 div add
+  tabley 3 add  % string xcenter y+3 on stack
+  CenterText
+
+} def
+
+
+% Table2LC prints one left aligned string and one centered string
+% Expects 2 strings on the stack
+/Table2LC {
+
+  % update the x and y
+  /tabley tabley tablerow sub def
+
+  % complete the box for each
+  Table2Verticals
+
+  % set fonts for this row
+  TextFont setfont
+
+  % col 2
+  tablex table1width add table2width 2 div add
+  tabley 3 add  % string xcenter y+3 on stack
+  CenterText
+
+  % col 1
+  tablex 3 add
+  tabley 3 add  % string x+2 y+3 on stack
+  moveto
+  show
+
+} def
+
+
+% Table2LCMicron prints one left aligned string and one centered string
+% The centered string has a micron symbol at the end of it.
+% Expects 2 strings on the stack
+/Table2LCMicron {
+
+  % update the x and y
+  /tabley tabley tablerow sub def
+
+  % complete the box for each
+  Table2Verticals
+
+  % col 2 width
+  TextFont setfont
+  dup stringwidth pop        % dx of string on stack
+  /Symbol findfont 12 scalefont setfont
+  (\155) stringwidth pop    % dx of symbol u on stack
+  add                        % dx of number with mu
+  TextFont setfont
+  (m) stringwidth pop        % dx of m on stack
+  add                        % dx of entire box contents on stack
+  2 div                      % dx/2 on stack
+
+  % col 2
+  tablex table1width add table2width 2 div add   % xcenter of square on stack
+  exch sub
+  tabley 3 add  % string x y+3 on stack
+  moveto
+  TextFont setfont
+  show
+  /Symbol findfont 12 scalefont setfont
+  (\155) show
+  TextFont setfont
+  (m) show
+
+  % col 1
+  tablex 3 add
+  tabley 3 add  % string x+2 y+3 on stack
+  moveto
+  show
+
+} def
+
+
+% Table2LL prints two left aligned strings
+% at the top of a 2 column table.
+% Expects 2 string (text) on the stack
+/Table2LL {
+
+  % update the x and y
+  /tabley tabley tablerow sub def
+
+  % complete the box for each
+  Table2Verticals
+
+  % set fonts for this row
+  TextFont setfont
+
+  % col 2
+  tablex table1width add
+  tabley 3 add  % string x y+3 on stack
+  moveto
+  ( ) show
+  show
+
+  % col 1
+  tablex
+  tabley 3 add  % string x y+3 on stack
+  moveto
+  ( ) show
+  show
+
+} def
+
+
+% Table2Header prints the header to the table
+% Expects string string on the stack
+/Table2Header {
+  tablex tabley moveto
+  table1width table2width add 0 rlineto 
+  0 0 tablerow sub rlineto
+  0 table1width table2width add sub 0 rlineto 
+  0 tablerow rlineto
+  0.5 setgray
+  fill
+  1.0 setgray
+  Table2CC
+  0 setgray
+} def
+
+
+/Table4Header {
+  tablex tabley moveto
+  table1width table2width add table3width add table4width add 0 rlineto 
+  0 0 tablerow sub rlineto
+  0 table1width table2width add table3width add table4width add sub 0 rlineto 
+  0 tablerow rlineto
+  0.5 setgray
+  fill
+  1.0 setgray
+  /TextSuperScriptFont /Helvetica findfont 8 scalefont def
+  Table4CC
+  0 setgray
+} def
+
+
+/CenterTextSuperScript{
+   moveto
+  /sqSuper exch def
+  /mUnit exch def
+  dup stringwidth pop   % string x on stack
+  0 exch sub      % string 0-x/2 on stack
+  0 rmoveto
+  show
+
+  mUnit () ne{
+    2 0 rmoveto
+    (\()show
+    /Symbol findfont 8 scalefont setfont
+    (\155) show
+    TextSuperScriptFont setfont
+    mUnit show
+    TextFont setfont
+    sqSuper () eq {
+    (\))show
+    }if
+  }if
+    
+  sqSuper () ne {
+    0 4 rmoveto
+    TextSuperScriptFont setfont
+    sqSuper show
+    0 -4 rmoveto
+    TextFont setfont
+    (\)) show
+  } if
+} def
+
+
+/Table4CC {
+
+  % update the x and y
+  /tabley tabley tablerow sub def
+
+  % complete the box for each
+  Table4Verticals
+
+  % set fonts for this row
+  TextFont setfont
+
+  % col 4
+  tablex table1width add table2width add table3width add table4width 2 div add
+  tabley 3 add  % string xcenter y+3 on stack
+  CenterTextSuperScript
+
+  % col 3
+  tablex table1width add table2width add table3width 2 div add
+  tabley 3 add  % string xcenter y+3 on stack
+  CenterTextSuperScript
+
+  % col 2
+  tablex table1width add table2width 2 div add
+  tabley 3 add  % string xcenter y+3 on stack
+  CenterTextSuperScript
+
+  % col 1
+  tablex table1width 2 div add
+  tabley 3 add  % string xcenter y+3 on stack
+  CenterText
+
+} def
+
+% Table4Verticals puts the verticals and the horiz bar
+% on one row of the table
+% Expects nothing on the stack
+/Table4Verticals {
+  % complete the box for each
+  newpath
+  tablex tabley moveto
+  table1width 0 rmoveto
+  0 tablerow rlineto
+  0 tablerow neg rmoveto
+  table2width 0 rmoveto
+  0 tablerow rlineto
+  0 tablerow neg rmoveto
+  table3width 0 rmoveto
+  0 tablerow rlineto
+  0 tablerow neg rmoveto
+  table4width 0 rmoveto
+  0 tablerow rlineto
+  0.5 setlinewidth
+  stroke
+
+  % bottom
+  newpath
+  tablex tabley moveto
+  table1width 0 rlineto
+  table2width 0 rlineto
+  table3width 0 rlineto
+  table4width 0 rlineto
+  0.5 setlinewidth
+  stroke
+
+  1 setlinewidth
+} def
+
+% Table4LC prints one left aligned string and one centered string
+% Expects 4 strings on the stack
+/Table4LC {
+
+  % update the x and y
+  /tabley tabley tablerow sub def
+
+  % complete the box for each
+  Table4Verticals
+
+  % set fonts for this row
+  TextFont setfont
+
+  %col 4
+  tablex table1width add table2width add table3width add table4width 2 div add
+  tabley 3 add  % string xcenter y+3 on stack
+  CenterText
+
+  %col 3 
+  tablex table1width add table2width add table3width 2 div add
+  tabley 3 add  % string xcenter y+3 on stack
+  CenterText
+
+  % col 2
+  tablex table1width add table2width 2 div add
+  tabley 3 add  % string xcenter y+3 on stack
+  CenterText
+
+  % col 1
+  tablex 3 add
+  tabley 3 add  % string x+2 y+3 on stack
+  moveto
+  show
+
+} def
+
+% Table4End ends the table
+% Expects nothing on the stack
+% Draws a line at the bottom of the table
+/Table4End {
+  1 setlinewidth
+  tablex tabley
+  table1width table2width add table3width add table4width add
+  tableystart tabley sub
+  rectstroke
+  % no need to update the x and y
+  tabley % return y
+} def
+
+% Table4Start begins a 4 column table.
+% Expects 7 values on the stack: w1 w2 xs ys dy
+% (col widths xstart ystart at upper left of table and height of row)
+/Table4Start {
+  TableRow % uses yrow on stack
+  /tabley exch def
+  /tablex exch def
+  /table4width exch def
+  /table3width exch def
+  /table2width exch def
+  /table1width exch def
+  /tableystart tabley def
+
+  % no drawing done yet
+  % no need to update the x and y
+} def
+
+
+% Table1CornerStart begins a 2 column table of 1 process corners.
+% Expects 5 values on the stack: w1 ... wn xs ys dy
+% (col widths xstart ystart at upper left of table and height of row)
+/Table1CornerStart {
+  TableRow % uses yrow on stack
+  /tabley exch def
+  /tablex exch def
+  /table5width 0 def
+  /table4width 0 def
+  /table3width 0 def
+  /table2width exch def
+  /table1width exch def
+  /tableystart tabley def
+
+  % no drawing done yet
+  % no need to update the x and y
+} def
+
+ 
+% Table1CornerEnd ends the table
+% Expects nothing on the stack
+% Draws a line at the bottom of the table
+/Table1CornerEnd {
+  1 setlinewidth
+  tablex tabley
+  table1width table2width add table3width add table4width add table5width add
+  tableystart tabley sub
+  rectstroke
+  % no need to update the x and y
+  tabley % return y
+} def
+
+
+% Table1CornerVerticals puts the verticals and the horiz bar
+% on one row of the table
+% Expects nothing on the stack
+/Table1CornerVerticals {
+  % complete the box for each
+
+  0.5 setlinewidth
+
+
+  % between col 1 and 2
+  newpath
+  tablex tabley moveto
+  table1width 0 rmoveto
+  0 tablerow rlineto
+  stroke
+
+  % bottom
+  newpath
+  tablex tabley moveto
+  table1width 0 rlineto
+  table2width 0 rlineto
+  table3width 0 rlineto
+  table4width 0 rlineto
+  table5width 0 rlineto
+  stroke
+
+  1 setlinewidth
+} def
+
+
+% Table1CornerRow prints centered strings
+% Expects 3 strings on the stack
+%   col 1 item, col 1 superscript, 1 corner values
+/Table1CornerRow {
+
+  % update the x and y
+  /tabley tabley tablerow sub def
+
+  % complete the box for each
+  Table1CornerVerticals
+
+  % set fonts for this row
+  TextFont setfont
+
+  % col 2
+  tablex table1width add table2width 2 div add
+  tabley 3 add  % string xcenter y+3 on stack
+  CenterText999
+
+  % save the superscript
+  /super exch def
+
+  % col 1
+  tablex 5 add
+  tabley 3 add  % string x+5 y+3 on stack
+  moveto
+  TextFont setfont
+  show
+
+  % do the superscript
+  super () ne {
+    0 4 rmoveto
+    TextSuperscriptFont setfont
+    super show
+    TextFont setfont
+  } if
+
+} def
+
+
+% Table1CornerFirstCol prints the header on the first column
+% Expects string xc on the stack
+% Expects tabley to be at the bottom of the square
+% Expects tablerow to be the height of a double box
+/Table1CornerFirstCol {
+  tabley tablerow 2 div add 3 sub  % string xc yc on stack
+  CenterText
+} def
+
+
+% Table1CornerCornerCol prints the header on the first column
+% Expects string string string xc on the stack
+% Expects tabley to be at the bottom of the square
+% Expects tablerow to be the height of a double box
+/Table1CornerCornerCol {
+  /xc exch def
+  /temp exch def
+  /volt exch def
+
+  % first line
+  TextFont setfont
+  xc tabley 3 add tablerow 2 div add % string xc y on stack
+  CenterText
+
+  % next line width
+  volt stringwidth pop
+  (V, ) stringwidth pop add
+  temp stringwidth pop add
+  (oC) stringwidth pop add
+  2 div
+  xc exch sub
+  tabley 5 add moveto
+
+  % next line display
+  /saved_font TextFont def
+  volt show
+  (V, ) show
+  temp show
+  /Symbol findfont text_size scalefont setfont
+  (\260) show
+  /TextFont saved_font def
+  TextFont setfont
+  (C) show
+
+} def
+
+
+% Table1CornerHeader prints the header to the table
+% First string is over the first column.
+% Then 3 strings for each column such as:
+%    Fast Process
+%      1.1V, 0oC
+% where we supply the 'V,' and 'degrees C'.
+/Table1CornerHeader {
+  (Pin)   % column headings
+  (Fast Process) (1.1) (-40)
+
+  /tablerow tablerow tablerow add def  % Double the y size
+
+  % make a box around the header area
+  tablex tabley moveto
+  table1width table2width add table3width add table4width add table5width add 0 rlineto 
+  0 0 tablerow sub rlineto
+  table1width table2width add table3width add table4width add table5width add 0 exch sub 0 rlineto 
+  0 tablerow rlineto
+  0.5 setgray % gray fill the box
+  fill
+
+  % White lines and text
+  1.0 setgray
+
+  /tabley tabley tablerow sub def
+
+  % do the vertical lines between columns
+  Table1CornerVerticals
+
+  % Column 1 header
+  tablex table1width add table2width 2 div add Table1CornerCornerCol
+
+  % Pin column header
+  tablex table1width 2 div add Table1CornerFirstCol
+
+  % back to black lines and text
+  0 setgray
+
+  % Restore the row height
+  /tablerow tablerow 2 div def
+} def
+
+
+% TableD1CornerStart begins a 2 column table of 1 double process corners.
+% Expects values on the stack: pin_width corn1_1 corn1_2 
+%   corn2_1 corn2_2 corn3_1 corn3_2 corn4_1 corn4_2 xs ys dy
+% (col widths xstart ystart at upper left of table and height of row)
+/TableD1CornerStart {
+  TableRow % uses yrow on stack
+  /tabley exch def
+  /tablex exch def
+  /table4_2_width 0 def
+  /table4_1_width 0 def
+  /table3_2_width 0 def
+  /table3_1_width 0 def
+  /table2_2_width 0 def
+  /table2_1_width 0 def
+  /table1_2_width exch def
+  /table1_1_width exch def
+  /tablep_width exch def
+  /tableystart tabley def
+
+  % no drawing done yet
+  % no need to update the x and y
+} def
+
+ 
+% TableD1CornerEnd ends the table
+% Expects nothing on the stack
+% Draws a line at the bottom of the table
+/TableD1CornerEnd {
+  1 setlinewidth
+  tablex tabley
+  tablep_width
+  table1_1_width add table1_2_width add
+  tableystart tabley sub
+  rectstroke
+  % no need to update the x and y
+  tabley % return y
+} def
+
+
+% TableD1CornerVerticals puts the verticals and the horiz bar
+% on one row of the table
+% Expects nothing on the stack
+/TableD1CornerVerticals {
+  % complete the box for each
+
+  0.5 setlinewidth
+
+
+  % single in corner 1
+  tableheader 1 ne {
+    newpath
+    tablex tabley moveto
+    tablep_width
+    table1_1_width add
+    0 rmoveto
+    0 tablerow rlineto
+    stroke
+  } if
+  % single between pin and first corner
+  newpath
+  tablex tabley moveto
+  tablep_width 0 rmoveto
+  0 tablerow rlineto
+  stroke
+
+  % bottom
+  newpath
+  tablex tabley moveto
+  tablep_width
+  table1_1_width add table1_2_width add
+  table2_1_width add table2_2_width add
+  table3_1_width add table3_2_width add
+  table4_1_width add table4_2_width add
+  0 rlineto
+  stroke
+
+  1 setlinewidth
+} def
+
+
+% TableD1CornerRow prints centered strings
+% Expects 3 strings on the stack
+/TableD1CornerRow {
+
+  % update the x and y
+  /tabley tabley tablerow sub def
+
+  % complete the box for each
+  TableD1CornerVerticals
+
+  % set fonts for this row
+  TextFont setfont
+
+
+  % corner 1
+  tablex tablep_width add
+  table1_1_width add table1_2_width 2 div add
+  tabley 3 add  % string xcenter y+3 on stack
+  CenterText999
+  tablex tablep_width add
+  table1_1_width 2 div add
+  tabley 3 add  % string xcenter y+3 on stack
+  CenterText999
+
+  % pin name
+  tablex 5 add
+  tabley 3 add  % string x+5 y+3 on stack
+  moveto
+  TextFont setfont
+  show
+
+} def
+
+
+% TableD1CornerDRow prints centered strings
+% The pin description is broken into 2 rows for this one.
+% Expects 10 strings on the stack
+/TableD1CornerDRow {
+
+  % Save the old tablerow
+  /olddy tablerow def
+  % We will use a wider one that is almost twice as big
+  /tablerow tablerow tablerow add 2 sub def
+  /yup 9 def
+
+  % update the x and y
+  /tabley tabley tablerow sub def
+
+  % complete the box for each
+  TableD1CornerVerticals
+
+  % set fonts for this row
+  TextFont setfont
+
+  % corner 1
+  tablex tablep_width add
+  table1_1_width add table1_2_width 2 div add
+  tabley yup add  % string xcenter y+3 on stack
+  CenterText999
+  tablex tablep_width add
+  table1_1_width 2 div add
+  tabley yup add  % string xcenter y+3 on stack
+  CenterText999
+
+  % pin name in two rows
+  tablex 5 add
+  tabley 3 add
+  moveto
+  TextFont setfont
+  show
+  tablex 5 add
+  tabley 13 add
+  moveto
+  show
+
+  % restore the y height of the row
+  /tablerow olddy def
+
+} def
+
+
+% TableD1CornerFirstCol prints the header on the first column
+% Expects string xc on the stack
+% Expects tabley to be at the bottom of the square
+% Expects tablerow to be the height of a double box
+/TableD1CornerFirstCol {
+  tabley tablerow 2 div add 3 sub  % string xc yc on stack
+  CenterText
+} def
+
+
+% TableD1CornerCornerCol prints the header on the corner
+% Expects (Fast) (1.1) (125) xct xcl xcr on the stack
+% ... xcenter for top, xcenter for left, xcenter for right
+% Expects tabley to be at the bottom of the square
+% Expects tablerow to be 4 times the real tablerow
+/TableD1CornerCornerCol {
+  /xcr exch def
+  /xcl exch def
+  /xct exch def
+  /temp exch def
+  /volt exch def
+  /h tablerow 4 div def
+
+  % first line (Fast Process)
+  xct
+  tabley h add h add h add 3 add % string xc y on stack
+  CenterText
+
+  % next line width (1.10V, 0oC)
+  volt stringwidth pop
+  (V, ) stringwidth pop add
+  temp stringwidth pop add
+  (oC) stringwidth pop add
+  2 div
+  xct exch sub
+  tabley h add h add 5 add % string xc y on stack
+  moveto
+
+  % next line display (1.10V, 0oC)
+  /saved_font TextFont def
+  volt show
+  (V, ) show
+  temp show
+  /Symbol findfont text_size scalefont setfont
+  (\260) show
+  /TextFont saved_font def
+  TextFont setfont
+  (C) show
+
+  % Puse Width display
+  (Pulse) xcl tabley h add 3 add CenterText
+  (Width) xcl tabley 5 add CenterText
+
+  % Voltage display
+  (Voltage) xcr tabley 3 add h 2 div add CenterText
+
+} def
+
+
+% Centers converts 3 values to the 3 needed centers
+% Expects xleft width1 width2 on stack
+% Returns xtc xlc xrc
+/Centers {
+  /w2 exch def
+  /w1 exch def
+  /l exch def
+
+  l w1 add               % xtc on stack
+  l w1 2 div add         % xtc xlc on stack
+  l w1 add w2 2 div add  % xtc xlc xrc on stack
+} def
+
+
+% TableD1CornerHeader prints the header to the table
+% Expects nothing on the stack
+% First string is over the first column.
+% Then 3 strings for each column such as:
+%    Fast Process
+%      1.1V, 0oC
+% where we supply the 'V,' and 'degrees C'.
+/TableD1CornerHeader {
+  (Pin)     % pin column heading
+  (Symbol)  % var column heading
+  (Fast Process) (1.1) (-40)
+  /tablerow tablerow 4 mul def  % 4* the y size
+
+  % Create a box, fill it with black
+  tablex tabley moveto
+  tablep_width
+  table1_1_width add table1_2_width add
+  table2_1_width add table2_2_width add
+  table3_1_width add table3_2_width add
+  table4_1_width add table4_2_width add
+  0 rlineto 
+  0 0 tablerow sub rlineto
+  tablep_width
+  table1_1_width add table1_2_width add
+  table2_1_width add table2_2_width add
+  table3_1_width add table3_2_width add
+  table4_1_width add table4_2_width add
+  0 exch sub 0 rlineto 
+  0 tablerow rlineto
+  0.5 setgray
+  fill
+
+  % do the text in almost white
+  1.0 setgray
+  /tabley tabley tablerow sub def
+  /tableheader 1 def
+  TableD1CornerVerticals
+  /tableheader 0 def
+
+  tablex tablep_width add
+  table1_1_width table1_2_width Centers % string string string xtc xlc xrc on stack
+  TableD1CornerCornerCol
+
+  tablex tablep_width 2 div add TableD1CornerFirstCol
+
+  % back to black, back to normal table row height
+  0 setgray
+  /tablerow tablerow 4 div def
+} def
+
+
+% TableT1CornerStart begins a 2 column table of 1 double process corners.
+% Expects nothing on the stack
+% Uses pagey line_left global vars
+/TableT1CornerStart {
+  14 TableRow                % row height
+  /found999 (no) def         % figure out illegal ema states 
+  /tabley pagey def          % starting x,y of table
+  /tablex line_left def
+  /table4_2_width 0 def     % column widths
+  /table4_1_width 0 def
+  /table3_2_width 0 def     % column widths
+  /table3_1_width 0 def
+  /table2_2_width 0 def     % column widths
+  /table2_1_width 0 def
+  /table1_2_width 44 def     % column widths
+  /table1_1_width 44 def
+  /tablet_width 48 def
+  /tablep_width 115 def
+  /tableystart tabley def
+
+  % no drawing done yet
+  % no need to update the x and y
+} def
+
+
+% EMAIlegalFootnote
+% Expects nothing on the stack
+% returns new page y
+/EMAIllegalFootnote {
+  /tabley pagey 10 sub def
+  tablex tabley moveto
+  TextFont setfont
+  (Timing value of ** indicates illegal EMA setting for this corner.) show
+} def
+
+ 
+% TableT1CornerEnd ends the table
+% Expects nothing on the stack
+% Draws a line at the bottom of the table
+/TableT1CornerEnd {
+  1 setlinewidth
+  tablex tabley
+  tablep_width tablet_width add
+  table1_1_width add table1_2_width add
+  tableystart tabley sub
+  rectstroke
+  % no need to update the x and y
+  found999 (yes) eq
+  { EMAIllegalFootnote } if
+  tabley % return y
+} def
+
+
+% TableT1CornerVerticals puts the verticals and the horiz bar
+% on one row of the table
+% Expects nothing on the stack
+/TableT1CornerVerticals {
+  % complete the box for each
+
+  0.5 setlinewidth
+
+  % single in corner 1
+  tableheader 1 ne {
+    newpath
+    tablex tabley moveto
+    tablep_width tablet_width add
+    table1_1_width add
+    0 rmoveto
+    0 tablerow rlineto
+    stroke
+  } if
+
+  % double between symbol and first corner
+  newpath
+  tablex tabley moveto
+  tablep_width tablet_width add 1 sub 0 rmoveto
+  0 tablerow rlineto
+  stroke
+  newpath
+  tablex tabley moveto
+  tablep_width tablet_width add 1 add 0 rmoveto
+  0 tablerow rlineto
+  stroke
+
+  % single between pin and symbol
+  newpath
+  tablex tabley moveto
+  tablep_width 0 rmoveto
+  0 tablerow rlineto
+  stroke
+
+  % bottom
+  newpath
+  tablex tabley moveto
+  tablep_width tablet_width add
+  table1_1_width add table1_2_width add
+  table2_1_width add table2_2_width add
+  table3_1_width add table3_2_width add
+  table4_1_width add table4_2_width add
+  0 rlineto
+  stroke
+
+  1 setlinewidth
+} def
+
+% CenterText999 prints text centered at the x,y
+% '999' is changed to **
+% centers on x only
+% Expects text x y on the stack
+/CenterText999 {
+  moveto
+  dup (999.000) eq
+  {                   % replace string if == '999.000'
+    pop
+    (**)
+    % found999 (yes) def
+  } if
+  dup stringwidth pop   % string x on stack
+  2 div 0 exch sub      % string 0-x/2 on stack
+  0 rmoveto
+  show
+} def
+
+
+% TableT1CornerRow prints centered strings
+% Expects 3 strings on the stack
+%   pin  pin-superscript  symbol symbol-subscript
+%   1 corners with min max for each
+/TableT1CornerRow {
+
+  % update the x and y
+  /tabley tabley tablerow sub def
+
+  % complete the box for each
+  TableT1CornerVerticals
+
+  % set fonts for this row
+  TextFont setfont
+
+  % corner 1
+  tablex tablep_width add tablet_width add
+  table1_1_width add table1_2_width 2 div add
+  tabley 3 add  % string xcenter y+3 on stack
+  CenterText999
+  tablex tablep_width add tablet_width add
+  table1_1_width 2 div add
+  tabley 3 add  % string xcenter y+3 on stack
+  CenterText999
+
+  % symbol subscript
+  /subs exch def
+
+  % symbol name
+  /symbol exch def
+
+  % calculate width
+  TextFont setfont
+  symbol stringwidth pop
+  TextSuperscriptFont setfont
+  subs stringwidth pop
+  add 2 div                % width/2 now on stack
+
+  % show
+  tablex tablep_width add tablet_width 2 div add
+  exch sub          % xcenter-width/2 on stack
+  tabley 4 add      % x y+4 on stack
+  moveto
+  TextFont setfont
+  symbol show
+  TextSuperscriptFont setfont
+  0 -2 rmoveto
+  subs show
+
+  % save the superscript
+  /super exch def
+
+  % pin name
+  tablex 3 add
+  tabley 3 add  % string x+3 y+3 on stack
+  moveto
+  TextFont setfont
+  show
+
+  % do the superscript
+  super () ne {
+    0 4 rmoveto
+    TextSuperscriptFont setfont
+    super show
+    TextFont setfont
+  } if
+
+} def
+
+
+% TableT1CornerDRow prints centered strings
+% Expects strings on the stack
+%   pin pin  pin-superscript  symbol symbol-subscript
+%   1 corners with min max for each
+/TableT1CornerDRow {
+
+  % Save the old tablerow
+  /olddy tablerow def
+  % We will use a wider one that is almost twice as big
+  /tablerow tablerow tablerow add 2 sub def
+  /yup 9 def
+
+  % update the x and y
+  /tabley tabley tablerow sub def
+
+  % complete the box for each
+  TableT1CornerVerticals
+
+  % set fonts for this row
+  TextFont setfont
+
+  % corner 1
+  tablex tablep_width add tablet_width add
+  table1_1_width add table1_2_width 2 div add
+  tabley yup add  % string xcenter y+3 on stack
+  CenterText999
+  tablex tablep_width add tablet_width add
+  table1_1_width 2 div add
+  tabley yup add  % string xcenter y+3 on stack
+  CenterText999
+
+  % symbol subscript
+  /subs exch def
+
+  % symbol name
+  /symbol exch def
+
+  % calculate width
+  TextFont setfont
+  symbol stringwidth pop
+  TextSuperscriptFont setfont
+  subs stringwidth pop
+  add 2 div                % width/2 now on stack
+
+  % show
+  tablex tablep_width add tablet_width 2 div add
+  exch sub          % xcenter-width/2 on stack
+  tabley yup add 1 add      % x y+1+yup on stack
+  moveto
+  TextFont setfont
+  symbol show
+  TextSuperscriptFont setfont
+  0 -2 rmoveto
+  subs show
+
+  % save the superscript
+  /super exch def
+
+  % pin name
+  tablex 3 add
+  tabley 3 add  % string x+3 y+3 on stack
+  moveto
+  TextFont setfont
+  show
+
+  % do the superscript
+  super () ne {
+    0 4 rmoveto
+    TextSuperscriptFont setfont
+    super show
+    TextFont setfont
+  } if
+
+  tablex 3 add
+  tabley olddy add
+  moveto
+  show
+
+  % restore the row height
+  /tablerow olddy def
+
+} def
+
+
+% TableT1CornerFirstCol prints the header on the first column
+% Expects string xc on the stack
+% Expects tabley to be at the bottom of the square
+% Expects tablerow to be the height of a double box
+/TableT1CornerFirstCol {
+  tabley tablerow 2 div add 3 sub  % string xc yc on stack
+  CenterText
+} def
+
+
+% TableT1CornerCornerCol prints the header on the corner
+% Expects (Fast) (1.1) (125) xct xcl xcr on the stack
+% ... xcenter for top, xcenter for left, xcenter for right
+% Expects tabley to be at the bottom of the square
+% Expects tablerow to be 4 times the real tablerow
+/TableT1CornerCornerCol {
+  /xcr exch def
+  /xcl exch def
+  /xct exch def
+  /temp exch def
+  /volt exch def
+  /h tablerow 3 div def
+
+  % first line (Fast Process)
+  xct
+  tabley h add h add 3 add % string xc y on stack
+  TextFont setfont
+  CenterText
+
+  % next line width (1.10V, 0oC)
+  volt stringwidth pop
+  (V, ) stringwidth pop add
+  temp stringwidth pop add
+  (oC) stringwidth pop add
+  2 div
+  xct exch sub
+  tabley h add 5 add % string xc y on stack
+  moveto
+
+  % next line display (1.10V, 0oC)
+  /saved_font TextFont def
+  volt show
+  (V, ) show
+  temp show
+  /Symbol findfont text_size scalefont setfont
+  (\260) show
+  /TextFont saved_font def
+  TextFont setfont
+  (C) show
+
+  % Puse Width display
+  (Min) xcl tabley 5 add CenterText
+
+  % Voltage display
+  (Max) xcr tabley 5 add CenterText
+
+} def
+
+
+% TableT1CornerHeader prints the header to the table
+% Expects nothing on the stack
+% First string is over the first column.
+% Second string is over the symbol column.
+% Then 3 strings for each column such as:
+%    Fast Process
+%      1.1V, 0oC
+% where we supply the 'V,' and 'degrees C'.
+/TableT1CornerHeader {
+  (Pin)     % pin column heading
+  (Symbol)  % var column heading
+  (Fast Process) (1.1) (-40)
+
+  % Setup the fonts for the heading
+  /TextFont /Helvetica-Bold findfont text_size scalefont def
+
+  /tablerow tablerow 3 mul def  % 3* the y size
+
+  % Create a box, fill it with black
+  tablex tabley moveto
+  tablep_width tablet_width add
+  table1_1_width add table1_2_width add
+  0 rlineto 
+  0 0 tablerow sub rlineto
+  tablep_width tablet_width add
+  table1_1_width add table1_2_width add
+  0 exch sub 0 rlineto 
+  0 tablerow rlineto
+  0.5 setgray
+  fill
+
+  % do the text in white
+  1.0 setgray
+  /tabley tabley tablerow sub def
+  /tableheader 1 def
+  TableT1CornerVerticals
+  /tableheader 0 def
+
+  tablex tablep_width add tablet_width add
+  table1_1_width table1_2_width Centers % string string string xtc xlc xrc on stack
+  TableT1CornerCornerCol
+
+  tablex tablep_width add tablet_width 2 div add TableT1CornerFirstCol
+
+  tablex tablep_width 2 div add TableT1CornerFirstCol
+
+  % back to black, back to normal table row height
+  0 setgray
+  /tablerow tablerow 3 div def
+
+  % Setup the fonts for the rest of the table
+  /TextFont /Helvetica findfont text_size scalefont def
+  /TextSuperscriptFont /Helvetica findfont 8 scalefont def
+} def
+
+
+% TextEnd ends a paragraph (or series of paragraphs)
+% Expects nothing on the stack
+% returns the new page y
+/TextEnd {
+  text_y    % return this 
+} def
+
+
+% TextBulletOn sets bullets at start of para
+% Expects nothing on the stack
+/TextBulletOn {
+  /text_bullet true def
+  /Symbol findfont text_size scalefont setfont
+  (\267 ) stringwidth pop
+  /text_bullet_width exch def
+  TextFont setfont
+  /text_bullet true def
+} def
+
+
+% TextBulletOff sets bullets off at start of para
+% Expects nothing on the stack
+/TextBulletOff {
+  /text_bullet false def
+} def
+
+
+% TextStart initializes the paragraph stuff
+% Expects left right margins y deltay on the stack
+/TextStart {
+  /text_dy exch def
+  /text_y exch def
+  /text_right exch def
+  /text_left exch def
+  /text_starty text_y def
+  /text_bullet false def
+  /text_size 10 def
+  /text_indent_width 0 def
+} def
+
+
+% TextParaStart initializes one paragraph
+% Expects nothing on the stack
+/TextParaStart {
+
+  % carrige return linefeed
+  /text_y text_y text_dy sub def
+  /text_x text_left def
+  text_x text_y moveto
+
+  % if bullet show and step over in x
+  text_bullet {
+    /Symbol findfont text_size scalefont setfont
+    (\267 ) show
+    TextFont setfont
+    /text_x text_x text_bullet_width add def
+  } if
+
+  % text_indent does not apply to the first line
+} def
+
+
+% TextParaEnd ends one paragraph.
+% Expects nothing on the stack
+/TextParaEnd {
+} def
+
+
+% TextIndent sets the indent string used at start of para
+% all following lines space over the indent width
+% Expects string on the stack
+/TextIndent {
+  stringwidth pop
+  /text_indent_width exch def
+} def
+
+
+% TextNewline does a carrige return line feed
+% Expects nothing on the stack
+/TextNewline {
+  /text_y text_y text_dy sub def
+  /text_x text_left def
+  text_x text_y moveto
+  text_bullet {
+    text_bullet_width 0 rmoveto
+    /text_x text_x text_bullet_width add def
+  } if
+  text_indent_width 0 gt {
+    text_indent_width 0 rmoveto
+    /text_x text_x text_indent_width add def
+  } if
+} def
+
+
+% TextWord puts one word in the current paragraph
+% Expects string on the stack
+/TextWord {
+  dup stringwidth pop    % dx on the stack
+  /text_dx exch def
+  text_dx text_x add     % x pos at end of word on stack
+  text_right gt {        % true if word will not fit
+    TextNewline
+  } if                   % do newline if true
+  dup ( ) eq
+  text_x text_left eq
+  and                     % if word is space and at left margin then pop
+  {
+    pop 
+  } {
+    show
+    /text_x text_x text_dx add def
+  } ifelse % else show
+} def
+
+
+% TextSuperscript puts a superscript word in the current paragraph
+% The routine does not test for too wide, the superscript MUST
+% go with the previous word.
+% Expects string on the stack
+/TextSuperscript {
+  TextSuperscriptFont setfont
+  dup stringwidth pop    % dx on the stack
+  /text_x exch text_x add def
+  0 4 rmoveto
+  show
+  0 0 text_size 2 div sub rmoveto
+  TextFont setfont
+} def
+
+
+% TextReserveSpace makes sure there is enough space on
+% the current line for the given text to be printed.
+% If there isnt enough, a newline is generated.
+/TextReserveSpace {
+  stringwidth pop    % dx on the stack
+  text_x add         % x at end of work on stack
+  text_right gt {    % true if word will not fit
+    TextNewline
+  } if               % do newline if true
+} def
+
+
+% TextPiece puts words in the current paragraph
+% Expects string on the stack
+/TextPiece {
+  TextFont setfont
+  {
+    % expect string to search on stack
+    ( ) search   % post match pre true or string false on stack
+    { TextWord TextWord }  % true display pre, display space
+    { TextWord exit }      % false display string break
+    ifelse
+    % go around loop again with string to search on stack
+  } loop
+} def
+
+
+% Expects string on the stack
+% Uses c and s vars
+/TextFourAdd {
+  s 1 eq {
+    % first one
+    TextPiece
+  } {
+    s c eq {
+      % last one
+      ( and ) TextPiece
+      TextPiece
+    } {
+      % a middle one
+      (, ) TextPiece
+      TextPiece
+    } ifelse
+  } ifelse
+} def
+
+
+% TextFourList prints from 1 to 4 things to the paragraph
+% Expects 4 strings on the stack. (3 could be empty).
+/TextFourList {
+  /s1 exch def
+  /s2 exch def
+  /s3 exch def
+  /s4 exch def
+  /c 0 def
+
+  % count the number of items
+  s1 () ne {
+    /c c 1 add def
+  } if
+  s2 () ne {
+    /c c 1 add def
+  } if
+  s3 () ne {
+    /c c 1 add def
+  } if
+  s4 () ne {
+    /c c 1 add def
+  } if
+
+  % display the items
+  /s 0 def
+  s1 () ne {
+    /s 1 s add def
+    s1 TextFourAdd
+  } if
+  s2 () ne {
+    /s 1 s add def
+    s2 TextFourAdd
+  } if
+  s3 () ne {
+    /s 1 s add def
+    s3 TextFourAdd
+  } if
+  s4 () ne {
+    /s 1 s add def
+    s4 TextFourAdd
+  } if
+
+} def
+
+
+% TextLine puts a complete paragraph on the page
+% Expects string on the stack
+/TextLine {
+  dup () eq {
+    % Empty, go down 1/2 line.
+    pop
+    /text_y text_y text_dy 2 div sub def
+  } {
+    % Normal string, show it
+    TextParaStart
+    TextPiece
+    TextParaEnd
+  } ifelse
+} def
+
+
+% TextDegree prints a degree symbol
+% Expects nothing on the stack
+/TextDegree {
+  /TextFont /Symbol findfont text_size scalefont def
+  (\260) TextPiece
+  /TextFont /Helvetica findfont text_size scalefont def
+} def
+
+
+% TextTrademark prints a degree symbol
+% Expects nothing on the stack
+/TextTrademark {
+  /TextFont /Symbol findfont text_size scalefont def
+  (\344) TextPiece
+  /TextFont /Helvetica findfont text_size scalefont def
+} def
+
+
+% TextCopyright prints a copyright symbol
+% Expects nothing on the stack
+/TextCopyright {
+  /TextFont /Symbol findfont text_size scalefont def
+  (\343) TextPiece
+  /TextFont /Helvetica findfont text_size scalefont def
+} def
+
+
+% LeftShow prints text to the left of the point
+% Expects string x y on the stack
+/LeftShow {
+  moveto
+  dup stringwidth pop  % string dx on stack
+  0 exch sub           % 0-x on stack
+  0 rmoveto
+  show
+} def
+
+
+% LeftShowMicron prints text to the left of the point
+% Expects two string x y on the stack
+/LeftShowMicron {
+  moveto
+  dup stringwidth pop
+  /Helvetica-Bold findfont title_size scalefont setfont
+  /suffStringWidth exch def
+  /procString exch def
+  dup stringwidth pop
+  /techStringWidth exch def
+  /techString exch def
+  suffStringWidth techStringWidth add 20 add 0 exch sub 0 rmoveto
+  techString show
+  /Symbol findfont title_size scalefont setfont
+  (\155) show
+  /Helvetica-Bold findfont title_size scalefont setfont
+  (m) show
+  procString show
+}def
+
+% LeftShowRedundancy prints text to the left of the point
+% Expects two string x y on the stack
+/LeftShowRedundancy {
+  moveto
+  dup stringwidth pop
+  /Helvetica-Bold findfont title_size scalefont setfont
+  /suffStringWidth exch def
+  /textRed exch def
+  suffStringWidth 20 add 0 exch sub 0 rmoveto
+  textRed show
+  title_size 2 div 0 exch rmoveto
+  /Helvetica-Bold findfont text_size scalefont setfont
+  (TM) show
+  /Helvetica-Bold findfont title_size scalefont setfont
+} def
+
+  
+
+% SectionLine does the line part of the section header
+% Expects y on the stack
+/SectionLine {
+  /y exch def
+  /y y line_above sub def
+  newpath
+  line_left y moveto
+  line_right y lineto
+  1 setlinewidth
+  stroke
+} def
+
+
+% SectionStart prints a horizontal bar and a section header on the page
+% Expects string string y on the stack
+% returns the new page y
+/SectionStart {
+  SectionLine  % var y is set
+  /y y line_below sub 10 sub def
+  line_left y moveto
+  /text2 exch def      % get the subtext
+  /Helvetica-Bold findfont text_size scalefont setfont
+  ( ) show             % space over from start of line
+  show                 % display string
+  text2 () ne {
+    /Helvetica findfont text_size scalefont setfont
+    ( \() show          % space over
+    text2 show           % print the explanation
+    (\)) show
+  } if
+  y 10 add             % return new y
+} def
+
+% MicronSectionStart prints a horizontal bar and a section header on the page
+% Expects string y on the stack
+% returns the new page y
+/MicronSectionStart {
+  SectionLine  % var y is set
+  /y y line_below sub 10 sub def
+  line_left y moveto
+  /Helvetica-Bold findfont text_size scalefont setfont
+  ( ) show             % space over from start of line
+  show                 % display string
+
+  /Helvetica findfont text_size scalefont setfont
+  ( \(units = ) show          % space over
+  /Symbol findfont text_size scalefont setfont
+  (\155) show
+  /Helvetica findfont text_size scalefont setfont
+  (m\)) show
+
+  y 10 add             % return new y
+} def
+
+/line_left 55 def
+/line_right 550 def
+/line_above 10 def
+/line_below 10 def
+
+% EndingCopyright prints the copyright info at the end
+% of the last page.  The y location is set but the x size
+% depends on the section line size.
+% Expects xc y on the stack
+/EndingCopyright {
+  SectionLine
+  /y y line_below sub def
+  /xc exch def
+  line_left line_right y 9 TextStart
+  /text_size 7 def
+  /TextFont /Helvetica findfont text_size scalefont def
+(Artisan Components, Artisan, and Process-Perfect are registered trademarks\
+ of ARM Physical IP, Inc. Accelerated Retention Test, Advantage, Artigrid,\
+ ArtNuvo, Capstone, ElectroArt, Extra Margin Adjustment, Flex-Repair,\
+ Integral-I/O, Metro, SAGE, SAGE-HS, SAGE-X, and Velocity are trademarks\
+ of ARM Physical IP, Inc. ARM acknowledges the trademarks of other\
+ organizations for their respective products or services metioned in\
+ this document.) TextLine
+/text_y text_y 4 sub def
+(ARM reserves the right to make changes to any products and services\
+ described herein, at any time without notice in order to make improvements\
+ in design, performance, or presentation and to provide the best possible\
+ products and services. Customers should obtain the latest specifications\
+ before referencing any information, product, or service described herein,\
+ except as expressly agreed in writing by and officer of ARM.) TextLine
+/text_y text_y 4 sub def
+(ARM does not assume any responsibility or liability arising out of the\
+ application or use of any products or services described herein, except\
+ as expressly agreed to in writing by and officer of ARM; nor does the\
+ purchase, lease, or use of a product or service from ARM convey license\
+ under any patent rights, copyrights, trademark rights, or any other of\
+ the intellectual property rights of ARM or of third parties.) TextLine
+} def
+
+
+
+% CenterTextMu prints two text strings centered at the x,y
+% with a mu symbol between the text strings
+% centers on x only
+% Expects text text x y on the stack
+/CenterTextMu {
+  moveto
+  /text2 exch def     % save second string
+  /text1 exch def     % save first string
+  /Helvetica findfont 7 scalefont setfont
+  text1 stringwidth pop  % width of first string
+  text2 stringwidth pop  % width of second string
+  (\155) stringwidth pop % width of mu
+  add add               % width of 2 strings plus mu on stack
+  2 div 0 exch sub      % 0-x/2 on stack
+  0 rmoveto
+  /Helvetica findfont 7 scalefont setfont
+  text1 show
+  /Symbol findfont 7 scalefont setfont
+  (\155) show
+  /Helvetica findfont 7 scalefont setfont
+  text2 show
+} def
+
+% Expects x y scale on the stack
+/ARMlogo {
+  gsave
+  translate
+  dup scale
+
+  newpath
+  10 10 moveto
+  50 10 lineto
+  60 38 lineto
+  70 62 lineto
+  93 117 lineto
+  117 62 lineto
+  70 62 lineto
+  60 38 lineto
+  127 38 lineto
+  140 10 lineto
+  180 10 lineto
+  113 150 lineto
+  70 150 lineto
+  closepath
+  fill
+
+  newpath
+  188 10 moveto
+  226 10 lineto
+  226 125 lineto
+  250 125 lineto
+  250 109 16 90 270 arcn
+  250 93 lineto
+  226 93 lineto
+  226 67 lineto
+  245 67 254 56 12 arcto
+  278 10 lineto
+  318 10 lineto
+  278 80 lineto 
+  260 109 41 270 90 arc
+  188 150 lineto
+  closepath
+  fill
+
+  newpath
+  330 10 moveto
+  367 10 lineto
+  367 96 lineto
+  407.5 53 lineto
+  413.5 53 lineto
+  454 96 lineto
+  454 10 lineto
+  490 10 lineto
+  490 150 lineto
+  454 150 lineto
+  410.5 100 lineto
+  367 150 lineto
+  330 150 lineto
+  closepath
+  fill
+
+  newpath
+  1.5 setlinewidth
+  507.5 142.5 7.5 0 360 arc
+  stroke
+  503 138 moveto
+  /Helvetca-Bold findfont 12 scalefont setfont
+  (R) show
+
+  grestore
+} def
+
+% ShortCopyright will center a copyright message
+% at the bottom of the page.
+% Expects date page-string xcenter y on the stack
+/ShortCopyright {
+  /y exch def
+  /xc exch def
+  /page exch def
+  /d exch def
+  /Helvetica findfont 7 scalefont setfont
+  (TSMC 65nm CLN65gplus RAM-SP Datasheet, Version r0p0-00eac0) xc y CenterText
+  /y y 10 sub def
+  (Copyright 1993-2022 ARM Limited. All Rights Reserved.) xc y CenterText
+  /y y 10 sub def
+  page xc y CenterText
+
+  % Instance name on left
+  line_left y 10 add moveto
+  (sram512 ) show
+  d show
+
+  % Logo on right
+} def
+
+
+% SymbolStart begins the part symbol
+% Expects xUpperLeft yUpperLeft inPins outPins on stack
+/SymbolStart {
+  /symbolOutPins exch def
+  /symbolInPins exch def
+  /symbolY exch def
+  /symbolX exch def
+  /symbolCapHeight 20 def
+  /symbolWidth 90 def
+  /symbolPinLength 10 def
+  /symbolPinSpacing 12 def
+  /symbolInY symbolY symbolCapHeight sub def
+  /symbolOutY
+    symbolInPins symbolOutPins sub 2 div
+    symbolPinSpacing mul
+    symbolY exch sub symbolCapHeight sub
+    def
+
+  % box of symbol
+  newpath
+  symbolX symbolY moveto
+  symbolWidth 0 rlineto
+  symbolCapHeight 2 mul
+  symbolInPins 1 sub symbolPinSpacing mul add
+  0 exch sub
+  0 exch rlineto
+  0 symbolWidth sub 0 rlineto
+  closepath
+  2 setlinewidth
+  stroke
+
+  /symbolY symbolY symbolCapHeight 2 mul sub 
+    symbolInPins 1 sub symbolPinSpacing mul sub
+    def
+
+} def
+
+% SymbolEnd completes the part symbol
+% Expects nothing on the stack
+% Returns bottom of the symbol on the stack
+/SymbolEnd {
+  symbolY 12 sub symbolPinLength sub
+} def
+
+% SymbolInput puts an input pin on the part
+% Expects pinName on the stack
+/SymbolInput {
+  dup () ne {
+    % print nonblank pin
+    newpath
+    symbolX symbolInY moveto 
+    0 symbolPinLength sub 0 rlineto
+    0.5 setlinewidth
+    stroke
+    symbolX symbolInY moveto 
+    0 symbolPinLength sub 0 rmoveto
+    -2 -3 rmoveto
+    dup stringwidth pop 0 exch sub
+    0 rmoveto
+    show
+  } {
+    % ignore blank pin
+    pop
+  } ifelse
+  /symbolInPins symbolInPins 1 sub def
+  /symbolInY symbolInY symbolPinSpacing sub def
+} def
+
+% SymbolOutput puts an output pin on the part
+% Expects pinName on the stack
+/SymbolOutput {
+  dup () ne {
+    newpath
+    symbolX symbolOutY moveto 
+    symbolWidth 0 rmoveto 
+    symbolPinLength  0 rlineto
+    0.5 setlinewidth
+    stroke
+    symbolX symbolOutY moveto 
+    symbolWidth 0 rmoveto 
+    symbolPinLength 0 rmoveto 
+    2 -3 rmoveto
+    show
+  } {
+    pop
+  } ifelse
+  /symbolOutPins symbolOutPins 1 sub def
+  /symbolOutY symbolOutY symbolPinSpacing sub def
+} def
+
+% Put triangle inside, line down and string
+% Expects string x y (left/right) on stack
+/SymbolTriangle {
+  /l exch def
+  /y exch def
+  /x exch def
+  newpath
+  x y moveto
+  -3 0 rmoveto
+  3 6 rlineto
+  3 -6 rlineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  x y moveto
+  0 0 symbolPinLength sub rlineto
+  stroke
+  x y moveto
+  0 0 symbolPinLength sub rmoveto
+  0 -12 rmoveto
+  l (left) eq {
+    dup stringwidth pop 0 exch sub 0 rmoveto
+  } if
+  l (center) eq {
+    dup stringwidth pop 2 div 0 exch sub 0 rmoveto
+  } if
+  show
+} def
+
+% SymbolClocks puts two clock pins on the bottom of the part
+% Expects pinName pinName on the stack
+/SymbolClocks {
+  symbolX symbolWidth 2 mul 3 div add
+  symbolY (right) SymbolTriangle    % string x y dir on stack
+  symbolX symbolWidth 3 div add
+  symbolY (left) SymbolTriangle    % string x y dir on stack
+} def
+
+% SymbolClock puts one clock pin on the bottom of the part
+% Expects pinName on the stack
+/SymbolClock {
+  symbolX symbolWidth 2 div add
+  symbolY (center) SymbolTriangle    % string x y dir on stack
+} def
+
+% Waves for frame number 470
+% 137 paths, 23 strings
+% Expects x y on stack
+% bounds: 0.0->307.938  0.0->279.478
+/Frame470 {
+  gsave
+  translate
+
+  newpath
+  66.5224 266.33 moveto
+  66.5224 3.2744 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  112.356 165.062 moveto
+  124.856 165.062 lineto
+  0.5 setlinewidth
+  stroke
+  112.356 165.062 ArrowLeft
+  124.856 165.062 ArrowRight
+  newpath
+  101.245 224.229 moveto
+  171.245 224.229 lineto
+  181.245 209.229 lineto
+  201.245 209.229 lineto
+  211.245 224.229 lineto
+  281.245 224.229 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  84.0224 216.729 moveto
+  89.0224 224.229 lineto
+  159.022 224.229 lineto
+  164.022 216.729 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  29.0224 224.229 moveto
+  49.0224 224.229 lineto
+  59.0224 209.229 lineto
+  79.0224 209.229 lineto
+  89.0224 224.229 lineto
+  154.022 224.229 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  85.4112 184.229 moveto
+  105.411 184.229 lineto
+  115.411 169.229 lineto
+  135.411 169.229 lineto
+  145.411 184.229 lineto
+  210.411 184.229 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  59.3928 111.371 moveto
+  49.3928 96.3712 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  49.3928 111.371 moveto
+  39.3928 96.3712 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  39.3928 111.371 moveto
+  29.3928 96.2424 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  59.3928 96.3712 moveto
+  49.3928 111.371 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  49.3928 96.3712 moveto
+  39.3928 111.371 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  39.3928 96.5008 moveto
+  29.3928 111.371 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  40.8744 249.414 moveto
+  60.8744 249.414 lineto
+  70.8744 264.414 lineto
+  90.8744 264.414 lineto
+  100.874 249.414 lineto
+  165.874 249.414 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  101.245 249.414 moveto
+  121.245 249.414 lineto
+  131.245 264.414 lineto
+  151.245 264.414 lineto
+  161.245 249.414 lineto
+  226.245 249.414 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  162.911 249.414 moveto
+  182.911 249.414 lineto
+  192.911 264.414 lineto
+  212.911 264.414 lineto
+  222.911 249.414 lineto
+  287.911 249.414 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  121.613 249.339 moveto
+  222.724 249.339 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  78.928 209.246 moveto
+  88.372 223.691 lineto
+  3 setlinewidth
+  stroke
+  newpath
+  86.428 223.691 moveto
+  161.706 223.691 lineto
+  stroke
+  newpath
+  158.928 222.302 moveto
+  168.65 208.969 lineto
+  stroke
+  newpath
+  156.613 223.783 moveto
+  171.428 223.783 lineto
+  stroke
+  newpath
+  170.317 224.71 moveto
+  181.428 209.524 lineto
+  stroke
+  newpath
+  77.9088 209.154 moveto
+  183.279 209.154 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  127.17 229.599 moveto
+  186.428 229.599 lineto
+  0.5 setlinewidth
+  stroke
+  127.17 229.599 ArrowLeft
+  186.428 229.599 ArrowRight
+  newpath
+  125.782 268.969 moveto
+  125.782 3.6912 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  85.5944 184.246 moveto
+  28.928 184.246 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  44.2056 249.524 moveto
+  28.6496 249.524 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  127.356 165.062 moveto
+  139.856 165.062 lineto
+  0.5 setlinewidth
+  stroke
+  127.356 165.062 ArrowLeft
+  139.856 165.062 ArrowRight
+  newpath
+  133.372 169.246 moveto
+  283.372 169.246 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  208.094 184.246 moveto
+  283.094 184.246 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  85.4112 144.229 moveto
+  105.411 144.229 lineto
+  115.411 129.229 lineto
+  135.411 129.229 lineto
+  145.411 144.229 lineto
+  210.411 144.229 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  85.5944 144.246 moveto
+  28.928 144.246 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  208.094 144.246 moveto
+  283.094 144.246 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  81.8 16.3712 moveto
+  101.8 16.3712 lineto
+  111.8 31.3712 lineto
+  131.8 31.3712 lineto
+  141.8 16.3712 lineto
+  206.8 16.3712 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  81.8 31.3712 moveto
+  101.8 31.3712 lineto
+  111.8 16.3712 lineto
+  131.8 16.3712 lineto
+  141.8 31.3712 lineto
+  206.8 31.3712 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  236.983 23.704 moveto
+  241.8 16.3712 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  231.8 16.3712 moveto
+  241.8 31.3712 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  93.372 111.297 moveto
+  29.2056 111.297 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  93.2336 96.2968 moveto
+  29.3904 96.2968 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  91.9856 111.338 moveto
+  81.9856 96.3384 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  80.6888 111.338 moveto
+  70.6888 96.3384 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  69.5776 111.338 moveto
+  59.5776 96.2096 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  91.9856 96.3384 moveto
+  81.9856 111.338 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  80.6888 96.3384 moveto
+  70.6888 111.338 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  69.5776 96.4672 moveto
+  59.5776 111.338 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  103.097 111.338 moveto
+  93.0968 96.3384 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  103.097 96.3384 moveto
+  93.0968 111.338 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  173.467 111.557 moveto
+  163.467 96.5568 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  163.467 111.557 moveto
+  153.467 96.5568 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  153.467 111.557 moveto
+  143.467 96.4272 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  173.467 96.5568 moveto
+  163.467 111.557 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  163.467 96.5568 moveto
+  153.467 111.557 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  153.467 96.6856 moveto
+  143.467 111.557 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  206.059 111.523 moveto
+  196.059 96.5232 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  206.428 95.9728 moveto
+  196.059 111.523 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  217.17 111.523 moveto
+  207.17 96.5232 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  217.17 96.5232 moveto
+  207.17 111.523 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  250.504 111.154 moveto
+  240.504 96.1536 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  239.207 111.154 moveto
+  229.207 96.1536 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  228.097 111.154 moveto
+  218.097 96.024 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  250.504 96.1536 moveto
+  240.504 111.154 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  239.207 96.1536 moveto
+  229.207 111.154 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  228.097 96.2824 moveto
+  218.097 111.154 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  261.615 111.154 moveto
+  251.615 96.1536 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  261.615 96.1536 moveto
+  251.615 111.154 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  205.734 111.297 moveto
+  283.279 111.297 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  205.734 96.2968 moveto
+  283.465 96.2968 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  283.466 111.338 moveto
+  273.466 96.3384 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  272.17 111.338 moveto
+  262.17 96.3384 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  283.466 96.3384 moveto
+  273.466 111.338 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  272.17 96.3384 moveto
+  262.17 111.338 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  196.798 111.297 moveto
+  205.317 111.297 lineto
+  1 setlinewidth
+  stroke
+  newpath
+  196.613 96.1112 moveto
+  205.872 96.1112 lineto
+  stroke
+  newpath
+  131.983 56.3896 moveto
+  281.15 56.3896 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  141.983 71.3896 moveto
+  281.242 71.3896 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  131.983 56.4816 moveto
+  141.798 71.1112 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  61.6152 71.3712 moveto
+  51.6152 56.3712 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  50.6888 71.3136 moveto
+  40.6888 56.3136 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  39.3928 71.3136 moveto
+  29.3928 56.184 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  61.6152 56.3712 moveto
+  51.6152 71.3712 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  50.6888 56.4984 moveto
+  40.6888 71.4984 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  39.3928 56.4424 moveto
+  29.3928 71.3136 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  132.539 56.6672 moveto
+  92.724 56.6672 lineto
+  82.724 71.1112 lineto
+  29.02 71.1112 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  141.986 56.1864 moveto
+  136.428 63.6112 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  82.9112 71.3384 moveto
+  72.9112 56.3384 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  72.1704 71.3384 moveto
+  62.1704 56.3384 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  82.9112 56.3384 moveto
+  72.9112 71.3384 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  72.1704 56.3384 moveto
+  62.1704 71.3384 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  87.9088 64.0744 moveto
+  82.5408 56.3712 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  29.3904 56.6672 moveto
+  92.5392 56.6672 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  171.8 71.3712 moveto
+  161.8 56.3712 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  161.8 71.3712 moveto
+  151.8 56.3712 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  151.8 71.3712 moveto
+  141.8 56.2424 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  171.8 56.3712 moveto
+  161.8 71.3712 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  161.8 56.3712 moveto
+  151.8 71.3712 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  151.8 56.5008 moveto
+  141.8 71.3712 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  201.8 71.3384 moveto
+  191.8 56.3384 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  191.8 71.3384 moveto
+  181.8 56.3384 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  181.8 71.3384 moveto
+  171.8 56.2096 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  201.8 56.3384 moveto
+  191.8 71.3384 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  191.8 56.3384 moveto
+  181.8 71.3384 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  181.8 56.4672 moveto
+  171.8 71.3384 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  231.8 71.5568 moveto
+  221.8 56.5568 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  221.8 71.5568 moveto
+  211.8 56.5568 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  211.8 71.5568 moveto
+  201.8 56.4272 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  231.8 56.5568 moveto
+  221.8 71.5568 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  221.8 56.5568 moveto
+  211.8 71.5568 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  211.8 56.6856 moveto
+  201.8 71.5568 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  261.8 71.524 moveto
+  251.8 56.524 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  251.8 71.524 moveto
+  241.8 56.524 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  241.8 71.524 moveto
+  231.8 56.3944 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  261.8 56.524 moveto
+  251.8 71.524 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  251.8 56.524 moveto
+  241.8 71.524 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  241.8 56.6528 moveto
+  231.8 71.524 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  281.43 71.12 moveto
+  271.43 56.12 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  271.43 71.12 moveto
+  261.43 55.9912 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  281.43 56.3384 moveto
+  271.43 71.3384 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  271.43 56.2496 moveto
+  261.43 71.12 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  83.6496 31.3384 moveto
+  28.8352 31.3384 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  84.576 16.4584 moveto
+  29.2056 16.4584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  241.798 16.2968 moveto
+  282.724 16.2968 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  216.798 31.1112 moveto
+  140.317 31.1112 lineto
+  3 setlinewidth
+  stroke
+  newpath
+  136.983 24.3056 moveto
+  141.566 30.9728 lineto
+  1 setlinewidth
+  stroke
+  newpath
+  187.818 269.107 moveto
+  187.818 2.996 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  103.094 111.111 moveto
+  143.511 111.111 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  102.817 96.6672 moveto
+  143.789 96.6672 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  153.372 111.39 moveto
+  163.511 111.39 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  153.65 96.8056 moveto
+  163.65 96.8056 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  173.234 111.25 moveto
+  196.289 111.25 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  173.511 96.3896 moveto
+  196.15 96.3896 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  189.761 10.5968 moveto
+  231.566 10.5968 lineto
+  0.5 setlinewidth
+  stroke
+  189.761 10.5968 ArrowLeft
+  231.566 10.5968 ArrowRight
+  newpath
+  202.817 16.3896 moveto
+  231.983 16.3896 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  108.094 11.0984 moveto
+  123.372 11.0288 lineto
+  0.5 setlinewidth
+  stroke
+  108.094 11.0984 ArrowLeft
+  newpath
+  158.372 10.6816 moveto
+  142.817 10.6816 lineto
+  0.5 setlinewidth
+  stroke
+  158.372 10.6816 ArrowRight
+  newpath
+  107.634 269.414 moveto
+  123.234 269.223 lineto
+  0.5 setlinewidth
+  stroke
+  107.634 269.414 ArrowLeft
+  newpath
+  169.578 268.997 moveto
+  154.022 268.851 lineto
+  0.5 setlinewidth
+  stroke
+  169.578 268.997 ArrowRight
+  newpath
+  127.91 257.046 moveto
+  136.243 257.046 lineto
+  136.243 35.7488 lineto
+  0.5 setlinewidth
+  stroke
+  127.91 257.046 ArrowLeft
+  newpath
+  190.502 255.472 moveto
+  241.429 255.472 lineto
+  241.429 33.3416 lineto
+  0.5 setlinewidth
+  stroke
+  190.502 255.472 ArrowLeft
+  /Times-Roman findfont 10 scalefont setfont
+  (CLK) () 12.4664 253.479 LeftLabel
+  (CEN) () 12.4664 212.698 LeftLabel
+  (ARTN) () 12.4664 172.698 LeftLabel
+  (A [ ]) () 12.4664 100.622 LeftLabel
+  (D[ ]) () 12.4664 60.0768 LeftLabel
+  /Times-Roman findfont 7 scalefont setfont
+  (Longer Cycle Time) () 156.754 234.289 CenterLabel
+  (Same Pulse Width) () 113.048 279.478 RightLabel
+  (ART Could Go High Here) () 190.594 174.802 RightLabel
+  /Times-Roman findfont 10 scalefont setfont
+  (WEN[ ]) () 12.4664 132.698 LeftLabel
+  (Q [ ]) () 12.4664 20.6224 LeftLabel
+  /Times-Roman findfont 7 scalefont setfont
+  (Regular read timing) () 197.122 0.1392 RightLabel
+  (Regular write-through timing) () 85.4552 0 RightLabel
+  grestore
+} def
+
+% Waves for frame number 670
+% 221 paths, 33 strings
+% Expects x y on stack
+% bounds: 0.0->346.556  0.0->228.078
+/Frame670 {
+  gsave
+  translate
+
+  newpath
+  109.056 216.536 moveto
+  109.056 194.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  41.556 176.536 moveto
+  41.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  71.556 176.536 moveto
+  71.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  41.556 136.536 moveto
+  41.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  71.556 136.536 moveto
+  71.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  54.056 226.536 moveto
+  54.056 171.665 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  41.556 96.536 moveto
+  41.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  71.556 96.536 moveto
+  71.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 194.165 moveto
+  49.056 194.165 lineto
+  59.056 209.165 lineto
+  104.056 209.165 lineto
+  114.056 194.165 lineto
+  159.056 194.165 lineto
+  169.056 209.165 lineto
+  214.056 209.165 lineto
+  224.056 194.165 lineto
+  269.056 194.165 lineto
+  279.056 209.165 lineto
+  324.056 209.165 lineto
+  334.056 194.036 lineto
+  346.556 194.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  41.556 174.165 moveto
+  54.056 174.165 lineto
+  0.5 setlinewidth
+  stroke
+  41.556 174.165 ArrowLeft
+  54.056 174.165 ArrowRight
+  newpath
+  54.056 214.036 moveto
+  109.056 214.036 lineto
+  0.5 setlinewidth
+  stroke
+  54.056 214.036 ArrowLeft
+  109.056 214.036 ArrowRight
+  newpath
+  109.056 214.036 moveto
+  164.056 214.036 lineto
+  0.5 setlinewidth
+  stroke
+  109.056 214.036 ArrowLeft
+  164.056 214.036 ArrowRight
+  newpath
+  41.556 134.165 moveto
+  54.056 134.165 lineto
+  0.5 setlinewidth
+  stroke
+  41.556 134.165 ArrowLeft
+  54.056 134.165 ArrowRight
+  newpath
+  41.556 94.1648 moveto
+  54.056 94.1648 lineto
+  0.5 setlinewidth
+  stroke
+  41.556 94.1648 ArrowLeft
+  54.056 94.1648 ArrowRight
+  newpath
+  291.556 161.665 moveto
+  296.556 154.036 lineto
+  346.556 154.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 154.165 moveto
+  36.556 154.165 lineto
+  41.556 161.665 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  76.556 154.165 moveto
+  86.556 169.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  76.556 154.165 moveto
+  146.556 154.165 lineto
+  156.556 169.165 lineto
+  176.556 169.165 lineto
+  186.556 154.165 lineto
+  256.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  71.556 161.665 moveto
+  76.556 169.165 lineto
+  146.556 169.165 lineto
+  151.556 161.665 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  86.556 154.165 moveto
+  96.556 169.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  106.556 154.165 moveto
+  116.556 169.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  116.556 154.165 moveto
+  126.556 169.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  126.556 154.165 moveto
+  136.556 169.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  96.556 154.165 moveto
+  106.556 169.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  136.556 154.165 moveto
+  146.556 169.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  76.556 169.165 moveto
+  86.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  86.556 169.165 moveto
+  96.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  96.556 169.165 moveto
+  106.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  106.556 169.165 moveto
+  116.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  116.556 169.165 moveto
+  126.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  126.556 169.165 moveto
+  136.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  136.556 169.165 moveto
+  146.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  186.556 154.165 moveto
+  196.556 169.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  239.056 169.165 moveto
+  256.556 169.165 lineto
+  266.556 154.165 lineto
+  286.556 154.165 lineto
+  296.556 169.036 lineto
+  346.556 169.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  181.556 161.665 moveto
+  186.556 169.165 lineto
+  256.556 169.165 lineto
+  261.556 161.665 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  196.556 154.165 moveto
+  206.556 169.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  216.556 154.165 moveto
+  226.556 169.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  226.556 154.165 moveto
+  236.556 169.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  236.556 154.165 moveto
+  246.556 169.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  206.556 154.165 moveto
+  216.556 169.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  246.556 154.165 moveto
+  256.556 169.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  186.556 169.165 moveto
+  196.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  196.556 169.165 moveto
+  206.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  206.556 169.165 moveto
+  216.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  216.556 169.165 moveto
+  226.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  226.556 169.165 moveto
+  236.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  236.556 169.165 moveto
+  246.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  246.556 169.165 moveto
+  256.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  296.556 154.036 moveto
+  306.556 169.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  316.556 154.036 moveto
+  326.556 169.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  326.556 154.036 moveto
+  336.556 169.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  336.556 154.036 moveto
+  346.556 168.906 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  306.556 154.036 moveto
+  316.556 169.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  296.556 169.036 moveto
+  306.556 154.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  306.556 169.036 moveto
+  316.556 154.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  316.556 169.036 moveto
+  326.556 154.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  326.556 169.036 moveto
+  336.556 154.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  336.556 169.165 moveto
+  346.556 154.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 169.165 moveto
+  36.556 169.165 lineto
+  46.556 154.165 lineto
+  66.556 154.165 lineto
+  76.556 169.165 lineto
+  141.556 169.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  291.556 121.665 moveto
+  296.556 129.036 lineto
+  346.556 129.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 129.165 moveto
+  36.556 129.165 lineto
+  41.556 121.665 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  76.556 129.165 moveto
+  86.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  71.556 121.665 moveto
+  76.556 129.165 lineto
+  186.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  86.556 129.165 moveto
+  96.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  106.556 129.165 moveto
+  116.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  116.556 129.165 moveto
+  126.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  126.556 129.165 moveto
+  136.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  96.556 129.165 moveto
+  106.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  136.556 129.165 moveto
+  146.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  76.556 114.165 moveto
+  86.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  86.556 114.165 moveto
+  96.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  96.556 114.165 moveto
+  106.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  106.556 114.165 moveto
+  116.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  116.556 114.165 moveto
+  126.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  126.556 114.165 moveto
+  136.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  136.556 114.165 moveto
+  146.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  186.556 129.165 moveto
+  196.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  136.556 114.165 moveto
+  256.556 114.165 lineto
+  266.556 129.165 lineto
+  286.556 129.165 lineto
+  296.556 114.165 lineto
+  346.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  186.556 129.165 moveto
+  256.556 129.165 lineto
+  261.556 121.665 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  196.556 129.165 moveto
+  206.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  216.556 129.165 moveto
+  226.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  226.556 129.165 moveto
+  236.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  236.556 129.165 moveto
+  246.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  206.556 129.165 moveto
+  216.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  246.556 129.165 moveto
+  256.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  186.556 114.165 moveto
+  196.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  196.556 114.165 moveto
+  206.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  206.556 114.165 moveto
+  216.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  216.556 114.165 moveto
+  226.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  226.556 114.165 moveto
+  236.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  236.556 114.165 moveto
+  246.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  246.556 114.165 moveto
+  256.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  296.556 129.036 moveto
+  306.556 114.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  316.556 129.036 moveto
+  326.556 114.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  326.556 129.036 moveto
+  336.556 114.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  336.556 129.165 moveto
+  346.556 114.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  306.556 129.036 moveto
+  316.556 114.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  296.556 114.036 moveto
+  306.556 129.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  306.556 114.036 moveto
+  316.556 129.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  316.556 114.036 moveto
+  326.556 129.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  326.556 114.036 moveto
+  336.556 129.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  336.556 114.165 moveto
+  346.556 129.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 114.165 moveto
+  36.556 114.165 lineto
+  46.556 129.165 lineto
+  66.556 129.165 lineto
+  76.556 114.165 lineto
+  141.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  76.556 89.1648 moveto
+  86.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  86.556 89.1648 moveto
+  96.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  106.556 89.1648 moveto
+  116.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  116.556 89.1648 moveto
+  126.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  126.556 89.1648 moveto
+  136.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  96.556 89.1648 moveto
+  106.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  136.556 89.1648 moveto
+  146.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  76.556 74.1648 moveto
+  86.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  86.556 74.1648 moveto
+  96.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  96.556 74.1648 moveto
+  106.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  106.556 74.1648 moveto
+  116.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  116.556 74.1648 moveto
+  126.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  126.556 74.1648 moveto
+  136.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  136.556 74.1648 moveto
+  146.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  186.556 89.1648 moveto
+  196.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  131.556 74.1648 moveto
+  256.556 74.1648 lineto
+  266.556 89.1648 lineto
+  286.556 89.1648 lineto
+  296.556 74.036 lineto
+  346.556 74.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  196.556 89.1648 moveto
+  206.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  216.556 89.1648 moveto
+  226.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  226.556 89.1648 moveto
+  236.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  236.556 89.1648 moveto
+  246.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  206.556 89.1648 moveto
+  216.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  246.556 89.1648 moveto
+  256.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  186.556 74.1648 moveto
+  196.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  196.556 74.1648 moveto
+  206.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  206.556 74.1648 moveto
+  216.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  216.556 74.1648 moveto
+  226.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  226.556 74.1648 moveto
+  236.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  236.556 74.1648 moveto
+  246.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  246.556 74.1648 moveto
+  256.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  296.556 89.1648 moveto
+  306.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  316.556 89.1648 moveto
+  326.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  326.556 89.1648 moveto
+  336.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  336.556 89.1648 moveto
+  346.556 74.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  306.556 89.1648 moveto
+  316.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  296.556 74.1648 moveto
+  306.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  306.556 74.1648 moveto
+  316.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  316.556 74.1648 moveto
+  326.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  326.556 74.1648 moveto
+  336.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  336.556 74.2944 moveto
+  346.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 74.1648 moveto
+  36.556 74.1648 lineto
+  46.556 89.1648 lineto
+  66.556 89.1648 lineto
+  76.556 74.1648 lineto
+  141.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  136.556 89.1648 moveto
+  256.556 89.1648 lineto
+  266.556 74.1648 lineto
+  286.556 74.1648 lineto
+  296.556 89.1648 lineto
+  346.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 89.1648 moveto
+  36.556 89.1648 lineto
+  46.556 74.1648 lineto
+  66.556 74.1648 lineto
+  76.556 89.1648 lineto
+  141.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 89.1648 moveto
+  26.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  26.556 89.1648 moveto
+  36.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 74.1648 moveto
+  26.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  26.556 74.1648 moveto
+  36.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 169.165 moveto
+  26.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  26.556 169.165 moveto
+  36.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 154.165 moveto
+  26.556 169.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  26.556 154.165 moveto
+  36.556 169.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 129.165 moveto
+  26.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  26.556 129.165 moveto
+  36.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 114.165 moveto
+  26.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  26.556 114.165 moveto
+  36.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  54.056 151.794 moveto
+  54.056 131.665 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  54.056 111.794 moveto
+  54.056 91.6648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  261.556 176.536 moveto
+  261.556 154.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  291.556 176.536 moveto
+  291.556 154.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  261.556 136.536 moveto
+  261.556 114.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  291.556 136.536 moveto
+  291.556 114.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  274.056 226.536 moveto
+  274.056 171.536 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  261.556 96.536 moveto
+  261.556 74.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  291.556 96.536 moveto
+  291.556 74.036 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  261.556 174.036 moveto
+  274.056 174.036 lineto
+  0.5 setlinewidth
+  stroke
+  261.556 174.036 ArrowLeft
+  274.056 174.036 ArrowRight
+  newpath
+  274.056 174.036 moveto
+  291.556 174.036 lineto
+  0.5 setlinewidth
+  stroke
+  274.056 174.036 ArrowLeft
+  291.556 174.036 ArrowRight
+  newpath
+  261.556 134.036 moveto
+  274.056 134.036 lineto
+  0.5 setlinewidth
+  stroke
+  261.556 134.036 ArrowLeft
+  274.056 134.036 ArrowRight
+  newpath
+  274.056 134.036 moveto
+  291.556 134.036 lineto
+  0.5 setlinewidth
+  stroke
+  274.056 134.036 ArrowLeft
+  291.556 134.036 ArrowRight
+  newpath
+  261.556 94.036 moveto
+  274.056 94.036 lineto
+  0.5 setlinewidth
+  stroke
+  261.556 94.036 ArrowLeft
+  274.056 94.036 ArrowRight
+  newpath
+  274.056 94.036 moveto
+  291.556 94.036 lineto
+  0.5 setlinewidth
+  stroke
+  274.056 94.036 ArrowLeft
+  291.556 94.036 ArrowRight
+  newpath
+  274.056 151.665 moveto
+  274.056 131.536 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  274.056 111.665 moveto
+  274.056 91.536 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  219.056 219.036 moveto
+  219.056 194.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  151.556 176.536 moveto
+  151.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  181.556 176.536 moveto
+  181.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  164.056 226.536 moveto
+  164.056 171.665 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  151.556 174.165 moveto
+  164.056 174.165 lineto
+  0.5 setlinewidth
+  stroke
+  151.556 174.165 ArrowLeft
+  164.056 174.165 ArrowRight
+  newpath
+  164.056 214.036 moveto
+  219.056 214.036 lineto
+  0.5 setlinewidth
+  stroke
+  164.056 214.036 ArrowLeft
+  219.056 214.036 ArrowRight
+  newpath
+  219.056 214.036 moveto
+  274.056 214.036 lineto
+  0.5 setlinewidth
+  stroke
+  219.056 214.036 ArrowLeft
+  274.056 214.036 ArrowRight
+  newpath
+  256.556 154.165 moveto
+  261.556 161.536 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  71.556 161.536 moveto
+  76.556 154.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  146.556 89.1648 moveto
+  156.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  156.556 89.1648 moveto
+  166.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  176.556 89.1648 moveto
+  186.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  166.556 89.1648 moveto
+  176.556 74.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  146.556 74.1648 moveto
+  156.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  156.556 74.1648 moveto
+  166.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  166.556 74.1648 moveto
+  176.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  176.556 74.1648 moveto
+  186.556 89.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  146.556 129.165 moveto
+  156.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  156.556 129.165 moveto
+  166.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  176.556 129.165 moveto
+  186.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  166.556 129.165 moveto
+  176.556 114.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  146.556 114.165 moveto
+  156.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  156.556 114.165 moveto
+  166.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  166.556 114.165 moveto
+  176.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  176.556 114.165 moveto
+  186.556 129.165 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  296.556 56.6648 moveto
+  296.556 34.2944 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  76.556 56.6648 moveto
+  76.556 34.2944 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  71.556 49.1648 moveto
+  16.556 49.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 49.1648 moveto
+  71.556 49.1648 lineto
+  81.556 34.1648 lineto
+  161.556 34.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 34.1648 moveto
+  71.556 34.1648 lineto
+  81.556 49.1648 lineto
+  161.556 49.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  281.556 49.1648 moveto
+  291.556 49.1648 lineto
+  301.556 34.1648 lineto
+  311.556 34.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  281.556 34.1648 moveto
+  291.556 34.1648 lineto
+  301.556 49.1648 lineto
+  311.556 49.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  160.635 49.1648 moveto
+  288.635 49.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  160.635 34.1648 moveto
+  288.635 34.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  306.556 49.1648 moveto
+  346.556 49.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  306.556 34.1648 moveto
+  346.556 34.1648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  54.056 71.7944 moveto
+  54.056 51.6648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  54.056 71.7944 moveto
+  54.056 51.6648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  274.056 71.7944 moveto
+  274.056 51.6648 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  54.068 174.19 moveto
+  71.568 174.19 lineto
+  0.5 setlinewidth
+  stroke
+  54.068 174.19 ArrowLeft
+  71.568 174.19 ArrowRight
+  newpath
+  54.068 134.19 moveto
+  71.568 134.19 lineto
+  0.5 setlinewidth
+  stroke
+  54.068 134.19 ArrowLeft
+  71.568 134.19 ArrowRight
+  newpath
+  54.068 94.1896 moveto
+  71.568 94.1896 lineto
+  0.5 setlinewidth
+  stroke
+  54.068 94.1896 ArrowLeft
+  71.568 94.1896 ArrowRight
+  newpath
+  164.068 174.19 moveto
+  181.568 174.19 lineto
+  0.5 setlinewidth
+  stroke
+  164.068 174.19 ArrowLeft
+  181.568 174.19 ArrowRight
+  newpath
+  274.068 54.1896 moveto
+  296.548 54.1896 lineto
+  0.5 setlinewidth
+  stroke
+  274.068 54.1896 ArrowLeft
+  296.548 54.1896 ArrowRight
+  newpath
+  54.068 54.1896 moveto
+  76.548 54.1896 lineto
+  0.5 setlinewidth
+  stroke
+  54.068 54.1896 ArrowLeft
+  76.548 54.1896 ArrowRight
+  newpath
+  164.1 224.036 moveto
+  274.056 224.036 lineto
+  0.5 setlinewidth
+  stroke
+  164.1 224.036 ArrowLeft
+  274.056 224.036 ArrowRight
+  newpath
+  54.388 224.03 moveto
+  164.344 224.03 lineto
+  0.5 setlinewidth
+  stroke
+  54.388 224.03 ArrowLeft
+  164.344 224.03 ArrowRight
+  /Times-Roman findfont 10 scalefont setfont
+  (CLK) () 0 198.416 LeftLabel
+  (CEN) () 0 157.634 LeftLabel
+  (WEN) () 0 117.634 LeftLabel
+  (A[j]) () 0 78.416 LeftLabel
+  (Q[i]) () 0 37.8704 LeftLabel
+  /Times-Roman findfont 7 scalefont setfont
+  (t) (cs) 47.8056 178.114 CenterLabel
+  (t) (ch) 62.8056 178.114 CenterLabel
+  (t) (ckh) 81.556 217.374 CenterLabel
+  (t) (ckl) 136.556 217.374 CenterLabel
+  (t) (ws) 47.8056 138.114 CenterLabel
+  (t) (wh) 62.8056 138.114 CenterLabel
+  (t) (as) 47.8056 98.1144 CenterLabel
+  (t) (ah) 62.8056 98.1144 CenterLabel
+  (t) (cs) 267.806 177.985 CenterLabel
+  (t) (ch) 282.806 177.985 CenterLabel
+  (t) (ws) 267.806 137.985 CenterLabel
+  (t) (wh) 282.806 137.985 CenterLabel
+  (t) (as) 267.806 97.9848 CenterLabel
+  (t) (ah) 282.806 97.9848 CenterLabel
+  (t) (cs) 157.806 178.114 CenterLabel
+  (t) (ch) 172.806 178.114 CenterLabel
+  (ADD1) () 56.556 81.324 CenterLabel
+  (ADD2) () 276.556 81.324 CenterLabel
+  (t) (ckh) 191.556 217.374 CenterLabel
+  (t) (ckl) 246.556 217.374 CenterLabel
+  (t) (cyc) 109.056 228.078 CenterLabel
+  (t) (cyc) 219.056 228.078 CenterLabel
+  (Q1) () 86.556 40.7072 RightLabel
+  (Q2) () 306.556 41.4536 RightLabel
+  (t) (a) 65.3056 57.8728 CenterLabel
+  (t) (a) 285.306 57.744 CenterLabel
+  grestore
+} def
+
+% Waves for frame number 671
+% 286 paths, 38 strings
+% Expects x y on stack
+% bounds: 0.0->346.556  0.0->234.433
+/Frame671 {
+  gsave
+  translate
+
+  newpath
+  109.056 222.629 moveto
+  109.056 200.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  41.556 182.629 moveto
+  41.556 160.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  71.556 182.629 moveto
+  71.556 160.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  41.556 142.629 moveto
+  41.556 120.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  71.556 142.629 moveto
+  71.556 120.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  54.056 232.629 moveto
+  54.056 177.758 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  41.556 102.629 moveto
+  41.556 80.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  71.556 102.629 moveto
+  71.556 80.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 200.258 moveto
+  49.056 200.258 lineto
+  59.056 215.258 lineto
+  104.056 215.258 lineto
+  114.056 200.258 lineto
+  159.056 200.258 lineto
+  169.056 215.258 lineto
+  214.056 215.258 lineto
+  224.056 200.258 lineto
+  269.056 200.258 lineto
+  279.056 215.258 lineto
+  324.056 215.258 lineto
+  334.056 200.129 lineto
+  346.556 200.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  41.556 180.258 moveto
+  54.056 180.258 lineto
+  0.5 setlinewidth
+  stroke
+  41.556 180.258 ArrowLeft
+  54.056 180.258 ArrowRight
+  newpath
+  41.556 140.129 moveto
+  54.056 140.129 lineto
+  0.5 setlinewidth
+  stroke
+  41.556 140.129 ArrowLeft
+  54.056 140.129 ArrowRight
+  newpath
+  41.556 100.258 moveto
+  54.056 100.258 lineto
+  0.5 setlinewidth
+  stroke
+  41.556 100.258 ArrowLeft
+  54.056 100.258 ArrowRight
+  newpath
+  291.556 167.758 moveto
+  296.556 160.129 lineto
+  346.556 160.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 160.258 moveto
+  36.556 160.258 lineto
+  41.556 167.758 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  76.556 160.258 moveto
+  86.556 175.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  71.556 167.629 moveto
+  76.556 160.129 lineto
+  146.556 160.129 lineto
+  156.556 175.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  86.556 160.258 moveto
+  96.556 175.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  106.556 160.258 moveto
+  116.556 175.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  116.556 160.258 moveto
+  126.556 175.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  126.556 160.258 moveto
+  136.556 175.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  96.556 160.258 moveto
+  106.556 175.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  136.556 160.258 moveto
+  146.556 175.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  76.556 175.258 moveto
+  86.556 160.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  86.556 175.258 moveto
+  96.556 160.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  96.556 175.258 moveto
+  106.556 160.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  106.556 175.258 moveto
+  116.556 160.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  116.556 175.258 moveto
+  126.556 160.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  126.556 175.258 moveto
+  136.556 160.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  136.556 175.258 moveto
+  146.556 160.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  186.556 160.258 moveto
+  196.556 175.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  181.556 167.629 moveto
+  186.556 175.129 lineto
+  256.556 175.129 lineto
+  266.556 160.258 lineto
+  286.556 160.258 lineto
+  296.556 175.129 lineto
+  346.556 175.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  156.556 175.129 moveto
+  176.556 175.129 lineto
+  186.556 160.129 lineto
+  256.556 160.129 lineto
+  261.556 167.629 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  196.556 160.258 moveto
+  206.556 175.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  216.556 160.258 moveto
+  226.556 175.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  226.556 160.258 moveto
+  236.556 175.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  236.556 160.258 moveto
+  246.556 175.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  206.556 160.258 moveto
+  216.556 175.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  246.556 160.258 moveto
+  256.556 175.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  186.556 175.258 moveto
+  196.556 160.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  196.556 175.258 moveto
+  206.556 160.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  206.556 175.258 moveto
+  216.556 160.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  216.556 175.258 moveto
+  226.556 160.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  226.556 175.258 moveto
+  236.556 160.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  236.556 175.258 moveto
+  246.556 160.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  246.556 175.258 moveto
+  256.556 160.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  296.556 160.129 moveto
+  306.556 175.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  316.556 160.129 moveto
+  326.556 175.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  326.556 160.129 moveto
+  336.556 175.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  336.556 160.129 moveto
+  346.556 175 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  306.556 160.129 moveto
+  316.556 175.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  296.556 175.129 moveto
+  306.556 160.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  306.556 175.129 moveto
+  316.556 160.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  316.556 175.129 moveto
+  326.556 160.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  326.556 175.129 moveto
+  336.556 160.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  336.556 175.258 moveto
+  346.556 160.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 175.258 moveto
+  36.556 175.258 lineto
+  46.556 160.258 lineto
+  66.556 160.258 lineto
+  76.556 175.129 lineto
+  146.556 175.129 lineto
+  151.556 167.629 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  291.556 127.758 moveto
+  296.556 120.387 lineto
+  346.556 120.387 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 120.258 moveto
+  36.556 120.258 lineto
+  41.556 127.758 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  76.556 135.258 moveto
+  86.556 120.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  129.056 120.258 moveto
+  146.556 120.258 lineto
+  156.556 135.258 lineto
+  176.556 135.258 lineto
+  186.556 120.258 lineto
+  251.556 120.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  71.556 127.758 moveto
+  76.556 120.258 lineto
+  146.556 120.258 lineto
+  151.556 127.758 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  86.556 135.258 moveto
+  96.556 120.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  106.556 135.258 moveto
+  116.556 120.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  116.556 135.258 moveto
+  126.556 120.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  126.556 135.258 moveto
+  136.556 120.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  96.556 135.258 moveto
+  106.556 120.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  136.556 135.258 moveto
+  146.556 120.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  76.556 120.258 moveto
+  86.556 135.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  86.556 120.258 moveto
+  96.556 135.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  96.556 120.258 moveto
+  106.556 135.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  106.556 120.258 moveto
+  116.556 135.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  116.556 120.258 moveto
+  126.556 135.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  126.556 120.258 moveto
+  136.556 135.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  136.556 120.258 moveto
+  146.556 135.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  186.556 135.258 moveto
+  196.556 120.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  136.556 135.258 moveto
+  256.556 135.258 lineto
+  266.556 120.258 lineto
+  286.556 120.258 lineto
+  296.556 135.258 lineto
+  346.556 135.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  139.056 120.258 moveto
+  186.556 120.258 lineto
+  256.556 120.258 lineto
+  261.556 127.758 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  196.556 135.258 moveto
+  206.556 120.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  216.556 135.258 moveto
+  226.556 120.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  226.556 135.258 moveto
+  236.556 120.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  236.556 135.258 moveto
+  246.556 120.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  206.556 135.258 moveto
+  216.556 120.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  246.556 135.258 moveto
+  256.556 120.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  186.556 120.258 moveto
+  196.556 135.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  196.556 120.258 moveto
+  206.556 135.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  206.556 120.258 moveto
+  216.556 135.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  216.556 120.258 moveto
+  226.556 135.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  226.556 120.258 moveto
+  236.556 135.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  236.556 120.258 moveto
+  246.556 135.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  246.556 120.258 moveto
+  256.556 135.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  296.556 135.129 moveto
+  306.556 120.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  316.556 135.129 moveto
+  326.556 120.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  326.556 135.129 moveto
+  336.556 120.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  336.556 135.258 moveto
+  346.556 120.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  306.556 135.129 moveto
+  316.556 120.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  296.556 120.129 moveto
+  306.556 135.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  306.556 120.129 moveto
+  316.556 135.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  316.556 120.129 moveto
+  326.556 135.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  326.556 120.129 moveto
+  336.556 135.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  336.556 120.129 moveto
+  346.556 135 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 135.258 moveto
+  36.556 135.258 lineto
+  46.556 120.258 lineto
+  66.556 120.258 lineto
+  76.556 135.258 lineto
+  141.556 135.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  76.556 95.2584 moveto
+  86.556 80.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  129.056 80.2584 moveto
+  146.556 80.2584 lineto
+  186.556 80.2584 lineto
+  251.556 80.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  86.556 95.2584 moveto
+  96.556 80.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  106.556 95.2584 moveto
+  116.556 80.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  116.556 95.2584 moveto
+  126.556 80.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  126.556 95.2584 moveto
+  136.556 80.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  96.556 95.2584 moveto
+  106.556 80.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  136.556 95.2584 moveto
+  146.556 80.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  76.556 80.2584 moveto
+  86.556 95.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  86.556 80.2584 moveto
+  96.556 95.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  96.556 80.2584 moveto
+  106.556 95.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  106.556 80.2584 moveto
+  116.556 95.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  116.556 80.2584 moveto
+  126.556 95.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  126.556 80.2584 moveto
+  136.556 95.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  136.556 80.2584 moveto
+  146.556 95.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  186.556 95.2584 moveto
+  196.556 80.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  239.056 80.2584 moveto
+  256.556 80.2584 lineto
+  266.556 95.2584 lineto
+  286.556 95.2584 lineto
+  296.556 80.1288 lineto
+  346.556 80.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  196.556 95.2584 moveto
+  206.556 80.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  216.556 95.2584 moveto
+  226.556 80.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  226.556 95.2584 moveto
+  236.556 80.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  236.556 95.2584 moveto
+  246.556 80.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  206.556 95.2584 moveto
+  216.556 80.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  246.556 95.2584 moveto
+  256.556 80.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  186.556 80.2584 moveto
+  196.556 95.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  196.556 80.2584 moveto
+  206.556 95.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  206.556 80.2584 moveto
+  216.556 95.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  216.556 80.2584 moveto
+  226.556 95.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  226.556 80.2584 moveto
+  236.556 95.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  236.556 80.2584 moveto
+  246.556 95.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  246.556 80.2584 moveto
+  256.556 95.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  296.556 95.1288 moveto
+  306.556 80.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  316.556 95.1288 moveto
+  326.556 80.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  326.556 95.1288 moveto
+  336.556 80.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  336.556 95.1288 moveto
+  346.556 80 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  306.556 95.1288 moveto
+  316.556 80.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  296.556 80.1288 moveto
+  306.556 95.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  306.556 80.1288 moveto
+  316.556 95.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  316.556 80.1288 moveto
+  326.556 95.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  326.556 80.1288 moveto
+  336.556 95.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  336.556 80.2584 moveto
+  346.556 95.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 80.2584 moveto
+  36.556 80.2584 lineto
+  46.556 95.2584 lineto
+  66.556 95.2584 lineto
+  76.556 80.2584 lineto
+  141.556 80.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  129.056 95.2584 moveto
+  146.556 95.2584 lineto
+  186.556 95.1288 lineto
+  251.556 95.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  239.056 95.1288 moveto
+  256.556 95.1288 lineto
+  266.556 80.1288 lineto
+  286.556 80.1288 lineto
+  296.556 95.1288 lineto
+  346.556 95.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 95.2584 moveto
+  36.556 95.2584 lineto
+  46.556 80.2584 lineto
+  66.556 80.2584 lineto
+  76.556 95.2584 lineto
+  141.556 95.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 95.2584 moveto
+  26.556 80.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  26.556 95.2584 moveto
+  36.556 80.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 80.2584 moveto
+  26.556 95.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  26.556 80.2584 moveto
+  36.556 95.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 175.258 moveto
+  26.556 160.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  26.556 175.258 moveto
+  36.556 160.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 160.258 moveto
+  26.556 175.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  26.556 160.258 moveto
+  36.556 175.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 135.258 moveto
+  26.556 120.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  26.556 135.258 moveto
+  36.556 120.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 120.258 moveto
+  26.556 135.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  26.556 120.258 moveto
+  36.556 135.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  54.056 157.887 moveto
+  54.056 137.758 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  54.056 117.887 moveto
+  54.056 97.7584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  261.556 182.629 moveto
+  261.556 160.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  291.556 182.629 moveto
+  291.556 160.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  261.556 142.629 moveto
+  261.556 120.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  291.556 142.629 moveto
+  291.556 120.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  274.056 232.629 moveto
+  274.056 177.629 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  261.556 102.629 moveto
+  261.556 80.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  291.556 102.629 moveto
+  291.556 80.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  261.556 180.129 moveto
+  274.056 180.129 lineto
+  0.5 setlinewidth
+  stroke
+  261.556 180.129 ArrowLeft
+  274.056 180.129 ArrowRight
+  newpath
+  261.556 140 moveto
+  274.056 140 lineto
+  0.5 setlinewidth
+  stroke
+  261.556 140 ArrowLeft
+  274.056 140 ArrowRight
+  newpath
+  261.556 100.129 moveto
+  274.056 100.129 lineto
+  0.5 setlinewidth
+  stroke
+  261.556 100.129 ArrowLeft
+  274.056 100.129 ArrowRight
+  newpath
+  274.056 157.758 moveto
+  274.056 137.629 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  274.056 117.758 moveto
+  274.056 97.6288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  219.056 222.629 moveto
+  219.056 200.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  151.556 182.629 moveto
+  151.556 160.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  181.556 182.629 moveto
+  181.556 160.258 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  164.056 232.629 moveto
+  164.056 177.758 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  151.556 180.258 moveto
+  164.056 180.258 lineto
+  0.5 setlinewidth
+  stroke
+  151.556 180.258 ArrowLeft
+  164.056 180.258 ArrowRight
+  newpath
+  41.556 62.6288 moveto
+  41.556 40.3872 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  71.556 62.6288 moveto
+  71.556 40.3872 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  41.556 60.2584 moveto
+  54.056 60.2584 lineto
+  0.5 setlinewidth
+  stroke
+  41.556 60.2584 ArrowLeft
+  54.056 60.2584 ArrowRight
+  newpath
+  76.556 55.1288 moveto
+  86.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  129.056 40.1288 moveto
+  146.556 40.1288 lineto
+  186.556 40.1288 lineto
+  251.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  86.556 55.1288 moveto
+  96.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  106.556 55.1288 moveto
+  116.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  116.556 55.1288 moveto
+  126.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  126.556 55.1288 moveto
+  136.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  96.556 55.1288 moveto
+  106.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  136.556 55.1288 moveto
+  146.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  76.556 40.1288 moveto
+  86.556 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  86.556 40.1288 moveto
+  96.556 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  96.556 40.1288 moveto
+  106.556 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  106.556 40.1288 moveto
+  116.556 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  116.556 40.1288 moveto
+  126.556 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  126.556 40.1288 moveto
+  136.556 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  136.556 40.1288 moveto
+  146.556 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  186.556 55.1288 moveto
+  196.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  239.056 40.2584 moveto
+  256.556 40.2584 lineto
+  266.556 55.2584 lineto
+  286.556 55.2584 lineto
+  296.556 40.1288 lineto
+  346.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  196.556 55.1288 moveto
+  206.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  216.556 55.1288 moveto
+  226.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  226.556 55.1288 moveto
+  236.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  236.556 55.1288 moveto
+  246.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  206.556 55.1288 moveto
+  216.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  246.556 55.1288 moveto
+  256.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  186.556 40.1288 moveto
+  196.556 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  196.556 40.1288 moveto
+  206.556 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  206.556 40.1288 moveto
+  216.556 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  216.556 40.1288 moveto
+  226.556 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  226.556 40.1288 moveto
+  236.556 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  236.556 40.1288 moveto
+  246.556 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  246.556 40.1288 moveto
+  256.556 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  296.556 55.2584 moveto
+  306.556 40.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  316.556 55.2584 moveto
+  326.556 40.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  326.556 55.2584 moveto
+  336.556 40.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  336.556 55.2584 moveto
+  346.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  306.556 55.2584 moveto
+  316.556 40.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  296.556 40.2584 moveto
+  306.556 55.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  306.556 40.2584 moveto
+  316.556 55.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  316.556 40.2584 moveto
+  326.556 55.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  326.556 40.2584 moveto
+  336.556 55.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  336.556 40.3872 moveto
+  346.556 55.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 40.1288 moveto
+  36.556 40.1288 lineto
+  46.556 55.1288 lineto
+  66.556 55.1288 lineto
+  76.556 40.1288 lineto
+  141.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  76.556 55.1288 moveto
+  256.556 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  239.056 55.1288 moveto
+  256.556 55.1288 lineto
+  266.556 40.1288 lineto
+  286.556 40.1288 lineto
+  296.556 55.1288 lineto
+  346.556 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 55.3872 moveto
+  36.556 55.3872 lineto
+  46.556 40.3872 lineto
+  66.556 40.3872 lineto
+  76.556 55.1288 lineto
+  119.056 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 55.3872 moveto
+  26.556 40.3872 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  26.556 55.3872 moveto
+  36.556 40.3872 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 40.3872 moveto
+  26.556 55.3872 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  26.556 40.3872 moveto
+  36.556 55.3872 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  54.056 78.0168 moveto
+  54.056 57.8872 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  261.556 62.6288 moveto
+  261.556 40.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  291.556 62.6288 moveto
+  291.556 40.2584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  261.556 60.1288 moveto
+  274.056 60.1288 lineto
+  0.5 setlinewidth
+  stroke
+  261.556 60.1288 ArrowLeft
+  274.056 60.1288 ArrowRight
+  newpath
+  274.056 77.8872 moveto
+  274.056 57.7584 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  146.556 135.129 moveto
+  156.556 120.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  156.556 135.129 moveto
+  166.556 120.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  176.556 135.129 moveto
+  186.556 120.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  166.556 135.129 moveto
+  176.556 120.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  146.556 120.129 moveto
+  156.556 135.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  156.556 120.129 moveto
+  166.556 135.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  166.556 120.129 moveto
+  176.556 135.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  176.556 120.129 moveto
+  186.556 135.129 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  146.556 95.1288 moveto
+  156.556 80.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  156.556 95.1288 moveto
+  166.556 80.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  176.556 95.1288 moveto
+  186.556 80.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  166.556 95.1288 moveto
+  176.556 80.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  146.556 80.1288 moveto
+  156.556 95.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  156.556 80.1288 moveto
+  166.556 95.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  166.556 80.1288 moveto
+  176.556 95.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  176.556 80.1288 moveto
+  186.556 95.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  146.556 55.1288 moveto
+  156.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  156.556 55.1288 moveto
+  166.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  176.556 55.1288 moveto
+  186.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  166.556 55.1288 moveto
+  176.556 40.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  146.556 40.1288 moveto
+  156.556 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  156.556 40.1288 moveto
+  166.556 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  166.556 40.1288 moveto
+  176.556 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  176.556 40.1288 moveto
+  186.556 55.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  296.556 22.5 moveto
+  296.556 0.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  76.556 22.5 moveto
+  76.556 0.1288 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  71.556 15 moveto
+  16.556 15 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 15 moveto
+  71.556 15 lineto
+  81.556 0 lineto
+  161.556 0 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  16.556 0 moveto
+  71.556 0 lineto
+  81.556 15 lineto
+  161.556 15 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  281.556 15 moveto
+  291.556 15 lineto
+  301.556 0 lineto
+  311.556 0 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  281.556 0 moveto
+  291.556 0 lineto
+  301.556 15 lineto
+  311.556 15 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  160.635 15 moveto
+  288.635 15 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  160.635 0 moveto
+  288.635 0 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  306.556 15 moveto
+  346.556 15 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  306.556 0 moveto
+  346.556 0 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  54.056 37.6288 moveto
+  54.056 17.5 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  274.056 37.6288 moveto
+  274.056 17.5 lineto
+  0.5 setlinewidth
+  stroke
+  newpath
+  54.068 19.9856 moveto
+  76.548 19.9856 lineto
+  0.5 setlinewidth
+  stroke
+  54.068 19.9856 ArrowLeft
+  76.548 19.9856 ArrowRight
+  newpath
+  54.068 140.146 moveto
+  71.568 140.146 lineto
+  0.5 setlinewidth
+  stroke
+  54.068 140.146 ArrowLeft
+  71.568 140.146 ArrowRight
+  newpath
+  54.068 60.1456 moveto
+  71.568 60.1456 lineto
+  0.5 setlinewidth
+  stroke
+  54.068 60.1456 ArrowLeft
+  71.568 60.1456 ArrowRight
+  newpath
+  274.068 180.146 moveto
+  291.568 180.146 lineto
+  0.5 setlinewidth
+  stroke
+  274.068 180.146 ArrowLeft
+  291.568 180.146 ArrowRight
+  newpath
+  274.068 100.146 moveto
+  291.568 100.146 lineto
+  0.5 setlinewidth
+  stroke
+  274.068 100.146 ArrowLeft
+  291.568 100.146 ArrowRight
+  newpath
+  274.068 60.1456 moveto
+  291.568 60.1456 lineto
+  0.5 setlinewidth
+  stroke
+  274.068 60.1456 ArrowLeft
+  291.568 60.1456 ArrowRight
+  newpath
+  274.378 19.732 moveto
+  296.322 19.732 lineto
+  0.5 setlinewidth
+  stroke
+  274.378 19.732 ArrowLeft
+  296.322 19.732 ArrowRight
+  newpath
+  291.462 139.87 moveto
+  274.1 139.87 lineto
+  0.5 setlinewidth
+  stroke
+  291.462 139.87 ArrowRight
+  274.1 139.87 ArrowLeft
+  newpath
+  54.068 220.391 moveto
+  109.068 220.391 lineto
+  0.5 setlinewidth
+  stroke
+  54.068 220.391 ArrowLeft
+  109.068 220.391 ArrowRight
+  newpath
+  109.068 220.391 moveto
+  164.068 220.391 lineto
+  0.5 setlinewidth
+  stroke
+  109.068 220.391 ArrowLeft
+  164.068 220.391 ArrowRight
+  newpath
+  164.068 220.391 moveto
+  219.068 220.391 lineto
+  0.5 setlinewidth
+  stroke
+  164.068 220.391 ArrowLeft
+  219.068 220.391 ArrowRight
+  newpath
+  219.068 220.391 moveto
+  274.068 220.391 lineto
+  0.5 setlinewidth
+  stroke
+  219.068 220.391 ArrowLeft
+  274.068 220.391 ArrowRight
+  newpath
+  54.08 230.386 moveto
+  163.695 230.386 lineto
+  0.5 setlinewidth
+  stroke
+  54.08 230.386 ArrowLeft
+  163.695 230.386 ArrowRight
+  newpath
+  164.08 230.386 moveto
+  273.695 230.386 lineto
+  0.5 setlinewidth
+  stroke
+  164.08 230.386 ArrowLeft
+  273.695 230.386 ArrowRight
+  newpath
+  54.068 180.226 moveto
+  71.568 180.226 lineto
+  0.5 setlinewidth
+  stroke
+  54.068 180.226 ArrowLeft
+  71.568 180.226 ArrowRight
+  newpath
+  54.068 100.226 moveto
+  71.568 100.226 lineto
+  0.5 setlinewidth
+  stroke
+  54.068 100.226 ArrowLeft
+  71.568 100.226 ArrowRight
+  newpath
+  164.068 180.226 moveto
+  181.568 180.226 lineto
+  0.5 setlinewidth
+  stroke
+  164.068 180.226 ArrowLeft
+  181.568 180.226 ArrowRight
+  /Times-Roman findfont 10 scalefont setfont
+  (CLK) () 0 204.509 LeftLabel
+  (CEN) () 0 163.727 LeftLabel
+  (WEN) () 0 123.727 LeftLabel
+  (A[j]) () 0 84.5088 LeftLabel
+  (D[i]) () 0 43.9536 LeftLabel
+  /Times-Roman findfont 7 scalefont setfont
+  (t) (cs) 47.8056 184.207 CenterLabel
+  (t) (ch) 62.8056 184.207 CenterLabel
+  (t) (ws) 47.8056 144.207 CenterLabel
+  (t) (wh) 62.8056 144.207 CenterLabel
+  (t) (as) 47.8056 104.207 CenterLabel
+  (t) (ah) 62.8056 104.207 CenterLabel
+  (t) (cs) 267.806 184.078 CenterLabel
+  (t) (ch) 282.806 184.078 CenterLabel
+  (t) (ws) 267.806 144.078 CenterLabel
+  (t) (wh) 282.806 144.078 CenterLabel
+  (t) (as) 267.806 104.078 CenterLabel
+  (t) (ah) 282.806 104.078 CenterLabel
+  (t) (cs) 157.806 184.207 CenterLabel
+  (t) (ch) 172.806 184.207 CenterLabel
+  (ADD1) () 56.556 87.4176 CenterLabel
+  (ADD2) () 276.556 87.4176 CenterLabel
+  (t) (ds) 47.8056 64.3368 CenterLabel
+  (t) (dh) 62.8056 64.3368 CenterLabel
+  (t) (ds) 267.806 64.2072 CenterLabel
+  (t) (dh) 282.806 64.2072 CenterLabel
+  (DATA1) () 56.556 47.5464 CenterLabel
+  (DATA2) () 276.556 47.5464 CenterLabel
+  /Times-Roman findfont 10 scalefont setfont
+  (Q[i]) () 0 3.7056 LeftLabel
+  /Times-Roman findfont 7 scalefont setfont
+  (Q1) () 86.556 6.5416 RightLabel
+  (Q2) () 306.556 7.288 RightLabel
+  (t) (a) 65.3056 23.708 CenterLabel
+  (t) (a) 285.306 23.5784 CenterLabel
+  (t) (ckh) 81.568 223.729 CenterLabel
+  (t) (ckl) 136.568 223.729 CenterLabel
+  (t) (ckh) 191.568 223.729 CenterLabel
+  (t) (ckl) 246.568 223.729 CenterLabel
+  (t) (cyc) 109.068 234.433 CenterLabel
+  (t) (cyc) 219.068 234.433 CenterLabel
+  grestore
+} def
+
+%%EndProlog
+%%Page: 1 1
+%%BeginPageSetup
+/pagelevel save def
+%%EndPageSetup
+gsave
+/leftmargin 165 def
+/rightmargin 540 def
+/pagey 740 def
+/title_size 14 def
+/centerx 300 def
+/footery 56 def
+/text_size 10 def
+/pagey pagey 18 sub def
+/Helvetica-Bold findfont title_size scalefont setfont
+(High-Speed Single-Port SRAM) rightmargin pagey LeftShow
+/pagey pagey 18 sub def
+(512 Words X 32 Bits, Mux 16 Instance) rightmargin pagey LeftShow
+/pagey pagey 18 sub def
+(TSMC 65nm CLN65gplus Process) rightmargin pagey LeftShow
+/pagey pagey 10 sub def
+
+0.35 50 675 ARMlogo
+/pagey pagey 10 sub def
+/text_size 10 def
+(Overview) () pagey SectionStart
+/pagey exch def
+
+leftmargin rightmargin pagey 12 TextStart
+/TextFont /Helvetica findfont text_size scalefont def
+TextParaStart
+(The Synchronous Single-Port Ram is optimized for speed and density.\
+ The memory is designed to take full advantage of the ) TextPiece
+
+(TSMC) TextPiece
+( 65nmnm) TextReserveSpace
+( 65nm) TextPiece
+( CLN65gplus CMOS process.) TextPiece
+TextParaEnd
+() TextLine
+TextParaStart
+(The storage array is composed of six-transistor\
+ bit cells with fully static circuitry. The\
+ SRAM\
+ operates at a voltage of 1.1V) TextPiece
+( and a junction temperature of ) TextPiece
+(-40.01C) TextReserveSpace
+(-40.0) TextPiece
+TextDegree
+(C.) TextPiece
+TextParaEnd
+TextEnd % returns new page y
+/pagey exch def
+% spaceLeft before Instance Settings 492
+/text_size 10 def
+(Instance Settings) () pagey SectionStart
+/pagey exch def
+
+/TextFont /Helvetica-Bold findfont text_size scalefont def
+200
+(CLN65gplus) stringwidth pop 15 add 100 1 index 1 index
+ lt { exch pop } { pop } ifelse
+leftmargin pagey 14 Table2Start
+(Parameter) (Setting) Table2Header
+Table2DoubleLine
+/TextFont /Helvetica findfont text_size scalefont def
+(Instance Name) (sram512) Table2LC
+(Process) (CLN65gplus) Table2LC
+(Words) (512) Table2LC
+(Bits) (32) Table2LC
+(Mux) (16) Table2LC
+(Word Partition Size) (8) Table2LC
+Table2DoubleLine
+(Extra Margin Adjustment) (on) Table2LC
+(Redundancy) (off) Table2LC
+(Soft Error Repair) (none) Table2LC
+(BIST Muxes) (off) Table2LC
+Table2DoubleLine
+(Output Drive) (6) Table2LC
+(Power Routing Type) (otc) Table2LC
+(Top Metal) (M5-M9) Table2LC
+(Frequency) (120 MHz) Table2LC
+(Power Gating) (off) Table2LC
+(Retention) (on) Table2LC
+(Back Biasing) (off) Table2LC
+(Weak Bit Test) (off) Table2LC
+(Read Disturb Test) (off) Table2LC
+(Pipeline) (off) Table2LC
+(Write-thru) (on) Table2LC
+Table2End % returns the new y
+/pagey exch def
+% spaceLeft before description 164
+(Description) () pagey SectionStart
+/pagey exch def
+% spaceLeft before description text begins 144
+
+leftmargin rightmargin pagey 12 TextStart
+/TextFont /Helvetica findfont text_size scalefont def
+(The single-port synchronous RAM is a fully static memory with\
+ write enable \(GWEN\),\
+ chip enable \(CEN\),\
+ address \(A\),\
+ data in \(D\)\
+ and data out \(Q\) pins.\
+ The RAM\
+ is self-timed and consumes the minimum amount of power for read or write operations.) TextLine
+TextEnd
+/pagey exch def
+() TextLine
+% spaceLeft beginning paragraph 102
+leftmargin rightmargin pagey 12 TextStart
+/TextFont /Helvetica findfont text_size scalefont def
+() TextLine
+(All synchronous inputs are latched on the rising-edge of the clock signal.\
+ When CEN is low and GWEN is high the memory will read.\
+ When CEN and GWEN are both low\
+ the word on the D will be written\
+ to the memory and it will appear at the outputs\
+ \(write-through\).) TextLine
+() TextLine
+(When CEN is high the memory is deselected and forced into a low-power standby mode.\
+ Stored data is fully retained but memory access is disabled for data read or data write,\
+ the existing data outputs continue to drive their previous values.) TextLine
+TextEnd
+/pagey exch def
+
+% spaceLeft beginning paragraph 12
+() (1) centerx footery ShortCopyright
+grestore 
+pagelevel restore
+showpage
+%%Page: 2 2
+%%BeginPageSetup
+/pagelevel save def
+%%EndPageSetup
+gsave
+/leftmargin 165 def
+/rightmargin 540 def
+/pagey 740 def
+/title_size 14 def
+/centerx 300 def
+/footery 56 def
+/text_size 10 def
+/text_size 10 def
+(Description) (cont) pagey SectionStart
+/pagey exch def
+/pagey pagey 6 sub def
+leftmargin rightmargin pagey 12 TextStart
+/TextFont /Helvetica findfont text_size scalefont def
+() TextLine
+(The write mask allows selective writing of all or part of a word.\
+ The portion of the word that is written will appear at the outputs.) TextLine
+TextEnd
+/pagey exch def
+
+% spaceLeft beginning paragraph 614
+leftmargin rightmargin pagey 12 TextStart
+/TextFont /Helvetica findfont text_size scalefont def
+() TextLine
+(The Extra Margin Adjustment allows you to\
+ adjust the width of the self timing pulse.) TextLine
+TextEnd
+/pagey exch def
+
+
+% spaceLeft beginning paragraph 584
+leftmargin rightmargin pagey 12 TextStart
+/TextFont /Helvetica findfont text_size scalefont def
+() TextLine
+(Memory retention mode is enabled when the RETN input is\
+ set low.) TextLine
+TextEnd
+/pagey exch def
+
+leftmargin rightmargin pagey 12 TextStart
+/TextFont /Helvetica findfont text_size scalefont def
+() TextLine
+% spaceLeft beginning paragraph 560
+(Refer to the users manual for a more detailed description\
+ of memory operation.) TextLine
+TextEnd
+/pagey exch def
+/text_size 10 def
+(Physical Dimensions) pagey MicronSectionStart
+/pagey exch def
+
+/pagey pagey 15 sub def
+75 75 75 75 leftmargin pagey 14 Table4Start
+/TextFont /Helvetica-Bold findfont text_size scalefont def
+(Area Type) (Width)(m)() (Height)(m)() (Area)(m)(2) Table4Header
+/TextFont /Helvetica findfont text_size scalefont def
+(Core) (586.59) (53.105) (31150.9) Table4LC
+(Foot Print) (586.59) (53.105) (31150.9) Table4LC
+Table4End
+/pagey exch def
+
+leftmargin rightmargin pagey 10 TextStart
+/TextFont /Helvetica findfont 8 scalefont def
+(The footprint area includes the core area and\
+ user defined power routing and pin spacing.) TextLine
+TextEnd
+/pagey exch def
+/pagey pagey 10 sub def
+(Symbol) () pagey SectionStart
+/pagey exch def
+
+/pagey pagey 15 sub def
+/Helvetica findfont text_size scalefont setfont
+255 pagey 7 1 SymbolStart
+(A[8:0]) SymbolInput
+(D[31:0]) SymbolInput
+(CEN) SymbolInput
+(GWEN) SymbolInput
+(WEN[3:0]) SymbolInput
+(EMA[2:0]) SymbolInput
+(RETN) SymbolInput
+(Q[31:0]) SymbolOutput
+(CLK) SymbolClock
+SymbolEnd
+/pagey exch def
+/text_size 10 def
+(Pin Description) () pagey SectionStart
+/pagey exch def
+
+80 220 leftmargin pagey 14 Table2Start
+/TextFont /Helvetica-Bold findfont text_size scalefont def
+(Pin) (Description) Table2Header
+/TextFont /Helvetica findfont text_size scalefont def
+(A[8:0]) (Addresses \(A[0] = LSB\)) Table2LL
+(D[31:0]) (Data Inputs \(D[0] = LSB\)) Table2LL
+(CLK) (Clock) Table2LL
+(CEN) (Chip Enable \(active low\)) Table2LL
+(GWEN) (Write Enable \(active low\)) Table2LL
+(WEN[3:0]) (Write Enable \(active low, WEN[0] = LSB\)) Table2LL
+(Q[31:0]) (Data Outputs \(Q[0] = LSB\)) Table2LL
+(EMA[2:0]) (Extra Margin Adjustment \(EMA[0] = LSB\)) Table2LL
+(RETN) (Retention Input \(active low\)) Table2LL
+Table2End
+/pagey exch def
+() (2) centerx footery ShortCopyright
+grestore 
+pagelevel restore
+showpage
+%%Page: 3 3
+%%BeginPageSetup
+/pagelevel save def
+%%EndPageSetup
+gsave
+/leftmargin 165 def
+/rightmargin 540 def
+/pagey 740 def
+/title_size 14 def
+/centerx 300 def
+/footery 56 def
+/text_size 10 def
+
+/pagey pagey 10 sub def
+/text_size 10 def
+(Read Cycle Timing) () pagey SectionStart
+/pagey exch def
+/pagey pagey 10 sub def
+leftmargin pagey 228 sub Frame670
+/pagey pagey 248 sub def
+
+/pagey pagey 10 sub def
+/text_size 10 def
+(Write Cycle Timing) () pagey SectionStart
+/pagey exch def
+/pagey pagey 10 sub def
+leftmargin pagey 234 sub Frame671
+/pagey pagey 254 sub def
+% headerEstimate=134
+% estimate=378
+% tailEstimate=44
+% spaceLeft=88
+() (3) centerx footery ShortCopyright
+grestore 
+pagelevel restore
+showpage
+%%Page: 4 4
+%%BeginPageSetup
+/pagelevel save def
+%%EndPageSetup
+gsave
+/leftmargin 165 def
+/rightmargin 540 def
+/pagey 740 def
+/title_size 14 def
+/centerx 300 def
+/footery 56 def
+/text_size 10 def
+(Timing) (units = ns) pagey SectionStart
+/pagey exch def
+
+/pagey pagey 12 sub def
+% Make the text paragraph the same size as the following table
+line_left line_right pagey 12 TextStart
+/TextFont /Helvetica findfont 10 scalefont def
+/TextSuperscriptFont /Helvetica findfont 10 scalefont def
+(The timing tables show values measured from\
+ the input threshold to the output threshold.) TextLine
+(The timing and power values are measured at input slew of 0.1ns on clock pin,\
+ 0.1ns on signal pins and output load 0pF.) TextLine
+TextEnd
+/pagey exch def
+
+/pagey pagey 12 sub def
+
+TableT1CornerStart
+TableT1CornerHeader
+(Cycle time) (,4) (t) (cyc)  (0.646) ()  TableT1CornerRow
+(Access time) (1,2,4) (t) (a) (0.208) () TableT1CornerRow
+(Address setup) () (t) (as) (0.153) () TableT1CornerRow
+(Address hold) () (t) (ah) (0.089) () TableT1CornerRow
+(Data setup) () (t) (ds) (0.031) () TableT1CornerRow
+(Data hold) () (t) (dh) (0.096) () TableT1CornerRow
+(Chip enable setup) () (t) (cs) (0.114) () TableT1CornerRow
+(Chip enable hold) () (t) (ch) (0.089) () TableT1CornerRow
+(Global write enable setup) () (t) (gws) (0.054) () TableT1CornerRow
+(Global write enable hold) () (t) (gwh) (0.127) () TableT1CornerRow
+(Write enable setup) () (t) (ws) (0.031) () TableT1CornerRow
+(Write enable hold) () (t) (wh) (0.120) () TableT1CornerRow
+(Clock high) () (t) (ckh) (0.023) () TableT1CornerRow
+(Clock low) () (t) (ckl) (0.037) () TableT1CornerRow
+(Clock rise slew) () (t) (ckr) () (1.000)  TableT1CornerRow
+(Output load factor) (3) (K) (load) () (0.186) TableT1CornerRow
+(RETN to Q delay) () (t) (retnq) (0.193) () TableT1CornerRow
+(RETN setup) () (t) (retns) (0.116) () TableT1CornerRow
+(RETN hold) () (t) (retnh) (0.091) () TableT1CornerRow
+(CEN to RETN hold) () (t) (cen_retnh) (0.157) () TableT1CornerRow
+(RETN to CEN hold) () (t) (retn_cenh) (0.747) () TableT1CornerRow
+TableT1CornerEnd
+/pagey exch def
+
+/pagey pagey 4 sub def
+line_left 2 add rightmargin pagey 10 TextStart
+/TextFont /Helvetica findfont 8 scalefont def
+/TextSuperscriptFont /Helvetica findfont 8 scalefont def
+(M) TextIndent
+TextParaStart
+(1) TextSuperscript
+(Output delays and a load dependency \(Kload\) which is\
+ used to calculate:) TextPiece
+/TextFont /Helvetica-Oblique findfont 8 scalefont def
+(TotalDelay = FixedDelay + \(Kload x Cload\).) TextPiece
+/TextFont /Helvetica findfont 8 scalefont def
+TextParaEnd
+TextParaStart
+(2) TextSuperscript
+(Access time is defined as the longest possible delay to\
+ valid output for the typical and slow corners, and\
+ the shortest possible delay for the fast corners.) TextPiece
+TextParaEnd
+TextParaStart
+(3) TextSuperscript
+(The output load factor units are ns/pF.) TextPiece
+TextParaEnd
+TextParaStart
+(4) TextSuperscript
+(The values shown in this timing table correspond to the Default EMA settings, as specified in the product README file.) TextPiece
+TextParaEnd
+TextEnd
+/pagey exch def
+% after table spaceLeft=198
+% headerEstimate=82
+% estimate=252
+% tailEstimate=13
+% spaceLeft=198
+/Helvetica-Bold findfont text_size scalefont setfont
+(Cycle and Access Timing for Different Values of Extra Margin Adjustment)
+(units = ns) pagey SectionStart
+/pagey exch def
+
+/pagey pagey 20 sub def
+TableT1CornerStart
+TableT1CornerHeader
+(Cycle time EMA=0) () (t) (cyc0)  (0.646) ()  TableT1CornerRow
+(Cycle time EMA=1) () (t) (cyc1)  (0.683) ()  TableT1CornerRow
+(Cycle time EMA=2) () (t) (cyc2)  (0.731) ()  TableT1CornerRow
+(Cycle time EMA=3) () (t) (cyc3)  (0.747) ()  TableT1CornerRow
+(Cycle time EMA=4) () (t) (cyc4)  (999.000) ()  TableT1CornerRow
+(Cycle time EMA=5) () (t) (cyc5)  (999.000) ()  TableT1CornerRow
+(Cycle time EMA=6) () (t) (cyc6)  (999.000) ()  TableT1CornerRow
+(Cycle time EMA=7) () (t) (cyc7)  (999.000) ()  TableT1CornerRow
+TableT1CornerEnd
+/pagey exch def
+() (4) centerx footery ShortCopyright
+grestore 
+pagelevel restore
+showpage
+%%Page: 5 5
+%%BeginPageSetup
+/pagelevel save def
+%%EndPageSetup
+gsave
+/leftmargin 165 def
+/rightmargin 540 def
+/pagey 740 def
+/title_size 14 def
+/centerx 300 def
+/footery 56 def
+/text_size 10 def
+/Helvetica-Bold findfont text_size scalefont setfont
+(Cycle and Access Timing for Different Values of Extra Margin Adjustment continued) (units = ns) pagey SectionStart
+/pagey exch def
+/pagey pagey 20 sub def
+TableT1CornerStart
+TableT1CornerHeader
+% spaceLeft=588 after continuation
+(Access time EMA=0) () (t) (a0) (0.208) () TableT1CornerRow
+(Access time EMA=1) () (t) (a1) (0.245) () TableT1CornerRow
+(Access time EMA=2) () (t) (a2) (0.293) () TableT1CornerRow
+(Access time EMA=3) () (t) (a3) (0.309) () TableT1CornerRow
+(Access time EMA=4) () (t) (a4) (999.000) () TableT1CornerRow
+(Access time EMA=5) () (t) (a5) (999.000) () TableT1CornerRow
+(Access time EMA=6) () (t) (a6) (999.000) () TableT1CornerRow
+(Access time EMA=7) () (t) (a7) (999.000) () TableT1CornerRow
+(EMA setup) () (t) (emas) (0.646) () TableT1CornerRow
+(EMA hold) () (t) (emah) (0.747) () TableT1CornerRow
+TableT1CornerEnd
+/pagey exch def
+/pagey pagey 3 sub def
+line_left 4 add rightmargin pagey 10 TextStart
+(M) TextIndent
+TextParaStart
+(**) TextSuperscript
+(Illegal setting of EMA for this corner.) TextPiece
+TextParaEnd
+/pagey pagey 10 sub def
+% after table spaceLeft=435
+% headerEstimate=77
+% estimate=112
+% tailEstimate=0
+% spaceLeft=435
+/pagey pagey 5 sub def
+(Pin Capacitance) (units = fF) pagey SectionStart
+/pagey exch def
+
+/TextFont /Helvetica-Bold findfont text_size scalefont def
+/pagey pagey 15 sub def
+140 85 line_left 10 add pagey 14 Table1CornerStart
+/TextFont /Helvetica findfont text_size scalefont def
+Table1CornerHeader
+(            A) () (5.631)     Table1CornerRow
+(            D) () (1.532)     Table1CornerRow
+(            CLK) () (30.990)     Table1CornerRow
+(            CEN) () (1.726)     Table1CornerRow
+(            GWEN) () (6.203)     Table1CornerRow
+(            WEN) () (33.996)     Table1CornerRow
+(            EMA) () (3.555)     Table1CornerRow
+(            RETN) () (3.623)     Table1CornerRow
+Table1CornerEnd
+/pagey exch def
+% headerEstimate=77
+% estimate=784
+% tailEstimate=94
+% spaceLeft=246
+/Helvetica-Bold findfont text_size scalefont setfont
+(Power) (current units = mA) pagey SectionStart
+/pagey exch def
+
+/pagey pagey 15 sub def
+165 80 line_left 4 add pagey 14 Table1CornerStart
+/TextFont /Helvetica-Bold findfont text_size scalefont def
+Table1CornerHeader
+/TextFont /Helvetica findfont text_size scalefont def
+/TextSuperscriptFont /Helvetica findfont 8 scalefont def
+(peri AC Curr \(EMA=0\)) (1,4) (4.168273) Table1CornerRow
+(core AC Curr \(EMA=0\)) (1,4) (0.107729) Table1CornerRow
+(peri AC Curr \(EMA=1\)) (1,4) (4.243455) Table1CornerRow
+(core AC Curr \(EMA=1\)) (1,4) (0.107729) Table1CornerRow
+(peri AC Curr \(EMA=2\)) (1,4) (4.3162) Table1CornerRow
+(core AC Curr \(EMA=2\)) (1,4) (0.107729) Table1CornerRow
+(peri AC Curr \(EMA=3\)) (1,4) (4.331177) Table1CornerRow
+(core AC Curr \(EMA=3\)) (1,4) (0.107729) Table1CornerRow
+(peri AC Curr \(EMA=4\)) (1,4) (999.0) Table1CornerRow
+(core AC Curr \(EMA=4\)) (1,4) (999.0) Table1CornerRow
+(peri AC Curr \(EMA=5\)) (1,4) (999.0) Table1CornerRow
+(core AC Curr \(EMA=5\)) (1,4) (999.0) Table1CornerRow
+Table1CornerEnd
+/pagey exch def
+() (5) centerx footery ShortCopyright
+grestore 
+pagelevel restore
+showpage
+%%Page: 6 6
+%%BeginPageSetup
+/pagelevel save def
+%%EndPageSetup
+gsave
+/leftmargin 165 def
+/rightmargin 540 def
+/pagey 740 def
+/title_size 14 def
+/centerx 300 def
+/footery 56 def
+/text_size 10 def
+/Helvetica-Bold findfont text_size scalefont setfont
+(Power continued) (current units = mA) pagey SectionStart
+/pagey exch def
+/pagey pagey 15 sub def
+165 80 line_left 4 add pagey 14 Table1CornerStart
+/TextFont /Helvetica-Bold findfont text_size scalefont def
+Table1CornerHeader
+/TextFont /Helvetica findfont text_size scalefont def
+/TextSuperscriptFont /Helvetica findfont 8 scalefont def
+% spaceLeft=593 after continuation
+(peri AC Curr \(EMA=6\)) (1,4) (999.0) Table1CornerRow
+(core AC Curr \(EMA=6\)) (1,4) (999.0) Table1CornerRow
+(peri AC Curr \(EMA=7\)) (1,4) (999.0) Table1CornerRow
+(core AC Curr \(EMA=7\)) (1,4) (999.0) Table1CornerRow
+(peri Read AC Curr \(EMA=0\)) (1,4) (4.369332) Table1CornerRow
+(core Read AC Curr \(EMA=0\)) (1,4) (0.095503) Table1CornerRow
+(peri Read AC Curr \(EMA=1\)) (1,4) (4.455983) Table1CornerRow
+(core Read AC Curr \(EMA=1\)) (1,4) (0.095503) Table1CornerRow
+(peri Read AC Curr \(EMA=2\)) (1,4) (4.538213) Table1CornerRow
+(core Read AC Curr \(EMA=2\)) (1,4) (0.095503) Table1CornerRow
+(peri Read AC Curr \(EMA=3\)) (1,4) (4.556126) Table1CornerRow
+(core Read AC Curr \(EMA=3\)) (1,4) (0.095503) Table1CornerRow
+(peri Read AC Curr \(EMA=4\)) (1,4) (999.0) Table1CornerRow
+(core Read AC Curr \(EMA=4\)) (1,4) (999.0) Table1CornerRow
+(peri Read AC Curr \(EMA=5\)) (1,4) (999.0) Table1CornerRow
+(core Read AC Curr \(EMA=5\)) (1,4) (999.0) Table1CornerRow
+(peri Read AC Curr \(EMA=6\)) (1,4) (999.0) Table1CornerRow
+(core Read AC Curr \(EMA=6\)) (1,4) (999.0) Table1CornerRow
+(peri Read AC Curr \(EMA=7\)) (1,4) (999.0) Table1CornerRow
+(core Read AC Curr \(EMA=7\)) (1,4) (999.0) Table1CornerRow
+(peri Write AC Curr \(EMA=0\)) (1,4) (3.967215) Table1CornerRow
+(core Write AC Curr \(EMA=0\)) (1,4) (0.119955) Table1CornerRow
+(peri Write AC Curr \(EMA=1\)) (1,4) (4.030928) Table1CornerRow
+(core Write AC Curr \(EMA=1\)) (1,4) (0.119955) Table1CornerRow
+(peri Write AC Curr \(EMA=2\)) (1,4) (4.094187) Table1CornerRow
+(core Write AC Curr \(EMA=2\)) (1,4) (0.119955) Table1CornerRow
+(peri Write AC Curr \(EMA=3\)) (1,4) (4.106228) Table1CornerRow
+(core Write AC Curr \(EMA=3\)) (1,4) (0.119955) Table1CornerRow
+(peri Write AC Curr \(EMA=4\)) (1,4) (999.0) Table1CornerRow
+(core Write AC Curr \(EMA=4\)) (1,4) (999.0) Table1CornerRow
+(peri Write AC Curr \(EMA=5\)) (1,4) (999.0) Table1CornerRow
+(core Write AC Curr \(EMA=5\)) (1,4) (999.0) Table1CornerRow
+(peri Write AC Curr \(EMA=6\)) (1,4) (999.0) Table1CornerRow
+(core Write AC Curr \(EMA=6\)) (1,4) (999.0) Table1CornerRow
+(peri Write AC Curr \(EMA=7\)) (1,4) (999.0) Table1CornerRow
+(core Write AC Curr \(EMA=7\)) (1,4) (999.0) Table1CornerRow
+(peri Peak Read Curr) () (175.548743) Table1CornerRow
+(core Peak Read Curr) () (22.593786) Table1CornerRow
+(peri Deselected Read Curr) (2,4) (0.552107) Table1CornerRow
+(core Deselected Read Curr) (2,4) (0.000e+00) Table1CornerRow
+(peri Standby Curr) (3) (0.133093) Table1CornerRow
+(core Standby Curr) (3) (0.089768) Table1CornerRow
+Table1CornerEnd
+/pagey exch def
+() (6) centerx footery ShortCopyright
+grestore 
+pagelevel restore
+showpage
+%%Page: 7 7
+%%BeginPageSetup
+/pagelevel save def
+%%EndPageSetup
+gsave
+/leftmargin 165 def
+/rightmargin 540 def
+/pagey 740 def
+/title_size 14 def
+/centerx 300 def
+/footery 56 def
+/text_size 10 def
+/Helvetica-Bold findfont text_size scalefont setfont
+(Power continued) (current units = mA) pagey SectionStart
+/pagey exch def
+/pagey pagey 15 sub def
+165 80 line_left 4 add pagey 14 Table1CornerStart
+/TextFont /Helvetica-Bold findfont text_size scalefont def
+Table1CornerHeader
+/TextFont /Helvetica findfont text_size scalefont def
+/TextSuperscriptFont /Helvetica findfont 8 scalefont def
+% spaceLeft=593 after continuation
+(peri Retention Curr) () (0.000e+00) Table1CornerRow
+(core Retention Curr) () (0.094179) Table1CornerRow
+Table1CornerEnd
+/pagey exch def
+
+/pagey pagey 4 sub def
+line_left 4 add rightmargin pagey 10 TextStart
+/TextFont /Helvetica findfont 8 scalefont def
+/TextSuperscriptFont /Helvetica findfont 8 scalefont def
+(M) TextIndent
+TextParaStart
+(**) TextSuperscript
+(Illegal setting of EMA for this corner.) TextPiece
+TextParaEnd
+TextParaStart
+(1) TextSuperscript
+(The AC current value assumes 50\% read and write\
+ operations, where all addresses and 50\% of input\
+ and output pins switch at the user defined frequency of 120MHz.) TextPiece
+( It is assumed that ) TextPiece
+()
+()
+(EMA)
+()
+TextFourList
+( pins do not switch.) TextPiece
+TextParaEnd
+TextParaStart
+(2) TextSuperscript
+(The deselected current assumes the memory is deselected,\
+ all addresses switch, and 50\% of input pins switch\
+ at the user defined frequency of 120MHz.\
+ The logic switching component of deselected power becomes\
+ negligbly small if the input pins are held stable by\
+ externally controlling these signals with chip select.) TextPiece
+( It is assumed that ) TextPiece
+()
+()
+(EMA)
+()
+TextFourList
+( pins do not switch.) TextPiece
+TextParaEnd
+TextParaStart
+(3) TextSuperscript
+(The standby current value is independent of frequency\
+ and assumes all inputs and outputs are stable.) TextPiece
+TextParaEnd
+TextParaStart
+(4) TextSuperscript
+(The leakage current component is not included in this value.) TextPiece
+TextParaEnd
+TextEnd
+/pagey exch def
+% after table spaceLeft=471
+(Clock Noise Limit) () pagey SectionStart
+/pagey exch def
+
+/pagey pagey 15 sub def
+60 45 45 leftmargin 55 sub pagey 14 TableD1CornerStart
+/TextFont /Helvetica-Bold findfont text_size scalefont def
+TableD1CornerHeader
+/TextFont /Helvetica findfont text_size scalefont def
+(CLK) ( 10.000ns ) ( 0.515V ) TableD1CornerRow
+TableD1CornerEnd
+/pagey exch def
+
+leftmargin 40 sub rightmargin pagey 10 TextStart
+/TextFont /Helvetica findfont 8 scalefont def
+(The clock noise limit is the maximum voltage allowed \(for the\
+ indicated pulse width\) that does not cause an unintentional\
+ memory cycle or other memory failure.) TextLine
+TextEnd
+/pagey exch def
+(Supply Noise Limit) (units = V) pagey SectionStart
+/pagey exch def
+
+/pagey pagey 15 sub def
+60 90 leftmargin 55 sub pagey 14 Table1CornerStart
+/TextFont /Helvetica-Bold findfont text_size scalefont def
+Table1CornerHeader
+/TextFont /Helvetica findfont text_size scalefont def
+(Power) () (0.110) Table1CornerRow
+(Ground) () (0.110) Table1CornerRow
+Table1CornerEnd
+/pagey exch def
+
+leftmargin 40 sub rightmargin pagey 10 TextStart
+/TextFont /Helvetica findfont 8 scalefont def
+(The power and ground noise limit is the maximum supply\
+ voltage transition that is allowed without causing\
+ a memory failure.) TextLine
+TextEnd
+/pagey exch def
+centerx 180 EndingCopyright
+() (7) centerx footery ShortCopyright
+grestore 
+pagelevel restore
+showpage
+%%Trailer
+%%Pages: 7
+%%EOF

@@ -1,1 +1,1 @@
-ibex_tracer sram_2048_32_wmask_8bit vproc_tb
+ibex_tracer vproc_tb
