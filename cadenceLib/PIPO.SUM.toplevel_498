@@ -1,0 +1,938 @@
+********************************************************************************
+Product   : Virtuoso(R) XStream Out
+Program   : @(#)$CDS: strmout version ICADVM20.1-64b 08/17/2021 18:49 (cpgsrv07) $
+          : sub-version  ICADVM20.1-64b.500.20 
+Started at: 21-Dec-2022  16:45:46
+User Name : hfaroo9
+Host Name : ece-498hk-03.ece.illinois.edu
+Directory : /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib
+CADENCE Design Systems, Inc.
+********************************************************************************
+Info: Cellview Rev Num:99,  Tech Rev Num:59
+
+
+                       Individual Cell Statistics - Basic Objects
+---------------------------------------------------------------------------------------------------------------------------------------
+Library/Cell/View               Instance Array   Polygon  Rect   Path   PathSeg   Text   TextDisplay   Line   Dot   Arc   Donut   Ellipse 
+---------------------------------------------------------------------------------------------------------------------------------------
+hfaroo9_digital/NAND2X0P5BA10TR/layout                          1        0       5        19     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/NRPAnUo0JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AOI221X1MA10TR/layout                           1        0       12       34     0      0         62     0             0      0     0     0       0       
+hfaroo9_digital/OR3X0P5MA10TR/layout                            1        0       11       19     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/NAND2X1AA10TR/layout                            1        0       5        19     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/ORWwsSkvgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/OA22X1MA10TR/layout                             1        0       10       42     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/NOR2XBX0P7MA10TR/layout                         1        0       9        21     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/ORenBUo0JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/FhcHBvuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ILXCjYaGJTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/FRICGX13BA10TR/layout                           1        0       23       86     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/NAND3XXBX0P7MA10TR/layout                       1        0       10       22     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/ORensToMl3jjVyFbC/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BUFX2BA10TR/layout                              1        0       8        21     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/NRPAiUomJTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NAND4X0P5MA10TR/layout                          1        0       7        24     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/X8bnsKHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/OReniKt2Skke71qQ/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ILXCBcuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ALaWsKHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/N8bnsKum4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmcN65/M2_M1/layout            0        0       0        6      0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/ALansKHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/DFFQX0P5MA10TR/layout                           1        0       28       48     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/X8bWsSkggI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmcN65/M4_M3/layout            0        0       0        6      0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/NAND4XXXBX0P7MA10TR/layout                      1        0       10       28     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/NAND2X1BA10TR/layout                            1        0       5        19     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/ILXCiTuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NAND3BX0P5MA10TR/layout                         1        0       10       22     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/N8bWsKHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmcN65/M4_M3/layout            0        0       0        3      0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/OAI21BX1MA10TR/layout                           1        0       10       31     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/MXT2X0P5MA10TR/layout                           1        0       15       31     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/FhcHifo2Eh/layout                               0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/INVX3MA10TR/layout                              1        0       4        25     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/toplevel_498_VIA12/layout                       0        0       0        7      0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/XOR2X0P7MA10TR/layout                           1        0       14       29     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/DFFQX1MA10TR/layout                             1        0       28       52     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/OR4X0P5MA10TR/layout                            1        0       13       35     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/NRPAnTt2Skke71qQ/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmcN65/M2_M1/layout            0        0       0        3      0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/A8eWiU3jYYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BUFX5MA10TR/layout                              1        0       8        41     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/A8WwsSkggI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NRPAnU3jYYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/LATQX1MA10TR/layout                             1        0       18       34     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/AOI222X1MA10TR/layout                           1        0       11       42     0      0         63     0             0      0     0     0       0       
+hfaroo9_digital/XOR2X1MA10TR/layout                             1        0       14       32     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/AO21X0P5MA10TR/layout                           1        0       11       30     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/NRPAnU3jaIhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BtwCBcuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/A8eniU3jaYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/A8eniU3jYYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/XLExiU3jYYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NAND2X0P5AA10TR/layout                          1        0       5        17     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/AOI2XB1X0P5MA10TR/layout                        1        0       11       31     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/BUFZX1MA10TR/layout                             1        0       17       32     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/XOR3X0P5MA10TR/layout                           1        0       27       41     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/ILXCjYRGJTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ILXCjY00JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NRPAiU1GJTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/A8WwsSkvgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NRPAnUZmJTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/N8bn4U10JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BtwCiTuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/TIELOX1MA10TR/layout                            1        0       7        18     0      0         57     0             0      0     0     0       0       
+hfaroo9_digital/A8Ww4U3jYYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NRPAiU3jYIhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/DFFQX2MA10TR/layout                             1        0       30       53     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/N8bnsSkggI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ORenBU10JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NAND2X0P7AA10TR/layout                          1        0       5        21     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/AND2X0P5MA10TR/layout                           1        0       9        20     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/A8ensToMl3jjVyFbC/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AO21BX0P5MA10TR/layout                          1        0       10       23     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/NRPAnU3jaYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ILXC8Y0GJTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BtwCccuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BUFX3BA10TR/layout                              1        0       8        26     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/N8bnsSkvgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/A8enBTt2Skke71qQ/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/OAI22X0P7MA10TR/layout                          1        0       8        29     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/A8enBKtFgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NAND2X0P7BA10TR/layout                          1        0       5        21     0      0         59     0             0      0     0     0       0       
+tsmcN65/M3_M2/layout            0        0       0        3      0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/FILL1A10TR/layout                               1        0       0        6      0      0         56     0             0      0     0     0       0       
+hfaroo9_digital/XNOR2X3MA10TR/layout                            1        0       16       48     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/BUFX6MA10TR/layout                              1        0       8        45     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/ILXCBYDGJTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NOR2XBX3MA10TR/layout                           1        0       12       30     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/DPjnsSkggI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ALansyHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ALansZHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/OA211X0P7MA10TR/layout                          1        0       12       32     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/ORenBKtzgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AOI211X0P7MA10TR/layout                         1        0       10       28     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/DrwxgMgMl3jjVyFbC/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NOR3X0P5AA10TR/layout                           1        0       6        23     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/NAND3X2AA10TR/layout                            1        0       9        28     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/A8eniKt2Skke71qQ/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BUFHX1MA10TR/layout                             1        0       8        19     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/EvwBtU3jYYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/toplevel_498_VIA10/layout                       0        0       0        12     0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/AND2X1MA10TR/layout                             1        0       9        20     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/AOI221X0P5MA10TR/layout                         1        0       12       34     0      0         62     0             0      0     0     0       0       
+hfaroo9_digital/OqWCBcuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ILXCBTuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NRPAiU9MrYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/A8enBTt2SAke71qQ/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/INVX0P6MA10TR/layout                            1        0       4        17     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/ORWwBU3jaYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/N8bWsKkOgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/FRICGX11BA10TR/layout                           1        0       21       85     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/OAI211X0P7MA10TR/layout                         1        0       9        27     0      0         61     0             0      0     0     0       0       
+tsmcN65/M2_M1/layout            0        0       0        8      0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/BtwYsSkvgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/LATNQNX0P5MA10TR/layout                         1        0       17       36     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/INVX2BA10TR/layout                              1        0       4        20     0      0         58     0             0      0     0     0       0       
+tsmcN65/M3_M2/layout            0        0       0        14     0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/NAND3X1MA10TR/layout                            1        0       6        26     0      0         60     0             0      0     0     0       0       
+tsmcN65/M5_M4/layout            0        0       0        14     0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/OA22X0P5MA10TR/layout                           1        0       10       37     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/BUFHX2MA10TR/layout                             1        0       8        25     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/NAND4BX2MA10TR/layout                           1        0       16       31     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/NAND3X3AA10TR/layout                            1        0       8        55     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/AND2X2MA10TR/layout                             1        0       11       26     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/FILLTIE2A10TR/layout                            1        0       4        12     0      0         56     0             0      0     0     0       0       
+hfaroo9_digital/ILXCcTuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NRPAiU9Ml3jjVyFbC/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ORenBKt2SAke71qQ/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/INVX1BA10TR/layout                              1        0       4        16     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/AO22X1MA10TR/layout                             1        0       12       41     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/ALaWsyHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AND4X0P5MA10TR/layout                           1        0       10       26     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/NRPAiU3jayhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/A8eniZt1gI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/OAI21X0P5MA10TR/layout                          1        0       8        22     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/FhcHyXqFJTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/MpGnsSkggI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BtwrsKHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/TIEHIX1MA10TR/layout                            1        0       7        17     0      0         57     0             0      0     0     0       0       
+hfaroo9_digital/DrwUsZHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BtwCDcuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmcN65/M2_M1/layout            0        0       0        5      0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/OA211X0P5MA10TR/layout                          1        0       12       34     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/FILL32A10TR/layout                              1        0       0        6      0      0         56     0             0      0     0     0       0       
+hfaroo9_digital/A8eniZtzgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/FhcHDyuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NAND4XXXBX0P5MA10TR/layout                      1        0       11       26     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/BUFHX3MA10TR/layout                             1        0       8        31     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/AvaYsKHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AOI2XB1X1MA10TR/layout                          1        0       11       30     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/BUFZX8MA10TR/layout                             1        0       21       114    0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/NAND3X0P5AA10TR/layout                          1        0       6        21     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/DrwUsKHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/DLY2X0P5MA10TR/layout                           1        0       5        37     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/A8enBKtzgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/N8bnsTt2Skke71qQ/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BtwCcTuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/OReniZtFgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BUFHX1P7MA10TR/layout                           1        0       8        22     0      0         58     0             0      0     0     0       0       
+tsmcN65/M2_M1/layout            0        0       0        3      0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/XLExiUo0JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/OR2X1MA10TR/layout                              1        0       8        23     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/DrwUsSkggI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/OReniU3jaYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/OR2X0P7MA10TR/layout                            1        0       9        20     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/N8bWsKum4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/EDFFQX3MA10TR/layout                            1        0       44       72     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/N8bWsSkgJI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AO22X0P7MA10TR/layout                           1        0       12       40     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/OAI22X1MA10TR/layout                            1        0       8        28     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/A8enBTtzgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NOR3X0P7MA10TR/layout                           1        0       6        23     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/OqWCjY00JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/XNOR3X0P5MA10TR/layout                          1        0       26       42     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/NOR3X1MA10TR/layout                             1        0       6        20     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/AOI211X3MA10TR/layout                           1        0       17       46     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/AND2X4MA10TR/layout                             1        0       11       44     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/toplevel_498_VIA13/layout                       0        0       0        7      0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/ILXCncuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/FhcH7fo2Eh/layout                               0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/XNOR2X1MA10TR/layout                            1        0       14       30     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/AOI21X0P5MA10TR/layout                          1        0       9        24     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/OA21X0P7MA10TR/layout                           1        0       10       33     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/AOI21BX1MA10TR/layout                           1        0       11       30     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/N8bnsTt1gI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmcN65/M2_M1/layout            0        0       0        3      0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/NRPAnU3jYIhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NOR2X1AA10TR/layout                             1        0       5        20     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/N8bWsSkvJI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NAND4X0P5AA10TR/layout                          1        0       7        24     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/A8eWiUo0JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmcN65/M2_M1/layout            0        0       0        3      0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/AvaBsKHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AOI21X0P7MA10TR/layout                          1        0       9        25     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/LATQX0P5MA10TR/layout                           1        0       18       31     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/NAND2XBX0P5MA10TR/layout                        1        0       9        19     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/BUFHX0P7MA10TR/layout                           1        0       8        19     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/ThvHvUo0JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AND2X11MA10TR/layout                            1        0       15       104    0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/NAND3XXBX0P5MA10TR/layout                       1        0       10       22     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/NAND2XBX2MA10TR/layout                          1        0       10       28     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/OAI211X1MA10TR/layout                           1        0       9        28     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/AOI31X0P7MA10TR/layout                          1        0       11       29     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/ALansKo0JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/OR2X0P5MA10TR/layout                            1        0       9        20     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/A8eniKtzgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ILXCDTuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NRPAnU1mJTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AOI32X1MA10TR/layout                            1        0       11       27     0      0         62     0             0      0     0     0       0       
+hfaroo9_digital/NOR2XBX2MA10TR/layout                           1        0       11       21     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/NRPA7UomJTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ADDFX1MA10TR/layout                             1        0       26       58     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/NAND2X2BA10TR/layout                            1        0       7        25     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/INVX7P5BA10TR/layout                            1        0       5        40     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/INVX0P8BA10TR/layout                            1        0       4        15     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/ORWnsKHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BtwCncuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NOR2X2AA10TR/layout                             1        0       7        27     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/NOR2XBX0P5MA10TR/layout                         1        0       8        22     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/BUFX0P7MA10TR/layout                            1        0       8        18     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/OA21X0P5MA10TR/layout                           1        0       10       31     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/XOR2X0P5MA10TR/layout                           1        0       14       29     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/OReniUo0JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/EvwBt0t2Skke71qQ/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmcN65/M3_M2/layout            0        0       0        6      0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/EvwBtUZ0JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NAND4BX0P5MA10TR/layout                         1        0       11       24     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/AND3X0P5MA10TR/layout                           1        0       10       20     0      0         60     0             0      0     0     0       0       
+tsmcN65/M5_M4/layout            0        0       0        10     0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/NAND4XXXBX1MA10TR/layout                        1        0       11       27     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/OAI21X0P7MA10TR/layout                          1        0       8        22     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/XNOR2X0P5MA10TR/layout                          1        0       14       28     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/BtwYsiHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/FILL16A10TR/layout                              1        0       0        6      0      0         56     0             0      0     0     0       0       
+hfaroo9_digital/NAND4X1AA10TR/layout                            1        0       7        29     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/INVX3BA10TR/layout                              1        0       4        24     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/X8bnsSkggI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/A8enBU3jYYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/OAI222X2MA10TR/layout                           1        0       17       63     0      0         63     0             0      0     0     0       0       
+hfaroo9_digital/ALansSkggI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BtwCDTuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NRPA7UtM7Nnl33XOwfU/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NOR2BX2MA10TR/layout                            1        0       11       22     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/EDFFQNX0P5MA10TR/layout                         1        0       40       70     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/BUFX5BA10TR/layout                              1        0       8        37     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/XLExnU3jYYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NRPAnUtG5W2SSd6rxs/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BtwYsZHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NAND3X0P7AA10TR/layout                          1        0       6        26     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/BUFX1MA10TR/layout                              1        0       7        18     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/XLExiUZ0JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/INVX0P6BA10TR/layout                            1        0       4        15     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/ORWwsSkggI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/LRGUsKHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/OAI22X0P5MA10TR/layout                          1        0       8        28     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/X8bnsSkvgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NRPAiUo0JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AOI211X2MA10TR/layout                           1        0       13       36     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/NRPA7UtM7N9jVyFbC/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ILXCjYa0JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AOI21BX0P5MA10TR/layout                         1        0       11       31     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/NRPA7U3jYYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/N8bnsTt2SAke71qQ/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/A8rziU10JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/N8bnsZum4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AOI2XB1X0P7MA10TR/layout                        1        0       11       33     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/BtwYsKHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/XNOR2X2MA10TR/layout                            1        0       16       47     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/ORenBU3jaYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ORenBTt2Skke71qQ/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ORenBTtzgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NOR2XBX1MA10TR/layout                           1        0       9        19     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/ORensToM4YhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NRPAnUtG5W2qSd6rxs/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/LRGUsSkggI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/OAI21X1MA10TR/layout                            1        0       8        24     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/N8bnsZHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ALaGsSkggI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/DFFRPQNX0P5MA10TR/layout                        1        0       33       49     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/A8ensToMl3RjVyFbC/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AND3X1MA10TR/layout                             1        0       11       23     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/N8bWsSkvgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/A8eWBU3jaYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AO1B2X0P7MA10TR/layout                          1        0       11       22     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/FhcHnZuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/OAI21BX0P5MA10TR/layout                         1        0       10       27     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/A8WnsSkggI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmcN65/M6_M5/layout            0        0       0        3      0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/ILXCnTuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NRPAiU3jYyhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/A8enBKt1gI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AOI31X0P5MA10TR/layout                          1        0       11       29     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/NRPAiU9Ml3RjVyFbC/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/FhcHMfkqJTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/N8bnsKHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AO21X0P7MA10TR/layout                           1        0       11       34     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/FqetOUoz7I9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ORWwBU3jYYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/INVX4BA10TR/layout                              1        0       4        28     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/Mpe7iU3jYYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AO22X0P5MA10TR/layout                           1        0       12       37     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/OAI2XB1X0P5MA10TR/layout                        1        0       10       30     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/A8eniUo0JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BtwrsAHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/OAI222X1MA10TR/layout                           1        0       11       44     0      0         63     0             0      0     0     0       0       
+hfaroo9_digital/N8bnsTtFgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BUFX6BA10TR/layout                              1        0       8        41     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/A8WnsKHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NOR2X0P7MA10TR/layout                           1        0       5        19     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/AOI22X0P5MA10TR/layout                          1        0       9        28     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/NAND2X1MA10TR/layout                            1        0       5        19     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/BUFX2MA10TR/layout                              1        0       8        23     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/DFFRPQX0P5MA10TR/layout                         1        0       34       50     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/NRPAiUoGJTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AOI31X1MA10TR/layout                            1        0       11       25     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/AOI22X1MA10TR/layout                            1        0       9        27     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/FILLCAP8A10TR/layout                            1        0       4        48     0      0         56     0             0      0     0     0       0       
+hfaroo9_digital/NRPA7Tt2Skke71qQ/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ADDHX1MA10TR/layout                             1        0       17       49     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/NOR3X1P4MA10TR/layout                           1        0       9        23     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/BtwCnTuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/FILL64A10TR/layout                              1        0       0        6      0      0         56     0             0      0     0     0       0       
+hfaroo9_digital/ThvYdUo0JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AO1B2X2MA10TR/layout                            1        0       13       31     0      0         60     0             0      0     0     0       0       
+tsmcN65/M3_M2/layout            0        0       0        3      0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/BtwC7cuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AOI211X0P5MA10TR/layout                         1        0       10       25     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/OqlCjY00JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NAND3X0P5MA10TR/layout                          1        0       6        21     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/DrwxgMt2Skke71qQ/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/A8eWBUo0JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/N8bn4Uo0JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ORenBU3jYYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NRPAiUZGJTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/XNOR2X0P7MA10TR/layout                          1        0       14       28     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/OR2X4MA10TR/layout                              1        0       12       42     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/NAND3X1AA10TR/layout                            1        0       6        26     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/MpGnsKHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NRPA7UtM7Nnlb3XOwfU/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmcN65/M2_M1/layout            0        0       0        14     0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/AND3X1P4MA10TR/layout                           1        0       13       26     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/AND3X4MA10TR/layout                             1        0       10       74     0      0         60     0             0      0     0     0       0       
+tsmcN65/M4_M3/layout            0        0       0        14     0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/NAND2XBX0P7MA10TR/layout                        1        0       9        20     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/NRPAnU6mJTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/Oq9CjY00JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ORWnsSkggI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NRPAiU3jaIhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/A8eWBU3jYYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/OAI211X0P5MA10TR/layout                         1        0       9        24     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/OReniZtzgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/toplevel_498_VIA11/layout                       0        0       0        7      0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/A8eniZt2Skke71qQ/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/INVX0P5MA10TR/layout                            1        0       4        15     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/LRGct0t2Skke71qQ/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ORenBKt2Skke71qQ/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/A8rziU3jaYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/INVX5BA10TR/layout                              1        0       4        33     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/NOR2X2MA10TR/layout                             1        0       7        22     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/NRPA7U3jaIhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NOR3X1AA10TR/layout                             1        0       6        22     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/MXIT2X0P5MA10TR/layout                          1        0       13       28     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/BtwCjYD0JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/A8enBUo0JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/INVX1MA10TR/layout                              1        0       4        16     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/OqWCjYD0JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/A8enBU3jaYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ILXCicuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AOI222X0P5MA10TR/layout                         1        0       10       40     0      0         63     0             0      0     0     0       0       
+hfaroo9_digital/AOI222X3MA10TR/layout                           1        0       23       70     0      0         63     0             0      0     0     0       0       
+hfaroo9_digital/A8WnsSkvgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/FhcHBfo2Eh/layout                               0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BUFX3MA10TR/layout                              1        0       8        28     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/FqetOUo17I9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/INVX1P7BA10TR/layout                            1        0       4        18     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/OAI2XB1X1MA10TR/layout                          1        0       10       31     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/FILLCAP16A10TR/layout                           1        0       4        90     0      0         56     0             0      0     0     0       0       
+hfaroo9_digital/MXT2X1MA10TR/layout                             1        0       15       33     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/NAND4X0P7AA10TR/layout                          1        0       7        27     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/A8enBKt2SAke71qQ/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/ALaWsSkggI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmcN65/M5_M4/layout            0        0       0        3      0      0         0      0             0      0     0     0       0       
+hfaroo9_digital/ALaWsKkOgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BUFX16MA10TR/layout                             1        0       8        98     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/FILL4A10TR/layout                               1        0       0        6      0      0         56     0             0      0     0     0       0       
+hfaroo9_digital/OAI222X0P5MA10TR/layout                         1        0       11       40     0      0         63     0             0      0     0     0       0       
+hfaroo9_digital/OAI221X0P5MA10TR/layout                         1        0       10       35     0      0         62     0             0      0     0     0       0       
+hfaroo9_digital/AOI211X1MA10TR/layout                           1        0       10       25     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/FhcHMfkzRI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NOR2X1MA10TR/layout                             1        0       5        17     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/EDFFQX0P5MA10TR/layout                          1        0       39       71     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/OqWC7cuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NAND2XBX1MA10TR/layout                          1        0       9        22     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/ILXC7TuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/N8bnsTtzgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BtwCicuzlDe/layout                              0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/A8ensToM4YhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BtwCBvHm4WvV/layout                             0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/toplevel_498/layout                             194818   0       0        186306 1176822 0         118955 0             0      0     0     0       0       
+hfaroo9_digital/NOR2BX1MA10TR/layout                            1        0       9        19     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/AOI21BX0P7MA10TR/layout                         1        0       11       31     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/AOI22X0P7MA10TR/layout                          1        0       9        30     0      0         61     0             0      0     0     0       0       
+hfaroo9_digital/INVX6BA10TR/layout                              1        0       4        36     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/AOI32X0P5MA10TR/layout                          1        0       11       31     0      0         62     0             0      0     0     0       0       
+hfaroo9_digital/OReniZt2Skke71qQ/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NRPAiU9M4YhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/AOI21X1MA10TR/layout                            1        0       9        22     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/XLExiU10JTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/INVX2MA10TR/layout                              1        0       4        21     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/FILL2A10TR/layout                               1        0       0        6      0      0         56     0             0      0     0     0       0       
+hfaroo9_digital/NOR2X0P5MA10TR/layout                           1        0       5        19     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/BtwYsKkvgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NRPA7U3jYIhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NAND3X4AA10TR/layout                            1        0       8        76     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/NRPAnUomJTnad/layout                            0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/BUFX4MA10TR/layout                              1        0       8        34     0      0         58     0             0      0     0     0       0       
+hfaroo9_digital/A8enBKt2Skke71qQ/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NAND2X3BA10TR/layout                            1        0       9        31     0      0         59     0             0      0     0     0       0       
+hfaroo9_digital/OAI21X2MA10TR/layout                            1        0       10       31     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/OReniU3jYYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NOR3X0P7AA10TR/layout                           1        0       6        23     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/XLExiU3jaYhGZRp/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/NAND3X0P7MA10TR/layout                          1        0       6        23     0      0         60     0             0      0     0     0       0       
+hfaroo9_digital/NRPA7TtFgI9iAX/layout                           0        0       0        0      0      0         12     0             0      0     0     0       0       
+---------------------------------------------------------------------------------------------------------------------------------------
+
+                       Individual Cell Statistics - Advanced Objects
+--------------------------------------------------------------------------------------------------------------------------------------------
+Library/Cell/View               PRBdy    OtherBdy   AreaBlkg   LayerBlkg  AreaHalo   Row   Marker   Stitch   CustVia   StdVia    CdsGenVia
+--------------------------------------------------------------------------------------------------------------------------------------------
+hfaroo9_digital/NAND2X0P5BA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAnUo0JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI221X1MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OR3X0P5MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND2X1AA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ORWwsSkvgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OA22X1MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NOR2XBX0P7MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ORenBUo0JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FhcHBvuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ILXCjYaGJTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FRICGX13BA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND3XXBX0P7MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ORensToMl3jjVyFbC/layout                        0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BUFX2BA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAiUomJTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND4X0P5MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/X8bnsKHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OReniKt2Skke71qQ/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ILXCBcuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ALaWsKHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/N8bnsKum4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M2_M1/layout            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ALansKHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/DFFQX0P5MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/X8bWsSkggI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M4_M3/layout            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND4XXXBX0P7MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND2X1BA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ILXCiTuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND3BX0P5MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/N8bWsKHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M4_M3/layout            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OAI21BX1MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/MXT2X0P5MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FhcHifo2Eh/layout                               0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/INVX3MA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/toplevel_498_VIA12/layout                       0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/XOR2X0P7MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/DFFQX1MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OR4X0P5MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAnTt2Skke71qQ/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M2_M1/layout            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8eWiU3jYYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BUFX5MA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8WwsSkggI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAnU3jYYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/LATQX1MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI222X1MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/XOR2X1MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AO21X0P5MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAnU3jaIhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BtwCBcuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8eniU3jaYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8eniU3jYYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/XLExiU3jYYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND2X0P5AA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI2XB1X0P5MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BUFZX1MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/XOR3X0P5MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ILXCjYRGJTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ILXCjY00JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAiU1GJTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8WwsSkvgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAnUZmJTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/N8bn4U10JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BtwCiTuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/TIELOX1MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8Ww4U3jYYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAiU3jYIhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/DFFQX2MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/N8bnsSkggI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ORenBU10JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND2X0P7AA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AND2X0P5MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8ensToMl3jjVyFbC/layout                        0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AO21BX0P5MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAnU3jaYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ILXC8Y0GJTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BtwCccuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BUFX3BA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/N8bnsSkvgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8enBTt2Skke71qQ/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OAI22X0P7MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8enBKtFgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND2X0P7BA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M3_M2/layout            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FILL1A10TR/layout                               0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/XNOR2X3MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BUFX6MA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ILXCBYDGJTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NOR2XBX3MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/DPjnsSkggI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ALansyHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ALansZHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OA211X0P7MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ORenBKtzgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI211X0P7MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/DrwxgMgMl3jjVyFbC/layout                        0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NOR3X0P5AA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND3X2AA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8eniKt2Skke71qQ/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BUFHX1MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/EvwBtU3jYYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/toplevel_498_VIA10/layout                       0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AND2X1MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI221X0P5MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OqWCBcuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ILXCBTuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAiU9MrYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8enBTt2SAke71qQ/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/INVX0P6MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ORWwBU3jaYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/N8bWsKkOgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FRICGX11BA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OAI211X0P7MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M2_M1/layout            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BtwYsSkvgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/LATNQNX0P5MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/INVX2BA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M3_M2/layout            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND3X1MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M5_M4/layout            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OA22X0P5MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BUFHX2MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND4BX2MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND3X3AA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AND2X2MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FILLTIE2A10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ILXCcTuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAiU9Ml3jjVyFbC/layout                        0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ORenBKt2SAke71qQ/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/INVX1BA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AO22X1MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ALaWsyHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AND4X0P5MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAiU3jayhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8eniZt1gI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OAI21X0P5MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FhcHyXqFJTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/MpGnsSkggI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BtwrsKHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/TIEHIX1MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/DrwUsZHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BtwCDcuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M2_M1/layout            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OA211X0P5MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FILL32A10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8eniZtzgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FhcHDyuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND4XXXBX0P5MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BUFHX3MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AvaYsKHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI2XB1X1MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BUFZX8MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND3X0P5AA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/DrwUsKHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/DLY2X0P5MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8enBKtzgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/N8bnsTt2Skke71qQ/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BtwCcTuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OReniZtFgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BUFHX1P7MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M2_M1/layout            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/XLExiUo0JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OR2X1MA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/DrwUsSkggI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OReniU3jaYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OR2X0P7MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/N8bWsKum4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/EDFFQX3MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/N8bWsSkgJI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AO22X0P7MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OAI22X1MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8enBTtzgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NOR3X0P7MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OqWCjY00JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/XNOR3X0P5MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NOR3X1MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI211X3MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AND2X4MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/toplevel_498_VIA13/layout                       0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ILXCncuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FhcH7fo2Eh/layout                               0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/XNOR2X1MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI21X0P5MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OA21X0P7MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI21BX1MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/N8bnsTt1gI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M2_M1/layout            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAnU3jYIhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NOR2X1AA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/N8bWsSkvJI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND4X0P5AA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8eWiUo0JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M2_M1/layout            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AvaBsKHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI21X0P7MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/LATQX0P5MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND2XBX0P5MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BUFHX0P7MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ThvHvUo0JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AND2X11MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND3XXBX0P5MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND2XBX2MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OAI211X1MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI31X0P7MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ALansKo0JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OR2X0P5MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8eniKtzgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ILXCDTuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAnU1mJTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI32X1MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NOR2XBX2MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPA7UomJTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ADDFX1MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND2X2BA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/INVX7P5BA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/INVX0P8BA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ORWnsKHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BtwCncuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NOR2X2AA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NOR2XBX0P5MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BUFX0P7MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OA21X0P5MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/XOR2X0P5MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OReniUo0JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/EvwBt0t2Skke71qQ/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M3_M2/layout            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/EvwBtUZ0JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND4BX0P5MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AND3X0P5MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M5_M4/layout            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND4XXXBX1MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OAI21X0P7MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/XNOR2X0P5MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BtwYsiHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FILL16A10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND4X1AA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/INVX3BA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/X8bnsSkggI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8enBU3jYYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OAI222X2MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ALansSkggI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BtwCDTuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPA7UtM7Nnl33XOwfU/layout                      0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NOR2BX2MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/EDFFQNX0P5MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BUFX5BA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/XLExnU3jYYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAnUtG5W2SSd6rxs/layout                       0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BtwYsZHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND3X0P7AA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BUFX1MA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/XLExiUZ0JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/INVX0P6BA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ORWwsSkggI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/LRGUsKHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OAI22X0P5MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/X8bnsSkvgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAiUo0JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI211X2MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPA7UtM7N9jVyFbC/layout                        0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ILXCjYa0JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI21BX0P5MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPA7U3jYYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/N8bnsTt2SAke71qQ/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8rziU10JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/N8bnsZum4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI2XB1X0P7MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BtwYsKHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/XNOR2X2MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ORenBU3jaYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ORenBTt2Skke71qQ/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ORenBTtzgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NOR2XBX1MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ORensToM4YhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAnUtG5W2qSd6rxs/layout                       0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/LRGUsSkggI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OAI21X1MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/N8bnsZHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ALaGsSkggI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/DFFRPQNX0P5MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8ensToMl3RjVyFbC/layout                        0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AND3X1MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/N8bWsSkvgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8eWBU3jaYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AO1B2X0P7MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FhcHnZuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OAI21BX0P5MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8WnsSkggI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M6_M5/layout            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ILXCnTuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAiU3jYyhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8enBKt1gI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI31X0P5MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAiU9Ml3RjVyFbC/layout                        0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FhcHMfkqJTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/N8bnsKHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AO21X0P7MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FqetOUoz7I9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ORWwBU3jYYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/INVX4BA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/Mpe7iU3jYYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AO22X0P5MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OAI2XB1X0P5MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8eniUo0JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BtwrsAHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OAI222X1MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/N8bnsTtFgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BUFX6BA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8WnsKHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NOR2X0P7MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI22X0P5MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND2X1MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BUFX2MA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/DFFRPQX0P5MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAiUoGJTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI31X1MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI22X1MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FILLCAP8A10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPA7Tt2Skke71qQ/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ADDHX1MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NOR3X1P4MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BtwCnTuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FILL64A10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ThvYdUo0JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AO1B2X2MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M3_M2/layout            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BtwC7cuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI211X0P5MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OqlCjY00JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND3X0P5MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/DrwxgMt2Skke71qQ/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8eWBUo0JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/N8bn4Uo0JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ORenBU3jYYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAiUZGJTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/XNOR2X0P7MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OR2X4MA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND3X1AA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/MpGnsKHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPA7UtM7Nnlb3XOwfU/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M2_M1/layout            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AND3X1P4MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AND3X4MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M4_M3/layout            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND2XBX0P7MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAnU6mJTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/Oq9CjY00JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ORWnsSkggI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAiU3jaIhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8eWBU3jYYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OAI211X0P5MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OReniZtzgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/toplevel_498_VIA11/layout                       0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8eniZt2Skke71qQ/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/INVX0P5MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/LRGct0t2Skke71qQ/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ORenBKt2Skke71qQ/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8rziU3jaYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/INVX5BA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NOR2X2MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPA7U3jaIhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NOR3X1AA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/MXIT2X0P5MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BtwCjYD0JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8enBUo0JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/INVX1MA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OqWCjYD0JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8enBU3jaYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ILXCicuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI222X0P5MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI222X3MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8WnsSkvgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FhcHBfo2Eh/layout                               0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BUFX3MA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FqetOUo17I9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/INVX1P7BA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OAI2XB1X1MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FILLCAP16A10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/MXT2X1MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND4X0P7AA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8enBKt2SAke71qQ/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ALaWsSkggI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M5_M4/layout            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ALaWsKkOgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BUFX16MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FILL4A10TR/layout                               0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OAI222X0P5MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OAI221X0P5MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI211X1MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FhcHMfkzRI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NOR2X1MA10TR/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/EDFFQX0P5MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OqWC7cuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND2XBX1MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/ILXC7TuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/N8bnsTtzgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BtwCicuzlDe/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8ensToM4YhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BtwCBvHm4WvV/layout                             0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/toplevel_498/layout                             0        0          0          0          0          0     0        0        0         1067495   0        
+hfaroo9_digital/NOR2BX1MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI21BX0P7MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI22X0P7MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/INVX6BA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI32X0P5MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OReniZt2Skke71qQ/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAiU9M4YhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/AOI21X1MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/XLExiU10JTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/INVX2MA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/FILL2A10TR/layout                               0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NOR2X0P5MA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BtwYsKkvgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPA7U3jYIhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND3X4AA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPAnUomJTnad/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/BUFX4MA10TR/layout                              0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/A8enBKt2Skke71qQ/layout                         0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND2X3BA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OAI21X2MA10TR/layout                            0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/OReniU3jYYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NOR3X0P7AA10TR/layout                           0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/XLExiU3jaYhGZRp/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NAND3X0P7MA10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/NRPA7TtFgI9iAX/layout                           0        0          0          0          0          0     0        0        0         0         0        
+---------------------------------------------------------------------------------------------------------------------------------------
+
+                       Statistics of Layers 
+---------------------------------------------------------------------------------------------------------------------------------------
+Cadence         Cadence         Stream  Stream   
+Layer           Purpose         Layer   Datatype  Polygon  Rect     Path     Text     TextDisplay   Line Dot Arc Donut Ellipse Pathseg
+---------------------------------------------------------------------------------------------------------------------------------------
+M2              drawing         32      0         0        146978   621887   88557    0             0    0   0   0     0      0      
+VIA5            drawing         55      0         0        1        0        0        0             0    0   0   0     0      0      
+NW              drawing         3       0         8        194      0        4444     0             0    0   0   0     0      0      
+VIA4            drawing         54      0         0        31       0        0        0             0    0   0   0     0      0      
+PP              drawing         25      0         9        194      0        0        0             0    0   0   0     0      0      
+M3              pin             133     0         0        0        0        19       0             0    0   0   0     0      0      
+NP              drawing         26      0         9        194      0        0        0             0    0   0   0     0      0      
+M5              drawing         35      0         0        562      23722    359      0             0    0   0   0     0      0      
+M3              drawing         33      0         0        29566    400105   22766    0             0    0   0   0     0      0      
+M1              drawing         31      0         967      1848     18015    4878     0             0    0   0   0     0      0      
+M4              drawing         34      0         0        7866     111742   2357     0             0    0   0   0     0      0      
+CO              drawing         30      0         0        4772     0        0        0             0    0   0   0     0      0      
+M1              pin             131     0         0        0        0        1113     0             0    0   0   0     0      0      
+PO              drawing         17      0         865      0        0        4444     0             0    0   0   0     0      0      
+VIA1            drawing         51      0         0        34       0        0        0             0    0   0   0     0      0      
+IP              drawing         63      63        0        0        0        4444     0             0    0   0   0     0      0      
+OD              drawing         6       0         247      290      0        0        0             0    0   0   0     0      0      
+VIA3            drawing         53      0         0        22       0        0        0             0    0   0   0     0      0      
+prBoundary      drawing         108     0         0        202      0        0        0             0    0   0   0     0      0      
+M6              drawing         36      0         0        1        1351     19       0             0    0   0   0     0      0      
+VIA2            drawing         52      0         0        23       0        0        0             0    0   0   0     0      0      
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Summary of Objects Translated:
+	Scalar Instances:		195020
+	Array Instances:		0
+	Polygons:			2105
+	Paths:				1176822
+	Rectangles:			192778
+	Lines:				0
+	Arcs:				0
+	Donuts:				0
+	Dots:				0
+	Ellipses:			0
+	Boundaries:			0
+	Area Blockages:			0
+	Layer Blockages:		0
+	Area Halos:			0
+	Markers:			0
+	Rows:				0
+	Stitches:			0
+	Standard Vias:			1067495
+	Custom Vias:			0
+	CdsGen Vias:			0
+	Pathsegs:			0
+	Text:				133400
+	TextDisplay:		0
+	Cells:				428
+Design Libraries: 
+
+DEFINE hfaroo9_digital	/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/hfaroo9_digital
+DEFINE tsmcN65	/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65

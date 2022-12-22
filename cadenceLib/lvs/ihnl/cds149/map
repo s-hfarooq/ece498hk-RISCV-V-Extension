@@ -1,0 +1,5 @@
+( ( net
+( "VSS!" "inh_ground" )
+( "VDD!" "inh_power" )
+ )
+ )

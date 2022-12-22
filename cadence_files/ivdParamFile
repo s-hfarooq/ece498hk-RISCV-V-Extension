@@ -1,0 +1,19 @@
+; Description of parameters :
+; 'gdsInFile			-	GDS2 file to be imported
+; 'verilogInFile		-	Verilog gate level netlist file to be 
+;                                       imported
+; 'primaryCellName		-	Name of the primary cell to be imported
+; 'designLibName		-	Name of the deisng library to which 
+;                                       the gds will be imported
+; 'refLibOrder			-	Names of the reference libraries in 
+;                                       order of preference
+; /ece498hk/libs/TSMC65GP_RFMIM__1P0V_2P5V__1p9m_6X1Z1U_ALRDL/tsmcN65/tsmcN65.layermap
+; All the above parameters are REQUIRED!
+
+importVerilogDesignKeys = list( nil
+	'gdsInFile 			"/home/kanungo3/ece-498hk-05.ece.illinois.edu/home/ece498hksrv-05/ece498hksrv-05/cadence/498hk-project/syn_pnr/final.gds2"
+	'verilogInFile			"/home/kanungo3/ece-498hk-05.ece.illinois.edu/home/ece498hksrv-05/ece498hksrv-05/cadence/498hk-project/syn_pnr/vlogout/chiptop.pnr.v"
+	'primaryCellName		"chiptop"
+	'designLibName			"test_fall2"
+	'refLibOrder			"tsmc065_rvt_stdcells sram"
+)

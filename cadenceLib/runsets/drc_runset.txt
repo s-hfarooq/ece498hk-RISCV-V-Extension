@@ -1,0 +1,29 @@
+*drcRulesFile: /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/Calibre/drc/calibre.drc_noDensity_noFullChip
+*drcRulesFileLastLoad: 1496812851
+*drcRunDir: /home/kanungo3/ece-498hk-05.ece.illinois.edu/home/ece498hksrv-05/ece498hksrv-05/cadence/DRC
+*drcLayoutPaths: chiptop.calibre.db
+*drcLayoutPrimary: chiptop
+*drcLayoutLibrary: test_fall2
+*drcLayoutView: layout
+*drcLayoutGetFromViewer: 1
+*drcResultsFile: chiptop.drc.results
+*drcCellName: 0
+*drcDRCMaxResultsAll: 1
+*drcSummaryFile: chiptop.drc.summary
+*drcIncrDRCRunHyper: 1
+*drcIncrDRCRunMT: 1
+*drcIncrDRCSlaveHosts: {use {}} {hostName {}} {cpuCount {}} {a32a64 {}} {rsh {}} {maxMem {}} {workingDir {}} {layerDir {}} {mgcLibPath {}} {launchName {}}
+*drcIncrDRCLSFSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*drcIncrDRCGridSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*drcDFMDefaultsResultsFile: chiptop.dfmDefaults.db
+*cmnWarnLayoutOverwrite: 0
+*cmnPromptSaveRunset: 0
+*cmnResolution: 5
+*cmnRunMT: 1
+*cmnRunHyper: 1
+*cmnSlaveHosts: {use {}} {hostName {}} {cpuCount {}} {a32a64 {}} {rsh {}} {maxMem {}} {workingDir {}} {layerDir {}} {mgcLibPath {}} {launchName {}}
+*cmnLSFSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*cmnGridSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*cmnFDILayoutLibrary: test_fall2
+*cmnFDILayoutView: layout
+*cmnFDIDEFLayoutPath: chiptop.def

@@ -1,0 +1,12 @@
+# Automagically generated file: Please do not edit!
+lvs_ExtfVersion 3
+lvs_ExtRunTimes 1671740666 1671740692
+lvs_ExtOutFile RUNDIR /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/lvs
+lvs_ExtOutFile RULES_FILE /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/lvs/_calibre.lvs_
+lvs_ExtInfoExtSummary {0 0 0 0 0 0 0 0 0 0 0}
+lvs_ExtInfoErcSummary {6 0 0 0 0 0 0 0 0 0 0}
+lvs_ExtInfoDfmSummary {0}
+lvs_ExtOutFile LAYOUT_NETLIST /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/lvs/toplevel_498.sp
+lvs_ExtOutFile EXTRACTION_REPORT toplevel_498.lvs.report.ext
+lvs_ExtOutFile ERC_DATABASE toplevel_498.erc.results
+lvs_ExtOutFile ERC_SUMMARY toplevel_498.erc.summary

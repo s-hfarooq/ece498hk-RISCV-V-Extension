@@ -1,10 +1,9 @@
 \o Program:		@(#)$CDS: libManager version 6.1.8 - CAT37 07/23/2021 16:48 (sjfdcl1033) $
 \o Sub version:		sub-version  s203 
-\o Arguments:		-unmapped -mpssession virtuoso2674207 -mpshost ece-498hk-01.ece.illinois.edu -ADVM 
-\o Working Directory:	ece-498hk-01.ece.illinois.edu:/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib
+\o Arguments:		-unmapped -mpssession virtuoso1976346 -mpshost ece-498hk-03.ece.illinois.edu -ADVM 
+\o Working Directory:	ece-498hk-03.ece.illinois.edu:/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib
 \o 64-bit offsets
 \o Qt version: 		5.9.1
-\o DB was auto refreshed.
 \o changeWorkingDir("/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib") unnecessary.
 \o ddSetForcedLib("") unnecessary.
 \o Log file is "/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/libManager.log".
@@ -13,70 +12,116 @@
 \o MPS service: map window
 \o Library Manager customization server connected.
 \a nrSetCurrentWindow(cdsLibManager)
+\w Warning: '/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib', Line 1: Cannot find file '$TSMC65RF/cds.lib'.
+\w Warning: '/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib', Line 1: Skipping: '$TSMC65RF/cds.lib'
+\o  
 \w Warning: '/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/cds.lib', Line 4: Cannot find file '$CDSHOME/share/cdssetup/dfII/cds.lib'.
 \w Warning: '/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/cds.lib', Line 4: Skipping: '$CDSHOME/share/cdssetup/dfII/cds.lib'
 \o  
-\a nrResizeWindow(cdsLibManager list(930 169 794 548))
+\w Warning: The directory: '/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/hfaroo9_digital' does not exist
+\w 	but was defined in libFile '/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib' for Lib 'hfaroo9_digital'.
+\a nrResizeWindow(cdsLibManager list(242 225 1148 548))
 \a cdsLibManager->FileNewLibButton->value = t
 \a nrSetWindowVisibility(NewLibShell "show")
 \a nrSetCurrentWindow(NewLibShell)
 \a nrSetCurrentWindow(NewLibShell->subDialog)
-\a nrResizeWindow(NewLibShell list(1064 124 507 559))
+\a nrResizeWindow(NewLibShell list(553 180 507 559))
 \a NewLibShell->newLibNameText->value = "hfaroo9_digital"
 \a NewLibShell->newLibOKButton->value = t
 \a nrSetWindowVisibility(workingDialogForm "show")
 \a nrSetCurrentWindow(workingDialogForm)
 \o Created new library "hfaroo9_digital" at /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/hfaroo9_digital.
 \a nrSetCurrentWindow(cdsLibManager)
+\w Warning: '/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib', Line 1: Cannot find file '$TSMC65RF/cds.lib'.
+\w Warning: '/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib', Line 1: Skipping: '$TSMC65RF/cds.lib'
+\o  
 \w Warning: '/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/cds.lib', Line 4: Cannot find file '$CDSHOME/share/cdssetup/dfII/cds.lib'.
 \w Warning: '/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/cds.lib', Line 4: Skipping: '$CDSHOME/share/cdssetup/dfII/cds.lib'
 \o  
-\a nrResizeWindow(workingDialogForm list(1156 300 322 133))
-\a nrResizeWindow(NewLibShell list(1064 87 507 559))
+\w Warning: LIB hfaroo9_digital from File /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib Line 28 redefines
+\w LIB hfaroo9_digital from the same file (defined earlier.)
+\a nrResizeWindow(workingDialogForm list(645 356 322 133))
+\a nrResizeWindow(NewLibShell list(553 143 507 559))
+\w Warning: '/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib', Line 1: Cannot find file '$TSMC65RF/cds.lib'.
+\w Warning: '/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib', Line 1: Skipping: '$TSMC65RF/cds.lib'
+\o  
 \w Warning: '/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/cds.lib', Line 4: Cannot find file '$CDSHOME/share/cdssetup/dfII/cds.lib'.
 \w Warning: '/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/cds.lib', Line 4: Skipping: '$CDSHOME/share/cdssetup/dfII/cds.lib'
 \o  
+\w Warning: LIB hfaroo9_digital from File /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib Line 28 redefines
+\w LIB hfaroo9_digital from the same file (defined earlier.)
 \a nrSetCurrentWindow(cdsLibManager)
 \a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrResizeWindow(cdsLibManager list(645 187 794 548))
-\a nrSetWindowVisibility(cdsLibManager "hide")
-\a _lmgrCloseIconify("cdsLibManager" 1)
+\a cdsLibManager->libListBox->value = "hfaroo9_digital"
+\a cdsLibManager->libLineEdit->value = "hfaroo9_digital"
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->libLineEdit->value = ""
+\w Warning: '/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib', Line 1: Cannot find file '$TSMC65RF/cds.lib'.
+\w Warning: '/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib', Line 1: Skipping: '$TSMC65RF/cds.lib'
+\o  
 \w Warning: '/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/cds.lib', Line 4: Cannot find file '$CDSHOME/share/cdssetup/dfII/cds.lib'.
 \w Warning: '/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/cds.lib', Line 4: Skipping: '$CDSHOME/share/cdssetup/dfII/cds.lib'
 \o  
-\a nrResizeWindow(cdsLibManager list(716 186 794 548))
-\a nrSetWindowVisibility(cdsLibManager "show")
-\o MPS service: map window
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->libListBox->value = "analogLib"
-\a cdsLibManager->libLineEdit->value = "analogLib"
+\w Warning: LIB hfaroo9_digital from File /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib Line 28 redefines
+\w LIB hfaroo9_digital from the same file (defined earlier.)
+\a cdsLibManager->libListBox->value = "hfaroo9_digital"
+\a cdsLibManager->libLineEdit->value = "hfaroo9_digital"
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->libLineEdit->value = ""
+\w Warning: '/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib', Line 1: Cannot find file '$TSMC65RF/cds.lib'.
+\w Warning: '/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib', Line 1: Skipping: '$TSMC65RF/cds.lib'
+\o  
+\w Warning: '/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/cds.lib', Line 4: Cannot find file '$CDSHOME/share/cdssetup/dfII/cds.lib'.
+\w Warning: '/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/cds.lib', Line 4: Skipping: '$CDSHOME/share/cdssetup/dfII/cds.lib'
+\o  
+\w Warning: LIB hfaroo9_digital from File /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib Line 28 redefines
+\w LIB hfaroo9_digital from the same file (defined earlier.)
 \a cdsLibManager->libListBox->value = "hfaroo9_digital"
 \a cdsLibManager->libLineEdit->value = "hfaroo9_digital"
 \a cdsLibManager->cellListBox->value = "toplevel_498"
 \a cdsLibManager->cellLineEdit->value = "toplevel_498"
 \a cdsLibManager->viewListBox->value = "layout"
 \a cdsLibManager->viewLineEdit->value = "layout"
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrResizeWindow(cdsLibManager list(716 186 954 548))
-\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->cellListBox->value = nil
 \a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellListBox->value = "toplevel_498"
+\a cdsLibManager->cellLineEdit->value = "toplevel_498"
 \a cdsLibManager->viewListBox->value = "layout"
 \a cdsLibManager->viewLineEdit->value = "layout"
-\o MPS request: edit design
-\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
 \a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(605 182 1148 548))
+\a nrSetCurrentWindow(cdsLibManager)
+\o DB was auto refreshed.
 \a cdsLibManager->libListBox->value = nil
 \a cdsLibManager->libLineEdit->value = ""
 \a cdsLibManager->cellListBox->value = nil
 \a cdsLibManager->viewLineEdit->value = ""
 \a cdsLibManager->viewListBox->value = nil
 \a cdsLibManager->cellLineEdit->value = ""
+\w Warning: '/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib', Line 1: Cannot find file '$TSMC65RF/cds.lib'.
+\w Warning: '/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib', Line 1: Skipping: '$TSMC65RF/cds.lib'
+\o  
 \w Warning: '/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/cds.lib', Line 4: Cannot find file '$CDSHOME/share/cdssetup/dfII/cds.lib'.
 \w Warning: '/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/cds.lib', Line 4: Skipping: '$CDSHOME/share/cdssetup/dfII/cds.lib'
 \o  
+\w Warning: LIB hfaroo9_digital from File /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib Line 28 redefines
+\w LIB hfaroo9_digital from the same file (defined earlier.)
 \a cdsLibManager->libListBox->value = "hfaroo9_digital"
 \a cdsLibManager->libLineEdit->value = "hfaroo9_digital"
+\a cdsLibManager->cellListBox->value = "toplevel_498"
+\a cdsLibManager->cellLineEdit->value = "toplevel_498"
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
 \a cdsLibManager->cellListBox->value = "toplevel_498"
 \a cdsLibManager->cellLineEdit->value = "toplevel_498"
 \a cdsLibManager->viewListBox->value = "layout"
@@ -85,12 +130,112 @@
 \a cdsLibManager->viewListBox->value = nil
 \a cdsLibManager->viewListBox->value = "layout"
 \a cdsLibManager->viewLineEdit->value = "layout"
-\a nrResizeWindow(cdsLibManager list(644 171 954 548))
-\a nrResizeWindow(cdsLibManager list(715 184 954 548))
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->libListBox->value = "functional"
+\a cdsLibManager->libLineEdit->value = "functional"
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->libListBox->value = "hfaroo9_digital"
+\a cdsLibManager->libLineEdit->value = "hfaroo9_digital"
+\a cdsLibManager->cellListBox->value = "toplevel_498"
+\a cdsLibManager->cellLineEdit->value = "toplevel_498"
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 3 0)
 \a nrSetCurrentWindow(cdsLibManager)
 \a nrSetCurrentWindow(cdsLibManager)
-\a nrSetWindowVisibility(cdsLibManager "hide")
-\a _lmgrCloseIconify("cdsLibManager" 1)
-\o MPS service: shutdown
-\o libManager is exiting.
-\a exit(0)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->libListBox->value = "dmsLib"
+\a cdsLibManager->libLineEdit->value = "dmsLib"
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->libListBox->value = "hfaroo9_digital"
+\a cdsLibManager->libLineEdit->value = "hfaroo9_digital"
+\a cdsLibManager->cellListBox->value = "toplevel_498"
+\a cdsLibManager->cellLineEdit->value = "toplevel_498"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 1 0)
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->libLineEdit->value = ""
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\w Warning: '/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib', Line 1: Cannot find file '$TSMC65RF/cds.lib'.
+\w Warning: '/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib', Line 1: Skipping: '$TSMC65RF/cds.lib'
+\o  
+\w Warning: '/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/cds.lib', Line 4: Cannot find file '$CDSHOME/share/cdssetup/dfII/cds.lib'.
+\w Warning: '/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/cds.lib', Line 4: Skipping: '$CDSHOME/share/cdssetup/dfII/cds.lib'
+\o  
+\w Warning: LIB hfaroo9_digital from File /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib Line 28 redefines
+\w LIB hfaroo9_digital from the same file (defined earlier.)
+\a cdsLibManager->libListBox->value = "hfaroo9_digital"
+\a cdsLibManager->libLineEdit->value = "hfaroo9_digital"
+\a cdsLibManager->cellListBox->value = "toplevel_498"
+\a cdsLibManager->cellLineEdit->value = "toplevel_498"
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellListBox->value = "toplevel_498"
+\a cdsLibManager->cellLineEdit->value = "toplevel_498"
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = "layout"
+\a cdsLibManager->viewLineEdit->value = "layout"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 1 0)
+\a nrResizeWindow(cdsLibManager list(544 181 1148 548))
+\a nrResizeWindow(cdsLibManager list(604 180 1148 548))
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->viewListBox->value = "netlist"
+\a cdsLibManager->viewLineEdit->value = "netlist"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 2 0)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 4 0)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->viewListBox->value = "netlist"
+\a cdsLibManager->viewLineEdit->value = "netlist"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 2 0)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(543 179 1148 548))
+\a nrResizeWindow(cdsLibManager list(603 178 1148 548))
+\a nrResizeWindow(cdsLibManager list(542 177 1148 548))
+\a nrResizeWindow(cdsLibManager list(602 176 1148 548))
+\a nrResizeWindow(cdsLibManager list(541 175 1148 548))
+\a nrResizeWindow(cdsLibManager list(601 174 1148 548))

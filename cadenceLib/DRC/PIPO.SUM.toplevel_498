@@ -1,0 +1,935 @@
+********************************************************************************
+Product   : Virtuoso(R) XStream Out
+Program   : @(#)$CDS: strmout version ICADVM20.1-64b 08/17/2021 18:49 (cpgsrv07) $
+          : sub-version  ICADVM20.1-64b.500.20 
+Started at: 22-Dec-2022  13:19:46
+User Name : hfaroo9
+Host Name : ece-498hk-03.ece.illinois.edu
+Directory : /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib
+CADENCE Design Systems, Inc.
+********************************************************************************
+Info: Cellview Rev Num:99,  Tech Rev Num:59
+
+
+                       Individual Cell Statistics - Basic Objects
+---------------------------------------------------------------------------------------------------------------------------------------
+Library/Cell/View               Instance Array   Polygon  Rect   Path   PathSeg   Text   TextDisplay   Line   Dot   Arc   Donut   Ellipse 
+---------------------------------------------------------------------------------------------------------------------------------------
+tsmc065_rvt_stdcells/ILXCBYD0JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8WwsSkggI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ILXCjYa0JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FhcHDyuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/DFFRPQNX0P5MA10TR/layout                   1        0       33       48     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI22X0P7MA10TR/layout                     1        0       9        29     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND3X0P5MA10TR/layout                     1        0       6        20     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8ensToMl3RjVyFbC/layout                   0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmcN65/M5_M4/layout            0        0       0        10     0      0         0      0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AO21X0P5MA10TR/layout                      1        0       11       29     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/XOR2X0P7MA10TR/layout                      1        0       14       28     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/EDFFQX3MA10TR/layout                       1        0       44       71     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NOR2X0P5MA10TR/layout                      1        0       5        18     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OqWCjYD0JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI32X0P5MA10TR/layout                     1        0       11       30     0      0         62     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OAI211X0P7MA10TR/layout                    1        0       9        26     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OA211X0P7MA10TR/layout                     1        0       12       31     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OqWCBcuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OAI21X1MA10TR/layout                       1        0       8        23     0      0         60     0             0      0     0     0       0       
+tsmcN65/M2_M1/layout            0        0       0        3      0      0         0      0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND2X3BA10TR/layout                       1        0       9        30     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FhcHBZRm4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND2XBX0P7MA10TR/layout                   1        0       9        19     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/INVX7P5BA10TR/layout                       1        0       5        39     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8enBTtzgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BUFX16MA10TR/layout                        1        0       8        97     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8eWBU3jYYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OAI2XB1X0P5MA10TR/layout                   1        0       10       29     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/N8bnsSkggI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ILXCncuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPA7UomJTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8rziU3jaYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ALansvHm4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OAI21X2MA10TR/layout                       1        0       10       30     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPA7U3jaIhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAiU9MrYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AND2X0P5MA10TR/layout                      1        0       9        19     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/XNOR3X0P5MA10TR/layout                     1        0       26       41     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OR2X1MA10TR/layout                         1        0       8        22     0      0         59     0             0      0     0     0       0       
+tsmcN65/M4_M3/layout            0        0       0        3      0      0         0      0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8enBU3jaYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ORWwBU3jYYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8eniZt1gI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND4XXXBX0P5MA10TR/layout                 1        0       11       25     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8enBTt2Skke71qQ/layout                    0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8eniUo0JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/N8bWsKHm4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/N8bnsSkvgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+hfaroo9_digital/toplevel_498/layout                             193286   0       0        186675 1175775 0         118906 0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ILXCcTuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/INVX1BA10TR/layout                         1        0       4        15     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8enBU3jYYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND2X1MA10TR/layout                       1        0       5        18     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FhcHnZuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAiUoGJTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI22X1MA10TR/layout                       1        0       9        26     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BUFX3BA10TR/layout                         1        0       8        25     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI211X0P7MA10TR/layout                    1        0       10       27     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/DPjnsSkggI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NOR2X2MA10TR/layout                        1        0       7        21     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND2XBX1MA10TR/layout                     1        0       9        21     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BtwCDcuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8eniKt2Skke71qQ/layout                    0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/Mpe7iU3jYYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ThvYdUo0JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND3XXBX0P7MA10TR/layout                  1        0       10       21     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/N8bn4Uo0JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI221X0P5MA10TR/layout                    1        0       12       33     0      0         62     0             0      0     0     0       0       
+tsmcN65/M3_M2/layout            0        0       0        3      0      0         0      0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FqetOUo17I9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BUFZX1MA10TR/layout                        1        0       17       31     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8eWBUo0JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/MXT2X0P5MA10TR/layout                      1        0       15       30     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BtwCBvHm4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8enBTt2SAke71qQ/layout                    0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ORenBKtzgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/XLExiU10JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND3X1AA10TR/layout                       1        0       6        25     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8ensToMl3jjVyFbC/layout                   0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BtwCcTuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OA22X1MA10TR/layout                        1        0       10       41     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OReniU3jYYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FILL1A10TR/layout                          1        0       0        5      0      0         56     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FRICGX11BA10TR/layout                      1        0       21       84     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NOR3X1AA10TR/layout                        1        0       6        21     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ALansyHm4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OAI2XB1X1MA10TR/layout                     1        0       10       30     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BtwYsSkvgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8enBUo0JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/INVX0P5MA10TR/layout                       1        0       4        14     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8eniU3jaYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPA7U3jYIhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/X8bnsKHm4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NOR3X0P7MA10TR/layout                      1        0       6        22     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BtwCjYD0JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/XLExiU3jaYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OA22X0P5MA10TR/layout                      1        0       10       36     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ORenBU3jYYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/N8bnsKum4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND4BX2MA10TR/layout                      1        0       16       30     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/INVX2BA10TR/layout                         1        0       4        19     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND2X0P5BA10TR/layout                     1        0       5        18     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND3X2AA10TR/layout                       1        0       9        27     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/INVX1P7BA10TR/layout                       1        0       4        17     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OAI211X1MA10TR/layout                      1        0       9        27     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AND4X0P5MA10TR/layout                      1        0       10       25     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAiU3jaIhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BUFHX0P7MA10TR/layout                      1        0       8        18     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPA7UtM7N9jVyFbC/layout                   0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OA21X0P7MA10TR/layout                      1        0       10       32     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FILLCAP8A10TR/layout                       1        0       4        47     0      0         56     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAiU10JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AND2X6MA10TR/layout                        1        0       13       57     0      0         59     0             0      0     0     0       0       
+tsmcN65/M3_M2/layout            0        0       0        3      0      0         0      0             0      0     0     0       0       
+tsmc065_rvt_stdcells/LATQX1MA10TR/layout                        1        0       18       33     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAiU9M4YhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND4X0P5MA10TR/layout                     1        0       7        23     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND2XBX2MA10TR/layout                     1        0       10       27     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AO1B2X2MA10TR/layout                       1        0       13       30     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AND2X2MA10TR/layout                        1        0       11       25     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NOR2BX1MA10TR/layout                       1        0       9        18     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NOR2XBX3MA10TR/layout                      1        0       12       29     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8ensToM4YhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/XNOR2X2MA10TR/layout                       1        0       16       46     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/DLY2X0P5MA10TR/layout                      1        0       5        36     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8enBKtzgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BtwCncuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/EvwBt0t2Skke71qQ/layout                    0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BUFHX1P7MA10TR/layout                      1        0       8        21     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AND2X1MA10TR/layout                        1        0       9        19     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/DFFQX2MA10TR/layout                        1        0       30       52     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/DrwUsSkggI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BUFX6BA10TR/layout                         1        0       8        40     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/Oq9CjY00JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BtwrsKHm4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OqlCjY00JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI21X1MA10TR/layout                       1        0       9        21     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8eWiU3jYYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/N8bWsSkgJI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8eniU3jYYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AO22X0P7MA10TR/layout                      1        0       12       39     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAiU9Ml3RjVyFbC/layout                   0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/INVX3BA10TR/layout                         1        0       4        23     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAnUomJTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OAI222X2MA10TR/layout                      1        0       17       62     0      0         63     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI21BX0P5MA10TR/layout                    1        0       11       30     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BtwCDTuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BUFX9MA10TR/layout                         1        0       8        61     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND2X0P5AA10TR/layout                     1        0       5        16     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BUFX5BA10TR/layout                         1        0       8        36     0      0         58     0             0      0     0     0       0       
+tsmcN65/M4_M3/layout            0        0       0        5      0      0         0      0             0      0     0     0       0       
+tsmc065_rvt_stdcells/N8bnsTt1gI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FILL128A10TR/layout                        1        0       0        5      0      0         56     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/N8bWsSkvJI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OR2X0P7MA10TR/layout                       1        0       9        19     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BUFX1MA10TR/layout                         1        0       7        17     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ORenBTtzgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OR3X0P5MA10TR/layout                       1        0       11       18     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND2X1AA10TR/layout                       1        0       5        18     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ILXCBi9m4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8Ww4U3jYYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAiU3jYIhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/LATQX0P5MA10TR/layout                      1        0       18       30     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OAI22X1MA10TR/layout                       1        0       8        27     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ORenBUo0JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ILXCjYaGJTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OAI21X0P5MA10TR/layout                     1        0       8        21     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ALansZHm4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OAI21BX0P5MA10TR/layout                    1        0       10       26     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BtwrsKo0JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FILLTIE2A10TR/layout                       1        0       4        11     0      0         56     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AO21BX0P5MA10TR/layout                     1        0       10       22     0      0         60     0             0      0     0     0       0       
+tsmcN65/M2_M1/layout            0        0       0        3      0      0         0      0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BtwC6cuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FILL16A10TR/layout                         1        0       0        5      0      0         56     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAiUomJTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FILL64A10TR/layout                         1        0       0        5      0      0         56     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/XOR2X1MA10TR/layout                        1        0       14       31     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NOR2XBX2MA10TR/layout                      1        0       11       20     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BUFHX1MA10TR/layout                        1        0       8        18     0      0         58     0             0      0     0     0       0       
+tsmcN65/M2_M1/layout            0        0       0        6      0      0         0      0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NOR2XBX0P5MA10TR/layout                    1        0       8        21     0      0         59     0             0      0     0     0       0       
+tsmcN65/M4_M3/layout            0        0       0        6      0      0         0      0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAnU3jaIhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AND2X4MA10TR/layout                        1        0       11       43     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ALansKHm4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPA7UtM7Nnl33XOwfU/layout                 0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AvaYsKHm4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/MpGnsSkggI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND2X1BA10TR/layout                       1        0       5        18     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/N8bnsTt2Skke71qQ/layout                    0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND2X0P7BA10TR/layout                     1        0       5        20     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/XOR2X0P5MA10TR/layout                      1        0       14       28     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ILXCnTuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ORWwsSkvgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/XLExnU3jYYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ILXCBYDGJTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND3X3AA10TR/layout                       1        0       8        54     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND3X6AA10TR/layout                       1        0       10       92     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/INVX4BA10TR/layout                         1        0       4        27     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAiUZGJTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI2XB1X0P5MA10TR/layout                   1        0       11       30     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/X8bnsSkggI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/XOR3X0P5MA10TR/layout                      1        0       27       40     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OReniZtzgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/MXIT2X0P5MA10TR/layout                     1        0       13       27     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ALansSkggI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmcN65/M3_M2/layout            0        0       0        5      0      0         0      0             0      0     0     0       0       
+tsmc065_rvt_stdcells/EvwBtU3jYYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAiU1GJTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FhcH7fo2Eh/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BUFX2MA10TR/layout                         1        0       8        22     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPA7UtM7Nnlb3XOwfU/layout                 0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AO22X1MA10TR/layout                        1        0       12       40     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ILXCjYRGJTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ILXCjY00JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8WnsSkggI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/N8bnsTt2SAke71qQ/layout                    0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/X8bnsSkvgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/XLExiU3jYYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FILL32A10TR/layout                         1        0       0        5      0      0         56     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/TIELOX1MA10TR/layout                       1        0       7        17     0      0         57     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BtwCnTuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAnUo0JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/DrwUsZHm4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI211X3MA10TR/layout                      1        0       17       45     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BtwC7cuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AND3X1P4MA10TR/layout                      1        0       13       25     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/X8bWsSkggI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NOR2XBX1MA10TR/layout                      1        0       9        18     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAnU3jYYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ILXC8Y0GJTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8enBUoj8YhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/LRGUsSkggI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ALaGsSkggI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND2X2MA10TR/layout                       1        0       7        26     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI31X0P7MA10TR/layout                     1        0       11       28     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/LRGct0t2Skke71qQ/layout                    0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/N8bWsSkvgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FILL2A10TR/layout                          1        0       0        5      0      0         56     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND2X0P7AA10TR/layout                     1        0       5        20     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND3X1P4MA10TR/layout                     1        0       9        24     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ADDHX1MA10TR/layout                        1        0       17       48     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/XNOR2X3MA10TR/layout                       1        0       16       47     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/DrwxgMgMl3jjVyFbC/layout                   0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ORenBU10JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/INVX5BA10TR/layout                         1        0       4        32     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OAI21X0P7MA10TR/layout                     1        0       8        21     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/N8bWsKum4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ALaGsSkvgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FqetOUoz7I9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/INVX1MA10TR/layout                         1        0       4        15     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AO22X0P5MA10TR/layout                      1        0       12       36     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8rziU10JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ILXCicuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI2XB1X0P7MA10TR/layout                   1        0       11       32     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NOR3X1MA10TR/layout                        1        0       6        19     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OAI222X1MA10TR/layout                      1        0       11       43     0      0         63     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/N8bnsTtFgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OqWCjY00JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BUFX3MA10TR/layout                         1        0       8        27     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI2XB1X1MA10TR/layout                     1        0       11       29     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OA21X0P5MA10TR/layout                      1        0       10       30     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND3X0P5AA10TR/layout                     1        0       6        20     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NOR2X1AA10TR/layout                        1        0       5        19     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8eniZt2Skke71qQ/layout                    0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/EDFFQNX0P5MA10TR/layout                    1        0       40       69     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AND3X2MA10TR/layout                        1        0       14       30     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND2X2AA10TR/layout                       1        0       7        23     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI211X0P5MA10TR/layout                    1        0       10       24     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/INVX0P6MA10TR/layout                       1        0       4        16     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8enBKt1gI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAnUoj8YhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/DrwxgMt2Skke71qQ/layout                    0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmcN65/M2_M1/layout            0        0       0        3      0      0         0      0             0      0     0     0       0       
+tsmc065_rvt_stdcells/N8bn4U10JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI32X1MA10TR/layout                       1        0       11       26     0      0         62     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAiU9Ml3jjVyFbC/layout                   0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OA211X0P5MA10TR/layout                     1        0       12       33     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OqWC7cuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ILXC7TuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BtwCicuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AND3X0P5MA10TR/layout                      1        0       10       19     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FhcHBfo2Eh/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/XNOR2X1MA10TR/layout                       1        0       14       29     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8eniZtzgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAnU1mJTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmcN65/M3_M2/layout            0        0       0        5      0      0         0      0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI21X0P5MA10TR/layout                     1        0       9        23     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OAI211X0P5MA10TR/layout                    1        0       9        23     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NOR2X2AA10TR/layout                        1        0       7        26     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/N8bnsZum4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAnUtG5W2qSd6rxs/layout                  0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAnU3jYIhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8eWiUo0JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAnUZmJTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ORWnsSkggI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/LRGUsKHm4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAiUo0JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BUFZX11MA10TR/layout                       1        0       21       147    0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FhcHMfkqJTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/INVX2MA10TR/layout                         1        0       4        20     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAnUamJTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI222X0P5MA10TR/layout                    1        0       10       39     0      0         63     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ORWnsKHm4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FhcHMfkzRI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OAI22X0P7MA10TR/layout                     1        0       8        28     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI21BX1MA10TR/layout                      1        0       11       29     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND4XXXBX1MA10TR/layout                   1        0       11       26     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BUFX4MA10TR/layout                         1        0       8        33     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI222X3MA10TR/layout                      1        0       23       69     0      0         63     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPA7TtFgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8WnsSkvgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8enBKt2Skke71qQ/layout                    0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/MpGnsKHm4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AO21X0P7MA10TR/layout                      1        0       11       33     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NOR2X0P7MA10TR/layout                      1        0       5        18     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FILLCAP16A10TR/layout                      1        0       4        89     0      0         56     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND4XXXBX0P7MA10TR/layout                 1        0       10       27     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/XLExiUZ0JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OR2X0P5MA10TR/layout                       1        0       9        19     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OAI222X0P5MA10TR/layout                    1        0       11       39     0      0         63     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ALaWsZHm4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAiU3jayhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FRICGX13BA10TR/layout                      1        0       23       85     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ALaWsKkOgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmcN65/M2_M1/layout            0        0       0        3      0      0         0      0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BUFX6MA10TR/layout                         1        0       8        44     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/INVX13BA10TR/layout                        1        0       5        62     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/XLExiUo0JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/LATNQNX0P5MA10TR/layout                    1        0       17       35     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI211X1MA10TR/layout                      1        0       10       24     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ORenBKt2SAke71qQ/layout                    0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/DFFRPQX0P5MA10TR/layout                    1        0       34       49     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPA7Tt2Skke71qQ/layout                    0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BtwYsKHm4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAiU3jYyhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/XNOR2X0P5MA10TR/layout                     1        0       14       27     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ILXCBcuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8eniKtzgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND3XXBX0P5MA10TR/layout                  1        0       10       21     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI222X1MA10TR/layout                      1        0       11       41     0      0         63     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/N8bnsTtzgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND2X4BA10TR/layout                       1        0       10       37     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND2XBX0P5MA10TR/layout                   1        0       9        18     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ADDFX1MA10TR/layout                        1        0       26       57     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/N8bnsZHm4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ILXCiTuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OReniZt2Skke71qQ/layout                    0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI21X1P4MA10TR/layout                     1        0       9        34     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND3X0P7AA10TR/layout                     1        0       6        25     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8WwsSkvgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/INVX3MA10TR/layout                         1        0       4        24     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ORensToMl3jjVyFbC/layout                   0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPA7U3jYYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OAI22X0P5MA10TR/layout                     1        0       8        27     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/XNOR2X0P7MA10TR/layout                     1        0       14       27     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OReniZtFgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND4BX0P5MA10TR/layout                    1        0       11       23     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/N8bnsKHm4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ORensToM4YhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ORenBKt2Skke71qQ/layout                    0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ORWwsSkggI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BtwYsKkvgI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OR4X0P5MA10TR/layout                       1        0       13       34     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ThvHvUo0JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OReniU3jaYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmcN65/M5_M4/layout            0        0       0        3      0      0         0      0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ORenBTt2Skke71qQ/layout                    0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND4X0P7AA10TR/layout                     1        0       7        26     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NOR3X0P7AA10TR/layout                      1        0       6        22     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BtwCBcuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/MXT2X1MA10TR/layout                        1        0       15       32     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8WnsKHm4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND4X0P5AA10TR/layout                     1        0       7        23     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND3X1MA10TR/layout                       1        0       6        25     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NOR2XBX0P7MA10TR/layout                    1        0       9        20     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ILXCBTuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OReniUo0JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND2X2BA10TR/layout                       1        0       7        24     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AO1B2X0P7MA10TR/layout                     1        0       11       21     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/INVX1P7MA10TR/layout                       1        0       4        19     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI31X1MA10TR/layout                       1        0       11       24     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/INVX0P8BA10TR/layout                       1        0       4        14     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8eWBU3jaYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BtwCiTuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI21X0P7MA10TR/layout                     1        0       9        24     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/EvwBtUZ0JTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BUFX0P7MA10TR/layout                       1        0       8        17     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI31X0P5MA10TR/layout                     1        0       11       28     0      0         61     0             0      0     0     0       0       
+tsmcN65/M3_M2/layout            0        0       0        6      0      0         0      0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FhcHifo2Eh/layout                          0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AvaBsKHm4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OR2X4MA10TR/layout                         1        0       12       41     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI221X1MA10TR/layout                      1        0       12       33     0      0         62     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAnUtG5W2SSd6rxs/layout                  0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/TIEHIX1MA10TR/layout                       1        0       7        16     0      0         57     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ORWwBU3jaYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/A8enBKt2SAke71qQ/layout                    0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NOR3X0P5AA10TR/layout                      1        0       6        22     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FhcHyXqFJTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FhcHBvuzlDe/layout                         0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OReniKt2Skke71qQ/layout                    0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAiU6GJTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND3BX0P5MA10TR/layout                    1        0       10       21     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NOR2X1MA10TR/layout                        1        0       5        16     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NAND4X1AA10TR/layout                       1        0       7        28     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAiU1mJTnad/layout                       0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/DFFQX0P5MA10TR/layout                      1        0       28       47     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NOR2X6AA10TR/layout                        1        0       12       48     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ORenBU3jaYhGZRp/layout                     0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI22X0P5MA10TR/layout                     1        0       9        27     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/FILL4A10TR/layout                          1        0       0        5      0      0         56     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/ALaWsSkggI9iAX/layout                      0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NOR2BX2MA10TR/layout                       1        0       11       21     0      0         59     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OAI21BX1MA10TR/layout                      1        0       10       30     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/NRPAnTt2Skke71qQ/layout                    0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/EDFFQX0P5MA10TR/layout                     1        0       39       70     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AND4X0P7MA10TR/layout                      1        0       10       27     0      0         61     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/OAI221X0P5MA10TR/layout                    1        0       10       34     0      0         62     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/AOI21BX0P7MA10TR/layout                    1        0       11       30     0      0         60     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/INVX0P6BA10TR/layout                       1        0       4        14     0      0         58     0             0      0     0     0       0       
+tsmc065_rvt_stdcells/N8bnsvum4WvV/layout                        0        0       0        0      0      0         12     0             0      0     0     0       0       
+tsmcN65/M6_M5/layout            0        0       0        3      0      0         0      0             0      0     0     0       0       
+tsmcN65/M4_M3/layout            0        0       0        5      0      0         0      0             0      0     0     0       0       
+tsmc065_rvt_stdcells/BUFX2BA10TR/layout                         1        0       8        20     0      0         58     0             0      0     0     0       0       
+---------------------------------------------------------------------------------------------------------------------------------------
+
+                       Individual Cell Statistics - Advanced Objects
+--------------------------------------------------------------------------------------------------------------------------------------------
+Library/Cell/View               PRBdy    OtherBdy   AreaBlkg   LayerBlkg  AreaHalo   Row   Marker   Stitch   CustVia   StdVia    CdsGenVia
+--------------------------------------------------------------------------------------------------------------------------------------------
+tsmc065_rvt_stdcells/ILXCBYD0JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8WwsSkggI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ILXCjYa0JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FhcHDyuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/DFFRPQNX0P5MA10TR/layout                   0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI22X0P7MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND3X0P5MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8ensToMl3RjVyFbC/layout                   0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M5_M4/layout            0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AO21X0P5MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/XOR2X0P7MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/EDFFQX3MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NOR2X0P5MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OqWCjYD0JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI32X0P5MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OAI211X0P7MA10TR/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OA211X0P7MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OqWCBcuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OAI21X1MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M2_M1/layout            0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND2X3BA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FhcHBZRm4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND2XBX0P7MA10TR/layout                   0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/INVX7P5BA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8enBTtzgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BUFX16MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8eWBU3jYYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OAI2XB1X0P5MA10TR/layout                   0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/N8bnsSkggI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ILXCncuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPA7UomJTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8rziU3jaYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ALansvHm4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OAI21X2MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPA7U3jaIhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAiU9MrYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AND2X0P5MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/XNOR3X0P5MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OR2X1MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M4_M3/layout            0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8enBU3jaYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ORWwBU3jYYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8eniZt1gI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND4XXXBX0P5MA10TR/layout                 0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8enBTt2Skke71qQ/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8eniUo0JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/N8bWsKHm4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/N8bnsSkvgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+hfaroo9_digital/toplevel_498/layout                             0        0          0          0          0          0     0        0        0         1071013   0        
+tsmc065_rvt_stdcells/ILXCcTuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/INVX1BA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8enBU3jYYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND2X1MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FhcHnZuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAiUoGJTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI22X1MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BUFX3BA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI211X0P7MA10TR/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/DPjnsSkggI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NOR2X2MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND2XBX1MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BtwCDcuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8eniKt2Skke71qQ/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/Mpe7iU3jYYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ThvYdUo0JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND3XXBX0P7MA10TR/layout                  0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/N8bn4Uo0JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI221X0P5MA10TR/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M3_M2/layout            0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FqetOUo17I9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BUFZX1MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8eWBUo0JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/MXT2X0P5MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BtwCBvHm4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8enBTt2SAke71qQ/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ORenBKtzgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/XLExiU10JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND3X1AA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8ensToMl3jjVyFbC/layout                   0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BtwCcTuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OA22X1MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OReniU3jYYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FILL1A10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FRICGX11BA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NOR3X1AA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ALansyHm4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OAI2XB1X1MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BtwYsSkvgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8enBUo0JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/INVX0P5MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8eniU3jaYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPA7U3jYIhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/X8bnsKHm4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NOR3X0P7MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BtwCjYD0JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/XLExiU3jaYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OA22X0P5MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ORenBU3jYYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/N8bnsKum4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND4BX2MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/INVX2BA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND2X0P5BA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND3X2AA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/INVX1P7BA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OAI211X1MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AND4X0P5MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAiU3jaIhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BUFHX0P7MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPA7UtM7N9jVyFbC/layout                   0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OA21X0P7MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FILLCAP8A10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAiU10JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AND2X6MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M3_M2/layout            0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/LATQX1MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAiU9M4YhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND4X0P5MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND2XBX2MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AO1B2X2MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AND2X2MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NOR2BX1MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NOR2XBX3MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8ensToM4YhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/XNOR2X2MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/DLY2X0P5MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8enBKtzgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BtwCncuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/EvwBt0t2Skke71qQ/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BUFHX1P7MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AND2X1MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/DFFQX2MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/DrwUsSkggI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BUFX6BA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/Oq9CjY00JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BtwrsKHm4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OqlCjY00JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI21X1MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8eWiU3jYYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/N8bWsSkgJI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8eniU3jYYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AO22X0P7MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAiU9Ml3RjVyFbC/layout                   0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/INVX3BA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAnUomJTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OAI222X2MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI21BX0P5MA10TR/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BtwCDTuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BUFX9MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND2X0P5AA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BUFX5BA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M4_M3/layout            0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/N8bnsTt1gI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FILL128A10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/N8bWsSkvJI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OR2X0P7MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BUFX1MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ORenBTtzgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OR3X0P5MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND2X1AA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ILXCBi9m4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8Ww4U3jYYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAiU3jYIhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/LATQX0P5MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OAI22X1MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ORenBUo0JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ILXCjYaGJTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OAI21X0P5MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ALansZHm4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OAI21BX0P5MA10TR/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BtwrsKo0JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FILLTIE2A10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AO21BX0P5MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M2_M1/layout            0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BtwC6cuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FILL16A10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAiUomJTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FILL64A10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/XOR2X1MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NOR2XBX2MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BUFHX1MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M2_M1/layout            0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NOR2XBX0P5MA10TR/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M4_M3/layout            0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAnU3jaIhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AND2X4MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ALansKHm4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPA7UtM7Nnl33XOwfU/layout                 0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AvaYsKHm4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/MpGnsSkggI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND2X1BA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/N8bnsTt2Skke71qQ/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND2X0P7BA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/XOR2X0P5MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ILXCnTuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ORWwsSkvgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/XLExnU3jYYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ILXCBYDGJTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND3X3AA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND3X6AA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/INVX4BA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAiUZGJTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI2XB1X0P5MA10TR/layout                   0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/X8bnsSkggI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/XOR3X0P5MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OReniZtzgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/MXIT2X0P5MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ALansSkggI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M3_M2/layout            0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/EvwBtU3jYYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAiU1GJTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FhcH7fo2Eh/layout                          0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BUFX2MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPA7UtM7Nnlb3XOwfU/layout                 0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AO22X1MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ILXCjYRGJTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ILXCjY00JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8WnsSkggI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/N8bnsTt2SAke71qQ/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/X8bnsSkvgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/XLExiU3jYYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FILL32A10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/TIELOX1MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BtwCnTuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAnUo0JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/DrwUsZHm4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI211X3MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BtwC7cuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AND3X1P4MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/X8bWsSkggI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NOR2XBX1MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAnU3jYYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ILXC8Y0GJTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8enBUoj8YhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/LRGUsSkggI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ALaGsSkggI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND2X2MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI31X0P7MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/LRGct0t2Skke71qQ/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/N8bWsSkvgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FILL2A10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND2X0P7AA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND3X1P4MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ADDHX1MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/XNOR2X3MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/DrwxgMgMl3jjVyFbC/layout                   0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ORenBU10JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/INVX5BA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OAI21X0P7MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/N8bWsKum4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ALaGsSkvgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FqetOUoz7I9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/INVX1MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AO22X0P5MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8rziU10JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ILXCicuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI2XB1X0P7MA10TR/layout                   0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NOR3X1MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OAI222X1MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/N8bnsTtFgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OqWCjY00JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BUFX3MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI2XB1X1MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OA21X0P5MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND3X0P5AA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NOR2X1AA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8eniZt2Skke71qQ/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/EDFFQNX0P5MA10TR/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AND3X2MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND2X2AA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI211X0P5MA10TR/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/INVX0P6MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8enBKt1gI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAnUoj8YhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/DrwxgMt2Skke71qQ/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M2_M1/layout            0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/N8bn4U10JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI32X1MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAiU9Ml3jjVyFbC/layout                   0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OA211X0P5MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OqWC7cuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ILXC7TuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BtwCicuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AND3X0P5MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FhcHBfo2Eh/layout                          0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/XNOR2X1MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8eniZtzgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAnU1mJTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M3_M2/layout            0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI21X0P5MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OAI211X0P5MA10TR/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NOR2X2AA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/N8bnsZum4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAnUtG5W2qSd6rxs/layout                  0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAnU3jYIhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8eWiUo0JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAnUZmJTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ORWnsSkggI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/LRGUsKHm4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAiUo0JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BUFZX11MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FhcHMfkqJTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/INVX2MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAnUamJTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI222X0P5MA10TR/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ORWnsKHm4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FhcHMfkzRI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OAI22X0P7MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI21BX1MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND4XXXBX1MA10TR/layout                   0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BUFX4MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI222X3MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPA7TtFgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8WnsSkvgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8enBKt2Skke71qQ/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/MpGnsKHm4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AO21X0P7MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NOR2X0P7MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FILLCAP16A10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND4XXXBX0P7MA10TR/layout                 0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/XLExiUZ0JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OR2X0P5MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OAI222X0P5MA10TR/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ALaWsZHm4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAiU3jayhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FRICGX13BA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ALaWsKkOgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M2_M1/layout            0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BUFX6MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/INVX13BA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/XLExiUo0JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/LATNQNX0P5MA10TR/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI211X1MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ORenBKt2SAke71qQ/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/DFFRPQX0P5MA10TR/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPA7Tt2Skke71qQ/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BtwYsKHm4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAiU3jYyhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/XNOR2X0P5MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ILXCBcuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8eniKtzgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND3XXBX0P5MA10TR/layout                  0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI222X1MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/N8bnsTtzgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND2X4BA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND2XBX0P5MA10TR/layout                   0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ADDFX1MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/N8bnsZHm4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ILXCiTuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OReniZt2Skke71qQ/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI21X1P4MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND3X0P7AA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8WwsSkvgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/INVX3MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ORensToMl3jjVyFbC/layout                   0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPA7U3jYYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OAI22X0P5MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/XNOR2X0P7MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OReniZtFgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND4BX0P5MA10TR/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/N8bnsKHm4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ORensToM4YhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ORenBKt2Skke71qQ/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ORWwsSkggI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BtwYsKkvgI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OR4X0P5MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ThvHvUo0JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OReniU3jaYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M5_M4/layout            0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ORenBTt2Skke71qQ/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND4X0P7AA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NOR3X0P7AA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BtwCBcuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/MXT2X1MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8WnsKHm4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND4X0P5AA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND3X1MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NOR2XBX0P7MA10TR/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ILXCBTuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OReniUo0JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND2X2BA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AO1B2X0P7MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/INVX1P7MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI31X1MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/INVX0P8BA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8eWBU3jaYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BtwCiTuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI21X0P7MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/EvwBtUZ0JTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BUFX0P7MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI31X0P5MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M3_M2/layout            0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FhcHifo2Eh/layout                          0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AvaBsKHm4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OR2X4MA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI221X1MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAnUtG5W2SSd6rxs/layout                  0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/TIEHIX1MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ORWwBU3jaYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/A8enBKt2SAke71qQ/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NOR3X0P5AA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FhcHyXqFJTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FhcHBvuzlDe/layout                         0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OReniKt2Skke71qQ/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAiU6GJTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND3BX0P5MA10TR/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NOR2X1MA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NAND4X1AA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAiU1mJTnad/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/DFFQX0P5MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NOR2X6AA10TR/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ORenBU3jaYhGZRp/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI22X0P5MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/FILL4A10TR/layout                          0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/ALaWsSkggI9iAX/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NOR2BX2MA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OAI21BX1MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/NRPAnTt2Skke71qQ/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/EDFFQX0P5MA10TR/layout                     0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AND4X0P7MA10TR/layout                      0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/OAI221X0P5MA10TR/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/AOI21BX0P7MA10TR/layout                    0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/INVX0P6BA10TR/layout                       0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/N8bnsvum4WvV/layout                        0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M6_M5/layout            0        0          0          0          0          0     0        0        0         0         0        
+tsmcN65/M4_M3/layout            0        0          0          0          0          0     0        0        0         0         0        
+tsmc065_rvt_stdcells/BUFX2BA10TR/layout                         0        0          0          0          0          0     0        0        0         0         0        
+---------------------------------------------------------------------------------------------------------------------------------------
+
+                       Statistics of Layers 
+---------------------------------------------------------------------------------------------------------------------------------------
+Cadence         Cadence         Stream  Stream   
+Layer           Purpose         Layer   Datatype  Polygon  Rect     Path     Text     TextDisplay   Line Dot Arc Donut Ellipse Pathseg
+---------------------------------------------------------------------------------------------------------------------------------------
+M2              drawing         32      0         0        147222   618910   88557    0             0    0   0   0     0      0      
+VIA5            drawing         55      0         0        1        0        0        0             0    0   0   0     0      0      
+NW              drawing         3       0         7        197      0        4488     0             0    0   0   0     0      0      
+VIA4            drawing         54      0         0        9        0        0        0             0    0   0   0     0      0      
+PP              drawing         25      0         8        197      0        0        0             0    0   0   0     0      0      
+M5              pin             135     0         0        0        0        24       0             0    0   0   0     0      0      
+M3              pin             133     0         0        0        0        19       0             0    0   0   0     0      0      
+NP              drawing         26      0         8        197      0        0        0             0    0   0   0     0      0      
+M5              drawing         35      0         0        514      24391    449      0             0    0   0   0     0      0      
+M3              drawing         33      0         0        30220    399681   22804    0             0    0   0   0     0      0      
+M1              drawing         31      0         965      1053     17453    4805     0             0    0   0   0     0      0      
+M4              drawing         34      0         0        8166     113877   2232     0             0    0   0   0     0      0      
+CO              drawing         30      0         0        4812     0        0        0             0    0   0   0     0      0      
+M1              pin             131     0         0        0        0        1120     0             0    0   0   0     0      0      
+PO              drawing         17      0         864      0        0        4488     0             0    0   0   0     0      0      
+VIA1            drawing         51      0         0        8        0        0        0             0    0   0   0     0      0      
+IP              drawing         63      63        0        0        0        4488     0             0    0   0   0     0      0      
+OD              drawing         6       0         243      290      0        0        0             0    0   0   0     0      0      
+VIA3            drawing         53      0         0        11       0        0        0             0    0   0   0     0      0      
+M6              drawing         36      0         0        1        1463     16       0             0    0   0   0     0      0      
+VIA2            drawing         52      0         0        12       0        0        0             0    0   0   0     0      0      
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Summary of Objects Translated:
+	Scalar Instances:		193490
+	Array Instances:		0
+	Polygons:			2095
+	Paths:				1175775
+	Rectangles:			192910
+	Lines:				0
+	Arcs:				0
+	Donuts:				0
+	Dots:				0
+	Ellipses:			0
+	Boundaries:			0
+	Area Blockages:			0
+	Layer Blockages:		0
+	Area Halos:			0
+	Markers:			0
+	Rows:				0
+	Stitches:			0
+	Standard Vias:			1071013
+	Custom Vias:			0
+	CdsGen Vias:			0
+	Pathsegs:			0
+	Text:				133490
+	TextDisplay:		0
+	Cells:				426
+Design Libraries: 
+
+DEFINE hfaroo9_digital	/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/hfaroo9_digital
+DEFINE tsmc065_rvt_stdcells	/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/stdcellLibs/tsmc065_rvt_stdcells
+DEFINE tsmcN65	/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65

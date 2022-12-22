@@ -1,0 +1,16 @@
+*drcRulesFile: /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/Calibre/drc/calibre.drc_noDensity_noFullChip
+*drcRunDir: /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/DRC
+*drcLayoutPaths: toplevel_498.calibre.db
+*drcLayoutPrimary: toplevel_498
+*drcLayoutLibrary: hfaroo9_digital
+*drcLayoutView: layout
+*drcLayoutGetFromViewer: 1
+*drcResultsFile: toplevel_498.drc.results
+*drcSummaryFile: toplevel_498.drc.summary
+*drcDFMDefaultsResultsFile: toplevel_498.dfmDefaults.db
+*cmnSlaveHosts: {use {}} {hostName {}} {cpuCount {}} {a32a64 {}} {rsh {}} {maxMem {}} {workingDir {}} {layerDir {}} {mgcLibPath {}} {launchName {}}
+*cmnLSFSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*cmnGridSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*cmnFDILayoutLibrary: hfaroo9_digital
+*cmnFDILayoutView: layout
+*cmnFDIDEFLayoutPath: toplevel_498.def

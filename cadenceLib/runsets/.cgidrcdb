@@ -1,0 +1,28 @@
+*drcRulesFile: /data/shared/hanumolu/Project/Design_IC6/t65hswline19/Calibre/drc/calibre.drc_wDensity_wFullChip
+*drcRulesFileLastLoad: 1496812851
+*drcRunDir: /scratch/mbb7/DRC
+*drcLayoutPaths: rcfll_fracntco_0_chiptop.calibre.db
+*drcLayoutPrimary: rcfll_fracntco_0_chiptop
+*drcLayoutLibrary: mbb7_rxia4_li204_top_2021
+*drcLayoutView: layout
+*drcLayoutGetFromViewer: 1
+*drcResultsFile: rcfll_fracntco_0_chiptop.drc.results
+*drcCellName: 0
+*drcDRCMaxResultsAll: 1
+*drcSummaryFile: rcfll_fracntco_0_chiptop.drc.summary
+*drcIncrDRCRunHyper: 1
+*drcIncrDRCRunMT: 1
+*drcIncrDRCSlaveHosts: {use {}} {hostName {}} {cpuCount {}} {a32a64 {}} {rsh {}} {maxMem {}} {workingDir {}} {layerDir {}} {mgcLibPath {}} {launchName {}}
+*drcIncrDRCLSFSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*drcIncrDRCGridSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*cmnWarnLayoutOverwrite: 0
+*cmnPromptSaveRunset: 0
+*cmnResolution: 5
+*cmnRunMT: 1
+*cmnRunHyper: 1
+*cmnSlaveHosts: {use {}} {hostName {}} {cpuCount {}} {a32a64 {}} {rsh {}} {maxMem {}} {workingDir {}} {layerDir {}} {mgcLibPath {}} {launchName {}}
+*cmnLSFSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*cmnGridSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*cmnFDILayoutLibrary: mbb7_rxia4_li204_top_2021
+*cmnFDILayoutView: layout
+*cmnFDIDEFLayoutPath: rcfll_fracntco_0_chiptop.def

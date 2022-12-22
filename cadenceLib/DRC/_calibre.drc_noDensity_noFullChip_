@@ -1,0 +1,27 @@
+//
+//  Rule file generated on Thu Dec 22 13:19:49 CST 2022
+//     by Calibre Interactive - DRC (v2020.3_24.16)
+//
+//      *** PLEASE DO NOT MODIFY THIS FILE ***
+//
+//
+
+LAYOUT PATH  "toplevel_498.calibre.db"
+LAYOUT PRIMARY "toplevel_498"
+LAYOUT SYSTEM GDSII
+
+DRC RESULTS DATABASE "toplevel_498.drc.results" ASCII 
+DRC MAXIMUM RESULTS 1000
+DRC MAXIMUM VERTEX 4096
+
+DRC CELL NAME YES CELL SPACE XFORM
+DRC SUMMARY REPORT "toplevel_498.drc.summary" REPLACE HIER
+
+VIRTUAL CONNECT COLON NO
+VIRTUAL CONNECT REPORT NO
+
+DRC ICSTATION YES
+
+
+INCLUDE "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/Calibre/drc/calibre.drc_noDensity_noFullChip"
+

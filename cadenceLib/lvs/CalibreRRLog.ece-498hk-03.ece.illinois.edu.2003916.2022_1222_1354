@@ -1,0 +1,9 @@
+MTFLEX(0) <T 0 C 0 P 0 R 0> : CALIBRE PROCESS: HOSTNAME: ece-498hk-03.ece.illinois.edu 2003916 MASTER
+MTFLEX(0) <T 0 C 0 P 0 R 0> : startup_threads() : system_query thread created
+MTFLEX(0) <T 0 C 0 P 0 R 0> : system_query() : START interval = 15 (monitor_print_interval = 0 proc_stat_interval = 15)
+MTFLEX(0) <T 0 C 0 P 0 R 0> : startup_threads() : dca_monitor thread created
+MTFLEX(0) <T 0 C 0 P 0 R 0> : dca_monitor() : START interval = 120
+MTFLEX(0) <T 25 C 0 P 0 R 0> : MT/MTflex Infrastructure LVHEAP = 0/0
+MTFLEX(0) <T 25 C 0 P 0 R 0> : shutdown_threads() : START
+MTFLEX(0) <T 25 C 0 P 0 R 0> : shutdown_launch_threads() : START
+MTFLEX(0) <T 25 C 0 P 0 R 0> : shutdown_launch_threads() : FINISH

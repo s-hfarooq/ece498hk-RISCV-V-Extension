@@ -1,0 +1,54 @@
+# Automagically generated file: Please do not edit!
+lvs_LvsOutFile RUNDIR /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/lvs
+lvs_LvsfVersion 4
+lvs_LvsInputSummary {0 0 0}
+lvs_LvsComparisonSummary {3 1 0 0}
+lvs_SourceCase YES
+lvs_LayoutCase YES
+lvs_PowerName VDD
+lvs_PowerName VDD!
+lvs_PowerName vdd
+lvs_PowerName yl_vdd_rc
+lvs_PowerName yl_vdd_dig
+lvs_PowerName yl_vdd_rcdrv_1p8
+lvs_PowerName yl_vdd_vco_dac_1p2
+lvs_PowerName yl_vdd_odrv
+lvs_PowerName yl_vdd_vco
+lvs_PowerName yl_vdd_fdiv_dtc_1p2
+lvs_PowerName yl_vdd_pll_vcobuff
+lvs_PowerName yl_vdd_pll_vco
+lvs_PowerName yl_vdd_pll_tdc
+lvs_PowerName yl_vdd_odrv_pll
+lvs_PowerName rx_vdd_1p8
+lvs_PowerName rx_vdd_rc
+lvs_PowerName rx_vdd_amp
+lvs_PowerName rx_vdd_buff_1p8
+lvs_PowerName rx_vdd_dsm
+lvs_PowerName rx_vdd_odrv
+lvs_PowerName rx_vdd_ldovco
+lvs_PowerName rx_vdd_dig
+lvs_PowerName VDDCE
+lvs_PowerName VDDPE
+lvs_GroundName VSS
+lvs_GroundName VSS!
+lvs_GroundName vss
+lvs_GroundName yl_vss_rc
+lvs_GroundName yl_vss_dig
+lvs_GroundName yl_vss_vco_dac
+lvs_GroundName yl_vss_odrv
+lvs_GroundName yl_vss_vco
+lvs_GroundName yl_vss_fdiv_dtc
+lvs_GroundName yl_vss_pll_tdc
+lvs_GroundName yl_vss_pll_vco
+lvs_GroundName yl_vss_odrv_pll
+lvs_GroundName rx_vss_dig
+lvs_GroundName rx_vss_vco
+lvs_GroundName rx_vss_odrv
+lvs_GroundName rx_vss_dsm
+lvs_GroundName rx_vss_buff
+lvs_GroundName rx_vss_rc
+lvs_GroundName VSSE
+lvs_LvsOutFile LVS_REPORT toplevel_498.lvs.report
+lvs_LvsOutFile SOURCE_NETLIST /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/lvs/out.toplevel_498.src.net
+lvs_LvsOutFile RULES_FILE /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/lvs/_calibre.lvs_
+lvs_LvsRunTimes 1671740693 1671740715

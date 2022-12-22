@@ -1,0 +1,45 @@
+*drcRulesFile: /ece498hk/libs/TSMC65GP_RFMIM__1P0V_2P5V__1p9m_6X1Z1U_ALRDL/Calibre20150407/drc/ANTENNA_MIM_DRC/CN65S_9M_6X1Z1U.MIM_ANT.20a
+*drcRulesFileLastLoad: 1496812851
+*drcRunDir: /ece498hk/group/workarea/ece498hksrv-05/cadence/DRC
+*drcLayoutPaths: final_chiptop.calibre.db
+*drcLayoutPrimary: final_chiptop
+*drcLayoutLibrary: final_gds_498
+*drcLayoutView: layout
+*drcLayoutGetFromViewer: 1
+*drcResultsFile: final_chiptop.drc.results
+*drcCellName: 0
+*drcDRCMaxResultsAll: 1
+*drcSummaryFile: final_chiptop.drc.summary
+*drcIncrDRCRunHyper: 1
+*drcIncrDRCRunMT: 1
+*drcIncrDRCSlaveHosts: {use {}} {hostName {}} {cpuCount {}} {a32a64 {}} {rsh {}} {maxMem {}} {workingDir {}} {layerDir {}} {mgcLibPath {}} {launchName {}}
+*drcIncrDRCLSFSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*drcIncrDRCGridSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*drcDFMDefaultsResultsFile: final_chiptop.dfmDefaults.db
+*lvsRulesFile: /ece498hk/libs/TSMC65GP_RFMIM__1P0V_2P5V__1p9m_6X1Z1U_ALRDL/Calibre/lvs/calibre.lvs
+*lvsRunDir: /ece498hk/group/workarea/ece498hksrv-05/cadence/lvs
+*lvsLayoutPaths: icache_tag_store.calibre.db
+*lvsLayoutPrimary: icache_tag_store
+*lvsLayoutLibrary: rama_chiptop5
+*lvsLayoutView: layout
+*lvsLayoutGetFromViewer: 1
+*lvsSourcePath: icache_tag_store.src.net
+*lvsSourcePrimary: icache_tag_store
+*lvsSourceLibrary: rama_chiptop5
+*lvsSourceView: schematic
+*lvsSourceGetFromViewer: 1
+*lvsSpiceFile: icache_tag_store.sp
+*lvsERCDatabase: icache_tag_store.erc.results
+*lvsERCSummaryFile: icache_tag_store.erc.summary
+*lvsReportFile: icache_tag_store.lvs.report
+*cmnWarnLayoutOverwrite: 0
+*cmnPromptSaveRunset: 0
+*cmnResolution: 5
+*cmnRunMT: 1
+*cmnRunHyper: 1
+*cmnSlaveHosts: {use {}} {hostName {}} {cpuCount {}} {a32a64 {}} {rsh {}} {maxMem {}} {workingDir {}} {layerDir {}} {mgcLibPath {}} {launchName {}}
+*cmnLSFSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*cmnGridSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*cmnFDILayoutLibrary: final_gds_498
+*cmnFDILayoutView: layout
+*cmnFDIDEFLayoutPath: final_chiptop.def

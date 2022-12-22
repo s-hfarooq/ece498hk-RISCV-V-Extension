@@ -1,0 +1,26 @@
+cdlOutKeys = list(nil
+	'simStopList               '("auCdl")
+	'simViewList               '("auCdl" "schematic")
+	'globalGndSig              ""
+	'globalPowerSig            ""
+	'shrinkFACTOR              0.0
+	'checkScale                "meter"
+	'diodeCheck                "none"
+	'capacitorCheck            "none"
+	'resistorCheck             "none"
+	'resistorModel             ""
+	'shortRES                  2000.0
+	'simNetlistHier            t
+	'pinMAP                    'nil
+	'displayPININFO            t
+	'checkLDD                  'nil
+	'incFILE                   "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/Calibre/lvs/source.added"
+	'connects                  ""
+	'setEQUIV                  ""
+	'simRunDir                 "/tmp"
+	'hnlNetlistFileName        "MVT_cml_inbuf_st0_v00.src.net"
+	'simSimulator              "auCdl"
+	'simViewName               "schematic"
+	'simCellName               "MVT_cml_inbuf_st0_v00"
+	'simLibName                "MVTly_phase_interp_v00"
+)

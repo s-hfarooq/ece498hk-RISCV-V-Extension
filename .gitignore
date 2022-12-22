@@ -7,4 +7,19 @@
 *.rpt
 *.oa
 *.tmp.a
+./SynPnR/pnr/final.def
+./SynPnR/pnr/final.gds2
+./SynPnR/xcelium.d/worklib/xm.lnx86.072.pak
+./SynPnR/sdfout/toplevel_498.gate.sdf
+./SynPnR/sdfout/toplevel_498.pnr.sdf
+./cadenceLib/innovus_import/toplevel_498/schematic/sch.oa.ece-498hk-01.ece.illinois.edu.2671610.20221211140039.tmp.a
+./cadenceLib/DRC/toplevel_498.calibre.db
+./cadenceLib/toplevel_498.calibre.db
+./cadenceLib/final.gds2
+./cadenceLib/lvs/toplevel_498.calibre.db
+./cadenceLib/lvs/svdb/toplevel_498.xdb/hdb2.dat
+cadenceLib/DRC/toplevel_498.calibre.db
+cadenceLib/lvs/svdb/toplevel_498.xdb/hdb2.dat
+cadenceLib/toplevel_498.calibre.db
+cadenceLib/lvs/toplevel_498.calibre.db
 

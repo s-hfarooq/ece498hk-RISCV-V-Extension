@@ -1,5 +1,5 @@
 library "hfaroo9_digital" 	 #<destination library>
-strmFile "/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/SynPnR/pnr/final.gds2" 	 #<input stream file>
+strmFile "/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/final.gds2" 	 #<input stream file>
 runDir "." 	 #<run directory>
 logFile "./strmin_hfaroo9.log" 	 #<output log file name>
 topCell "toplevel_498" 	 #<toplevel cell to translate>

@@ -7,13 +7,13 @@
 ;                                       the gds will be imported
 ; 'refLibOrder			-	Names of the reference libraries in 
 ;                                       order of preference
-;
+; /ece498hk/libs/TSMC65GP_RFMIM__1P0V_2P5V__1p9m_6X1Z1U_ALRDL/tsmcN65/tsmcN65.layermap
 ; All the above parameters are REQUIRED!
 
 importVerilogDesignKeys = list( nil
-	'gdsInFile 			"/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/SynPnR/pnr/final.gds2"
+	'gdsInFile 			"/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/final.gds2"
 	'verilogInFile			"/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/SynPnR/vlogout/toplevel_498.pnr.v"
 	'primaryCellName		"toplevel_498"
 	'designLibName			"hfaroo9_digital"
-	'refLibOrder			"tsmcN65"
+	'refLibOrder			"tsmc065_rvt_stdcells sram"
 )

@@ -41,9 +41,9 @@ saveDesign [format "%s%s" $env(TOP_LEVEL) ".init.enc"]
 
 
 # Create Floorplan
-set width 800
-set height 800
-set offset 150 
+set width 825
+set height 825
+set offset 0
 
 floorplan -s $width $height $offset $offset $offset $offset
 setObjFPlanPolygon cell $env(TOP_LEVEL) 0  0 $width $height
@@ -66,28 +66,28 @@ setObjFPlanPolygon cell $env(TOP_LEVEL) 0  0 $width $height
 
 # Output pins
 editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	4	-pin	external_qspi_ck_o
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	4.4	-pin	external_qspi_cs_o
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	5	-pin	external_qspi_cs_o
 
 # Inout pins
 editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	7	-pin	gpio_pins\[0\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	7.2	-pin	gpio_pins\[1\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	7.4	-pin	gpio_pins\[2\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	7.6	-pin	gpio_pins\[3\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	7.8	-pin	gpio_pins\[4\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	8	-pin	gpio_pins\[5\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	8.2	-pin	gpio_pins\[6\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	8.4	-pin	gpio_pins\[7\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	8.6	-pin	gpio_pins\[8\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	8.8	-pin	gpio_pins\[9\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	10	-pin	external_qspi_pins\[0\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	10.2	-pin	external_qspi_pins\[1\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	10.4	-pin	external_qspi_pins\[2\]
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	10.8	-pin	external_qspi_pins\[3\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	8	-pin	gpio_pins\[1\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	9	-pin	gpio_pins\[2\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	10	-pin	gpio_pins\[3\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	11	-pin	gpio_pins\[4\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	12	-pin	gpio_pins\[5\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	13	-pin	gpio_pins\[6\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	14	-pin	gpio_pins\[7\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	15	-pin	gpio_pins\[8\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	16	-pin	gpio_pins\[9\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	17	-pin	external_qspi_pins\[0\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	18	-pin	external_qspi_pins\[1\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	19	-pin	external_qspi_pins\[2\]
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	825	20	-pin	external_qspi_pins\[3\]
 
 # Input	pins									
 editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	1	-pin	clk
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	1.4	-pin	rst
-editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	1.8	-pin	set_programming_mode
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	2	-pin	rst
+editPin	-snap	TRACK	-side	INSIDE	-layer	3	-assign	0	3	-pin	set_programming_mode
 #-------------------------------------------------------------------------------------------------								
 
 setMultiCpuUsage -localCpu 4
@@ -136,7 +136,7 @@ addRing \
 	-width {top 0.6 bottom 0.6 left 0.6 right 0.6} \
 	-layer {top M1 bottom M1 left M2 right M2} \
 	-center 1 \
-	-nets {vss vdd clk rst set_programming_mode external_qspi_ck_o external_qspi_cs_o external_qspi_pins\[\0] external_qspi_pins\[\1] external_qspi_pins\[\2] external_qspi_pins\[\3] gpio_pins\[\0] gpio_pins\[\1] gpio_pins\[\2] gpio_pins\[\3] gpio_pins\[\4] gpio_pins\[\5] gpio_pins\[\6] gpio_pins\[\7] gpio_pins\[\8] gpio_pins\[\9]}
+	-nets {vss vdd}
 
 # Add pwr/gnd stripe
 #setAddStripeMode -break_at {block_ring} ;# Specifies the break point of stripes.

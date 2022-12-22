@@ -1,7 +1,7 @@
 #######################################################
 #                                                     
 #  Innovus Command Logging File                     
-#  Created on Tue Dec 20 02:10:31 2022                
+#  Created on Wed Dec 21 23:22:26 2022                
 #                                                     
 #######################################################
 
@@ -36,27 +36,27 @@ set init_assign_buffer 0
 set init_mmmc_file timingSetup.viewDefinition
 init_design
 saveDesign toplevel_498.init.enc
-floorPlan -s 800 800 150 150 150 150
-setObjFPlanPolygon cell toplevel_498 0 0 800 800
+floorPlan -s 825 825 0 0 0 0
+setObjFPlanPolygon cell toplevel_498 0 0 825 825
 editPin -snap TRACK -side INSIDE -layer 3 -assign 825 4 -pin external_qspi_ck_o
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 4.4 -pin external_qspi_cs_o
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 5 -pin external_qspi_cs_o
 editPin -snap TRACK -side INSIDE -layer 3 -assign 825 7 -pin {gpio_pins[0]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 7.2 -pin {gpio_pins[1]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 7.4 -pin {gpio_pins[2]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 7.6 -pin {gpio_pins[3]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 7.8 -pin {gpio_pins[4]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 8 -pin {gpio_pins[5]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 8.2 -pin {gpio_pins[6]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 8.4 -pin {gpio_pins[7]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 8.6 -pin {gpio_pins[8]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 8.8 -pin {gpio_pins[9]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 10 -pin {external_qspi_pins[0]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 10.2 -pin {external_qspi_pins[1]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 10.4 -pin {external_qspi_pins[2]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 10.8 -pin {external_qspi_pins[3]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 8 -pin {gpio_pins[1]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 9 -pin {gpio_pins[2]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 10 -pin {gpio_pins[3]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 11 -pin {gpio_pins[4]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 12 -pin {gpio_pins[5]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 13 -pin {gpio_pins[6]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 14 -pin {gpio_pins[7]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 15 -pin {gpio_pins[8]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 16 -pin {gpio_pins[9]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 17 -pin {external_qspi_pins[0]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 18 -pin {external_qspi_pins[1]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 19 -pin {external_qspi_pins[2]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 825 20 -pin {external_qspi_pins[3]}
 editPin -snap TRACK -side INSIDE -layer 3 -assign 0 1 -pin clk
-editPin -snap TRACK -side INSIDE -layer 3 -assign 0 1.4 -pin rst
-editPin -snap TRACK -side INSIDE -layer 3 -assign 0 1.8 -pin set_programming_mode
+editPin -snap TRACK -side INSIDE -layer 3 -assign 0 2 -pin rst
+editPin -snap TRACK -side INSIDE -layer 3 -assign 0 3 -pin set_programming_mode
 setMultiCpuUsage -localCpu 4
 timeDesign -preplace
 setPlaceMode -congEffort high
@@ -77,7 +77,7 @@ setNanoRouteMode -routeTopRoutingLayer 6
 setDesignMode -topRoutingLayer M6
 setViaGenMode -invoke_verifyGeometry true -create_double_row_cut_via 1 -add_pin_to_pin_via true -respect_signal_routes 1
 setAddRingOption -avoid_short 1
-addRing -spacing {top 0.2 bottom 0.2 left 0.2 right 0.2} -width {top 0.6 bottom 0.6 left 0.6 right 0.6} -layer {top M1 bottom M1 left M2 right M2} -center 1 -nets {vss vdd clk rst set_programming_mode external_qspi_ck_o external_qspi_cs_o external_qspi_pins\[\0] external_qspi_pins\[\1] external_qspi_pins\[\2] external_qspi_pins\[\3] gpio_pins\[\0] gpio_pins\[\1] gpio_pins\[\2] gpio_pins\[\3] gpio_pins\[\4] gpio_pins\[\5] gpio_pins\[\6] gpio_pins\[\7] gpio_pins\[\8] gpio_pins\[\9]}
+addRing -spacing {top 0.2 bottom 0.2 left 0.2 right 0.2} -width {top 0.6 bottom 0.6 left 0.6 right 0.6} -layer {top M1 bottom M1 left M2 right M2} -center 1 -nets {vss vdd}
 addStripe -block_ring_top_layer_limit M5 -max_same_layer_jog_length 0.56 -padcore_ring_bottom_layer_limit M1 -number_of_sets 6 -padcore_ring_top_layer_limit M4 -spacing 1.84 -merge_stripes_value 0.28 -layer M5 -block_ring_bottom_layer_limit M1 -width 1 -nets { vss vdd }
 sroute
 addEndCap -prefix PwrCap -preCap FILLCAP16A10TR -postCap FILLCAP16A10TR -flipY
@@ -301,12 +301,12 @@ defOut -routing -floorplan final.def
 streamOut final.gds2 -mapFile tsmc065.map -libName DesignLib -merge /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/gds2/tsmc65_rvt_sc_adv10.gds2 -stripes 1 -mode ALL
 saveNetlist .././vlogout/toplevel_498.pnr.v -flat -includePhysicalCell {FILLCAP16A10TR FILLCAP8A10TR} -excludeLeafCell -excludeCellInst {FILL128A10TR FILLTIE128A10TR FILL64A10TR FILLTIE64A10TR FILL32A10TR FILLTIE32A10TR FILL16A10TR FILLTIE16A10TR FILL8A10TR FILLTIE8A10TR FILL4A10TR FILLTIE4A10TR FILL2A10TR FILLTIE2A10TR FILL1A10TR}
 write_sdf -view slowView -min_period_edges posedge $env(SDF_OUT_DIR)/$env(TOP_LEVEL).pnr.sdf
-saveDrc /tmp/innovus_temp_1302007_ece-498hk-03.ece.illinois.edu_hfaroo9_dC6Tzh/vergQTmpPrmIJ3/qthread_src.drc
+saveDrc /tmp/innovus_temp_1806657_ece-498hk-03.ece.illinois.edu_hfaroo9_5aol1e/vergQTmpdzr3Q0/qthread_src.drc
 clearDrc
-saveDrc /tmp/innovus_temp_1302007_ece-498hk-03.ece.illinois.edu_hfaroo9_dC6Tzh/vergQTmpPrmIJ3/qthread_2.drc
-saveDrc /tmp/innovus_temp_1302007_ece-498hk-03.ece.illinois.edu_hfaroo9_dC6Tzh/vergQTmpPrmIJ3/qthread_3.drc
-saveDrc /tmp/innovus_temp_1302007_ece-498hk-03.ece.illinois.edu_hfaroo9_dC6Tzh/vergQTmpPrmIJ3/qthread_1.drc
-saveDrc /tmp/innovus_temp_1302007_ece-498hk-03.ece.illinois.edu_hfaroo9_dC6Tzh/vergQTmpPrmIJ3/qthread_0.drc
+saveDrc /tmp/innovus_temp_1806657_ece-498hk-03.ece.illinois.edu_hfaroo9_5aol1e/vergQTmpdzr3Q0/qthread_2.drc
+saveDrc /tmp/innovus_temp_1806657_ece-498hk-03.ece.illinois.edu_hfaroo9_5aol1e/vergQTmpdzr3Q0/qthread_1.drc
+saveDrc /tmp/innovus_temp_1806657_ece-498hk-03.ece.illinois.edu_hfaroo9_5aol1e/vergQTmpdzr3Q0/qthread_3.drc
+saveDrc /tmp/innovus_temp_1806657_ece-498hk-03.ece.illinois.edu_hfaroo9_5aol1e/vergQTmpdzr3Q0/qthread_0.drc
 verifyConnectivity -type all -noAntenna
 saveDesign toplevel_498.finished.enc
 win

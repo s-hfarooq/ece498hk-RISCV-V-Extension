@@ -1,0 +1,43 @@
+*pexRulesFile: /data/shared/hanumolu/Project/Design_IC6/t65hswline19/Calibre/rcx/calibre.rcx
+*pexRunDir: /scratch/mbb7/PEX
+*pexLayoutPaths: fracntco_3_pll.calibre.db
+*pexLayoutPrimary: fracntco_3_pll
+*pexLayoutLibrary: mbb7_li204_fracntco_silver_2021
+*pexLayoutView: layout
+*pexLayoutGetFromViewer: 1
+*pexSourcePath: fracntco_3_pll.src.net
+*pexSourcePrimary: fracntco_3_pll
+*pexSourceLibrary: mbb7_li204_fracntco_silver_2021
+*pexSourceView: schematic
+*pexSourceGetFromViewer: 1
+*pexPexNetlistType: C
+*pexResistanceParametersValue: {metal10 TC1 0.00389 TC2 -1.5e-07} {metal9 TC1 0.003412 TC2 3.689e-06} {metal8 TC1 0.003625 TC2 -1.393e-06} {metal7 TC1 0.002709 TC2 -3.483e-07} {metal6 TC1 0.002709 TC2 -3.483e-07} {metal5 TC1 0.002709 TC2 -3.483e-07} {metal4 TC1 0.002709 TC2 -3.483e-07} {metal3 TC1 0.002709 TC2 -3.483e-07} {metal2 TC1 0.002709 TC2 -3.483e-07} {metal1 TC1 0.00265 TC2 -2.641e-07} {poly TC1 0.00243 TC2 -6.1e-06} {tndiff TC1 0.0026 TC2 -5.52e-07} {tpdiff TC1 0.0025 TC2 1.84e-06} {metal9 metal10 TC1 0.00337 TC2 -7.91e-08} {metal8 metal9 TC1 0.001479 TC2 8.867e-07} {metal7 metal8 TC1 0.002477 TC2 1.03e-06} {metal6 metal7 TC1 0.0007815 TC2 -2.574e-06} {metal5 metal6 TC1 0.0007815 TC2 -2.574e-06} {metal4 metal5 TC1 0.0007815 TC2 -2.574e-06} {metal3 metal4 TC1 0.0007815 TC2 -2.574e-06} {metal2 metal3 TC1 0.0007815 TC2 -2.574e-06} {metal1 metal2 TC1 0.0007815 TC2 -2.574e-06} {poly metal1 TC1 0.00111 TC2 4.23e-07} {tndiff metal1 TC1 0.0009486 TC2 -4.466e-06} {tpdiff metal1 TC1 0.001841 TC2 6.695e-06}
+*pexIncludeCmdsType: SVRF
+*pexSVRFCmds: {LVS FILTER C(CP) open } {LVS Preserve Floating Top Nets YES} {LVS SPICE ALLOW FLOATING PINS YES} {PEX EXTRACT FLOATING NETS ALL} {LVS COMPARE CASE NAMES} {LAYOUT CASE YES} {SOURCE CASE YES} {} {} {}
+*pexPowerNames: vdd_vcobuff vdd_vco vdd_dig vdd_tdc
+*pexGroundNames: vss_vco vss_dig vss_tdc
+*pexReportFile: fracntco_3_pll.lvs.report
+*pexPexNetlistFile: fracntco_3_pll.pex.netlist
+*pexPexNetlistFormat: CALIBREVIEW
+*pexPexReportFile: fracntco_3_pll.pex.report
+*pexPexTICERThreshold: 1000000000
+*pexPexReduceMinCapCombine: 1
+*pexPexReduceMinResCombine: 10
+*pexReportOptions: S
+*pexRecognizeGates: NONE
+*pexShowPEXSteps: 1
+*cmnWarnLayoutOverwrite: 0
+*cmnWarnSourceOverwrite: 0
+*cmnShowOptions: 1
+*cmnVConnectReport: 1
+*cmnVConnectNamesState: ALL
+*cmnVConnectNames: vss vdd
+*cmnUseCBforRVE: 0
+*cmnRunHier: 2
+*cmnRunMT: 1
+*cmnSlaveHosts: {use {}} {hostName {}} {cpuCount {}} {a32a64 {}} {rsh {}} {maxMem {}} {workingDir {}} {layerDir {}} {mgcLibPath {}} {launchName {}}
+*cmnLSFSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*cmnGridSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*cmnFDILayoutLibrary: mbb7_li204_fracntco_silver_2021
+*cmnFDILayoutView: layout
+*cmnFDIDEFLayoutPath: fracntco_3_pll.def

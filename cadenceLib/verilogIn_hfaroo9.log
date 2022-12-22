@@ -1,0 +1,399 @@
+@(#)$CDS: ihdl version ICADVM20.1-64b 08/17/2021 18:50 (cpgsrv07) $  Thu Dec 22 13:09:08 2022
+
+INFO (VERILOGIN-589): Using xmvlog binary for compilation.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module BUFHX1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell BUFHX1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module DLY2X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell DLY2X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module FRICGX11BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell FRICGX11BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module BUFX16MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell BUFX16MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module FRICGX13BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell FRICGX13BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module BUFX5BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell BUFX5BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module BUFX1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell BUFX1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module INVX1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell INVX1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module INVX0P6BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell INVX0P6BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module BUFX2BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell BUFX2BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module INVX2MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell INVX2MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module BUFX3MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell BUFX3MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module BUFHX1P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell BUFHX1P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module INVX3MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell INVX3MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module TIELOX1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell TIELOX1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module TIEHIX1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell TIEHIX1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module INVX0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell INVX0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module BUFX2MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell BUFX2MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module INVX2BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell INVX2BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module INVX1BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell INVX1BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module DFFQX0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell DFFQX0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module EDFFQX0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell EDFFQX0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module INVX0P6MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell INVX0P6MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module INVX0P8BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell INVX0P8BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NOR3X1AA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NOR3X1AA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI22X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI22X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND2X0P5AA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND2X0P5AA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND2X1BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND2X1BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NOR2X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NOR2X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND4X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND4X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OAI22X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OAI22X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI221X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI221X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OAI211X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OAI211X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AO21X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AO21X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NOR3X0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NOR3X0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AND4X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AND4X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NOR2XBX2MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NOR2XBX2MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NOR2X2AA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NOR2X2AA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI21BX0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI21BX0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND2XBX0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND2XBX0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI211X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI211X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NOR3X0P5AA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NOR3X0P5AA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OA22X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OA22X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND3BX0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND3BX0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module INVX3BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell INVX3BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module INVX4BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell INVX4BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module DFFRPQNX0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell DFFRPQNX0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module DFFRPQX0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell DFFRPQX0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NOR2X0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NOR2X0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OAI21X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OAI21X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OAI21X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OAI21X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI21X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI21X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI31X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI31X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI32X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI32X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NOR2XBX1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NOR2XBX1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module INVX1P7BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell INVX1P7BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AND2X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AND2X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NOR2X1AA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NOR2X1AA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI211X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI211X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND2X2BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND2X2BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OR2X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OR2X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND3X1AA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND3X1AA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NOR2XBX0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NOR2XBX0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND3X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND3X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OAI222X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OAI222X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AO22X0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AO22X0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AO22X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AO22X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI22X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI22X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NOR2XBX0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NOR2XBX0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NOR2X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NOR2X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OAI21BX0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OAI21BX0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI2XB1X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI2XB1X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AO22X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AO22X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module XNOR2X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell XNOR2X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module LATQX0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell LATQX0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI222X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI222X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OAI2XB1X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OAI2XB1X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NOR2X6AA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NOR2X6AA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OR3X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OR3X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module BUFZX1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell BUFZX1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module BUFZX11MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell BUFZX11MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AO21BX0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AO21BX0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI211X0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI211X0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND4XXXBX0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND4XXXBX0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND4X0P5AA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND4X0P5AA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NOR2X2MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NOR2X2MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AND2X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AND2X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND4X1AA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND4X1AA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OR2X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OR2X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NOR3X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NOR3X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OA211X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OA211X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI32X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI32X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI21X0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI21X0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI21BX0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI21BX0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND2XBX1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND2XBX1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OA21X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OA21X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module BUFHX0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell BUFHX0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module BUFX0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell BUFX0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI21X1P4MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI21X1P4MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND2X2MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND2X2MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module BUFX3BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell BUFX3BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module BUFX9MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell BUFX9MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module INVX13BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell INVX13BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module INVX5BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell INVX5BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module BUFX6BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell BUFX6BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module INVX7P5BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell INVX7P5BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module BUFX6MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell BUFX6MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module BUFX4MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell BUFX4MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module MXT2X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell MXT2X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module EDFFQNX0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell EDFFQNX0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OAI221X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OAI221X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AND2X2MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AND2X2MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OAI21X0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OAI21X0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module ADDHX1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell ADDHX1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module ADDFX1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell ADDFX1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module XOR3X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell XOR3X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module XOR2X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell XOR2X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module MXT2X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell MXT2X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AND3X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AND3X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module MXIT2X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell MXIT2X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI221X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI221X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module DFFQX2MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell DFFQX2MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module EDFFQX3MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell EDFFQX3MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI211X3MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI211X3MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module XOR2X0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell XOR2X0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI22X0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI22X0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AO1B2X0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AO1B2X0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND2X1AA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND2X1AA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module XNOR2X0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell XNOR2X0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module XNOR2X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell XNOR2X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND2X0P7BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND2X0P7BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OR2X0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OR2X0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI21X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI21X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AO21X0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AO21X0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND3X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND3X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND2X0P5BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND2X0P5BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND2X0P7AA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND2X0P7AA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND3X0P5AA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND3X0P5AA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AND2X4MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AND2X4MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND3X3AA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND3X3AA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AND3X2MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AND3X2MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND3X2AA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND3X2AA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND3X6AA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND3X6AA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND2X2AA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND2X2AA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND3XXBX0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND3XXBX0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OAI211X0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OAI211X0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI222X3MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI222X3MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AO1B2X2MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AO1B2X2MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OA21X0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OA21X0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND3XXBX0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND3XXBX0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI222X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI222X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OAI222X2MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OAI222X2MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND2XBX0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND2XBX0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module XOR2X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell XOR2X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NOR3X0P7AA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NOR3X0P7AA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI2XB1X0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI2XB1X0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OAI21BX1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OAI21BX1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI2XB1X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI2XB1X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND4BX2MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND4BX2MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND2XBX2MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND2XBX2MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND2X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND2X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module INVX1P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell INVX1P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OAI211X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OAI211X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NOR2BX1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NOR2BX1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND4BX0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND4BX0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module XNOR2X3MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell XNOR2X3MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND2X3BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND2X3BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND3X0P7AA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND3X0P7AA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND2X4BA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND2X4BA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OAI21X2MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OAI21X2MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OAI22X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OAI22X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NOR2BX2MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NOR2BX2MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OA211X0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OA211X0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module XNOR2X2MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell XNOR2X2MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OAI222X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OAI222X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI21BX1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI21BX1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OR2X4MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OR2X4MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AND3X1P4MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AND3X1P4MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI31X0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI31X0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OR4X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OR4X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND4XXXBX0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND4XXXBX0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module XNOR3X0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell XNOR3X0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NOR2XBX3MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NOR2XBX3MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OAI22X0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OAI22X0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module LATQX1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell LATQX1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module LATNQNX0P5MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell LATNQNX0P5MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND4X0P7AA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND4X0P7AA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OAI2XB1X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OAI2XB1X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AOI31X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AOI31X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AND4X0P7MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AND4X0P7MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND3X1P4MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND3X1P4MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module NAND4XXXBX1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell NAND4XXXBX1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module OA22X1MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell OA22X1MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module AND2X6MA10TR. Therefore using library
+tsmc065_rvt_stdcells, cell AND2X6MA10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module FILLCAP16A10TR. Therefore using library
+tsmc065_rvt_stdcells, cell FILLCAP16A10TR, and view symbol as the symbol.
+INFO (VERILOGIN-126): Unable to find the Verilog definition for module FILLCAP8A10TR. Therefore using library
+tsmc065_rvt_stdcells, cell FILLCAP8A10TR, and view symbol as the symbol.
+INFO (VERILOGIN-357): Checked in symbol toplevel_498.
+INFO (VERILOGIN-392): Checked-in netlist toplevel_498.
+INFO (VERILOGIN-345): Checked in functional view toplevel_498. User specification
+INFO (VERILOGIN-206): End of Logfile.

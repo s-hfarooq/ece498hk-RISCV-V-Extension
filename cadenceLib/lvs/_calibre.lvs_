@@ -1,0 +1,114 @@
+#!tvf
+tvf::VERBATIM {
+//
+//  Rule file generated on Thu Dec 22 14:24:25 CST 2022
+//     by Calibre Interactive - LVS (v2020.3_24.16)
+//
+//      *** PLEASE DO NOT MODIFY THIS FILE ***
+//
+//
+
+LAYOUT PATH  "toplevel_498.calibre.db"
+LAYOUT PRIMARY "toplevel_498"
+LAYOUT SYSTEM GDSII
+
+SOURCE PATH "/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/lvs/out.toplevel_498.src.net"
+SOURCE PRIMARY "toplevel_498"
+SOURCE SYSTEM SPICE
+
+MASK SVDB DIRECTORY "svdb" QUERY SI
+
+LVS REPORT "toplevel_498.lvs.report"
+
+LVS REPORT OPTION S
+LVS FILTER UNUSED OPTION ZB ZC ZD RB RD RF SOURCE
+LVS FILTER UNUSED OPTION ZB ZC ZD RB RD RF LAYOUT
+LVS REPORT MAXIMUM 1000
+LVS POWER NAME
+	"VDD"
+	"VDD!"
+	"vdd"
+	"yl_vdd_rc"
+	"yl_vdd_dig"
+	"yl_vdd_rcdrv_1p8"
+	"yl_vdd_vco_dac_1p2"
+	"yl_vdd_odrv"
+	"yl_vdd_vco"
+	"yl_vdd_fdiv_dtc_1p2"
+	"yl_vdd_pll_vcobuff"
+	"yl_vdd_pll_vco"
+	"yl_vdd_pll_tdc"
+	"yl_vdd_odrv_pll"
+	"rx_vdd_1p8"
+	"rx_vdd_rc"
+	"rx_vdd_amp"
+	"rx_vdd_buff_1p8"
+	"rx_vdd_dsm"
+	"rx_vdd_odrv"
+	"rx_vdd_ldovco"
+	"rx_vdd_dig"
+	"VDDCE"
+	"VDDPE"
+
+LVS GROUND NAME
+	"VSS"
+	"VSS!"
+	"vss"
+	"yl_vss_rc"
+	"yl_vss_dig"
+	"yl_vss_vco_dac"
+	"yl_vss_odrv"
+	"yl_vss_vco"
+	"yl_vss_fdiv_dtc"
+	"yl_vss_pll_tdc"
+	"yl_vss_pll_vco"
+	"yl_vss_odrv_pll"
+	"rx_vss_dig"
+	"rx_vss_vco"
+	"rx_vss_odrv"
+	"rx_vss_dsm"
+	"rx_vss_buff"
+	"rx_vss_rc"
+	"VSSE"
+
+
+LVS RECOGNIZE GATES ALL
+
+
+LVS ABORT ON SOFTCHK NO
+LVS ABORT ON SUPPLY ERROR NO
+LVS IGNORE PORTS NO
+LVS SHOW SEED PROMOTIONS NO
+LVS SHOW SEED PROMOTIONS MAXIMUM 50
+
+LVS ISOLATE SHORTS YES CELL PRIMARY && NAME "?"
+
+
+VIRTUAL CONNECT COLON NO
+VIRTUAL CONNECT REPORT YES
+VIRTUAL CONNECT REPORT MAXIMUM ALL
+VIRTUAL CONNECT NAME ?
+
+LVS EXECUTE ERC YES
+ERC RESULTS DATABASE "toplevel_498.erc.results"
+ERC SUMMARY REPORT "toplevel_498.erc.summary" REPLACE HIER
+ERC CELL NAME YES CELL SPACE XFORM
+ERC MAXIMUM RESULTS 1000
+ERC MAXIMUM VERTEX 4096
+
+DRC ICSTATION YES
+
+}
+
+source "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/Calibre/lvs/calibre.lvs"
+
+
+tvf::VERBATIM {
+LVS FILTER C(CP) open 
+LVS Preserve Floating Top Nets YES
+LVS SPICE ALLOW FLOATING PINS YES
+PEX EXTRACT FLOATING NETS ALL
+LAYOUT CASE YES
+SOURCE CASE YES
+}
+

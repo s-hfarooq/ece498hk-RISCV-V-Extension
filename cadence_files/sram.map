@@ -1,0 +1,33 @@
+-- Device Mapping file generated from SpiceIn GUI
+devSelect := diode ndio
+	propMatch := subtype NDIO
+	propMap := 3.2e-7 l 3.2e-7 w
+
+devSelect := nfet nch_hvt
+	propMatch := subtype NCH_HVT
+	propMap := W w L l M m M fingers M fingers
+
+devSelect := pfet pch
+	propMatch := subtype PCH
+	propMap := W w L l M m M fingers M fingers
+
+devSelect := pfet pch_hvt
+	propMatch := subtype PCH_HVT
+	propMap := W w L l M m M fingers M fingers
+
+devSelect := nfet nch
+	propMatch := subtype NCH
+	propMap := W w L l M m M fingers M fingers
+
+devSelect := nfet nch_lvt
+	propMatch := subtype NCHPD_SR
+	propMap := W w L l M m M fingers M fingers
+
+devSelect := pfet pch_lvt
+	propMatch := subtype PCHPU_SR
+	propMap := W w L l M m M fingers M fingers
+
+devSelect := nfet nch_nax
+	propMatch := subtype NCHPG_SR
+	propMap := W w L l M m M fingers M fingers
+

@@ -1,4 +1,27 @@
 -- Verilog In Form
 dest_sch_lib := hfaroo9_digital
-ref_lib_list := basic, tsmcN65
+ref_lib_list := basic, tsmc065_rvt_stdcells, sram
 log_file_name := ./verilogIn_hfaroo9.log
+work_area := /tmp 
+structural_views := 6
+functional_view_name := functional
+netlist_view_name := netlist
+schematic_view_name := schematic
+symbol_view_name := symbol
+import_if_exists := 1
+import_cells := 1
+import_lib_cells := 1
+power_net := VDD! 
+ground_net := VSS!
+cont_assign_symbol := basic patch symbol
+netexpr_power_prop_name := power 
+netexpr_ground_prop_name := ground 
+
+-- Schematic Generation options
+sheet_symbol := none
+label_height := 1
+line_line_spacing := 0.2
+line_component_spacing := 0.2
+density_level := 0
+pin_placement := left_and_right_sides
+cds_thru_symbol := basic cds_thru symbol

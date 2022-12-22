@@ -1,0 +1,367 @@
+
+
+==================================================================================
+=== CALIBRE::ERC-H SUMMARY REPORT
+===
+Execution Date/Time:          Thu Dec 22 14:24:26 2022
+Calibre Version:              v2020.3_24.16    Mon Aug 3 18:42:13 PDT 2020
+Rule File Pathname:           /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/lvs/_calibre.lvs_
+Rule File Title:              
+Layout System:                GDSII
+Layout Path(s):               toplevel_498.calibre.db
+Layout Primary Cell:          toplevel_498
+Current Directory:            /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/lvs
+User Name:                    hfaroo9
+Maximum Results/ERC Check:    1000
+Maximum ERC Result Vertices:  4096
+ERC Results Database:         toplevel_498.erc.results (ASCII)
+Layout Depth:                 ALL
+Text Depth:                   PRIMARY
+Summary Report File:          toplevel_498.erc.summary (REPLACE)
+Geometry Flagging:            ACUTE = NO  SKEW = YES  ANGLED = NO  OFFGRID = YES
+                              NONSIMPLE POLYGON = NO  NONSIMPLE PATH = NO
+Excluded Cells:              
+CheckText Mapping:            COMMENT TEXT + RULE FILE INFORMATION
+Layers:                       MEMORY-BASED
+Keep Empty Checks:            YES
+----------------------------------------------------------------------------------
+--- RUNTIME WARNINGS
+---
+Layer 6 contains unmapped objects and is the source layer of LAYER MAP == 6 DATATYPE == 1.
+Layer 6 contains unmapped objects and is the source layer of LAYER MAP == 6 DATATYPE == 3.
+Layer 17 contains unmapped objects and is the source layer of LAYER MAP == 17 DATATYPE == 1.
+Layer 17 contains unmapped objects and is the source layer of LAYER MAP == 17 DATATYPE == 51.
+Layer 31 contains unmapped objects and is the source layer of LAYER MAP == 31 DATATYPE == 1.
+Layer 32 contains unmapped objects and is the source layer of LAYER MAP == 32 DATATYPE == 1.
+Layer 33 contains unmapped objects and is the source layer of LAYER MAP == 33 DATATYPE == 1.
+Layer 34 contains unmapped objects and is the source layer of LAYER MAP == 34 DATATYPE == 1.
+Layer 35 contains unmapped objects and is the source layer of LAYER MAP == 35 DATATYPE == 1.
+Layer 36 contains unmapped objects and is the source layer of LAYER MAP == 36 DATATYPE == 1.
+Layer 36 contains unmapped objects and is the source layer of LAYER MAP == 36 DATATYPE == 21.
+There is no data for layout net name AHVDD.
+There is no data for layout net name AHVDDB.
+There is no data for layout net name AHVDDG.
+There is no data for layout net name AHVDDR.
+There is no data for layout net name AHVDDWELL.
+There is no data for layout net name AVDD.
+There is no data for layout net name AVDDB.
+There is no data for layout net name AVDDBG.
+There is no data for layout net name AVDDG.
+There is no data for layout net name AVDDR.
+There is no data for layout net name AVDWELL.
+There is no data for layout net name DHVDD.
+There is no data for layout net name DVDD.
+There is no data for layout net name HVDDWELL.
+There is no data for layout net name TACVDD.
+There is no data for layout net name TAVD33.
+There is no data for layout net name TAVD33PST.
+There is no data for layout net name TAVDD.
+There is no data for layout net name TAVDDPST.
+There is no data for layout net name VD33.
+There is no data for layout net name VDD5V.
+There is no data for layout net name VDDG.
+There is no data for layout net name VDDM.
+There is no data for layout net name VDDPST.
+There is no data for layout net name VDDSA.
+There is no data for layout net name VDWELL.
+There is no data for layout net name AGND.
+There is no data for layout net name AHVSS.
+There is no data for layout net name AHVSSB.
+There is no data for layout net name AHVSSG.
+There is no data for layout net name AHVSSR.
+There is no data for layout net name AHVSSUB.
+There is no data for layout net name AVSS.
+There is no data for layout net name AVSSB.
+There is no data for layout net name AVSSBG.
+There is no data for layout net name AVSSG.
+There is no data for layout net name AVSSR.
+There is no data for layout net name AVSSUB.
+There is no data for layout net name DHVSS.
+There is no data for layout net name DVSS.
+There is no data for layout net name GND.
+There is no data for layout net name HVSSUB.
+There is no data for layout net name TAVSS.
+There is no data for layout net name TAVSSPST.
+There is no data for layout net name VS33.
+There is no data for layout net name VSSG.
+There is no data for layout net name VSSM.
+There is no data for layout net name VSSPST.
+There is no data for layout net name VSSUB.
+There is no data for layout net name AHVDD.
+There is no data for layout net name AHVDDB.
+There is no data for layout net name AHVDDG.
+There is no data for layout net name AHVDDR.
+There is no data for layout net name AHVDDWELL.
+There is no data for layout net name AVDD.
+There is no data for layout net name AVDDB.
+There is no data for layout net name AVDDBG.
+There is no data for layout net name AVDDG.
+There is no data for layout net name AVDDR.
+There is no data for layout net name AVDWELL.
+There is no data for layout net name DHVDD.
+There is no data for layout net name DVDD.
+There is no data for layout net name HVDDWELL.
+There is no data for layout net name TACVDD.
+There is no data for layout net name TAVD33.
+There is no data for layout net name TAVD33PST.
+There is no data for layout net name TAVDD.
+There is no data for layout net name TAVDDPST.
+There is no data for layout net name VD33.
+There is no data for layout net name VDD5V.
+There is no data for layout net name VDDG.
+There is no data for layout net name VDDM.
+There is no data for layout net name VDDPST.
+There is no data for layout net name VDDSA.
+There is no data for layout net name VDWELL.
+There is no data for layout net name AGND.
+There is no data for layout net name AHVSS.
+There is no data for layout net name AHVSSB.
+There is no data for layout net name AHVSSG.
+There is no data for layout net name AHVSSR.
+There is no data for layout net name AHVSSUB.
+There is no data for layout net name AVSS.
+There is no data for layout net name AVSSB.
+There is no data for layout net name AVSSBG.
+There is no data for layout net name AVSSG.
+There is no data for layout net name AVSSR.
+There is no data for layout net name AVSSUB.
+There is no data for layout net name DHVSS.
+There is no data for layout net name DVSS.
+There is no data for layout net name GND.
+There is no data for layout net name HVSSUB.
+There is no data for layout net name TAVSS.
+There is no data for layout net name TAVSSPST.
+There is no data for layout net name VS33.
+There is no data for layout net name VSSG.
+There is no data for layout net name VSSM.
+There is no data for layout net name VSSPST.
+There is no data for layout net name VSSUB.
+There is no data for layout net name AGND.
+There is no data for layout net name AHVSS.
+There is no data for layout net name AHVSSB.
+There is no data for layout net name AHVSSG.
+There is no data for layout net name AHVSSR.
+There is no data for layout net name AHVSSUB.
+There is no data for layout net name AVSS.
+There is no data for layout net name AVSSB.
+There is no data for layout net name AVSSBG.
+There is no data for layout net name AVSSG.
+There is no data for layout net name AVSSR.
+There is no data for layout net name AVSSUB.
+There is no data for layout net name DHVSS.
+There is no data for layout net name DVSS.
+There is no data for layout net name GND.
+There is no data for layout net name HVSSUB.
+There is no data for layout net name TAVSS.
+There is no data for layout net name TAVSSPST.
+There is no data for layout net name VS33.
+There is no data for layout net name VSSG.
+There is no data for layout net name VSSM.
+There is no data for layout net name VSSPST.
+There is no data for layout net name VSSUB.
+There is no data for layout net name AHVDD.
+There is no data for layout net name AHVDDB.
+There is no data for layout net name AHVDDG.
+There is no data for layout net name AHVDDR.
+There is no data for layout net name AHVDDWELL.
+There is no data for layout net name AVDD.
+There is no data for layout net name AVDDB.
+There is no data for layout net name AVDDBG.
+There is no data for layout net name AVDDG.
+There is no data for layout net name AVDDR.
+There is no data for layout net name AVDWELL.
+There is no data for layout net name DHVDD.
+There is no data for layout net name DVDD.
+There is no data for layout net name HVDDWELL.
+There is no data for layout net name TACVDD.
+There is no data for layout net name TAVD33.
+There is no data for layout net name TAVD33PST.
+There is no data for layout net name TAVDD.
+There is no data for layout net name TAVDDPST.
+There is no data for layout net name VD33.
+There is no data for layout net name VDD5V.
+There is no data for layout net name VDDG.
+There is no data for layout net name VDDM.
+There is no data for layout net name VDDPST.
+There is no data for layout net name VDDSA.
+There is no data for layout net name VDWELL.
+----------------------------------------------------------------------------------
+--- ORIGINAL LAYER STATISTICS
+---
+LAYER RH ............ TOTAL Original Geometry Count = 0       (0)
+LAYER POI ........... TOTAL Original Geometry Count = 864     (811518)
+LAYER RPO ........... TOTAL Original Geometry Count = 0       (0)
+LAYER RPDMY1 ........ TOTAL Original Geometry Count = 0       (0)
+LAYER RPDMYi ........ TOTAL Original Geometry Count = 0       (0)
+LAYER DOD ........... TOTAL Original Geometry Count = 0       (0)
+LAYER ODI ........... TOTAL Original Geometry Count = 533     (469398)
+LAYER SRM ........... TOTAL Original Geometry Count = 0       (0)
+LAYER RODMY ......... TOTAL Original Geometry Count = 0       (0)
+LAYER MOMDMY21 ...... TOTAL Original Geometry Count = 0       (0)
+LAYER CO ............ TOTAL Original Geometry Count = 4812    (3492714)
+LAYER DPO ........... TOTAL Original Geometry Count = 0       (0)
+LAYER MOMDMY0 ....... TOTAL Original Geometry Count = 0       (0)
+LAYER RFDMY ......... TOTAL Original Geometry Count = 0       (0)
+LAYER DRAIN ......... TOTAL Original Geometry Count = 0       (0)
+LAYER NWDMY1 ........ TOTAL Original Geometry Count = 0       (0)
+LAYER NWDMYi ........ TOTAL Original Geometry Count = 0       (0)
+LAYER NW ............ TOTAL Original Geometry Count = 204     (193286)
+LAYER NP ............ TOTAL Original Geometry Count = 205     (204822)
+LAYER OD25 .......... TOTAL Original Geometry Count = 0       (0)
+LAYER OD33 .......... TOTAL Original Geometry Count = 0       (0)
+LAYER OD18 .......... TOTAL Original Geometry Count = 0       (0)
+LAYER NT_Ni ......... TOTAL Original Geometry Count = 0       (0)
+LAYER DNW ........... TOTAL Original Geometry Count = 0       (0)
+LAYER VTL_N ......... TOTAL Original Geometry Count = 0       (0)
+LAYER VTH_N ......... TOTAL Original Geometry Count = 0       (0)
+LAYER DCO ........... TOTAL Original Geometry Count = 0       (0)
+LAYER OD1T .......... TOTAL Original Geometry Count = 0       (0)
+LAYER VTUL_N ........ TOTAL Original Geometry Count = 0       (0)
+LAYER UHVT_N ........ TOTAL Original Geometry Count = 0       (0)
+LAYER ILVT .......... TOTAL Original Geometry Count = 0       (0)
+LAYER MAC ........... TOTAL Original Geometry Count = 0       (0)
+LAYER ESD3 .......... TOTAL Original Geometry Count = 0       (0)
+LAYER PSUB2 ......... TOTAL Original Geometry Count = 0       (0)
+LAYER RFDMY6T ....... TOTAL Original Geometry Count = 0       (0)
+LAYER RFDMY5T ....... TOTAL Original Geometry Count = 0       (0)
+LAYER CAP1TDMY ...... TOTAL Original Geometry Count = 0       (0)
+LAYER p3 ............ TOTAL Original Geometry Count = 0       (0)
+LAYER SRAMTIMER ..... TOTAL Original Geometry Count = 0       (0)
+LAYER SRM14 ......... TOTAL Original Geometry Count = 0       (0)
+LAYER SRM12 ......... TOTAL Original Geometry Count = 0       (0)
+LAYER SRM13 ......... TOTAL Original Geometry Count = 0       (0)
+LAYER SRM17 ......... TOTAL Original Geometry Count = 0       (0)
+LAYER SRM16 ......... TOTAL Original Geometry Count = 0       (0)
+LAYER SRM10 ......... TOTAL Original Geometry Count = 0       (0)
+LAYER SRM11 ......... TOTAL Original Geometry Count = 0       (0)
+LAYER SRAMPSGT ...... TOTAL Original Geometry Count = 0       (0)
+LAYER HVD_N ......... TOTAL Original Geometry Count = 0       (0)
+LAYER HVD_NW ........ TOTAL Original Geometry Count = 0       (0)
+LAYER OD25_18 ....... TOTAL Original Geometry Count = 0       (0)
+LAYER OD25_33 ....... TOTAL Original Geometry Count = 0       (0)
+LAYER PP ............ TOTAL Original Geometry Count = 205     (204822)
+LAYER VTL_P ......... TOTAL Original Geometry Count = 0       (0)
+LAYER VTH_P ......... TOTAL Original Geometry Count = 0       (0)
+LAYER VTUL_P ........ TOTAL Original Geometry Count = 0       (0)
+LAYER UHVT_P ........ TOTAL Original Geometry Count = 0       (0)
+LAYER HVD_P ......... TOTAL Original Geometry Count = 0       (0)
+LAYER DIODMY ........ TOTAL Original Geometry Count = 0       (0)
+LAYER HIADMY ........ TOTAL Original Geometry Count = 0       (0)
+LAYER BJTDMY ........ TOTAL Original Geometry Count = 0       (0)
+LAYER BJTDMY1 ....... TOTAL Original Geometry Count = 0       (0)
+LAYER crown ......... TOTAL Original Geometry Count = 0       (0)
+LAYER blc ........... TOTAL Original Geometry Count = 0       (0)
+LAYER VAR ........... TOTAL Original Geometry Count = 0       (0)
+LAYER M1 ............ TOTAL Original Geometry Count = 449133  (1739285)
+LAYER DUM1 .......... TOTAL Original Geometry Count = 0       (0)
+LAYER RMDMY1 ........ TOTAL Original Geometry Count = 0       (0)
+LAYER DUM2 .......... TOTAL Original Geometry Count = 0       (0)
+LAYER M2 ............ TOTAL Original Geometry Count = 1203358 (1657526)
+LAYER IND_SYM ....... TOTAL Original Geometry Count = 0       (0)
+LAYER IND_STD ....... TOTAL Original Geometry Count = 0       (0)
+LAYER IND_CT ........ TOTAL Original Geometry Count = 0       (0)
+LAYER IND_STD_MUA ... TOTAL Original Geometry Count = 0       (0)
+LAYER IND_SYM_MUA ... TOTAL Original Geometry Count = 0       (0)
+LAYER IND_CT_MUA .... TOTAL Original Geometry Count = 0       (0)
+LAYER RMDMY2 ........ TOTAL Original Geometry Count = 0       (0)
+LAYER DUM3 .......... TOTAL Original Geometry Count = 0       (0)
+LAYER M3 ............ TOTAL Original Geometry Count = 439940  (996746)
+LAYER RMDMY3 ........ TOTAL Original Geometry Count = 0       (0)
+LAYER DUM4 .......... TOTAL Original Geometry Count = 0       (0)
+LAYER M4 ............ TOTAL Original Geometry Count = 124518  (299477)
+LAYER RMDMY4 ........ TOTAL Original Geometry Count = 0       (0)
+LAYER DUM5 .......... TOTAL Original Geometry Count = 0       (0)
+LAYER M5 ............ TOTAL Original Geometry Count = 24905   (66506)
+LAYER RMDMY5 ........ TOTAL Original Geometry Count = 0       (0)
+LAYER DUM6 .......... TOTAL Original Geometry Count = 0       (0)
+LAYER M6 ............ TOTAL Original Geometry Count = 1464    (3632)
+LAYER RMDMY6 ........ TOTAL Original Geometry Count = 0       (0)
+LAYER DUM7 .......... TOTAL Original Geometry Count = 0       (0)
+LAYER M7 ............ TOTAL Original Geometry Count = 0       (0)
+LAYER RMDMY7 ........ TOTAL Original Geometry Count = 0       (0)
+LAYER DUM8 .......... TOTAL Original Geometry Count = 0       (0)
+LAYER M8 ............ TOTAL Original Geometry Count = 0       (0)
+LAYER RMDMY8 ........ TOTAL Original Geometry Count = 0       (0)
+LAYER DUM9 .......... TOTAL Original Geometry Count = 0       (0)
+LAYER M9 ............ TOTAL Original Geometry Count = 0       (0)
+LAYER RMDMY9 ........ TOTAL Original Geometry Count = 0       (0)
+LAYER DAP ........... TOTAL Original Geometry Count = 0       (0)
+LAYER AP ............ TOTAL Original Geometry Count = 0       (0)
+LAYER RMDMYAP ....... TOTAL Original Geometry Count = 0       (0)
+LAYER SBDDMY ........ TOTAL Original Geometry Count = 0       (0)
+LAYER IND_RAD ....... TOTAL Original Geometry Count = 0       (0)
+LAYER IND_MP ........ TOTAL Original Geometry Count = 0       (0)
+LAYER IND_D4 ........ TOTAL Original Geometry Count = 0       (0)
+LAYER IND_NR ........ TOTAL Original Geometry Count = 0       (0)
+LAYER cbm ........... TOTAL Original Geometry Count = 0       (0)
+LAYER ctm ........... TOTAL Original Geometry Count = 0       (0)
+LAYER PROBEM1 ....... TOTAL Original Geometry Count = 0       (0)
+LAYER PROBEM2 ....... TOTAL Original Geometry Count = 0       (0)
+LAYER PROBEM3 ....... TOTAL Original Geometry Count = 0       (0)
+LAYER PROBEM4 ....... TOTAL Original Geometry Count = 0       (0)
+LAYER PROBEM5 ....... TOTAL Original Geometry Count = 0       (0)
+LAYER PROBEM6 ....... TOTAL Original Geometry Count = 0       (0)
+LAYER PROBEM7 ....... TOTAL Original Geometry Count = 0       (0)
+LAYER VTDN .......... TOTAL Original Geometry Count = 0       (0)
+LAYER MOMDMY23 ...... TOTAL Original Geometry Count = 0       (0)
+LAYER MOMDMY25 ...... TOTAL Original Geometry Count = 0       (0)
+LAYER MOMDMY24 ...... TOTAL Original Geometry Count = 0       (0)
+LAYER MOMDMY4 ....... TOTAL Original Geometry Count = 0       (0)
+LAYER MOMDMY5 ....... TOTAL Original Geometry Count = 0       (0)
+LAYER CBD ........... TOTAL Original Geometry Count = 0       (0)
+LAYER RV ............ TOTAL Original Geometry Count = 0       (0)
+LAYER CB ............ TOTAL Original Geometry Count = 0       (0)
+LAYER MOMDMY2 ....... TOTAL Original Geometry Count = 0       (0)
+LAYER VIA1i ......... TOTAL Original Geometry Count = 437101  (469989)
+LAYER MOMDMY7 ....... TOTAL Original Geometry Count = 0       (0)
+LAYER MOMDMY3 ....... TOTAL Original Geometry Count = 0       (0)
+LAYER TCDDMY ........ TOTAL Original Geometry Count = 0       (0)
+LAYER VIA2i ......... TOTAL Original Geometry Count = 14997   (436277)
+LAYER MOMDMY6 ....... TOTAL Original Geometry Count = 0       (0)
+LAYER VIA5i ......... TOTAL Original Geometry Count = 1       (2169)
+LAYER VIA3i ......... TOTAL Original Geometry Count = 9907    (145433)
+LAYER VIA4i ......... TOTAL Original Geometry Count = 9       (56781)
+LAYER VIA6i ......... TOTAL Original Geometry Count = 0       (0)
+LAYER MOMDMY1 ....... TOTAL Original Geometry Count = 0       (0)
+LAYER MOMDMY22 ...... TOTAL Original Geometry Count = 0       (0)
+LAYER RFPADDMY ...... TOTAL Original Geometry Count = 0       (0)
+LAYER VIA8i ......... TOTAL Original Geometry Count = 0       (0)
+LAYER CB2 ........... TOTAL Original Geometry Count = 0       (0)
+LAYER RFPADDMY1 ..... TOTAL Original Geometry Count = 0       (0)
+LAYER RFPADDMY2 ..... TOTAL Original Geometry Count = 0       (0)
+LAYER RFPADDMY3 ..... TOTAL Original Geometry Count = 0       (0)
+LAYER RFDMYUD ....... TOTAL Original Geometry Count = 0       (0)
+LAYER CTMDMYUD ...... TOTAL Original Geometry Count = 0       (0)
+LAYER VIA7i ......... TOTAL Original Geometry Count = 0       (0)
+LAYER CAP1P5 ........ TOTAL Original Geometry Count = 0       (0)
+LAYER CAP2P0 ........ TOTAL Original Geometry Count = 0       (0)
+LAYER CAP1P0 ........ TOTAL Original Geometry Count = 0       (0)
+LAYER MIM_3TDMY ..... TOTAL Original Geometry Count = 0       (0)
+LAYER IND_GDIS ...... TOTAL Original Geometry Count = 0       (0)
+LAYER IND_S ......... TOTAL Original Geometry Count = 0       (0)
+----------------------------------------------------------------------------------
+--- RULECHECK RESULTS STATISTICS
+---
+RULECHECK STD_IND_CHECK ........... NOT EXECUTED
+RULECHECK STD_IND_CHECK.1 ......... NOT EXECUTED
+RULECHECK CT_IND_CHECK ............ NOT EXECUTED
+RULECHECK CT_IND_CHECK.1 .......... NOT EXECUTED
+RULECHECK SYM_IND_CHECK ........... NOT EXECUTED
+RULECHECK SYM_IND_CHECK.1 ......... NOT EXECUTED
+RULECHECK mnpg .................... TOTAL Result Count = 0  (0)
+RULECHECK mppg .................... TOTAL Result Count = 0  (0)
+RULECHECK floating.nxwell_float ... TOTAL Result Count = 0  (0)
+RULECHECK floating.psub ........... TOTAL Result Count = 0  (0)
+RULECHECK npvss49 ................. TOTAL Result Count = 0  (0)
+RULECHECK ppvdd49 ................. TOTAL Result Count = 0  (0)
+----------------------------------------------------------------------------------
+--- ERC RULECHECK RESULTS STATISTICS (BY CELL)
+---
+----------------------------------------------------------------------------------
+--- SUMMARY
+---
+TOTAL CPU Time:                              66
+TOTAL REAL Time:                             26
+TOTAL Original Layer Geometries:             2712156 (11250381)
+TOTAL ERC RuleChecks Executed:               6
+TOTAL ERC RuleCheck Results Generated:       0 (0)
