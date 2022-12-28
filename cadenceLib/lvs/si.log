@@ -6,7 +6,7 @@ Virtuoso Framework License (111) was checked out successfully. Total checkout ti
 *WARNING* '/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/cds.lib', Line 4: Cannot find file '$CDSHOME/share/cdssetup/dfII/cds.lib'.
 *WARNING* '/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/cds.lib', Line 4: Skipping: '$CDSHOME/share/cdssetup/dfII/cds.lib'
 
-*WARNING* LIB hfaroo9_digital from File /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib Line 28 redefines
+*WARNING* LIB hfaroo9_digital from File /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib Line 34 redefines
 LIB hfaroo9_digital from the same file (defined earlier.)
 *WARNING* '/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib', Line 1: Cannot find file '$TSMC65RF/cds.lib'.
 *WARNING* '/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib', Line 1: Skipping: '$TSMC65RF/cds.lib'
@@ -14,7 +14,7 @@ LIB hfaroo9_digital from the same file (defined earlier.)
 *WARNING* '/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/cds.lib', Line 4: Cannot find file '$CDSHOME/share/cdssetup/dfII/cds.lib'.
 *WARNING* '/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/cds.lib', Line 4: Skipping: '$CDSHOME/share/cdssetup/dfII/cds.lib'
 
-*WARNING* LIB hfaroo9_digital from File /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib Line 28 redefines
+*WARNING* LIB hfaroo9_digital from File /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib Line 34 redefines
 LIB hfaroo9_digital from the same file (defined earlier.)
 
 Initializing from libInit.il for library tsmcN65...
@@ -43,5 +43,5 @@ Loading hnlInit.cxt
 Running Artist Hierarchical Netlisting ...
 
 Loading cdf.cxt 
-End netlisting Dec 22 14:13:53 2022
+End netlisting Dec 25 18:21:04 2022
 

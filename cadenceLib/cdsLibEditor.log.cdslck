@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      hfaroo9
+HostName                       ece-498hk-03.ece.illinois.edu
+ProcessIdentifier              2072984
+ProcessCreationTime_UTC        1671754792
+ProcessCreationTime_Readable   Thu Dec 22 18:19:52 2022 CST
+AppIdentifier                  /software/cadence-2021-09/ICADVM201/tools/dfII/bin/64bit/cdsLibEditor
+OSType                         lnx86
+ReasonForPlacingEditLock       log file
+FilePathUsedToEditLock         /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cdsLibEditor.log
+TimeEditLocked                 Thu Dec 22 18:19:52 2022 CST

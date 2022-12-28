@@ -1,4 +1,4 @@
-TOOL:	xmverilog	21.03-s007: Started on Dec 21, 2022 at 23:21:48 CST
+TOOL:	xmverilog	21.03-s007: Started on Dec 25, 2022 at 13:42:14 CST
 xmverilog: 21.03-s007: (c) Copyright 1995-2021 Cadence Design Systems, Inc.
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
@@ -18,4 +18,4 @@ xmverilog: 21.03-s007: (c) Copyright 1995-2021 Cadence Design Systems, Inc.
 		Timing checks:         234419    1940
 		Simulation timescale:     1ps
 	Writing initial simulation snapshot: worklib.XOR3X4MA10TR:v
-TOOL:	xmverilog	21.03-s007: Exiting on Dec 21, 2022 at 23:22:07 CST  (total: 00:00:19)
+TOOL:	xmverilog	21.03-s007: Exiting on Dec 25, 2022 at 13:42:33 CST  (total: 00:00:19)

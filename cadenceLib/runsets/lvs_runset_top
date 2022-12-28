@@ -6,10 +6,11 @@
 *lvsLayoutLibrary: hfaroo9_digital
 *lvsLayoutView: layout
 *lvsLayoutGetFromViewer: 1
-*lvsSourcePath: out.toplevel_498.src.net
+*lvsSourcePath: toplevel_498.src.net
 *lvsSourcePrimary: toplevel_498
 *lvsSourceLibrary: hfaroo9_digital
 *lvsSourceView: schematic
+*lvsSourceGetFromViewer: 1
 *lvsSpiceFile: toplevel_498.sp
 *lvsLayoutDeviceFilterOptions: ZB ZC ZD RB RD RF
 *lvsSourceDeviceFilterOptions: ZB ZC ZD RB RD RF
@@ -19,7 +20,7 @@
 *lvsERCDatabase: toplevel_498.erc.results
 *lvsERCSummaryFile: toplevel_498.erc.summary
 *lvsIncludeCmdsType: SVRF
-*lvsSVRFCmds: {LVS FILTER C(CP) open } {LVS Preserve Floating Top Nets YES} {LVS SPICE ALLOW FLOATING PINS YES} {PEX EXTRACT FLOATING NETS ALL} {LAYOUT CASE YES} {SOURCE CASE YES} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}
+*lvsSVRFCmds: {LVS FILTER C(CP) open } {LVS Preserve Floating Top Nets YES} {LVS SPICE ALLOW FLOATING PINS YES} {PEX EXTRACT FLOATING NETS ALL} {LAYOUT CASE YES} {SOURCE CASE YES} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}
 *lvsReportFile: toplevel_498.lvs.report
 *lvsMaskDBFile: rcfll_fracntco_0_chiptop_build.maskdb
 *lvsReportMaximumCount: 1000

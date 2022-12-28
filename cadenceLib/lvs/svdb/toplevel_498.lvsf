@@ -49,6 +49,6 @@ lvs_GroundName rx_vss_buff
 lvs_GroundName rx_vss_rc
 lvs_GroundName VSSE
 lvs_LvsOutFile LVS_REPORT toplevel_498.lvs.report
-lvs_LvsOutFile SOURCE_NETLIST /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/lvs/out.toplevel_498.src.net
+lvs_LvsOutFile SOURCE_NETLIST /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/lvs/toplevel_498.src.net
 lvs_LvsOutFile RULES_FILE /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/lvs/_calibre.lvs_
-lvs_LvsRunTimes 1671740693 1671740715
+lvs_LvsRunTimes 1672014094 1672014118

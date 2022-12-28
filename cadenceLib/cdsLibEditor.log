@@ -1,0 +1,17 @@
+\o Program:		@(#)$CDS: cdsLibEditor version 6.1.8 - CAT37 07/23/2021 16:51 (sjfdcl1033) $
+\o Sub version:		sub-version  s203 
+\o Arguments:		-cdslib /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib -mpssession virtuoso2059409 -mpshost ece-498hk-03.ece.illinois.edu 
+\o Working Directory:	ece-498hk-03.ece.illinois.edu:/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib
+\o 64-bit offsets
+\a nrSetWindowVisibility(cdsLibEditor "show")
+\o Qt version: 		5.9.1
+\o Warning: (cds.lib parser): Can't open include file "$TSMC65RF/cds.lib"
+\o Warning: 	Error occurs in file /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/cds.lib and line 1
+\o Warning: (cds.lib parser): Can't open include file "$CDSHOME/share/cdssetup/dfII/cds.lib"
+\o Warning: 	Error occurs in file /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/cds.lib and line 4
+\a nrSetCurrentWindow(cdsLibEditor)
+\a nrListItemAction(cdsLibEditor->mainTable 0 0)
+\o Active cell: 0 0 "cdsDefTechLib"
+\a nrResizeWindow(cdsLibEditor list(38 66 500 400))
+\a nrSetCurrentWindow(cdsLibEditor)
+\a nrResizeWindow(cdsLibEditor list(38 66 538 437))

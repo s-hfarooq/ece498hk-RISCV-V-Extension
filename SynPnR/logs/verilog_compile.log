@@ -1,4 +1,4 @@
-TOOL:	xmverilog	21.03-s007: Started on Dec 21, 2022 at 23:03:06 CST
+TOOL:	xmverilog	21.03-s007: Started on Dec 25, 2022 at 13:23:36 CST
 xmverilog: 21.03-s007: (c) Copyright 1995-2021 Cadence Design Systems, Inc.
 file: /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/SynPnR/../src/toplevel.sv
 xmvlog: *W,SPDUSD: Include directory /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/SynPnR/../src/vicuna/ibex/vendor/lowrisc_ip/ip/prim/rtl given but not used.
@@ -27,4 +27,4 @@ xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-
 		Pseudo assignments:     908     815
 		Simulation timescale:  10ps
 	Writing initial simulation snapshot: worklib.toplevel_498:sv
-TOOL:	xmverilog	21.03-s007: Exiting on Dec 21, 2022 at 23:03:07 CST  (total: 00:00:01)
+TOOL:	xmverilog	21.03-s007: Exiting on Dec 25, 2022 at 13:23:37 CST  (total: 00:00:01)

@@ -2,5 +2,5 @@
 # FILE: svdb/toplevel_498.dv
 dv_start matched                                  
 dv_cell {toplevel_498} {toplevel_498} matched
-dv_obj_count -transformed_nets {375411 375411} -transformed_inst {690235 690235} -transformed_port {21 21}
+dv_obj_count -transformed_nets {370626 370626} -transformed_inst {685518 685518} -transformed_port {21 21}
 dv_end

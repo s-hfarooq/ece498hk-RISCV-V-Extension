@@ -2,6 +2,9 @@ INCLUDE $TSMC65RF/cds.lib
 SOFTINCLUDE /software/cadence-2021-09/ICADVM201/share/cdssetup/cds.lib
 #Removed by ddDeleteObj: DEFINE test_ /home/hfaroo9/virt-test/test_
 DEFINE shared_lib /ece498hk/ece498hk_f22_t65_shared_lib
+
+DEFINE ece498hk_s22_t65_shared_lib /home/hfaroo9/498-libs/ece498hk_s22_t65_shared_lib
+
 SOFTINCLUDE /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/cds.lib
 SOFTINCLUDE $CADENCE_CURR_IUS/tools/inca/files/cds.lib
 #Removed by ddDeleteObj: DEFINE h_test /home/hfaroo9/virt-test/h_test
@@ -24,5 +27,9 @@ DEFINE innovus_import /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLi
 #Removed by ddDeleteObj: DEFINE hfaroo9_digital /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/hfaroo9_digital
 #Removed by ddDeleteObj: DEFINE hfaroo9_digital /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/hfaroo9_digital
 #Removed by ddDeleteObj: DEFINE hfaroo9_digital /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/hfaroo9_digital
+#Removed by ddDeleteObj: DEFINE hfaroo9_digital /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/hfaroo9_digital
 DEFINE hfaroo9_digital /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/hfaroo9_digital
+#Removed by ddDeleteObj: DEFINE hk_with_padding /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/hk_with_padding
+#Removed by ddDeleteObj: DEFINE final_toplevel_498 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/final_toplevel_498
 DEFINE hfaroo9_digital /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/hfaroo9_digital
+DEFINE final_498 /home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/final_498

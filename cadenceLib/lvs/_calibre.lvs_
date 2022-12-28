@@ -1,7 +1,7 @@
 #!tvf
 tvf::VERBATIM {
 //
-//  Rule file generated on Thu Dec 22 14:24:25 CST 2022
+//  Rule file generated on Sun Dec 25 18:21:05 CST 2022
 //     by Calibre Interactive - LVS (v2020.3_24.16)
 //
 //      *** PLEASE DO NOT MODIFY THIS FILE ***
@@ -12,7 +12,7 @@ LAYOUT PATH  "toplevel_498.calibre.db"
 LAYOUT PRIMARY "toplevel_498"
 LAYOUT SYSTEM GDSII
 
-SOURCE PATH "/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/lvs/out.toplevel_498.src.net"
+SOURCE PATH "/home/hfaroo9/498-pnr/ece498hk-RISCV-V-Extension/cadenceLib/lvs/toplevel_498.src.net"
 SOURCE PRIMARY "toplevel_498"
 SOURCE SYSTEM SPICE
 

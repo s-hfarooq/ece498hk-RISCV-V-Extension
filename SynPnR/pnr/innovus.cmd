@@ -1,7 +1,7 @@
 #######################################################
 #                                                     
 #  Innovus Command Logging File                     
-#  Created on Wed Dec 21 23:22:26 2022                
+#  Created on Sun Dec 25 13:42:51 2022                
 #                                                     
 #######################################################
 
@@ -36,27 +36,27 @@ set init_assign_buffer 0
 set init_mmmc_file timingSetup.viewDefinition
 init_design
 saveDesign toplevel_498.init.enc
-floorPlan -s 825 825 0 0 0 0
-setObjFPlanPolygon cell toplevel_498 0 0 825 825
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 4 -pin external_qspi_ck_o
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 5 -pin external_qspi_cs_o
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 7 -pin {gpio_pins[0]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 8 -pin {gpio_pins[1]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 9 -pin {gpio_pins[2]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 10 -pin {gpio_pins[3]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 11 -pin {gpio_pins[4]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 12 -pin {gpio_pins[5]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 13 -pin {gpio_pins[6]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 14 -pin {gpio_pins[7]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 15 -pin {gpio_pins[8]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 16 -pin {gpio_pins[9]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 17 -pin {external_qspi_pins[0]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 18 -pin {external_qspi_pins[1]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 19 -pin {external_qspi_pins[2]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 825 20 -pin {external_qspi_pins[3]}
-editPin -snap TRACK -side INSIDE -layer 3 -assign 0 1 -pin clk
-editPin -snap TRACK -side INSIDE -layer 3 -assign 0 2 -pin rst
-editPin -snap TRACK -side INSIDE -layer 3 -assign 0 3 -pin set_programming_mode
+floorPlan -s 800 800 0 0 0 0
+setObjFPlanPolygon cell toplevel_498 0 0 800 800
+editPin -snap TRACK -side INSIDE -layer 3 -assign 800 480 -pin external_qspi_ck_o
+editPin -snap TRACK -side INSIDE -layer 3 -assign 800 475 -pin external_qspi_cs_o
+editPin -snap TRACK -side INSIDE -layer 3 -assign 800 780 -pin {gpio_pins[0]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 800 775 -pin {gpio_pins[1]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 800 770 -pin {gpio_pins[2]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 800 765 -pin {gpio_pins[3]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 800 760 -pin {gpio_pins[4]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 800 755 -pin {gpio_pins[5]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 800 750 -pin {gpio_pins[6]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 800 745 -pin {gpio_pins[7]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 800 740 -pin {gpio_pins[8]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 800 735 -pin {gpio_pins[9]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 800 500 -pin {external_qspi_pins[0]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 800 495 -pin {external_qspi_pins[1]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 800 490 -pin {external_qspi_pins[2]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 800 485 -pin {external_qspi_pins[3]}
+editPin -snap TRACK -side INSIDE -layer 3 -assign 0 10 -pin clk
+editPin -snap TRACK -side INSIDE -layer 3 -assign 0 15 -pin rst
+editPin -snap TRACK -side INSIDE -layer 3 -assign 0 20 -pin set_programming_mode
 setMultiCpuUsage -localCpu 4
 timeDesign -preplace
 setPlaceMode -congEffort high
@@ -301,12 +301,47 @@ defOut -routing -floorplan final.def
 streamOut final.gds2 -mapFile tsmc065.map -libName DesignLib -merge /ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/stdcell_dig/fb_tsmc065gp_rvt_lvt/aci/sc-ad10/gds2/tsmc65_rvt_sc_adv10.gds2 -stripes 1 -mode ALL
 saveNetlist .././vlogout/toplevel_498.pnr.v -flat -includePhysicalCell {FILLCAP16A10TR FILLCAP8A10TR} -excludeLeafCell -excludeCellInst {FILL128A10TR FILLTIE128A10TR FILL64A10TR FILLTIE64A10TR FILL32A10TR FILLTIE32A10TR FILL16A10TR FILLTIE16A10TR FILL8A10TR FILLTIE8A10TR FILL4A10TR FILLTIE4A10TR FILL2A10TR FILLTIE2A10TR FILL1A10TR}
 write_sdf -view slowView -min_period_edges posedge $env(SDF_OUT_DIR)/$env(TOP_LEVEL).pnr.sdf
-saveDrc /tmp/innovus_temp_1806657_ece-498hk-03.ece.illinois.edu_hfaroo9_5aol1e/vergQTmpdzr3Q0/qthread_src.drc
+saveDrc /tmp/innovus_temp_2702082_ece-498hk-03.ece.illinois.edu_hfaroo9_FS6cg9/vergQTmpMrAFBx/qthread_src.drc
 clearDrc
-saveDrc /tmp/innovus_temp_1806657_ece-498hk-03.ece.illinois.edu_hfaroo9_5aol1e/vergQTmpdzr3Q0/qthread_2.drc
-saveDrc /tmp/innovus_temp_1806657_ece-498hk-03.ece.illinois.edu_hfaroo9_5aol1e/vergQTmpdzr3Q0/qthread_1.drc
-saveDrc /tmp/innovus_temp_1806657_ece-498hk-03.ece.illinois.edu_hfaroo9_5aol1e/vergQTmpdzr3Q0/qthread_3.drc
-saveDrc /tmp/innovus_temp_1806657_ece-498hk-03.ece.illinois.edu_hfaroo9_5aol1e/vergQTmpdzr3Q0/qthread_0.drc
+saveDrc /tmp/innovus_temp_2702082_ece-498hk-03.ece.illinois.edu_hfaroo9_FS6cg9/vergQTmpMrAFBx/qthread_1.drc
+saveDrc /tmp/innovus_temp_2702082_ece-498hk-03.ece.illinois.edu_hfaroo9_FS6cg9/vergQTmpMrAFBx/qthread_3.drc
+saveDrc /tmp/innovus_temp_2702082_ece-498hk-03.ece.illinois.edu_hfaroo9_FS6cg9/vergQTmpMrAFBx/qthread_2.drc
+saveDrc /tmp/innovus_temp_2702082_ece-498hk-03.ece.illinois.edu_hfaroo9_FS6cg9/vergQTmpMrAFBx/qthread_0.drc
 verifyConnectivity -type all -noAntenna
 saveDesign toplevel_498.finished.enc
 win
+zoomBox 258.54150 287.95900 906.52250 868.04050
+zoomBox 340.14650 364.66050 890.93100 857.73000
+zoomBox 597.39400 606.44950 841.78050 825.22750
+zoomBox 760.65750 761.58750 808.77250 804.66050
+zoomBox 766.42750 767.36650 807.32550 803.97900
+zoomBox 771.33200 772.27850 806.09550 803.39950
+zoomBox 779.04400 779.99050 804.16150 802.47600
+zoomBox 782.05600 783.00250 803.40600 802.11550
+zoomBox 779.00500 780.68750 804.12250 803.17300
+zoomBox 775.41550 777.96400 804.96550 804.41750
+zoomBox 771.19900 774.77300 805.96400 805.89500
+zoomBox 760.42000 767.88100 808.53750 810.95650
+zoomBox 752.89500 767.13400 809.50400 817.81100
+pan 3.98400 -28.88800
+pan -3.29550 -9.95000
+zoomBox 767.00750 758.60650 815.12500 801.68200
+zoomBox 772.02150 762.13600 812.92150 798.75000
+zoomBox 776.24400 764.74700 811.00900 795.86900
+zoomBox 793.49850 775.54800 802.97200 784.02900
+zoomBox 797.07700 778.04750 801.28100 781.81100
+zoomBox 797.86900 778.60150 800.90650 781.32050
+zoomBox 798.44800 779.02000 800.64250 780.98450
+zoomBox 798.67400 779.18350 800.53950 780.85350
+zoomBox 799.19850 779.52450 800.34500 780.55100
+zoomBox 799.32400 779.60600 800.29850 780.47850
+zoomBox 796.46950 777.67650 801.42150 782.10950
+zoomBox 792.02800 775.61200 803.18800 785.60250
+zoomBox 787.01100 773.28000 805.18400 789.54850
+zoomBox 759.50600 760.52400 816.19550 811.27300
+zoomBox 465.16150 624.01600 934.03950 1043.76200
+zoomBox 406.07450 596.61350 957.69550 1090.43200
+pan -278.30800 -90.62350
+zoomBox 82.30500 292.78350 731.27100 873.74650
+zoomBox -195.21700 154.40700 1047.99900 1267.35050
+pan 17.69150 -169.85700
